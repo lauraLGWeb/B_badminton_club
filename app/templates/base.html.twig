@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
         {% block stylesheets %}
         {% endblock %}
 
@@ -12,6 +13,62 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    
+    {% block header %}
+    <header>
+
+        <section class="logoAndBtnContainer">
+            <a href="{{ path('app_home') }}"><img src="{{ asset('../assets/images/logo.jpeg') }}" width="150px" alt="logo"></a>
+            <button> EN</button>
+            <button>MODE</button>
+        </section>
+
+         <section class="navBarContainer">
+            <nav>
+                <div class="dropdown">
+                        <button class="dropbtn">Le club</button>
+                        <div class="dropdown-content">
+                        <a href="{{ path('app_members') }}">Membres du CA</a>
+                        <a href="{{ path('app_coaches') }}">Nos entraineurs</a>
+                        <a href="{{ path('app_rules') }}">Reglement</a>
+                        <a href="{{ path('app_internships') }}">Stages</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Ecole du bad</button>
+                        <div class="dropdown-content">
+                        <a href="{{ path('app_home') }}">Section 1 </a>
+                        <a href="{{ path('app_home') }}">Section 2 </a>
+                        <a href="{{ path('app_home') }}">Section 3 </a>
+                        <a href="{{ path('app_home') }}">Section 4 </a>
+                        </div>
+                    </div>
+                    <a class="dropbtn" href="{{ path('app_prices') }}">Tarifs</a> 
+                    <a class="dropbtn" href="{{ path('app_actuality') }}">Actualité</a> 
+                    <a class="dropbtn" href="{{ path('app_partners') }}">Ils nous soutiennent</a>
+                    <a class="dropbtn" href="{{ path('app_shop') }}">Boutique</a>
+                    <a class="dropbtn" href="{{ path('app_login') }}">Mon compte</a>
+            </nav>
+        </section>
+
+        <section class="WelcomingMsgContainer">
+            <img src="{{ asset('../assets/images/fente.jpg') }}" width="400px" alt="joueur de badminton">
+        </section>
+        <section class = "secondMenuContainer">
+            <a class="btn" href="{{ path('app_schedules') }}">Voir les créneaux</a>
+            <a class="btn" href="{{ path('app_home') }}">M'inscrire</a>
+            <a class="btn" href="{{ path('app_try') }}">Faire un essai</a>
+        </section>
+    </header>
+
+{% endblock %}
+
+
+
+        {% block body %}
+        
+        
+        
+        {% endblock %}
     </body>
 </html>
