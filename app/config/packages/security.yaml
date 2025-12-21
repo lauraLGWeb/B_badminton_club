@@ -11,6 +11,10 @@ security:
                 class: App\Entity\User
                 property: email
 
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_ENTRAINEUR, ROLE_MEMBRE]
+        ROLE_ENTRAINEUR: ROLE_MEMBRE
+
     firewalls:
         dev:
             # Ensure dev tools and static assets are always allowed
