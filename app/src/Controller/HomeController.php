@@ -8,11 +8,128 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
+       #[Route('/', name: 'app_home')]
     public function index(): Response
     {
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
+   }
+
+// routes for the club dropdown
+    #[Route('/Leclub/Membres', name: 'app_members')]
+    public function members(): Response
+    {
+        return $this->render('home/CaMember.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
     }
+
+      #[Route('/Leclub/Entraineurs', name: 'app_coaches')]
+    public function coaches(): Response
+    {
+        return $this->render('home/coaches.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+
+#[Route('/Leclub/Reglement', name: 'app_rules')]
+    public function rules(): Response
+    {
+        return $this->render('home/rules.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+        #[Route('/Leclub/Stages', name: 'app_internships')]
+    public function internships(): Response
+    {
+        return $this->render('home/internships.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+// routes for the ecole de bad dropdown
+    // #[Route('/Leclub/Membres', name: 'app_members')]
+    // public function members(): Response
+    // {
+    //     return $this->render('home/CaMember.html.twig', [
+    //         'controller_name' => 'HomeController',
+    //     ]);
+    // }
+
+    //   #[Route('/Leclub/Entraineurs', name: 'app_coaches')]
+    // public function coaches(): Response
+    // {
+    //     return $this->render('home/coaches.html.twig', [
+    //         'controller_name' => 'HomeController',
+    //     ]);
+    // }
+
+    //    #[Route('/Leclub/Reglement', name: 'app_rules')]
+    // public function rules(): Response
+    // {
+    //     return $this->render('home/rules.html.twig', [
+    //         'controller_name' => 'HomeController',
+    //     ]);
+    // }
+
+    //     #[Route('/Leclub/Stages', name: 'app_internships')]
+    // public function internships(): Response
+    // {
+    //     return $this->render('home/internships.html.twig', [
+    //         'controller_name' => 'HomeController',
+    //     ]);
+    // }
+
+     #[Route('/Tarifs', name: 'app_prices')]
+    public function prices(): Response
+    {
+        return $this->render('home/prices.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+
+     #[Route('/Actualites', name: 'app_actuality')]
+    public function actuality(): Response
+    {
+        return $this->render('home/actuality.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+       #[Route('/Partenaires', name: 'app_partners')]
+    public function partners(): Response
+    {
+        return $this->render('home/partners.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+       #[Route('/Boutique', name: 'app_shop')]
+    public function shop(): Response
+    {
+        return $this->render('home/shop.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+
+          #[Route('/Creneaux', name: 'app_schedules')]
+    public function schedules(): Response
+    {
+        return $this->render('home/schedules.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+        #[Route('/Essais', name: 'app_try')]
+    public function try(): Response
+    {
+        return $this->render('home/try.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+  
 }
