@@ -1,0 +1,15 @@
+
+{% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
+
+{% include 'home/header.html.twig' %}
+{% block title %}Inscriptions Stage {% endblock %}
+
+
+{% block body %}       
+Ici tu peux voir le nombre d'inscrits aux différentes dates de stage
+{% endblock %}   
+
+
+
+
+{% endif %}

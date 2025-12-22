@@ -1,0 +1,14 @@
+{% extends 'home/header.html.twig' %}
+
+{% block title %} Mon compte {% endblock %}
+
+
+
+
+{% block body %}
+{% if app.user %}
+       <p> Bonjour {{app.user.firstName}}</p>
+                    
+{% endif %}
+
+{% endblock %}

@@ -1,17 +1,26 @@
-{% include 'home/header.html.twig' %}
+{% extends 'home/header.html.twig' %}
 
+
+{#take off the buttuns container#}
+ {% block buttunsContainers %} {% endblock %}
 
 {% block body %}
-    <h1>Créer mon compte</h1>
+    <h1 class="PageTitle">Créer mon compte</h1>
 
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
         
        
-        {{ form_row(registrationForm.firstName) }}
-        {{ form_row(registrationForm.lastName) }}
-        {{ form_row(registrationForm.lienceNbr) }}
+        {{ form_row(registrationForm.firstName, {
+            label: 'Prénom'
+        }) }}
+        {{ form_row(registrationForm.lastName, {
+            label: 'Nom'
+        }) }}
+        {{ form_row(registrationForm.lienceNbr, {
+            label: 'Numéro de Licence'
+        }) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe'

@@ -15,8 +15,17 @@
     <body>
     
     <header>
-        
         {% block logoContainer %}
+         <section class="logoAndBtnContainer d-flex justify-content-between align-items-center px-3 py-2 bg-light">
+            <a href="{{ path('app_home') }}">
+                 <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="logo">
+            </a>
+        
+            <div>
+                <button class="btn btn-outline-secondary">EN </button>
+                <button class="btn btn-outline-secondary">Mode</button>
+            </div>
+    </section>
         {% endblock %}
 
         {# on everypage #}
@@ -67,7 +76,14 @@
         {% block buttonsContainer %}
         <section class="secondMenuContainer d-flex justify-content-center gap-3 py-3 bg-light">
             <a class="btn btn-primary" href="{{ path('app_schedules') }}">Voir les créneaux</a>
-            <a class="btn btn-primary" href="{{ path('app_home') }}">M'inscrire</a>
+
+                    {% if app.user %} 
+                        <a class="btn btn-primary" href="{{ path('app_account') }}">Mon compte </a> 
+                    {% else %} 
+                        <a class="btn btn-primary" href="{{ path('app_register') }}">M'inscrire</a>
+                    {% endif %}
+
+
             <a class="btn btn-primary" href="{{ path('app_try') }}">Faire un essai</a>
         </section>
         {% endblock %}

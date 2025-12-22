@@ -50,14 +50,15 @@ final class HomeController extends AbstractController
         ]);
     }
 
-       #[Route('/membre/inscription', name: 'app_register')]
-    public function register(): Response
+
+  #[Route('/Leclub/Membres/compte', name: 'app_account')]
+    public function account(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('home/account.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
-
+     
   
 // routes for the ecole de bad dropdown
     // #[Route('/Leclub/Membres', name: 'app_members')]
@@ -142,4 +143,16 @@ final class HomeController extends AbstractController
         ]);
     }
   
+
+
+
+// pages for internship
+     #[Route('/Leclub/Stages/gestion', name: 'app_each_intership')]
+    public function eachInternship(): Response
+    {
+        return $this->render('home/eachInternship.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
 }
