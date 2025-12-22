@@ -58,13 +58,7 @@ final class HomeController extends AbstractController
         ]);
     }
 
-      #[Route('/membre/connexion', name: 'app_login')]
-    public function loggin(): Response
-    {
-        return $this->render('login/login.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
-    }
+  
 // routes for the ecole de bad dropdown
     // #[Route('/Leclub/Membres', name: 'app_members')]
     // public function members(): Response
