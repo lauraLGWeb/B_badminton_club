@@ -53,7 +53,9 @@
             <a class="btn btn-outline-light me-2" href="{{ path('app_prices') }}">Tarifs</a> 
             <a class="btn btn-outline-light me-2" href="{{ path('app_actuality') }}">Actualité</a> 
             <a class="btn btn-outline-light me-2" href="{{ path('app_partners') }}">Ils nous soutiennent</a>
-            <a class="btn btn-outline-light me-2" href="{{ path('app_shop') }}">Boutique</a>
+            {% if app.user %}
+                 <a class="btn btn-outline-light me-2" href="{{ path('app_shop') }}">Boutique</a>
+            {% endif %}
             <a class="btn btn-outline-light me-2" href="{{ path('app_login') }}">Mon compte</a>
         </div>
     </nav>

@@ -8,11 +8,15 @@
 
         {% if app.user %}
             <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}">Logout</a>
+                Connexion en tant que {{ app.user.userIdentifier }} : Clique <a href="{{ logout_path() }}">ici</a> pour te déconnecter 
             </div>
         {% endif %}
+        
 
         <h1 class="h3 mb-3 font-weight-normal">Connecte toi vite !</h1>
+        <p>Tu n'a pas encore de compte ? Incris toi dés maintenant sur <a href="{{ path("app_register") }}"> M'inscrire</a></p>
+                
+    
         <label for="username">Email</label>
         <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
         <label for="password">Mot de passe</label>
