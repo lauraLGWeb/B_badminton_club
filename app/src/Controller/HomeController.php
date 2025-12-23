@@ -154,15 +154,6 @@ final class HomeController extends AbstractController
         ]);
     }
 
-        #[Route('/contact', name: 'app_contact')]
-    public function contact(): Response
-    {
-        return $this->render('home/contact.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
-    }
-
-
 
 // pages for internship
      #[Route('/Leclub/Stages/gestion', name: 'app_each_intership')]
@@ -188,26 +179,5 @@ final class HomeController extends AbstractController
         
         return $this->redirectToRoute('app_homealone');
     }
-
-
-//         //modify the User
-//     #[Route('/modifier', name: 'app_modify')]
-//    public function modifier (Request $request, EntityManagerInterface $em)
-//     {
-//         $User = $em->getRepository(User::class);
-
-//         $formulaire = $this->createForm(UserModify::class, $User);
-
-//         $formulaire->handleRequest($request);
-//         if($formulaire->isSubmitted()&& $formulaire->isValid())
-//         {
-//            $em-> flush();
-            
-//         }
-
-//          return $this->render("menu/modify.html.twig", ["formulaire" => $formulaire]);
-//      }
-     
-
 
 }

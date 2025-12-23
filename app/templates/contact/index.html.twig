@@ -1,0 +1,33 @@
+{% include 'home/header.html.twig' %}
+{% block title %}<title>Contacte-nous</title>{% endblock %}
+
+{% block body %}
+
+<h1> Contacte-nous !</h1>
+
+<p>Regarde notre FAQ, peut être que la réponse à ta question y est déja</p>
+
+
+    {{ form_errors(contactForm) }}
+
+    {{ form_start(contactForm) }}
+        
+        {{ form_row(contactForm.fisrtName, {
+            label: 'Prénom'
+        }) }}
+        {{ form_row(contactForm.lastName, {
+            label: 'Nom'
+        }) }}
+        {{ form_row(contactForm.email, {
+            label: 'email'
+        }) }}
+        {{ form_row(contactForm.message, {
+            label: 'Ton message'
+        })  }}
+      
+    {{ form_end(contactForm) }}
+
+
+{% endblock %}
+
+{% include 'home/footer.html.twig' %}
