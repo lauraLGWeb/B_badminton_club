@@ -147,3 +147,99 @@ button.btn:hover {
 .font-weight-bold {
     font-weight: 700;
 }
+
+
+
+
+
+/* footer  */
+
+/* Footer Neomorphism */
+footer {
+    background: var(--bg-color);
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.footerSection{
+    display: flex;
+    justify-content: space-evenly;
+}
+footer h5 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer p {
+    margin: 0.2rem 0;
+}
+
+/* Mentions légales */
+footer hr {
+    border: none;
+    height: 1px;
+    background: black;
+    margin: 1.5rem 0;
+}
+
+footer div > div:last-child {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer div > div:last-child a {
+    margin-right: 1rem;
+}
+
+/* Bouton retour en haut */
+footer button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 0.75rem 1rem;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg-color);
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+                -5px -5px 10px var(--shadow-light);
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: none; /* Tu peux le mettre en block avec JS quand on scroll */
+    transition: all 0.2s ease;
+}
+
+footer button:hover {
+    box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                inset -3px -3px 6px var(--shadow-light),
+                0 0 8px var(--accent-color);
+    color: var(--accent-color);
+}
+ .legalMentions{
+    display: flex;
+    justify-content: center;
+ }

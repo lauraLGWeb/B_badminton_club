@@ -21,6 +21,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180)]
+    #[Assert\Email(
+        message: 'The email {{ value }} is not a valid email.',
+    )]
     private ?string $email = null;
 
     /**
@@ -36,6 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\PasswordStrength(
         message: 'Your password is too easy to guess. Company\'s security policy requires to use a stronger password.'
     )]
+
     private ?string $password = null;
 
     #[ORM\Column(length: 50)]

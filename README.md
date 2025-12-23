@@ -245,9 +245,11 @@ The application implements **four distinct user roles** with specific permission
 ```
 blois-badminton-club/
 ├── 📂 config/              # Configuration files
+├── 📂 assets/            
+│   └─── 📂 styles/
+│        ├───── 📂 js/
+│        └───── 📂 css/
 ├── 📂 public/              # Public assets (CSS, JS, images)
-│   ├── 📂 css/
-│   ├── 📂 js/
 │   └── 📂 images/
 ├── 📂 src/
 │   ├── 📂 Controller/      # Symfony controllers

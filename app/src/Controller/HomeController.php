@@ -5,6 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\User;
+use Symfony\Component\HttpFoundation\Request;
+use App\Form\UserModify;
 
 final class HomeController extends AbstractController
 {
@@ -168,5 +172,42 @@ final class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+      
+    
+    
+    //delete the User
+    #[Route('/supprimer/{id}', name: 'app_delete')]
+   public function supprimer(EntityManagerInterface $em, $id) : Response
+    {
+
+        $repo = $em->getRepository(User::class);
+        $user = $repo->find($id);
+
+        $em->remove($user);
+        $em->flush();
+        
+        return $this->redirectToRoute('app_homealone');
+    }
+
+
+//         //modify the User
+//     #[Route('/modifier', name: 'app_modify')]
+//    public function modifier (Request $request, EntityManagerInterface $em)
+//     {
+//         $User = $em->getRepository(User::class);
+
+//         $formulaire = $this->createForm(UserModify::class, $User);
+
+//         $formulaire->handleRequest($request);
+//         if($formulaire->isSubmitted()&& $formulaire->isValid())
+//         {
+//            $em-> flush();
+            
+//         }
+
+//          return $this->render("menu/modify.html.twig", ["formulaire" => $formulaire]);
+//      }
+     
+
 
 }
