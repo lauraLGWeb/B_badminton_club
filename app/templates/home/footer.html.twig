@@ -1,0 +1,105 @@
+<footer >
+    <div >
+        <div >
+            {# Logo + Description #}
+            <div >
+                <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="BBC Logo" class="mb-3">
+                <p>Blois Badminton Club<br>
+                Passion • Convivialité • Performance</p>
+                       
+            {# Navigation #}
+            <div class="col-md-2 mb-4">
+                <h5 class="text-warning">Le Club</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('app_prices') }}" class="text-white-50">Tarifs</a></li>
+                    <li><a href="{{ path('app_home') }}" class="text-white-50">École de bad</a></li>
+                    <li><a href="{{ path('app_actuality') }}" class="text-white-50">Actualités</a></li>
+                    <li><a href="{{ path('app_partners') }}" class="text-white-50">Partenaires</a></li>
+                </ul>
+            </div>
+            
+            {# Services #}
+            <div>
+                <h5 >Services</h5>
+                <ul >
+                    <li><a href="{{ path('app_schedules') }}" >Nos horaires</a></li>
+                    <li><a href="{{ path('app_try') }}" >Réserver un essai</a></li>
+                    <li><a href="{{ path('app_register') }}" >S'inscrire au club</a></li>
+                    {% if app.user %}
+                        <li><a href="{{ path('app_shop') }}" >Boutique</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+            {# Contact #}
+            <div >
+                <h5 >Nous contacter</h5>
+                <ul >
+                    <li>
+                        <p>Gymnase XYZ</p>
+                        <p>123 rue de la République</p>
+                        <p>41000 Blois</p>
+                    </li>
+                    <li>
+                        <a href="tel:++330625204617">06 25 20 46 17</a>
+                    </li>
+                    <li>
+                        <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a>
+                    </li>
+                </ul>
+                <a href="{{ path('app_contact') }}">
+                    📧 Formulaire de contact
+                </a>
+            </div>
+        
+        <hr class="bg-secondary">
+        
+        {# Mentions légales #}
+        <div class="row">
+            <div class="col-md-8 text-center text-md-start small">
+                <a href="{{ path('app_home') }}" class="text-white-50 me-3">Mentions légales</a>
+                <a href="{{ path('app_home') }}" class="text-white-50 me-3">Politique de confidentialité</a>
+                <a href="{{ path('app_home') }}" class="text-white-50 me-3">CGV</a>
+                <a href="{{ path('app_home') }}" class="text-white-50">Gestion des cookies</a>
+            </div>
+            <div class="col-md-4 text-center text-md-end small">
+                <p class="mb-0 text-white-50">© 2025 Blois Badminton Club - Tous droits réservés</p>
+            </div>
+        </div>
+    </div>
+    
+    {# Bouton retour en haut #}
+    <button id="backToTop" class="btn btn-warning position-fixed bottom-0 end-0 m-3" style="display: none;">
+        ▲
+    </button>
+</footer>
+
+<style>
+    footer a:hover {
+        color: #ffc107 !important;
+        text-decoration: underline;
+    }
+    
+    #backToTop {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        z-index: 1000;
+    }
+</style>
+
+<script>
+    // Bouton retour en haut
+    window.addEventListener('scroll', function() {
+        const btn = document.getElementById('backToTop');
+        if (window.scrollY > 300) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    });
+    
+    document.getElementById('backToTop').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>

@@ -150,6 +150,14 @@ final class HomeController extends AbstractController
         ]);
     }
 
+        #[Route('/contact', name: 'app_contact')]
+    public function contact(): Response
+    {
+        return $this->render('home/contact.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
 
 
 // pages for internship

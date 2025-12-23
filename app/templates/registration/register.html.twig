@@ -1,4 +1,4 @@
-{% extends 'home/header.html.twig' %}
+{% include 'home/header.html.twig' %}
 
 
 {#take off the buttuns container#}
@@ -29,3 +29,5 @@
         <button type="submit" class="btn">Créer mon compte</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
+
+{% include 'home/footer.html.twig' %}
