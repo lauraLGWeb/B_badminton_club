@@ -67,6 +67,9 @@
                     {% else %} 
                         <a class="btn btn-link text-white" href="{{ path('app_login') }}">Mon compte</a>
                     {% endif %}
+                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_COACH') %}
+                        <a class="btn btn-danger" href="{{ path('app_admin_dashboard') }}">Administration</a>
+                    {% endif %}
                 </div>
             </nav>
         </section>
