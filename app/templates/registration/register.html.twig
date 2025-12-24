@@ -1,4 +1,4 @@
-{% include 'home/header.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}<title>Création compte </title>{% endblock %}
 
@@ -31,4 +31,3 @@
     {{ form_end(registrationForm) }}
 {% endblock %}
 
-{% include 'home/footer.html.twig' %}

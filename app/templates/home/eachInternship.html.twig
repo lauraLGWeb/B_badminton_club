@@ -1,7 +1,7 @@
 
 {% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
 
-{% include 'home/header.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}<title>Inscriptions Stage </title>{% endblock %}
 
@@ -11,5 +11,3 @@ Ici tu peux voir le nombre d'inscrits aux différentes dates de stage
 {% endblock %} 
 
 {% endif %}
-
-{% include 'home/footer.html.twig' %}

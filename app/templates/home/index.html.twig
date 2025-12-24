@@ -1,15 +1,16 @@
-{% include 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 
-
-{% block body %}
+{% block welcomingMessage %}
 <div class="container my-5">
     <h1>Bienvenue au Blois Badminton Club ! 🏸</h1>
     <section class="WelcomingMsgContainer">
             <img src="{{ asset('pictures/fente.jpg') }}" width="400px" alt="joueur de badminton">
     </section>
 
+     {% block body %}
+     
+      {% endblock %}
+
 </div>
 {% endblock %}
-
-{% include 'home/footer.html.twig' %}
