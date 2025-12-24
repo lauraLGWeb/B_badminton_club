@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block body %} 
+ 
+<h1> Modifier un membre </h1>
+
+
+    {{ form_row(formulaire.firstName, {'attr': {'novalidate' : 'novalidate'}}, {
+            label: 'Prénom'
+        }) }},
+        {{ form_row(formulaire.lastName, {
+            label: 'Nom'
+        }) }},
+        {{ form_row(formulaire.lienceNbr, {
+            label: 'Numéro de Licence'
+        }) }},
+        {{ form_row(formulaire.email) }},
+    
+    <button type="submit">Mettre à jour le membre </button>
+
+ 
+ {% endblock %}

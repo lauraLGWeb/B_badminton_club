@@ -17,17 +17,17 @@ class ContactController extends AbstractController
     #[Route('/contact', name: 'app_contact')]
     public function contact(Request $request, MailerInterface $mailer): Response
     {
-        dump($_ENV['MAILER_DSN'] ?? 'MAILER_DSN non défini !');
+       
 
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
-        dump('📧 On entre dans le if !');
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
 
-             error_log('===== DÉBUT ENVOI EMAIL =====');
+             
 
             try {
                 $email = (new Email())
@@ -42,22 +42,19 @@ class ContactController extends AbstractController
                         $data['message']
                     ));
 
-                  error_log('Email créé, on va l\'envoyer...');
+                  
 
                 $mailer->send($email);
    
-             error_log('✅ Email envoyé avec send()');
+             
                 
                 $this->addFlash('success', '✅ Message envoyé avec succès !');
                 
             } catch (\Exception $e) {
-                error_log('❌ ERREUR : ' . $e->getMessage());
-                error_log('Type : ' . get_class($e));
-
                 // Afficher l'erreur complète
                 $this->addFlash('error', '❌ ERREUR : ' . $e->getMessage());
             }
- error_log('===== FIN ENVOI EMAIL =====');
+
             return $this->redirectToRoute('app_contact');
         }
 

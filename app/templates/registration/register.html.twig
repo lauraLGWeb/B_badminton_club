@@ -8,7 +8,7 @@
 
     {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
+    {{ form_start(registrationForm, {'attr': {'novalidate' : 'novalidate'}}) }}
         
        
         {{ form_row(registrationForm.firstName, {
