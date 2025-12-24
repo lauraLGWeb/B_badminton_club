@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des membres{% endblock %}
+
+
+
+
+{% block body %}
+Voici tous les membres
+
+   
+    <table>
+        <thead>
+            <th> nom </th>
+            <th> prenom </th>
+            <th> email </th>
+            <th> licence </th>
+        </thead>
+        <tbody>
+            {% for user in user%}      
+                <tr> 
+                    <td>  {{user.firstName}} </td>
+                    <td>  {{user.lastName}} </td>
+                    <td>  {{user.email}} </td>
+                    <td>  {{user.lienceNbr}}</td> 
+                    <td>   
+                        <a href="{{ path('app_modify', {'id': user.id}) }}" >Modifier</a>
+                    </td>
+                    <td>   
+                        <a href="{{ path('app_delete', {'id': user.id}) }}" >Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+
+{% endblock %}

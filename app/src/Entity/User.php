@@ -12,7 +12,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[UniqueEntity(fields: ['email'], message: 'Un compte existe déja aevc cette adresse mail')]
+#[UniqueEntity(fields: ['lienceNbr'], message: 'ce numéro de licence est déja utilisé')]
+
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -21,6 +23,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180)]
+    #[Assert\NotBlank(message: 'le mail est obligatoire')]
     #[Assert\Email(
         message: 'The email {{ value }} is not a valid email.',
     )]
@@ -36,6 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+     #[Assert\NotBlank(message: 'Le mot de passe est obligatoire')]
     #[Assert\PasswordStrength(
         message: 'Your password is too easy to guess. Company\'s security policy requires to use a stronger password.'
     )]
@@ -43,13 +47,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 50)]
+     #[Assert\NotBlank(message: 'Le prénom est obligatoire')]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 50)]
+     #[Assert\NotBlank(message: 'Le Nom est obligatoire')]
     private ?string $lastName = null;
 
-    #[ORM\Column]
-    private ?int $lienceNbr = null;
+   #[ORM\Column(type: 'bigint')]
+    #[Assert\NotBlank(message: 'Le numéro de licence est obligatoire')]
+    #[Assert\Positive(message: 'Le numéro de licence doit être positif')]
+    #[Assert\Length(
+    min: 7,
+    max: 7,
+    exactMessage: 'Le numéro de licence doit contenir exactement {{ limit }} chiffres'
+)]
+
+    private ?string $lienceNbr = null;
+    
 
     public function getId(): ?int
     {

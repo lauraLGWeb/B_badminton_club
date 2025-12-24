@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\User;
+use App\Form\RegistrationFormType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\UserModify;
 
@@ -164,10 +165,45 @@ final class HomeController extends AbstractController
         ]);
     }
       
-    
-    
+    //======================
+    //pages for the admins
+    //======================
+
+
+    // get all the members who has an account online
+     #[Route('/admin/membres/liste', name: 'app_membersList')]
+    public function membersList(EntityManagerInterface $em)
+    {
+        $repo = $em->getRepository(User::class);
+        $user = $repo->findAll();
+
+
+        return $this->render("admin/membersList.html.twig", ["user" => $user]);
+    }           
+
+
+        //modify the User
+    #[Route('/admin/membres/modifier/{id}', name: 'app_modify')]
+   public function modify(Request $request, EntityManagerInterface $em, $id)
+    {
+
+        $user = $em->getRepository(User::class)->find($id);
+
+        $formulaire = $this->createForm(RegistrationFormType::class, $user);
+
+        $formulaire->handleRequest($request);
+        if($formulaire->isSubmitted()&& $formulaire->isValid())
+        {
+           $em-> flush();
+            
+        }
+
+         return $this->render("admin/modify.html.twig", ["formulaire" => $formulaire]);
+     }
+
+
     //delete the User
-    #[Route('/supprimer/{id}', name: 'app_delete')]
+    #[Route('/admin/membres/supprimer/{id}', name: 'app_delete')]
    public function supprimer(EntityManagerInterface $em, $id) : Response
     {
 
@@ -177,7 +213,7 @@ final class HomeController extends AbstractController
         $em->remove($user);
         $em->flush();
         
-        return $this->redirectToRoute('app_homealone');
+        return $this->redirectToRoute('app_membersList');
     }
 
 }

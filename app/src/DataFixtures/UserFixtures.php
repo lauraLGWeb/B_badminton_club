@@ -1,5 +1,5 @@
 <?php
-
+// creation of 50 user : 10 admin and 5 coaches
 namespace App\DataFixtures;
 
 use App\Entity\User;
@@ -9,56 +9,47 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserFixtures extends Fixture
 {
-    public function __construct(
-        private UserPasswordHasherInterface $passwordHasher
-    ) {}
+     private UserPasswordHasherInterface $passwordHasher;
+
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    {
+        $this->passwordHasher = $passwordHasher;
+    }
 
     public function load(ObjectManager $manager): void
     {
-        //admin
+        $faker = \Faker\Factory::create('fr_FR');
 
-        $admin = new User();
-        $admin->setEmail('admin@club.fr');
-        $admin->setFirstName('Admin');
-        $admin->setLastName('Principal');
-        $admin->setLienceNbr(100000);
-        $admin->setRoles(['ROLE_ADMIN']);
-        $admin->setPassword(
-            $this->passwordHasher->hashPassword($admin, 'password')
-        );
-        $manager->persist($admin);
+        for ($i = 0; $i < 50; $i++) {
+            $user = new User();
+            $user->setFirstName($faker->firstName())
+                 ->setLastName($faker->lastName())
+                 ->setEmail($faker->unique()->safeEmail());
 
-        //coach
+            // Numéro de licence aléatoire entre 7 et 10 chiffres
+            $lienceNbr = '';
+            for ($j = 0; $j < 7; $j++) {
+                $lienceNbr .= rand(0, 9);
+            }
+            $user->setLienceNbr((int)$lienceNbr);
 
-        $coach = new User();
-        $coach->setEmail('coach@club.fr');
-        $coach->setFirstName('Jean');
-        $coach->setLastName('Coach');
-        $coach->setLienceNbr(200000);
-        $coach->setRoles(['ROLE_ENTRAINEUR']);
+            // Mot de passe par défaut
+            $hashedPassword = $this->passwordHasher->hashPassword($user, 'motdepasse123');
+            $user->setPassword($hashedPassword);
 
-        $coach->setPassword(
-            $this->passwordHasher->hashPassword($coach, 'password')
-        );
+            // roles
+            $roles = ['ROLE_MEMBRE'];
+            if ($i < 10) {
+                // 10admin 
+                $roles[] = 'ROLE_ADMIN';
+            } elseif ($i < 15) {
+                // 5 coaches in exemple
+                $roles[] = 'ROLE_ENTRAINEUR';
+            }
+            $user->setRoles($roles);
 
-        $manager->persist($coach);
-
-        // Members
-         
-            $member = new User();
-            $member->setEmail("laura@club.fr");
-            $member->setFirstName("laura");
-            $member->setLastName('lgl');
-            $member->setLienceNbr(300000);
-
-            // 👇 rôle par défaut
-            $member->setRoles(['ROLE_MEMBRE']);
-
-            $member->setPassword(
-                $this->passwordHasher->hashPassword($member, 'password')
-            );
-
-            $manager->persist($member);
+            $manager->persist($user);
+        }
 
         $manager->flush();
     }

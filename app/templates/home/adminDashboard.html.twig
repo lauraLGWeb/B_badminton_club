@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}<title>Tableau de bord Admin</title>{% endblock %}
+{% block title %}Tableau de bord Admin{% endblock %}
 
 {% block body %}
      
@@ -15,7 +15,7 @@
                         <a data-bs-toggle="collapse" href="#membersMenu"> 👥 Membres </a>
                             <div class="collapse" id="membersMenu">
                                 <ul >
-                                    <li><a href="{{ path('app_home') }}">Liste des membres</a></li>
+                                    <li><a href="{{ path('app_membersList') }}">Liste des membres</a></li>
                                     <li><a href="{{ path('app_home') }}"> ➕ Ajouter un membre </a></li>
                                 </ul>
                             </div>
