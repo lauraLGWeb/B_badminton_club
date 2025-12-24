@@ -17,6 +17,10 @@ services:
       context: ./php
     ports:
       - 8081:80
+    environment:
+      - APP_ENV=dev
+      - DATABASE_URL=mysql://symfony:symfony@database:3306/blois_badminton_club?serverVersion=8.0&charset=utf8mb4
+      - MAILER_DSN=smtp://laura.maglegall@gmail.com:cfutfqisudgrzpjt@smtp.gmail.com:587
     
     volumes:
       - ./apache/default.conf:/etc/apache2/sites-enabled/000-default.conf

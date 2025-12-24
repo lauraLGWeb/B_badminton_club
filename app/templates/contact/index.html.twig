@@ -7,12 +7,24 @@
 
 <p>Regarde notre FAQ, peut être que la réponse à ta question y est déja</p>
 
-
+    <div class="emailSent">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>  
+    
     {{ form_errors(contactForm) }}
 
     {{ form_start(contactForm) }}
         
-        {{ form_row(contactForm.fisrtName, {
+        {{ form_row(contactForm.firstName, {
             label: 'Prénom'
         }) }}
         {{ form_row(contactForm.lastName, {
@@ -24,6 +36,9 @@
         {{ form_row(contactForm.message, {
             label: 'Ton message'
         })  }}
+
+        {{ form_row(contactForm.send) }}
+        {{ form_row(contactForm.reset) }}
       
     {{ form_end(contactForm) }}
 
