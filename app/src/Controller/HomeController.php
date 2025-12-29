@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\User;
-use App\Form\RegistrationFormType;
+use App\Form\ModifyContactType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\UserModify;
 
@@ -189,14 +189,33 @@ final class HomeController extends AbstractController
 
         $user = $em->getRepository(User::class)->find($id);
 
-        $formulaire = $this->createForm(RegistrationFormType::class, $user);
+        $formulaire = $this->createForm(ModifyContactType::class, $user);
+
+        //give member role if no role, and take the role if there is, to put in in the form
+         if (isset($user->getRoles()[0])) {
+                $currentStatus = $user->getRoles()[0];
+        } else {
+                $currentStatus = 'ROLE_MEMBER';
+        }
+
+        //get the actual role 
+         $formulaire->get('roles')->setData($currentStatus);
 
         $formulaire->handleRequest($request);
         if($formulaire->isSubmitted()&& $formulaire->isValid())
         {
-           $em-> flush();
-            
-        }
+
+         //set up the new role into the database
+        $statut = $formulaire->get('roles')->getData();
+        $user->setRoles([$statut]);
+
+
+        $em-> flush();
+                  
+            return $this->redirectToRoute('app_membersList');
+           
+           
+        } 
 
          return $this->render("admin/modify.html.twig", ["formulaire" => $formulaire]);
      }

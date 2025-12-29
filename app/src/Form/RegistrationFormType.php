@@ -58,7 +58,19 @@ class RegistrationFormType extends AbstractType
                  ],
             ])
             
-            ->add('lienceNbr')
+            ->add('lienceNbr', TextType::class, [
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Merci de rentrer votre numéro de licence',
+                    ]),
+                    new Length([
+                        'min' => 7,
+                        'max' => 7,
+                        'minMessage' => 'la lience est composée de {{ limit }} chiffres',
+                     ])
+                 ],
+            ])
+            
             ->add('agreeTerms', CheckboxType::class, [
                                 'mapped' => false,
                 'constraints' => [

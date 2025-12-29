@@ -5,18 +5,27 @@
 <h1> Modifier un membre </h1>
 
 
+{{ form_start(formulaire) }}
     {{ form_row(formulaire.firstName, {'attr': {'novalidate' : 'novalidate'}}, {
             label: 'Prénom'
-        }) }},
+        }) }}
+
         {{ form_row(formulaire.lastName, {
             label: 'Nom'
-        }) }},
+        }) }}
+
         {{ form_row(formulaire.lienceNbr, {
             label: 'Numéro de Licence'
-        }) }},
-        {{ form_row(formulaire.email) }},
-    
-    <button type="submit">Mettre à jour le membre </button>
+        }) }}
 
- 
+        {{ form_row(formulaire.email, {
+            label: 'Email'
+        }) }}
+
+        {{ form_row(formulaire.roles, {
+            label: 'Statut'
+        }) }}
+    
+         <button type="submit">Mettre à jour le Contact </button>
+{{ form_end(formulaire) }}
  {% endblock %}
