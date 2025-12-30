@@ -6,9 +6,27 @@
                     <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="logo">
                 </a>
             
-                <div class="btnsHeader">
+                <div>
                     <button class="btn btn-outline-secondary">EN </button>
-                    <button class="btn btn-outline-secondary">Mode</button>
+                    <button>Mode</button>
+
+
+
+                    <div class="btnmode btn btn-outline-secondary">
+                        <img
+                            src="{{ asset('pictures/darkmode.png') }}"
+                            alt="change light mode"
+                            id = "lightMode"
+                        />
+                        <img
+                            src="{{ asset('pictures/lightmode.png') }}"
+                            alt="change light mode"
+                            id = "darkMode"
+
+                        />
+                    </div>
+
+                    
                 </div>
         </section>
             {% endblock %}

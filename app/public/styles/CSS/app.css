@@ -8,16 +8,17 @@
     --shadow-dark: rgba(0, 0, 0, 0.2);
 }
 
-body.dark {
+.dark {
     --bg-color: #1a1a1a;
     --text-color: #f5f5f5;
-    --primary-color: #ffdd00a2;
+    --primary-color: #ffdd00f3;
     --accent-color: #3b70aca3;
     --shadow-light: rgba(255, 255, 255, 0.05);
     --shadow-dark: rgba(0, 0, 0, 0.7);
 }
 
 /* Global */
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -38,6 +39,8 @@ form {
     box-shadow: 8px 8px 16px var(--shadow-dark),
                 -8px -8px 16px var(--shadow-light);
 }
+
+
 
 /* Headings */
 h1 {
