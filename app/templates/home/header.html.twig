@@ -5,23 +5,20 @@
                 <a href="{{ path('app_home') }}">
                     <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="logo">
                 </a>
-            
+        
+            {# darkmode #}
                 <div>
-                    <button class="btn btn-outline-secondary">EN </button>
-                    <button>Mode</button>
-
-
-
+                    <div class="btn btn-outline-secondary">EN </div>
                     <div class="btnmode btn btn-outline-secondary">
                         <img
                             src="{{ asset('pictures/darkmode.png') }}"
                             alt="change light mode"
-                            id = "lightMode"
+                            id = "darkMode"
                         />
                         <img
                             src="{{ asset('pictures/lightmode.png') }}"
                             alt="change light mode"
-                            id = "darkMode"
+                            id = "lightMode"
 
                         />
                     </div>

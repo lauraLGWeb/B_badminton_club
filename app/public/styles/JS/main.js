@@ -5,8 +5,8 @@
 //******************************
  const btndarkMode = document.querySelector(".btnmode")
  const body = document.querySelector("body")
- const darkmode = document.querySelector(".btnmode:first-child")
- const lightmode = document.querySelector(".btnmode:nth-child(2)")
+ const darkmode = document.getElementById("darkMode")
+ const lightmode = document.getElementById("lightMode")
 
 
 
@@ -47,7 +47,7 @@ btndarkMode.addEventListener("click", function () {
         darkmode.style.display = "none";
         lightmode.style.display = "block";
     } else {
-        localStorage.removeItem("dark");
+        localStorage.removeItem("theme");
         darkmode.style.display = "block";
         lightmode.style.display = "none";
     }
