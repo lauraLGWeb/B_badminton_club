@@ -1,0 +1,9 @@
+.mentions{
+    padding: 50px;
+}
+
+.legalMentions{
+    display: flex;
+    flex-direction: column;
+
+}

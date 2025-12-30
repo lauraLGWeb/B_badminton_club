@@ -155,6 +155,15 @@ final class HomeController extends AbstractController
         ]);
     }
 
+       #[Route('/mentions', name: 'app_legalMentions')]
+    public function legalMentions(): Response
+    {
+        return $this->render('legal/legalMentions.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+
 
 // pages for internship
      #[Route('/Leclub/Stages/gestion', name: 'app_each_intership')]
