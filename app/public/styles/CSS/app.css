@@ -101,7 +101,6 @@ input[type="password"]:focus {
 /* Button Neomorphism Inner Shadow */
 div.btn {
     padding: 0.50rem;
-    margin-top: 1rem;
     border: none;
     border-radius: 16px;
     background: var(--bg-color);
@@ -166,8 +165,7 @@ div.btn {
 
 /* Header & Navbar Neomorphism */
 header {
-    background: var(--bg-color);
-    padding: 1rem 2rem;
+    background-image:url('{{ asset("pictures/fente.jpg") }}');
     box-shadow: 8px 8px 16px var(--shadow-dark),
                 -8px -8px 16px var(--shadow-light);
     border-radius: 20px;
@@ -176,14 +174,31 @@ header {
 
 .logoAndBtnContainer {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin: 0,5rem;
+ 
+
+}
+
+.menuBtns{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    margin: 20px;
 }
 
 .logoAndBtnContainer img {
-    width: 150px;
     border-radius: 10px;
+    
 }
 
 .logoAndBtnContainer button {

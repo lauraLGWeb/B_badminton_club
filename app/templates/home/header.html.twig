@@ -1,13 +1,14 @@
     
         <header>
             {% block logoContainer %}
-            <section class="logoAndBtnContainer d-flex justify-content-between align-items-center px-3 py-2 bg-light">
-                <a href="{{ path('app_home') }}">
-                    <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="logo">
-                </a>
-        
+            
+                <div class= "logo">
+                    <a href="{{ path('app_home') }}">
+                        <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="logo">
+                    </a>
+                </div>
             {# darkmode #}
-                <div>
+                <div class= "menuBtns">
                     <div class="btn btn-outline-secondary">EN </div>
                     <div class="btnmode btn btn-outline-secondary">
                         <img
@@ -25,7 +26,7 @@
 
                     
                 </div>
-        </section>
+       
             {% endblock %}
 
             {% block menu %}
