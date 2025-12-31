@@ -26,7 +26,10 @@
 
     <div class="filter">
         <p class="pFilter"> filtres </p>
-        <img src="{{asset("pictures/cart.png")}}" alt="logo panier">
+        <a href="{{ path('app_cart') }}"> <img src="{{asset("pictures/cart.png")}}" alt="logo panier">
+        </a>
+        
+       
     </div>
     
 
@@ -40,7 +43,7 @@
                 <div class ="detailsShop">
                     <h2 class="productTitle">{{product.title}}</h2>
                     <p>{{product.description}}</p>
-                    <p class="price">{{product.price}} €</p>
+                    <p class="price">{{ product.price|number_format(2, ',', ' ') }} €</p>
                     {% if product.hasSize %}
                         <select class="size">
                             <option value="">Choisir une taille</option>

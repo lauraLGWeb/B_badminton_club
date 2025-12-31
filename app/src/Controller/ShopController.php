@@ -20,4 +20,11 @@ final class ShopController extends AbstractController
             'products' => $product,
         ]);
     }
+
+       #[Route('/Panier', name: 'app_cart')]
+    public function cart(): Response
+    {
+        return $this->render('shop/cart.html.twig');
+    }
+
 }
