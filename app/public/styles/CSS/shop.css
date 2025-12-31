@@ -1,0 +1,43 @@
+/* filter bar */
+
+.filter{
+    display: flex;
+    flex-wrap: wrap
+}
+
+.filter img{
+    
+  
+    width: 40px;
+}
+
+.pFilter{
+
+    border: 2px solid black;
+    margin: auto;
+}
+
+/* article  */
+
+.product{
+    background-color: rgb(237, 224, 186);
+    margin: 30px;
+    min-height: 250px;
+    display: flex;
+    padding: 20px;
+}
+img{
+    background-color: rgb(118, 124, 227);
+    width: 100%;
+}
+
+.imgShop{
+    width: 40%;
+}
+.detailsShop{
+    width: 60%;
+}
+
+.productTitle{
+    
+}

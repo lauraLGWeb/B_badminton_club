@@ -123,13 +123,7 @@ final class HomeController extends AbstractController
         ]);
     }
 
-       #[Route('/Boutique', name: 'app_shop')]
-    public function shop(): Response
-    {
-        return $this->render('home/shop.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
-    }
+      
 
 
           #[Route('/Creneaux', name: 'app_schedules')]

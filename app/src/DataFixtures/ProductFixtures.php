@@ -17,7 +17,9 @@ class ProductFixtures extends Fixture implements FixtureGroupInterface
                ->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
                ->setPrice(40)
                ->setSize('') // size will be chosen by the purchaser later
-               ->setPicture('tshirt.jpg');
+               ->setPicture('tshirt.jpg')
+               ->setGender('')
+               ->setHasSize('');
         $manager->persist($tshirt);
 
         // Boîte de volants
