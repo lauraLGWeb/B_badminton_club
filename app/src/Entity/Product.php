@@ -28,7 +28,7 @@ class Product
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name: 'has_size')]
     private ?bool $hasSize = false;
 
     #[ORM\Column(length: 15, nullable: true)]
@@ -99,7 +99,7 @@ class Product
         return $this;
     }
 
-    public function hasSize(): ?bool
+    public function getHasSize(): ?bool
     {
         return $this->hasSize;
     }

@@ -61,7 +61,10 @@
                             <option value="woman">Femme</option>
                         </select>
                     {% endif %}
+
+                       <a href="{{ path('app_addcart', {id: product.id}) }}" class="btn">
                     <button>Ajouter au panier</button>
+                    </a>
                 </div>
             </div>
     {% endfor %} 

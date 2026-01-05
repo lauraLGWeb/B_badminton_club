@@ -6,6 +6,7 @@ use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Entity\Product;
 
 final class ShopController extends AbstractController
 {
@@ -26,5 +27,4 @@ final class ShopController extends AbstractController
     {
         return $this->render('shop/cart.html.twig');
     }
-
 }
