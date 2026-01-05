@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\Cart;
+use App\Entity\User;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Product;
+
+
+final class CartController extends AbstractController
+{
+    #[Route('/cart/{id}', name: 'app_addCart')]
+    public function index(EntityManagerInterface $em,Product $product): Response
+    {
+        $user = $this->getUser();
+        $carts = $em->getRepository(Cart::class)->findBy(['user' => $user]);
+
+        $actualCart = null;
+        foreach ($carts as $cart){
+            if(!$cart->isPaid()){
+                $actualCart = $cart;
+                break;
+            }
+        }
+
+        // if the membre has no cart yet, it will create one
+        if(!$actualCart){
+            $actualCart = new Cart();
+            $actualCart-> setIsPaid(false);
+            $actualCart-> setUser($user);
+            $actualCart ->setPurchaseDate(new \DateTimeImmutable());
+            $em->persist($actualCart);
+        }
+
+        //then we add the item in the cart 
+        
+
+
+
+     
+
+        return $this->render('shop/cart.html.twig');
+    }
+}
