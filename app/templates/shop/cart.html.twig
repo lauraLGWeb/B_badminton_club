@@ -1,17 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Mon panier {% endblock %}
+{% block title %}Mon Panier{% endblock %}
 
-{% block body %}  
+{% block body %}
+<h1>Mon Panier</h1>
 
-<a href="{{ path('app_shop') }}">Revenir à la boutique</a>
+{% if cart.CartItem is empty %}
+    <p>Votre panier est vide.</p>
+{% else %}
+    <table>
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Quantité</th>
+                <th>Prix unitaire</th>
+                <th>Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart.CartItem %}
+                <tr>
+                    <td>{{ item.product.title }}</td>
 
-{# si articles ajouté au panier #}
-    <section class="eachProduct">
-            <div>
+                    <td>
+                        <form action="{{ path('app_home', { id: item.id }) }}" method="post">
+                            <input
+                                type="number"
+                                name="quantity"
+                                value="{{ item.quantity }}"
+                                min="1"
+                            >
+                            <button type="submit">Modifier</button>
+                            <button type="submit">Supprimer</button>
+                        
+                        </form>
+                    </td>
 
-                    <button> Payer</button>
-            </div>
-    </section>
+                    <td>
+                        {{ item.product.price|number_format(2, ',', ' ') }} €
+                    </td>
 
+                    <td>
+                        {{ (item.product.price * item.quantity)|number_format(2, ',', ' ') }} €
+                    </td>
+
+                    <td>
+                       
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% set total = 0 %}
+    {% for item in cart.CartItem %}
+        {% set total = total + (item.product.price * item.quantity) %}
+    {% endfor %}
+
+    <h3>Total du panier : {{ total|number_format(2, ',', ' ') }} €</h3>
+
+    <a href="{{ path('app_home') }}">Passer à la caisse</a>
+{% endif %}
 {% endblock %}

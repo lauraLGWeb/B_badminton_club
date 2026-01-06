@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Cart;
+use App\Entity\CartItem;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,11 +39,15 @@ final class CartController extends AbstractController
 
         //then we add the item in the cart 
         
+        $cartItem = new CartItem;
+        $cartItem-> setCart($actualCart);
+        $cartItem-> setProduct($product);
+        $cartItem-> setQuantity(1);
+        $em->persist($cartItem);
+        $em-> flush();
 
 
 
-     
-
-        return $this->render('shop/cart.html.twig');
+        return $this->render('shop/cart.html.twig', ["cart" => $actualCart]);
     }
 }
