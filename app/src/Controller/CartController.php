@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Cart;
 use App\Entity\CartItem;
-use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -14,8 +13,8 @@ use App\Entity\Product;
 
 final class CartController extends AbstractController
 {
-    #[Route('/cart/{id}', name: 'app_addCart')]
-    public function index(EntityManagerInterface $em,Product $product): Response
+   #[Route('/boutique/panier', name: 'app_cart')]
+    public function cart(EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
         $carts = $em->getRepository(Cart::class)->findBy(['user' => $user]);
@@ -37,17 +36,33 @@ final class CartController extends AbstractController
             $em->persist($actualCart);
         }
 
-        //then we add the item in the cart 
-        
-        $cartItem = new CartItem;
-        $cartItem-> setCart($actualCart);
-        $cartItem-> setProduct($product);
-        $cartItem-> setQuantity(1);
-        $em->persist($cartItem);
-        $em-> flush();
-
-
-
         return $this->render('shop/cart.html.twig', ["cart" => $actualCart]);
     }
+
+
+//delete the Item
+    #[Route('/boutique/panier/{id}', name: 'app_deleteItem')]
+   public function deleteItem(EntityManagerInterface $em, $id) : Response
+    {
+
+        $repo = $em->getRepository(CartItem::class);
+        $item = $repo->find($id);
+
+        $em->remove($item);
+        $em->flush();
+        
+        return $this->redirectToRoute('app_cart');
+    }
+
 }
+
+//  $cartItem = new CartItem;
+//         $cartItem-> setCart($actualCart);
+//         $cartItem-> setProduct($product);
+//         $cartItem-> setQuantity(1);
+//         $em->persist($cartItem);
+//         $em-> flush();
+
+
+
+

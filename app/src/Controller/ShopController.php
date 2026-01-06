@@ -22,9 +22,5 @@ final class ShopController extends AbstractController
         ]);
     }
 
-       #[Route('/Panier', name: 'app_cart')]
-    public function cart(): Response
-    {
-        return $this->render('shop/cart.html.twig');
-    }
+
 }

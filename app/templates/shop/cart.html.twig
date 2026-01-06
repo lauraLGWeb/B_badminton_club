@@ -7,22 +7,26 @@
 
 {% if cart.CartItem is empty %}
     <p>Votre panier est vide.</p>
+    <a href="{{ path('app_shop') }}" class="btn btn-primary">Continuer mes achats</a>
 {% else %}
     <table>
         <thead>
             <tr>
+                <th>Image</th>
                 <th>Produit</th>
-                <th>Quantité</th>
+                <th>Taille</th>
                 <th>Prix unitaire</th>
+                <th>Quantité</th>
                 <th>Total</th>
-                <th>Actions</th>
+                <th>Actions</th>      
             </tr>
         </thead>
         <tbody>
+            {% set total = 0 %}
             {% for item in cart.CartItem %}
                 <tr>
+                    <td><img src="{{item.product.picture}}" alt="T-shirt"></td>
                     <td>{{ item.product.title }}</td>
-
                     <td>
                         <form action="{{ path('app_home', { id: item.id }) }}" method="post">
                             <input
@@ -30,11 +34,16 @@
                                 name="quantity"
                                 value="{{ item.quantity }}"
                                 min="1"
+                                max="99"
                             >
-                            <button type="submit">Modifier</button>
-                            <button type="submit">Supprimer</button>
-                        
+                            <button type="submit">Ajouter</button>
                         </form>
+                        
+                        <form action="{{ path('app_deleteItem', { id: item.id }) }}" method="post">
+                            <button type="submit">Supprimer</button>
+                        </form>
+
+                      
                     </td>
 
                     <td>
