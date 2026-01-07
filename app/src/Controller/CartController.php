@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Product;
+use Symfony\Component\BrowserKit\Request;
 
 
 final class CartController extends AbstractController
@@ -61,11 +62,15 @@ final class CartController extends AbstractController
             $itemExisting = $em->getRepository(CartItem::class)->findOneBy([
             'cart' => $actualCart,
             'product' => $product
-        ]);;
 
+           
+
+        ]);;
             // in this case add One to the existant
             if($itemExisting){
-                $itemExisting->setQuantity($itemExisting->getQuantity()+1);
+              $itemExisting->setQuantity($itemExisting->getQuantity()+1);
+              
+              $em->flush();
                 
             // adding the item in the cart if not alerady existing 
             } else {
@@ -81,8 +86,10 @@ final class CartController extends AbstractController
             }
 
 
-        return $this->redirectToRoute('app_cart');
+        return $this->redirectToRoute('app_shop');
     }
+
+
 
 
 //delete the Item
@@ -100,7 +107,3 @@ final class CartController extends AbstractController
     }
 
 }
-
-
-
-
