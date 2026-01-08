@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités{% endblock %}
+
+{% block body %}
+
+<h1>Actualités du club</h1>
+
+{% if actuality is empty %}
+    <p>Aucune actualité.</p>
+{% else %}
+    <section>
+        
+            <article style="border:1px solid #ddd; padding:10px; margin-bottom:15px; border-radius:8px;">
+                <h2>{{ actuality.title }}</h2>
+                {% if actuality.picture %}
+                    <img src="{{ actuality.picture }}" alt="{{ actuality.title }}" width="150px">
+                {% endif %}
+                <p>{{ actuality.description }}</p>
+                <p><strong> Cet évenement se tiendra le :</strong> {{ actuality.eventOn|date('d/m/Y') }}</p>
+                <p><strong>Créé le :</strong> {{ actuality.createdAt|date('d/m/Y H:i') }}</p>
+                
+            </article>
+       
+    </section>
+{% endif %}
+
+{% endblock %}

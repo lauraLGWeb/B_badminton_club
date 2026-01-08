@@ -16,10 +16,10 @@
                 {% if actu.picture %}
                     <img src="{{ actu.picture }}" alt="{{ actu.title }}" width="150px">
                 {% endif %}
-                <p>{{ actu.description }}</p>
                 <p><strong>Événement le :</strong> {{ actu.eventOn|date('d/m/Y') }}</p>
                 <p><strong>Créé le :</strong> {{ actu.createdAt|date('d/m/Y H:i') }}</p>
-                <a href="#" role="button">Lire</a>
+                <a href="{{ path('app_actualityDetail', {'id': actu.id}) }}" role="button">En savoir plus</a>
+
             </article>
         {% endfor %}
     </section>

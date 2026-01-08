@@ -11,7 +11,7 @@ class ActualitiesRepository extends DocumentRepository
     /**
      * Récupérer toutes les actualités, triées par date de création (DESC)
      */
-    public function findAllOrderedByDate(): array
+    public function findAll(): array
     {
         return $this->createQueryBuilder()
             ->sort('createdAt', 'DESC')

@@ -19,4 +19,20 @@ final class ActualityController extends AbstractController
             'actualities' => $actualities,
         ]);
     }
+
+
+    #[Route('/Actualites/detail/{id}', name: 'app_actualityDetail')]
+    public function actualitydetail(DocumentManager $dm, $id): Response
+    {
+        $actuality = $dm->getRepository(Actualities::class)->find($id);
+
+        // if(!$actuality){
+        //     throw $this->createNotFoundException("pas d'actualitée");
+        // }
+       
+
+        return $this->render('home/actualityDetail.html.twig', [
+            'actuality' => $actuality,
+        ]);
+    }
 }
