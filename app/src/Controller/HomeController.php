@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\User;
+use Doctrine\ODM\MongoDB\DocumentManager;
+use App\Document\Actualities;
 use App\Form\ModifyContactType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\UserModify;
@@ -14,8 +16,17 @@ use App\Form\UserModify;
 final class HomeController extends AbstractController
 {
        #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(DocumentManager $dm): Response
     {
+
+        //get all the actualities
+        $actualities = $dm->getRepository(Actualities::class)->findBy([], ['eventOn' => 'DESC'], 3);
+       
+        return $this->render('home/actuality.html.twig', [
+            'actualities' => $actualities,
+        ]);
+
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);

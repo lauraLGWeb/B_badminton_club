@@ -4,23 +4,39 @@
 
 {% block body %}
 
-<h1>Actualités du club</h1>
+<section class="actualities-section">
+    <h1> Actualités du club</h1>
 
-{% if actualities is empty %}
-    <p>Aucune actualité pour le moment.</p>
-{% else %}
-    <section>
-        {% for actu in actualities %}
-            <article style="border:1px solid #ddd; padding:10px; margin-bottom:15px; border-radius:8px;">
-                <h2>{{ actu.title }}</h2>
-                <img src="{{ asset(actu.picture) }}" alt="{{ actu.title }}" width="150px">
-                <p><strong>Événement le :</strong> {{ actu.eventOn|date('d/m/Y H:i') }}</p>
-                <p><strong>Créé le :</strong> {{ actu.createdAt|date('d/m/Y') }}</p>
-                <a href="{{ path('app_actualityDetail', {'id': actu.id}) }}" role="button">En savoir plus</a>
-
-            </article>
-        {% endfor %}
-    </section>
-{% endif %}
+    {% if actualities is empty %}
+        <div class="no-actuality">
+            <p>Aucune actualité pour le moment.</p>
+        </div>
+    {% else %}
+        <div class="actualities-grid">
+            {% for actu in actualities %}
+                <article class="actuality-card">
+                    <img src="{{ asset(actu.picture) }}" alt="{{ actu.title }}">
+                    
+                    <h2>{{ actu.title }}</h2>
+                    
+                    <div class="actuality-dates">
+                        <div class="actuality-date">
+                            <strong>📅 Événement :</strong> {{ actu.eventOn|date('d/m/Y') }}
+                        </div>
+                        <div class="actuality-date">
+                            <strong>🕐 Créé le :</strong> {{ actu.createdAt|date('d/m/Y') }}
+                        </div>
+                    </div>
+                    
+                    <p>{{ actu.description }}</p>
+                    
+                    <a href="{{ path('app_actualityDetail', {'id': actu.id}) }}" class="btn-actuality">
+                        En savoir plus →
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>
 
 {% endblock %}

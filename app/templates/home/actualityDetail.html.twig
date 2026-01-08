@@ -4,18 +4,34 @@
 
 {% block body %}
 
-<h1>Actualités du club</h1>
+    <section class="actuality-detail-section">
+            <a href="{{ path('app_actuality')}}" role="button" class="btn-back">Retour aux actualités</a>
+           
+            <article class="actuality-detail-card">
 
-<a href="{{ path('app_actuality')}}" role="button">Retour aux actualités</a>
+                 <h1>{{ actuality.title }}</h1>
+                 <div class="actuality-image-container">            
+                        <img src="{{ asset(actuality.picture) }}" alt="{{ actuality.title }}" width="150px">
+                  </div>
 
-    <section>
-        
-            <article style="border:1px solid #ddd; padding:10px; margin-bottom:15px; border-radius:8px;">
-                <h2>{{ actuality.title }}</h2>
-                <img src="{{ asset(actuality.picture) }}" alt="{{ actuality.title }}" width="150px">
-                <p>{{ actuality.description }}</p>
-                <p><strong> Cet évenement se tiendra le :</strong> {{ actuality.eventOn|date('d/m/Y H:i') }}</p>
-                <p><strong>Créé le :</strong> {{ actuality.createdAt|date('d/m/Y') }}</p>
+                  <div class="actuality-dates-detail">
+                        <div class="date-badge">
+                            <span class="date-badge-label"> Date de l'événement</span>
+                            <span class="date-badge-value">{{ actuality.eventOn|date('d/m/Y') }}</span>
+                            <span style="font-size: 0.9rem; margin-top: 5px; color: var(--text-color);">
+                            {{ actuality.eventOn|date('H:i') }}
+                            </span>
+                        </div>
+                
+                        <div class="date-badge">
+                            <span class="date-badge-label">Publié le</span>
+                            <span class="date-badge-value">{{ actuality.createdAt|date('d/m/Y') }}</span>
+                        </div>
+                  </div>
+
+                  <div class="actuality-description">
+                         <p>{{ actuality.description }}</p>
+                 </div>
                 
             </article>
        

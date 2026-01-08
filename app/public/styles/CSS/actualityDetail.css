@@ -1,0 +1,203 @@
+/* Page détail actualité */
+.actuality-detail-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Bouton retour */
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    
+    /* Neomorphisme */
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+}
+
+.btn-back:hover {
+    transform: translateX(-3px);
+    box-shadow: 
+        7px 7px 14px var(--shadow-dark),
+        -7px -7px 14px var(--shadow-light);
+}
+
+.btn-back:active {
+    transform: translateX(0);
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+}
+
+/* Carte principale */
+.actuality-detail-card {
+    background: var(--bg-color);
+    border-radius: 25px;
+    padding: 10px 40px 40px 40px ;
+    
+    /* Neomorphisme */
+    box-shadow: 
+        12px 12px 24px var(--shadow-dark),
+        -12px -12px 24px var(--shadow-light);
+}
+
+/* Titre principal */
+.actuality-detail-card h1 {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Conteneur image */
+.actuality-image-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    
+    /* Neomorphisme inversé */
+    box-shadow: 
+        inset 6px 6px 12px var(--shadow-dark),
+        inset -6px -6px 12px var(--shadow-light);
+}
+
+.actuality-image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Section dates */
+.actuality-dates-detail {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.date-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 30px;
+    background: var(--bg-color);
+    border-radius: 15px;
+    min-width: 200px;
+    
+    /* Neomorphisme inversé */
+    box-shadow: 
+        inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light);
+}
+
+.date-badge-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.date-badge-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Description */
+.actuality-description {
+    background: var(--bg-color);
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 30px;
+    
+    /* Neomorphisme inversé léger */
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+}
+
+.actuality-description p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Badge événement à venir */
+.event-badge {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: #111;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    
+    box-shadow: 
+        3px 3px 6px var(--shadow-dark),
+        -3px -3px 6px var(--shadow-light);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .actuality-detail-section {
+        padding: 30px 15px;
+    }
+    
+    .actuality-detail-card {
+        padding: 25px;
+        border-radius: 20px;
+    }
+    
+    .actuality-detail-card h1 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .actuality-dates-detail {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .date-badge {
+        min-width: 100%;
+    }
+    
+    .actuality-description {
+        padding: 20px;
+    }
+    
+    .actuality-description p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .actuality-detail-card h1 {
+        font-size: 1.6rem;
+    }
+    
+    .btn-back {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
