@@ -13,11 +13,9 @@
         {% for actu in actualities %}
             <article style="border:1px solid #ddd; padding:10px; margin-bottom:15px; border-radius:8px;">
                 <h2>{{ actu.title }}</h2>
-                {% if actu.picture %}
-                    <img src="{{ actu.picture }}" alt="{{ actu.title }}" width="150px">
-                {% endif %}
-                <p><strong>Événement le :</strong> {{ actu.eventOn|date('d/m/Y') }}</p>
-                <p><strong>Créé le :</strong> {{ actu.createdAt|date('d/m/Y H:i') }}</p>
+                <img src="{{ asset(actu.picture) }}" alt="{{ actu.title }}" width="150px">
+                <p><strong>Événement le :</strong> {{ actu.eventOn|date('d/m/Y H:i') }}</p>
+                <p><strong>Créé le :</strong> {{ actu.createdAt|date('d/m/Y') }}</p>
                 <a href="{{ path('app_actualityDetail', {'id': actu.id}) }}" role="button">En savoir plus</a>
 
             </article>
