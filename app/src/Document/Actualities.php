@@ -3,9 +3,13 @@
 namespace App\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use App\Repository\ActualitiesRepository;
 
-#[MongoDB\Document]
-class Actualites
+#[MongoDB\Document(
+    repositoryClass: ActualitiesRepository::class,
+    collection: "actualites"
+)]
+class Actualities
 {
     #[MongoDB\Id]
     private ?string $id = null;

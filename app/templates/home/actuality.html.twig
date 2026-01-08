@@ -2,8 +2,27 @@
 
 {% block title %}Actualités{% endblock %}
 
-
 {% block body %}
 
-{% endblock %}
+<h1>Actualités du club</h1>
 
+{% if actualities is empty %}
+    <p>Aucune actualité pour le moment.</p>
+{% else %}
+    <section>
+        {% for actu in actualities %}
+            <article style="border:1px solid #ddd; padding:10px; margin-bottom:15px; border-radius:8px;">
+                <h2>{{ actu.title }}</h2>
+                {% if actu.picture %}
+                    <img src="{{ actu.picture }}" alt="{{ actu.title }}" width="150px">
+                {% endif %}
+                <p>{{ actu.description }}</p>
+                <p><strong>Événement le :</strong> {{ actu.eventOn|date('d/m/Y') }}</p>
+                <p><strong>Créé le :</strong> {{ actu.createdAt|date('d/m/Y H:i') }}</p>
+                <a href="#" role="button">Lire</a>
+            </article>
+        {% endfor %}
+    </section>
+{% endif %}
+
+{% endblock %}

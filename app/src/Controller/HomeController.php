@@ -106,15 +106,6 @@ final class HomeController extends AbstractController
         ]);
     }
 
-
-     #[Route('/Actualites', name: 'app_actuality')]
-    public function actuality(): Response
-    {
-        return $this->render('home/actuality.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
-    }
-
        #[Route('/Partenaires', name: 'app_partners')]
     public function partners(): Response
     {

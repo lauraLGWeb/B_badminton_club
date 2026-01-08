@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures\MongoDB;
 
-use App\Document\Actualites;
+use App\Document\Actualities;
 use Doctrine\Bundle\MongoDBBundle\Fixture\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -50,7 +50,7 @@ class ActualitesFixtures extends Fixture
         ];
 
         foreach ($actualitesData as $data) {
-            $actualite = new Actualites();
+            $actualite = new Actualities();
             $actualite
                 ->setTitle($data['title'])
                 ->setDescription($data['description'])
