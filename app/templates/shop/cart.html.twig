@@ -3,75 +3,89 @@
 {% block title %}Mon Panier{% endblock %}
 
 {% block body %}
-<h1>Mon Panier</h1>
+<div class="cart-container">
+    <h1> Mon Panier</h1>
 
-{% if cart.CartItem is empty %}
-    <p>Votre panier est vide.</p>
-    <a href="{{ path('app_shop') }}" class="btn btn-primary">Continuer mes achats</a>
-{% else %}
-    <table>
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Produit</th>
-                <th>Quantité</th>
-                <th>Prix unitaire</th>
-                <th>Prix </th>
-                <th>Total</th>
-                <th>Actions</th>      
-            </tr>
-        </thead>
-        <tbody>
-            {% set total = 0 %}
-            {% for item in cart.CartItem %}
+    {% if cart.CartItem is empty %}
+        <div class="empty-cart">
+            <p>Votre panier est vide.</p>
+            <a href="{{ path('app_shop') }}" class="btn btn-primary">Découvrir nos produits</a>
+        </div>
+    {% else %}
+        <table class="cart-table">
+            <thead>
                 <tr>
-                    <td>
-                         <img src="{{ asset(item.product.picture) }}" alt="{{ item.product.title }}" width="80">
-                    </td>
-                    <td>{{ item.product.title }}</td>
-                    <td>
-                        
-                            <input class="btnNrbItem"
-                                type="number"
-                                name="quantity"
-                                value="{{ item.quantity }}"
-                                min="1"
-                                max="99"
-                                readonly
-                            >
-
-                                        
-                        <form action="{{ path('app_deleteItem', { id: item.id }) }}" method="post">
-                            <button type="submit">Supprimer</button>
-                        </form>
-
-                      
-                    </td>
-
-                    <td>
-                        {{ item.product.price|number_format(2, ',', ' ') }} €
-                    </td>
-
-                    <td>
-                        {{ (item.product.price * item.quantity)|number_format(2, ',', ' ') }} €
-                    </td>
-
-                    <td>
-                       
-                    </td>
+                    <th>Produit</th>
+                    <th>Prix unitaire</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for item in cart.CartItem %}
+                    <tr>
+                        <td class="product-cell">
+                            <img src="{{ asset(item.product.picture) }}" 
+                                 alt="{{ item.product.title }}" 
+                                 width = "150px"
+                                 class="product-image">
+                                 
+                            <div class="product-name">{{ item.product.title }}</div>
+                        </td>
 
-    {% set total = 0 %}
-    {% for item in cart.CartItem %}
-        {% set total = total + (item.product.price * item.quantity) %}
-    {% endfor %}
+                        
+                        <td class="price-cell">
+                            {{ item.product.price|number_format(2, ',', ' ') }} €
+                        </td>
 
-    <h3>Total du panier : {{ total|number_format(2, ',', ' ') }} €</h3>
+                        
+                        <td class="quantity-cell">
+                            <span class="quantity-display">{{ item.quantity }}</span>
+                        </td>
 
-    <a href="{{ path('app_shop') }}" class="btn btn-primary">Continuer mes achats</a>
-    <a href="{{ path('app_home') }}">Passer à la caisse</a>
-{% endif %}
+                       
+                        <td class="total-cell">
+                            <strong>{{ (item.product.price * item.quantity)|number_format(2, ',', ' ') }} €</strong>
+                        </td>
+
+                        
+                        <td class="actions-cell">
+                            <form action="{{ path('app_deleteItem', { id: item.id }) }}" 
+                                  method="post" 
+                                  onsubmit="return confirm('Supprimer cet article ?')">
+                                <button type="submit" class="btn-delete"> supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+         {# total amount for each product #}
+        {% set total = 0 %}
+        {% for item in cart.CartItem %}
+            {% set total = total + (item.product.price * item.quantity) %}
+        {% endfor %}
+
+        <div class="cart-summary">
+            <section class="summary-row">
+            <hr>
+                <span class="summary-label">Sous-total :</span>
+                <span class="summary-value">{{ total|number_format(2, ',', ' ') }} €</span>
+            </section>
+
+            <section class="summary-row total-row">
+                <span class="summary-label">Total :</span>
+                <span class="summary-value">{{ total|number_format(2, ',', ' ') }} €</span>
+            </section>
+        </div>
+
+        {# BOUTONS D'ACTION #}
+        <div class="cart-actions">
+            <a href="{{ path('app_shop') }}" class="btn btn-secondary">← Continuer mes achats</a>
+            <a href="{{ path('app_home') }}" class="btn btn-primary">Passer à la caisse →</a>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}
