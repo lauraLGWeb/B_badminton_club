@@ -1,43 +1,55 @@
 services:
-  database:
-    container_name: databaseBlois
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: passwordbdd
-      MYSQL_DATABASE: blois_badminton_club
-      MYSQL_USER: symfony
-      MYSQL_PASSWORD: symfony
-    ports:
-      - '4306:3306'
-    volumes:
-      - ./mysql:/var/lib/mysql
-  php:
-    container_name: phpBlois
-    build:
-      context: ./php
-    ports:
-      - 8081:80
-    environment:
-      - APP_ENV=dev
-      - DATABASE_URL=mysql://symfony:symfony@database:3306/blois_badminton_club?serverVersion=8.0&charset=utf8mb4
-      - MAILER_DSN=smtp://laura.maglegall@gmail.com:cfutfqisudgrzpjt@smtp.gmail.com:587
-    
-    volumes:
-      - ./apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
-      - ./apache/default-ssl.conf:/etc/apache2/sites-enabled/000-default-ssl.conf
-      - ./etc/ssl:/etc/ssl
-      - ./app:/var/www
-    depends_on:
-      - database
-  phpma:
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadminBlois
-    environment:
-      PMA_ARBITRARY: 1
-      PMA_HOST: database
-      PMA_USER: root
-      PMA_PASSWORD: passwordbdd
-      UPLOAD_LIMIT: 20M
-    ports:
-      - 8899:80
-      
+    database:
+        container_name: databaseBlois
+        image: mysql:8.0
+        environment:
+            MYSQL_ROOT_PASSWORD: passwordbdd
+            MYSQL_DATABASE: blois_badminton_club
+            MYSQL_USER: symfony
+            MYSQL_PASSWORD: symfony
+        ports:
+            - '4306:3306'
+        volumes:
+            - ./mysql:/var/lib/mysql
+
+    mongo:
+        container_name: mongodbBlois
+        image: mongo:6
+        restart: always
+        ports:
+            - "27017:27017"   # Host 27018 -> Container 27017 (standard MongoDB)
+        volumes:
+            - ./mongo:/data/db
+
+    php:
+        container_name: phpBlois
+        build:
+            context: ./php
+        ports:
+            - 8081:80
+        environment:
+            APP_ENV: dev
+            DATABASE_URL: mysql://symfony:symfony@database:3306/blois_badminton_club?serverVersion=8.0&charset=utf8mb4
+            MAILER_DSN: smtp://laura.maglegall@gmail.com:cfutfqisudgrzpjt@smtp.gmail.com:587
+            MONGODB_URI: mongodb://mongo:27017   # Symfony communique avec le conteneur, pas avec l’hôte
+            MONGODB_DB: bbc_database
+        volumes:
+            - ./apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
+            - ./apache/default-ssl.conf:/etc/apache2/sites-enabled/000-default-ssl.conf
+            - ./etc/ssl:/etc/ssl
+            - ./app:/var/www
+        depends_on:
+            - database
+            - mongo
+
+    phpma:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadminBlois
+        environment:
+            PMA_ARBITRARY: 1
+            PMA_HOST: database
+            PMA_USER: root
+            PMA_PASSWORD: passwordbdd
+            UPLOAD_LIMIT: 20M
+        ports:
+            - 8899:80
