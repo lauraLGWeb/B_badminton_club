@@ -9,6 +9,9 @@ use App\Repository\ActualitiesRepository;
     repositoryClass: ActualitiesRepository::class,
     collection: "actualites"
 )]
+// to obtend the day of actuality creation
+#[MongoDB\HasLifecycleCallbacks] 
+
 class Actualities
 {
     #[MongoDB\Id]
@@ -29,11 +32,7 @@ class Actualities
     #[MongoDB\Field(type: "date")]
     private ?\DateTime $eventOn = null;
 
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime();
-    }
-
+   
     public function getId(): ?string
     {
         return $this->id;
@@ -81,10 +80,12 @@ class Actualities
         return $this->createdAt;
     }
 
-    public function setCreatedAt(?\DateTime $createdAt): self
+    #[MongoDB\PrePersist]
+        public function setCreatedAtValue(): void
+
     {
-        $this->createdAt = $createdAt;
-        return $this;
+        $this->createdAt = new \DateTime();
+
     }
 
    

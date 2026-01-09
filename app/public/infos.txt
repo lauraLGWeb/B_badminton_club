@@ -1,0 +1,4 @@
+envoyer fixture mongodb 
+php bin/console doctrine:mongodb:fixtures:load --no-interaction
+
+

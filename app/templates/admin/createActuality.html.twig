@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Création d'une nouvelle actualité{% endblock %}
+
+
+{% block body %}
+    
+    {{ form_errors(form) }}
+
+    {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+        
+       
+        {{ form_row(form.title, {
+            label: 'Titre'
+        }) }}
+        {{ form_row(form.description, {
+            label: 'Description'
+        }) }}
+        {{ form_row(form.picture, {
+            label: 'Lien de l\'image '
+        }) }}
+        {{ form_row(form.eventOn, {
+            label: 'Date de l\'évenement'
+        }) }} 
+            
+
+        <button type="submit" class="btn">publier l'évenement</button>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
+

@@ -33,6 +33,12 @@
                     <a href="{{ path('app_actualityDetail', {'id': actu.id}) }}" class="btn-actuality">
                         En savoir plus →
                     </a>
+                   
+                    {% if is_granted('ROLE_ADMIN')%}
+                         <a href="{{ path('app_deleteActuality', {'id': actu.id}) }}" class="btn-actuality">
+                        supprimer  →
+                         </a>
+                    {% endif %}
                 </article>
             {% endfor %}
         </div>
