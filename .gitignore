@@ -2,3 +2,5 @@ mysql/
 .DS_Store
 mongo/
 .DS_Store
+/vendor/
+.DS_Store
