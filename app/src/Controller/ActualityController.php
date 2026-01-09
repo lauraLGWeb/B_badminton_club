@@ -56,7 +56,7 @@ final class ActualityController extends AbstractController
             $dm->flush();        
 
             $this->addFlash('success', 'Actualité créée avec succès !');
-            return $this->render('home/adminDashboard.html.twig');
+            return $this->redirectToRoute('app_actuality');
             }
         
          return $this->render('admin/createActuality.html.twig', [
@@ -76,8 +76,8 @@ final class ActualityController extends AbstractController
         $dm->remove($actualityToDelete);
         $dm->flush();
 
-        return $this->render('home/actuality.html.twig', [
-            
-        ]);
+        $this->addFlash('success', 'Actualité supprimée avec succès !');
+
+       return $this->redirectToRoute('app_actuality');
     }
 }

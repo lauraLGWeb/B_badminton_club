@@ -4,6 +4,18 @@
 
 {% block body %}
 
+
+{# flash messages, first getting the type and the messages from the flshes array #}
+
+    {% for type, messages in app.flashes %}
+    {# going through each of the 3 messages #}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
 <section class="actualities-section">
     <h1> Actualités du club</h1>
 
