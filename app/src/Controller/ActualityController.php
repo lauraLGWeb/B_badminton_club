@@ -65,6 +65,61 @@ final class ActualityController extends AbstractController
 }
 
 
+ //modify actuality
+    #[Route('/Actualites/modifier/{id}', name: 'app_modifyActuality')]
+    public function modifyActuality(Request $request, DocumentManager $dm, $id): Response
+    {
+
+        
+        $actu = $dm->getRepository(Actualities::class)->find($id);
+
+        $formulaire = $this->createForm(ActualityType::class, $actu);
+
+        //get the actual information 
+        $title = $actu->getTitle();
+        $description = $actu->getDescription();
+        $picture = $actu->getPicture();
+        $date = $actu->getEventOn();
+
+        //fill the form with old info
+        $formulaire->get('title')->setData($title);
+        $formulaire->get('description')->setData($description);
+        $formulaire->get('picture')->setData($picture);
+        $formulaire->get('eventOn')->setData($date);
+        
+
+        $formulaire->handleRequest($request);
+        if($formulaire->isSubmitted()&& $formulaire->isValid())
+        {
+         //set up the new role into the database
+        $title = $formulaire->get('title')->getData();
+        $actu->setTitle($title);
+
+        $description = $formulaire->get('description')->getData();
+        $actu->setDescription($description);
+
+        $picture = $formulaire->get('picture')->getData();
+        $actu->setPicture($picture);
+
+        $date = $formulaire->get('eventOn')->getData();  
+        $actu->setEventOn($date);  
+     
+
+        $dm-> flush();
+
+             $this->addFlash('success', 'Actualité mise à jour avec succès !');          
+            return $this->redirectToRoute('app_actuality');
+           
+           
+        } 
+
+         return $this->render("admin/createActuality.html.twig", ["form" => $formulaire]);
+     }
+
+
+
+
+
     //delete the actuality
     #[Route('/Actualites/suppression/{id}', name: 'app_deleteActuality')]
     public function deleteActuality(DocumentManager $dm, $id): Response
