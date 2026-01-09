@@ -3,6 +3,7 @@
 {% block title %}Mon Panier{% endblock %}
 
 {% block body %}
+
 <div class="cart-container">
     <h1> Mon Panier</h1>
 
@@ -84,7 +85,7 @@
         {# BOUTONS D'ACTION #}
         <div class="cart-actions">
             <a href="{{ path('app_shop') }}" class="btn btn-secondary">← Continuer mes achats</a>
-            <a href="{{ path('app_home') }}" class="btn btn-primary">Passer à la caisse →</a>
+            <a href="{{ path('app_payment') }}" class="btn btn-primary">Passer à la caisse →</a>
         </div>
     {% endif %}
 </div>

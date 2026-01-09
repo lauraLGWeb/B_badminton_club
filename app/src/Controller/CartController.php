@@ -9,7 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Product;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\BrowserKit\Request;
+
+
+use Stripe\Stripe;
+use Stripe\Checkout\Session;
 
 
 final class CartController extends AbstractController
@@ -36,9 +41,13 @@ final class CartController extends AbstractController
 //adding to the cart 
 
  #[Route('/boutique/panier/ajouter{id}', name: 'app_addItem')]
-    public function addItem(EntityManagerInterface $em, Product $product): Response
+    public function addItem(EntityManagerInterface $em, Product $product, ): Response
     {
         $user = $this->getUser();
+        if(!$user){
+             dd('pas connecté');
+        }
+
         $carts = $em->getRepository(Cart::class)->findBy(['user' => $user]);
 
         $actualCart = null;
@@ -100,10 +109,70 @@ final class CartController extends AbstractController
         $repo = $em->getRepository(CartItem::class);
         $item = $repo->find($id);
 
+        if (!$item) {
+        $this->addFlash('error', 'Produit introuvable');
+        return $this->redirectToRoute('app_cart');
+        }
+        
         $em->remove($item);
         $em->flush();
         
         return $this->redirectToRoute('app_cart');
+    }
+
+
+
+
+
+    //going to stripe API 
+    #[Route('/boutique/panier/paiement', name: 'app_payment')]
+   public function Payment(EntityManagerInterface $em) : Response
+    {
+
+            //get the user
+            $user = $this->getUser();
+
+            //get the cart with the user, just the cart unpaid yet
+            $cart = $em->getRepository(Cart::class)->findOneBy([
+                'user'=>$user,
+                'isPaid'=> false
+            ]);
+
+            if (!$cart || $cart->getCartItem()->isEmpty()) {
+                $this->addFlash('error', 'Votre panier est vide');
+                return $this->redirectToRoute('app_shop');
+}
+
+            
+        // stripe configuration
+           Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
+
+        // Prépare les items
+            $lineItems = [];
+            foreach ($cart->getCartItem() as $item) {
+                $lineItems[] = [
+                    'price_data' => [
+                        'currency' => 'eur',
+                        'product_data' => [
+                            'name' => $item->getProduct()->getTitle(),
+                        ],
+                        'unit_amount' => $item->getProduct()->getPrice() * 100,
+                    ],
+                    'quantity' => $item->getQuantity(),
+                ];
+            }
+            
+            // Crée la session Stripe
+            $checkoutSession = Session::create([
+                'payment_method_types' => ['card'],
+                'line_items' => $lineItems,
+                'mode' => 'payment',
+                'success_url' => $this->generateUrl('app_shop', [], UrlGeneratorInterface::ABSOLUTE_URL),
+                'cancel_url' => $this->generateUrl('app_cart', [], UrlGeneratorInterface::ABSOLUTE_URL),
+            ]);
+            
+            // Redirige direct vers Stripe
+            return $this->redirect($checkoutSession->url);
     }
 
 }
