@@ -1,0 +1,152 @@
+/* ========================================
+   ADMIN DASHBOARD - NEOMORPHISME SIMPLE
+======================================== */
+
+/* Container principal */
+.admin-dashboard {
+    background: var(--bg-color);
+    min-height: 100vh;
+    padding: 0 20px 50px 20px;
+}
+
+/* Titre principal */
+.admin-dashboard h1 {
+    color: var(--text-color);
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+/* ========================================
+   MENU PRINCIPAL (ul > li > a)
+======================================== */
+
+/* Enlève les puces et centre le menu */
+.admin-dashboard ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Espace entre chaque bouton */
+.admin-dashboard > ul > li {
+    margin-bottom: 20px;
+}
+
+/* BOUTONS PRINCIPAUX (👥 Membres, 🏸 Stages, etc.) */
+.admin-dashboard > ul > li > a {
+    /* Apparence */
+    display: block;
+    padding: 20px 30px;
+    background: var(--bg-color);
+    color: var(--accent-color); /* Bleu */
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    
+    /* Effet 3D neomorphisme (relief) */
+    box-shadow: 
+        8px 8px 15px var(--shadow-dark),   /* Ombre en bas à droite */
+        -8px -8px 15px var(--shadow-light); /* Lumière en haut à gauche */
+    
+    /* Animation fluide */
+    transition: all 0.3s ease;
+}
+
+
+/* ========================================
+   SOUS-MENUS (collapse)
+======================================== */
+
+/* Espace autour du sous-menu */
+.admin-dashboard .collapse {
+    margin-top: 15px;
+    padding: 0 10px;
+}
+
+/* Liste des sous-menus */
+.admin-dashboard .collapse ul {
+    padding: 0;
+}
+
+/* Espace entre chaque lien */
+.admin-dashboard .collapse li {
+    margin-bottom: 10px;
+}
+
+/* LIENS DES SOUS-MENUS (Liste des membres, etc.) */
+.admin-dashboard .collapse a {
+    /* Apparence */
+    display: block;
+    padding: 12px 20px;
+    background: var(--bg-color);
+    color: var(--text-color); /* Couleur texte normale */
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1em;
+    
+    /* Effet 3D plus subtil */
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+    
+    transition: all 0.3s ease;
+}
+
+/* Quand on survole un sous-menu */
+.admin-dashboard .collapse a:hover {
+    color: var(--accent-color); /* Bleu au survol */
+    
+    /* Effet enfoncé */
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+    
+    transform: translateX(5px); /* Glisse vers la droite */
+}
+
+/* ========================================
+   BOUTON "RETOUR AU SITE" (dernier)
+======================================== */
+
+.admin-dashboard > ul > li:last-child > a {
+    /* Dégradé jaune → bleu */
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    font-weight: bold;
+    
+    /* Ombre plus forte */
+    box-shadow: 
+        8px 8px 20px var(--shadow-dark),
+        -8px -8px 20px var(--shadow-light);
+}
+
+/* Survol du bouton retour */
+.admin-dashboard > ul > li:last-child > a:hover {
+    /* Effet enfoncé avec ombre plus foncée */
+    box-shadow: 
+        inset 4px 4px 10px rgba(0,0,0,0.4),
+        inset -4px -4px 10px rgba(255,255,255,0.1);
+}
+
+/* ========================================
+   RESPONSIVE (mobile)
+======================================== */
+
+@media (max-width: 768px) {
+    .admin-dashboard {
+        padding: 30px 15px;
+    }
+    
+    .admin-dashboard h1 {
+        font-size: 2em;
+    }
+    
+    .admin-dashboard > ul > li > a {
+        font-size: 1.1em;
+        padding: 15px 20px;
+    }
+}

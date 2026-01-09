@@ -4,241 +4,73 @@
 
 {% block body %}
      
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div>
-                <h1 >Tableau de bord</h1>
-            </div>
-            
-            {# Gestion Membres #}
+        <div class="admin-dashboard">
+                           <h1 >Tableau de bord </h1>
+                      
+                    {# members #}
                     {% if is_granted('ROLE_ADMIN')%}
-                    <li>
-                        <a data-bs-toggle="collapse" href="#membersMenu"> 👥 Membres </a>
+                    <ul>
+                        <li>
+                            <a data-bs-toggle="collapse" href="#membersMenu"> 👥 Membres 
+                            </a>
                             <div class="collapse" id="membersMenu">
                                 <ul >
-                                    <li><a href="{{ path('app_membersList') }}">Liste des membres</a></li>
+                                    <li><a href="{{ path('app_membersList') }}">Liste des membres</a>
+                                    </li>
                                 </ul>
                             </div>
-                    </li>
-                     {% endif %}
-                    
-                    {# Gestion Stages #}
-                    <li>
-                        <a data-bs-toggle="collapse" href="#internshipsMenu">🏸 Stages </a>
-                        <div class="collapse" id="membersMenu">
-                            <ul>
-                                <li><a href="{{ path('app_home') }}" >Liste des stages</a></li>
-                                <li><a href="{{ path('app_home') }}">➕ Créer un stage</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    
-                    {# Gestion Boutique #}
-                    {% if is_granted('ROLE_ADMIN')%}
-                    <li >
-                        <a data-bs-toggle="collapse" href="#shopMenu"> 🛒 Boutique </a>
-                        <div class="collapse" id="shopMenu">
-                            <ul >
-                                <li><a href="{{ path('app_home') }}" >Produits</a></li>
-                                <li><a href="{{ path('app_home') }}">➕ Ajouter un produit</a></li>
-                                <li><a href="{{ path('app_home') }}">Commandes</a></li>
-                                <li><a href="{{ path('app_home') }}">Stock</a></li>
-                            </ul>
-                        </div>
-                    </li>
+                        </li>
                     {% endif %}
                     
-                    {# Gestion Actualités #}
-                     {% if is_granted('ROLE_ADMIN')%}
-                    <li >
-                        <a data-bs-toggle="collapse" href="#newsMenu">📰 Actualités</a>
-                        <div class="collapse" id="newsMenu">
-                            <ul>
-                                <li><a href="{{ path('app_actuality') }}" >Liste des actus</a></li>
-                                <li><a href="{{ path('app_createActuality') }}" >➕ Publier une actualité</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    {% endif %}
-                    {# Retour au site #}
-                    <li >
-                        <a  href="{{ path('app_home') }}">
-                            ← Retour au site
-                        </a>
-                    </li>
+                         {# coatch #}
+                        <li>
+                            <a data-bs-toggle="collapse" href="#internshipsMenu">🏸 Stages </a>
+                            <div class="collapse" id="internshipsMenu">
+                                <ul>
+                                    <li><a href="{{ path('app_home') }}">Liste des stages</a></li>
+                                    <li><a href="{{ path('app_home') }}">➕ Créer un stage</a></li>
+                                </ul>
+                            </div>
+                          </li>
+                    
+                    {# admin shop #}
+                        {% if is_granted('ROLE_ADMIN')%}
+                        <li >
+                            <a data-bs-toggle="collapse" href="#shopMenu"> 🛒 Boutique </a>
+                            <div class="collapse" id="shopMenu">
+                                <ul >
+                                    <li><a href="{{ path('app_home') }}" >Produits</a></li>
+                                    <li><a href="{{ path('app_home') }}">➕ Ajouter un produit</a></li>
+                                    <li><a href="{{ path('app_home') }}">Commandes</a></li>
+                                    <li><a href="{{ path('app_home') }}">Stock</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        {% endif %}
+                    
+                        {# actu admin #}
+                        {% if is_granted('ROLE_ADMIN')%}
+                        <li >
+                            <a data-bs-toggle="collapse" href="#newsMenu">📰 Actualités</a>
+                            <div class="collapse" id="newsMenu">
+                                <ul>
+                                    <li><a href="{{ path('app_actuality') }}" >Liste des actus</a></li>
+                                    <li><a href="{{ path('app_createActuality') }}" >➕ Publier une actualité</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        {% endif %}
+                    
+                        <li >
+                            <a  href="{{ path('app_home') }}">
+                                ← Retour au site
+                            </a>
+                        </li>
                 </ul>
             </div>
-        </main>
+       </div>
 {% endblock %}
 
 
 
 
-{# 
-
-{% extends 'base.html.twig' %}
-
-{% block title %}Tableau de bord Admin{% endblock %}
-
-{% block body %}
-<div class="container-fluid">
-    <div class="row">
-        {# ✅ SIDEBAR GAUCHE #}
-        {# <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse vh-100">
-            <div class="position-sticky pt-3">
-                <h5 class="text-white px-3 mb-3">⚙️ Administration</h5>
-                
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ path('admin_dashboard') }}">
-                            📊 Dashboard
-                        </a>
-                    </li>
-                     #}
-                    {# Gestion Membres #}
-                    {# <li class="nav-item">
-                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#membersMenu">
-                            👥 Membres
-                        </a>
-                        <div class="collapse" id="membersMenu">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-4">
-                                <li><a href="{{ path('admin_members_list') }}" class="link-light">Liste des membres</a></li>
-                                <li><a href="{{ path('admin_members_create') }}" class="link-light">Ajouter un membre</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                     #}
-                    {# Gestion Stages #}
-                    {# <li class="nav-item">
-                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#internshipsMenu">
-                            🏸 Stages
-                        </a>
-                        <div class="collapse" id="internshipsMenu">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-4">
-                                <li><a href="{{ path('admin_internships_list') }}" class="link-light">Liste des stages</a></li>
-                                <li><a href="{{ path('admin_internships_create') }}" class="link-light">Créer un stage</a></li>
-                                <li><a href="{{ path('admin_registrations') }}" class="link-light">Inscriptions</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                     #}
-                    {# Gestion Boutique #}
-                    {# <li class="nav-item">
-                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#shopMenu">
-                            🛒 Boutique
-                        </a>
-                        <div class="collapse" id="shopMenu">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-4">
-                                <li><a href="{{ path('admin_products_list') }}" class="link-light">Produits</a></li>
-                                <li><a href="{{ path('admin_products_create') }}" class="link-light">Ajouter un produit</a></li>
-                                <li><a href="{{ path('admin_orders') }}" class="link-light">Commandes</a></li>
-                                <li><a href="{{ path('admin_stock') }}" class="link-light">Stock</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                     #}
-                    {# Gestion Actualités #}
-                    {# <li class="nav-item">
-                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#newsMenu">
-                            📰 Actualités
-                        </a>
-                        <div class="collapse" id="newsMenu">
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ps-4">
-                                <li><a href="{{ path('admin_news_list') }}" class="link-light">Liste des actus</a></li>
-                                <li><a href="{{ path('admin_news_create') }}" class="link-light">Créer une actu</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                     #}
-                    {# Retour au site #}
-                    {# <li class="nav-item mt-4">
-                        <a class="nav-link text-warning" href="{{ path('app_home') }}">
-                            ← Retour au site
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav> #}
-
-        {# ✅ CONTENU PRINCIPAL #}
-        {# <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Tableau de bord</h1>
-            </div> #}
-
-            {# Stats rapides
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card text-white bg-primary mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Membres</h5>
-                            <p class="card-text fs-2">{{ totalMembers }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card text-white bg-success mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Stages actifs</h5>
-                            <p class="card-text fs-2">{{ activeInternships }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card text-white bg-warning mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Commandes</h5>
-                            <p class="card-text fs-2">{{ pendingOrders }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card text-white bg-info mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Produits</h5>
-                            <p class="card-text fs-2">{{ totalProducts }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div> #}
-
-            {# Actions rapides #}
-            {# <h3 class="mt-4">Actions rapides</h3>
-            <div class="list-group">
-                <a href="{{ path('admin_members_create') }}" class="list-group-item list-group-item-action">
-                    ➕ Ajouter un membre
-                </a>
-                <a href="{{ path('admin_internships_create') }}" class="list-group-item list-group-item-action">
-                    ➕ Créer un stage
-                </a>
-                <a href="{{ path('admin_news_create') }}" class="list-group-item list-group-item-action">
-                    ➕ Publier une actualité
-                </a>
-                <a href="{{ path('admin_products_create') }}" class="list-group-item list-group-item-action">
-                    ➕ Ajouter un produit
-                </a>
-            </div>
-        </main>
-    </div>
-</div>
-
-<style>
-    .sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 100;
-        padding: 48px 0 0;
-        box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-    }
-    
-    .sidebar .nav-link {
-        font-weight: 500;
-        color: #fff;
-    }
-    
-    .sidebar .nav-link:hover {
-        background-color: rgba(255,255,255,.1);
-    }
-</>
-{% endblock %} #} 
