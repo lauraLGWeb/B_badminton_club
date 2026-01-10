@@ -8,8 +8,16 @@
 /var/
 /vendor/
 /mongo/
-/mysql/
+/mysql###< symfony/framework-bundle ###
 
+###> symfony/framework-bundle ###
+/app/.env.local
+/app/.env.local.php
+/app/.env.*.local
+/app/config/secrets/prod/prod.decrypt.private.php
+/app/public/bundles/
+/app/var/
+/app/vendor/
 ###< symfony/framework-bundle ###
 
 ###> php-cs-fixer/shim ###
@@ -28,8 +36,15 @@
 ###< symfony/phpunit-bridge ###
 
 ###> symfony/asset-mapper ###
-/public/assets/
-/assets/vendor/
+/app/public/assets/
+/app/assets/vendor/
 ###< symfony/asset-mapper ###
-mysql/
 
+###> Database ###
+/mysql/
+/mongo/
+###< Database ###
+
+###> Dependencies ###
+/vendor/
+###< Dependencies ###
