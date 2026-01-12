@@ -101,66 +101,56 @@ final class HomeController extends AbstractController
      #[Route('/Tarifs', name: 'app_prices')]
     public function prices(): Response
     {
-        return $this->render('home/prices.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/prices.html.twig');
     }
 
 
      #[Route('/Actualites', name: 'app_actuality')]
     public function actuality(): Response
     {
-        return $this->render('home/actuality.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/actuality.html.twig');
     }
 
        #[Route('/Partenaires', name: 'app_partners')]
     public function partners(): Response
     {
-        return $this->render('home/partners.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/partners.html.twig');
     }
 
        #[Route('/Boutique', name: 'app_shop')]
     public function shop(): Response
     {
-        return $this->render('home/shop.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/shop.html.twig');
+    }
+
+       #[Route('/Inscription', name: 'app_inscription')]
+    public function Inscription(): Response
+    {
+        return $this->render('home/inscription.html.twig');
     }
 
 
           #[Route('/Creneaux', name: 'app_schedules')]
     public function schedules(): Response
     {
-        return $this->render('home/schedules.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/schedules.html.twig');
     }
 
         #[Route('/Essais', name: 'app_try')]
     public function try(): Response
     {
-        return $this->render('home/try.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/try.html.twig');
     }
       #[Route('/admin', name: 'app_admin_dashboard')]
     public function adminDash(): Response
     {
-        return $this->render('home/adminDashboard.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/adminDashboard.html.twig');
     }
 
        #[Route('/mentions', name: 'app_legalMentions')]
     public function legalMentions(): Response
     {
-        return $this->render('legal/legalMentions.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('legal/legalMentions.html.twig');
     }
 
 
@@ -169,9 +159,7 @@ final class HomeController extends AbstractController
      #[Route('/Leclub/Stages/gestion', name: 'app_each_intership')]
     public function eachInternship(): Response
     {
-        return $this->render('home/eachInternship.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/eachInternship.html.twig');
     }
       
     //======================
