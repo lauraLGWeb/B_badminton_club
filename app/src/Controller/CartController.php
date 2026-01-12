@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Product;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 
 use Stripe\Stripe;
@@ -34,6 +34,14 @@ final class CartController extends AbstractController
                 $actualCart = $cart;
                 break;
             }
+        }
+
+        if(!$actualCart){
+            $actualCart = new Cart();
+            $actualCart-> setIsPaid(false);
+            $actualCart-> setUser($user);
+            $actualCart ->setPurchaseDate(new \DateTimeImmutable());
+            $em->persist($actualCart);
         }
 
         return $this->render('shop/cart.html.twig',
@@ -132,6 +140,8 @@ public function Payment(EntityManagerInterface $em) : Response
 {
     $user = $this->getUser();
     
+
+    //getting the unpaid cart from the user connected
     $cart = $em->getRepository(Cart::class)->findOneBy([
         'user' => $user,
         'isPaid' => false
@@ -142,8 +152,10 @@ public function Payment(EntityManagerInterface $em) : Response
         return $this->redirectToRoute('app_shop');
     }
 
+    //acgtiviating the api from the secret key
     Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
 
+    
     $lineItems = [];
     foreach ($cart->getCartItem() as $item) {
         $lineItems[] = [
@@ -158,18 +170,91 @@ public function Payment(EntityManagerInterface $em) : Response
         ];
     }
 
-    $checkoutSession = Session::create([
-        'payment_method_types' => ['card'],
-        'line_items' => $lineItems,
-        'mode' => 'payment',
-        'success_url' => $this->generateUrl('app_shop', [], UrlGeneratorInterface::ABSOLUTE_URL),
-        'cancel_url' => $this->generateUrl('app_cart', [], UrlGeneratorInterface::ABSOLUTE_URL),
+
+    $paymenttSession = Session::create([
+        'payment_method_types' => ['card'], //payment by card only
+        'line_items' => $lineItems, // items from the cart
+        'mode' => 'payment', // it's an only payment
+        'success_url' => $this->generateUrl('app_payment_success', [], UrlGeneratorInterface::ABSOLUTE_URL),  //if payment done, redirection to shop
+        'cancel_url' => $this->generateUrl('app_payment_cancel', [], UrlGeneratorInterface::ABSOLUTE_URL), //if payment canceled, redirection to cart
     ]);
 
-    return $this->redirect($checkoutSession->url);
+
+    //sending to the stripe page to do the payment
+    return $this->redirect($paymenttSession->url);
 }
 
-//test one
+
+// payment succed
+
+    #[Route('/boutique/paiment_accepté}', name: 'app_payment_success')]
+ public function paymentSuccess(Request $request, EntityManagerInterface $em): Response
+{
+    // 1️⃣ Récupérer l'ID de session envoyé par Stripe
+    $sessionId = $request->query->get('session_id');
+    
+    if (!$sessionId) {
+        $this->addFlash('error', 'Session invalide');
+        return $this->redirectToRoute('app_cart');
+    }
+
+    \Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
+
+    try {
+        // is the payment done ? 
+        $session = \Stripe\Checkout\Session::retrieve($sessionId);
+        
+        /// if cart is paid
+        if ($session->payment_status === 'paid') {
+            
+            
+            $cartId = $session->metadata->cart_id;
+            $cart = $em->getRepository(Cart::class)->find($cartId);
+            
+            if ($cart && !$cart->isIsPaid()) {
+                // then the cart become paid with the day time
+                $cart->setIsPaid(true);
+                $cart->setPurchaseDate(new \DateTime());
+                      
+            
+                $em->flush();
+             $this->addFlash('success', '🎉 Paiement confirmé ! Merci pour votre commande.');
+
+            }
+        }
+        
+    } catch (\Exception $e) {
+        // En cas d'erreur avec Stripe
+        $this->addFlash('error', 'Erreur lors de la vérification du paiement');
+    }
+
+    return $this->redirectToRoute('app_shop');
+}
+
+
+
+
+// payment cancelled
+
+    #[Route('/boutique/paiment_refusé}', name: 'app_payment_canceled')]
+   public function cancelledPayment() : Response
+    {
+          $this->addFlash('warning', 'Paiement annulé. Votre panier est toujours disponible.');
+        
+        return $this->redirectToRoute('app_cart');
+    }
+
+
+
+
+
+
+
+
+
+
+
+//test for API 
 #[Route('/boutique/panier/paiement/stripe', name: 'app_test_stripe')]
 public function testStripe(): Response
 {
