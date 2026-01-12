@@ -7,11 +7,17 @@
 
 {% block body %}
 {% if app.user %}
-       <h1> Bonjour {{app.user.firstName}} {{app.user.lastName}} ! Nous sommes ravis de te revoir !</h1>
-        <p>Historique des paiements ou factures</p>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, incidunt ipsa vero quibusdam iusto officiis dicta aliquid quo obcaecati fugit. Ipsam ipsa sequi explicabo amet consequatur voluptatibus? Omnis, necessitatibus illum.
-        Quae, hic! Qui at enim, non perspiciatis, recusandae corporis hic autem ad fugiat saepe pariatur, possimus impedit animi! Provident fuga facilis quae sunt ipsam ea consequuntur unde error, harum non.
-        Architecto quod consequuntur adipisci dolore corrupti perspiciatis, quae autem mollitia dolorem numquam eveniet a repellat blanditiis rem pariatur explicabo! Corrupti voluptas, maiores deserunt illo optio nam suscipit cupiditate minima nulla.</p>
+        <h1> Bonjour {{app.user.firstName}} {{app.user.lastName}} ! Nous sommes ravis de te revoir !</h1>
+       
+      
+        <span> Si tu souhaite modifier une information de ton compte, dis-le nous par  </span> <a href="mailto:bloisbadclub@gmail.com">mail</a> <span>, nous effectuerons la modification.</span>
+
+        <p>Petit rappel si besoin, ton numéro de licence est le {{app.user.lienceNbr}} </p>
+        
+        <div>
+            <a href="https://www.myffbad.fr/connexion" target=blank >Renouveller mon inscription</a>
+        </div>
+
 {% endif %}
 
 {% endblock %}
