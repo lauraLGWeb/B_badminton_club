@@ -5,5 +5,99 @@
 
 {% block body %}
 
+<div class="tarifs-container">
+
+    <h1>Tarifs</h1>
+
+    <h2>Juniors/Séniors/Vétérans: </h2>
+
+    <table>
+    <caption>
+        Tarifs licences
+    </caption>
+    <thead>
+        <tr>
+        <th scope="col">Type de licence</th>
+        <th scope="col">Tarif</th>
+        <th scope="col">Informations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <th scope="row">Jeu libre " loisir"</th>
+        <td>155€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Enseignement</th>
+        <td>210€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Entrainement gr1</th>
+        <td>220€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Entrainement gr2:</th>
+        <td>230€</td>
+        <td></td>
+        </tr>
+    </tbody>
+    </table>
+
+
+    <p>Retouve les créneaux ici : </p>
+    <a href="{{ path('app_schedules') }}">Voir les créneaux Juniors/Séniors/Vétérans:</a>
+
+
+
+
+    <h2>Jeunes: </h2>
+
+    <table>
+    <caption>
+        Tarifs licences
+    </caption>
+    <thead>
+        <tr>
+        <th scope="col">Type de licence</th>
+        <th scope="col">Tarif</th>
+        <th scope="col">Informations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <th scope="row">Minibads</th>
+        <td>140€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Poussins/Benjamins: </th>
+        <td>165€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Minimes/Cadets: </th>
+        <td>165€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Pré Académie (sur sélection uniquement) :</th>
+        <td>205€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Académie 1/2 (sur sélection uniquement) :</th>
+        <td>240€</td>
+        <td></td>
+        </tr>
+    </tbody>
+    </table>
+
+    <p>Retouve les créneaux ici :</p>
+    <a href="{{ path('app_schedules') }}">Voir les créneaux Jeunes</a>
+</div>
+
 {% endblock %}
 
