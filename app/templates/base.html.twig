@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Blois Badminton Club{% endblock %}</title>
-    
-    {% block stylesheets %}
+ {% block stylesheets %}
         <script defer src="{{asset('styles/JS/main.js') }}"></script>
+        <script defer src="{{asset('styles/JS/addItem.js') }}"></script>
         <link rel="stylesheet" href="{{ asset('styles/CSS/app.css') }}">
          <link rel="stylesheet" href="{{ asset('styles/CSS/listMembers.css') }}">
          <link rel="stylesheet" href="{{ asset('styles/CSS/dashboardadmin.css') }}">
@@ -13,8 +11,11 @@
          <link rel="stylesheet" href="{{ asset('styles/CSS/actualityDetail.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/mentions.css') }}">
         <link rel="shortcut icon" href="{{ asset('pictures/logo.jpeg') }}" type="image/x-icon">
-        
-    {% endblock %}
+{% endblock %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Blois Badminton Club{% endblock %}</title>
+    
+   
     
 </head>
 

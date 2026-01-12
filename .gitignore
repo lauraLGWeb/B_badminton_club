@@ -1,7 +1,6 @@
-# Bases de données (ne JAMAIS commiter)
 mysql/
-mongo/
-
-# Fichiers système
 .DS_Store
-.editorconfig
+mongo/
+.DS_Store
+/vendor/
+.DS_Store

@@ -13,7 +13,7 @@
     --text-color: #f5f5f5;
     --primary-color: #ffdd00f3;
     --accent-color: #3b70aca3;
-    --shadow-light: rgba(255, 255, 255, 0.05);
+    --shadow-light: rgba(63, 60, 60, 0.731);
     --shadow-dark: rgba(0, 0, 0, 0.7);
 }
 
@@ -248,11 +248,15 @@ header {
     justify-content: center;
     flex-direction: column
 }
+ .nav-links{
+    display: flex;
+ }
 
 .navBarContainer ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    justify-content: center;
+    gap: 1rem;
     padding: 0;
     margin: 0;
 }

@@ -22,11 +22,17 @@ class Product
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\Column(length: 5)]
+    #[ORM\Column(length: 5,nullable: true)]
     private ?string $size = null;
 
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
+
+    #[ORM\Column(name: 'has_size')]
+    private ?bool $hasSize = false;
+
+    #[ORM\Column(length: 15, nullable: true)]
+    private ?string $gender = null;
 
     public function getId(): ?int
     {
@@ -89,6 +95,30 @@ class Product
     public function setPicture(string $picture): static
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getHasSize(): ?bool
+    {
+        return $this->hasSize;
+    }
+
+    public function setHasSize(bool $hasSize): static
+    {
+        $this->hasSize = $hasSize;
+
+        return $this;
+    }
+
+    public function getGender(): ?string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(string $gender): static
+    {
+        $this->gender = $gender;
 
         return $this;
     }
