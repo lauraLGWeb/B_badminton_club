@@ -12,10 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[IsGranted('ADMIN')]
+
 final class ActualityController extends AbstractController
 {
     #[Route('/Actualites', name: 'app_actuality')]
+    #[IsGranted('ROLE_ADMIN')]
     public function actuality(DocumentManager $dm): Response
     {
 
@@ -30,6 +31,7 @@ final class ActualityController extends AbstractController
 
 
     #[Route('/Actualites/detail/{id}', name: 'app_actualityDetail')]
+    #[IsGranted('ROLE_ADMIN')]
     public function actualitydetail(DocumentManager $dm, $id): Response
     {
 
@@ -45,7 +47,8 @@ final class ActualityController extends AbstractController
 
 
     //create actuality
-    #[Route('/Actualites/création/', name: 'app_createActuality')]
+    #[Route('/Actualites/création', name: 'app_createActuality')]
+    #[IsGranted('ROLE_ADMIN')]
     public function createActuality(Request $request, DocumentManager $dm,): Response
     {
 
@@ -70,6 +73,7 @@ final class ActualityController extends AbstractController
 
  //modify actuality
     #[Route('/Actualites/modifier/{id}', name: 'app_modifyActuality')]
+    #[IsGranted('ROLE_ADMIN')]
     public function modifyActuality(Request $request, DocumentManager $dm, $id): Response
     {
 
@@ -125,6 +129,7 @@ final class ActualityController extends AbstractController
 
     //delete the actuality
     #[Route('/Actualites/suppression/{id}', name: 'app_deleteActuality')]
+    #[IsGranted('ROLE_ADMIN')]
     public function deleteActuality(DocumentManager $dm, $id): Response
     {
 

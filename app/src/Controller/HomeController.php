@@ -12,6 +12,8 @@ use App\Document\Actualities;
 use App\Form\ModifyContactType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\UserModify;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
 
 final class HomeController extends AbstractController
 {
@@ -60,6 +62,7 @@ final class HomeController extends AbstractController
 
 
   #[Route('/Leclub/Membres/compte', name: 'app_account')]
+   #[IsGranted('ROLE_MEMBRE')]
     public function account(): Response
     {
         return $this->render('home/account.html.twig');
@@ -129,6 +132,7 @@ final class HomeController extends AbstractController
 
 
       #[Route('/admin', name: 'app_admin_dashboard')]
+       #[IsGranted('ROLE_ADMIN')]
     public function adminDash(): Response
     {
         return $this->render('home/adminDashboard.html.twig');
@@ -145,6 +149,7 @@ final class HomeController extends AbstractController
 
 // pages for internship
      #[Route('/Leclub/Stages/gestion', name: 'app_each_intership')]
+      #[IsGranted('ROLE_ENTRAINEUR')]
     public function eachInternship(): Response
     {
         return $this->render('home/eachInternship.html.twig');
@@ -157,6 +162,7 @@ final class HomeController extends AbstractController
 
     // get all the members who has an account online
      #[Route('/admin/membres/liste', name: 'app_membersList')]
+     #[IsGranted('ROLE_ADMIN')]
     public function membersList(EntityManagerInterface $em)
     {
         $repo = $em->getRepository(User::class);
@@ -169,6 +175,7 @@ final class HomeController extends AbstractController
 
         //modify the User
     #[Route('/admin/membres/modifier/{id}', name: 'app_modify')]
+    #[IsGranted('ROLE_ADMIN')]
    public function modify(Request $request, EntityManagerInterface $em, $id)
     {
 
@@ -208,6 +215,7 @@ final class HomeController extends AbstractController
 
     //delete the User
     #[Route('/admin/membres/supprimer/{id}', name: 'app_delete')]
+    #[IsGranted('ROLE_ADMIN')]
    public function supprimer(EntityManagerInterface $em, $id) : Response
     {
 
