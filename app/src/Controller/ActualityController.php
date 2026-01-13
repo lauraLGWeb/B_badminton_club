@@ -10,6 +10,9 @@ use App\Form\ActualityType;
 
 use Symfony\Component\HttpFoundation\Request;
 
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
+#[IsGranted('ADMIN')]
 final class ActualityController extends AbstractController
 {
     #[Route('/Actualites', name: 'app_actuality')]

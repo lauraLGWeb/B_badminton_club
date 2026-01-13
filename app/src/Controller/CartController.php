@@ -18,7 +18,9 @@ use Stripe\Stripe;
 use Stripe\Checkout\Session;
 use Stripe\Account;
 
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
+#[IsGranted('ROLE_MEMBRE')]
 final class CartController extends AbstractController
 {
    #[Route('/boutique/panier', name: 'app_cart')]
@@ -277,3 +279,4 @@ public function testStripe(): Response
 }
 
 }
+

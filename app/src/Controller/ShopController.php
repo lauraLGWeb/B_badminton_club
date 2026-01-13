@@ -8,6 +8,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Product;
 
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
+#[IsGranted('ROLE_MEMBRE')]
 final class ShopController extends AbstractController
 {
     #[Route('/Boutique', name: 'app_shop')]

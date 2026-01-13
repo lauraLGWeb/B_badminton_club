@@ -1,0 +1,1 @@
+{"version":2,"defects":{"App\\Tests\\Controller\\CartControllerTest::testCartPageIsAccessibleWhenLoggedIn":8,"App\\Tests\\Controller\\CartControllerTest::testAddProductToCart":8,"App\\Tests\\Controller\\CartControllerTest::testRemoveProductFromCart":8,"App\\Tests\\Controller\\CartControllerTest::testCartPageRedirectsIfNotLoggedIn":8},"times":[]}
