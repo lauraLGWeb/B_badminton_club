@@ -8,10 +8,8 @@ use App\Entity\Product;
 use App\Entity\CartItem;
 
 class CartControllerTest extends WebTestCase
-
 {
-
-private $client;
+    private $client;
 
     // Cette méthode s'exécute AVANT chaque test
     protected function setUp(): void
@@ -58,7 +56,7 @@ private $client;
     {
         // ÉTAPE 1 : Connexion utilisateur
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'deoliveira.valentine@example.net']);
+        $user = $userRepository->findOneBy(['email' => 'membre@exemple.com']);
 
         $this->assertNotNull($user, 'Utilisateur introuvable');
         $this->client->loginUser($user);
@@ -137,11 +135,3 @@ private $client;
         $this->assertResponseRedirects('/login');
     }
 }
-
-
-
-//On crée un client de test (navigateur virtuel)
-//On connecte un utilisateur de fixture
-//On fait une requête GET vers /boutique/panier
-//On vérifie le code HTTP 200
-//On vérifie qu'il y a un titre "Panier"
