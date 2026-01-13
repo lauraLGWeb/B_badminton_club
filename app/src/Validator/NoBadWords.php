@@ -8,4 +8,5 @@ use Symfony\Component\Validator\Constraint;
 class NoBadWords extends Constraint
 {
     public string $message = 'Le message contient un langage inapproprié, merci de changer de vocabulaire';
+
 }

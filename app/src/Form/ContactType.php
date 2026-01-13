@@ -54,11 +54,12 @@ class ContactType extends AbstractType
                 'attr' => ['placeholder' => 'Votre message', 'rows' => 5],
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Le message est obligatoire']),
+                    new NoBadWords(),
                     new Assert\Length([
                         'min' => 10,
                         'minMessage' => 'Le message doit faire au moins {{ limit }} caractères',
                     ]),
-                    new NoBadWords()
+                    
                 ],
             ])
             ->add('send', SubmitType::class, [
