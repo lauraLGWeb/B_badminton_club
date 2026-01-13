@@ -29,7 +29,7 @@ services:
             - 8081:80
         environment:
             APP_ENV: dev
-            DATABASE_URL: mysql://symfony:symfony@database:3306/blois_badminton_club?serverVersion=8.0&charset=utf8mb4
+            # DATABASE_URL: mysql://symfony:symfony@database:3306/blois_badminton_club?serverVersion=8.0&charset=utf8mb4
             MAILER_DSN: smtp://laura.maglegall@gmail.com:cfutfqisudgrzpjt@smtp.gmail.com:587
             MONGODB_URI: mongodb://mongo:27017   # Symfony communique avec le conteneur, pas avec l’hôte
             MONGODB_DB: bbc_database
