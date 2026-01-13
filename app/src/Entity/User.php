@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator\NoBadWords;
 
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -41,31 +42,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-     #[Assert\NotBlank(message: 'Le mot de passe est obligatoire')]
-    #[Assert\PasswordStrength(
-        message: 'Your password is too easy to guess. Company\'s security policy requires to use a stronger password.'
-    )]
-
+     #[Assert\NotBlank(message: 'Le mot de passe est obligatoire')]    
     private ?string $password = null;
 
     #[ORM\Column(length: 50)]
+    #[NoBadWords]
      #[Assert\NotBlank(message: 'Le prénom est obligatoire')]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 50)]
+    #[NoBadWords]
      #[Assert\NotBlank(message: 'Le Nom est obligatoire')]
     private ?string $lastName = null;
 
    #[ORM\Column(type: 'bigint')]
     #[Assert\NotBlank(message: 'Le numéro de licence est obligatoire')]
-    #[Assert\Positive(message: 'Le numéro de licence doit être positif')]
-    #[Assert\Length(
-    min: 7,
-    max: 7,
-    exactMessage: 'Le numéro de licence doit contenir exactement {{ limit }} chiffres'
-)]
-
+    #[Assert\Regex(
+        pattern: '/^\d{7}$/',
+        message: 'Le numéro de licence doit contenir exactement 7 chiffres'
+    )]
+    
     private ?string $lienceNbr = null;
+
 
    /**
     * @var Collection<int, Cart>

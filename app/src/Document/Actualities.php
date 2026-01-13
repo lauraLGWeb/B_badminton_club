@@ -4,6 +4,7 @@ namespace App\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use App\Repository\ActualitiesRepository;
+use App\Validator\NoBadWords;
 
 #[MongoDB\Document(
     repositoryClass: ActualitiesRepository::class,
@@ -21,6 +22,7 @@ class Actualities
     private ?string $title = null;
 
     #[MongoDB\Field(type: "string")]
+    #[NoBadWords]
     private ?string $description = null;
 
     #[MongoDB\Field(type: "string")]

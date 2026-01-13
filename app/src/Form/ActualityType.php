@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use PhpParser\Node\Expr\BinaryOp\GreaterOrEqual;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -9,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 
 class ActualityType extends AbstractType
 {
@@ -48,8 +50,18 @@ class ActualityType extends AbstractType
             ->add('picture')
             
             ->add('eventOn', DateType::class, [
-    
             'widget' => 'single_text',
+            'constraints' => [
+                new NotBlank([ 
+                    'message'=> 'La date de l\'èvenement est obligatoire',
+                ]),
+                new GreaterThanOrEqual([
+                    'value'=> 'today',
+                    'message'=> 'La date de l\'événement doit être supperieur à aujourd\'hui'
+
+                ]),
+
+                ],
             ]);
         ;
     }

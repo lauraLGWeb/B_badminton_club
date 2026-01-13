@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Validator\NoBadWords;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
@@ -17,6 +18,7 @@ class Product
     private ?string $title = null;
 
     #[ORM\Column(length: 255)]
+    #[NoBadWords]
     private ?string $description = null;
 
     #[ORM\Column]
