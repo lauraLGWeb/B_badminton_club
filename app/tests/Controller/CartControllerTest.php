@@ -13,7 +13,7 @@ class CartControllerTest extends WebTestCase
 
     protected function setUp(): void
     {
-        // Création du client avec environnement test explicite
+        // creation of the client in test environement
         $this->client = static::createClient([
             'environment' => 'test',
             'debug' => true,
@@ -21,90 +21,90 @@ class CartControllerTest extends WebTestCase
     }
 
     /**
-     * TEST 1 : Page panier accessible pour utilisateur connecté
+     * TEST 1 : cart page  accessible for user connected 
      */
     public function testCartPageIsAccessibleWhenLoggedIn(): void
     {
-        // Récupère un utilisateur de test
+        // take a user test with specific email
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'membre@exemple.com']);
+        $user = $userRepository->findOneBy(['email' => 'parent.nicole@example.com']);
 
-        // Si pas d'user en fixtures, on skip le test
+        // error if no user with this mail
         if (!$user) {
-            $this->markTestSkipped('Aucun utilisateur membre@exemple.com dans les fixtures');
+            $this->markTestSkipped('Aucun utilisateur parent.nicole@example.com dans les fixtures');
         }
 
-        // Simule la connexion
+        // connect the user
         $this->client->loginUser($user);
 
-        // Accède à la page panier
+        // goes to the cart page 
         $this->client->request('GET', '/boutique/panier');
 
-        // Vérifie que la page charge bien
+        // wait for the response
         $this->assertResponseIsSuccessful();
         
-        // Vérifie qu'on voit le mot "Panier" (adapte selon ton template)
+
         $this->assertSelectorExists('h1');
     }
 
     /**
-     * TEST 2 : Page panier redirige si non connecté
+     * TEST 2 : if no connected, redirection to connexion page 
      */
     public function testCartPageRedirectsIfNotLoggedIn(): void
     {
-        // Accède au panier SANS connexion
+        // try to go to cart page without connexion
         $this->client->request('GET', '/boutique/panier');
 
-        // Vérifie la redirection vers login
+        // wait if redirect to connexion page 
         $this->assertResponseRedirects('/membre/connexion');
     }
 
     /**
-     * TEST 3 : Ajouter un produit au panier
+     * TEST 3 : Add the item in the cart 
      */
     public function testAddProductToCart(): void
     {
-        // Connexion utilisateur
+        // connexion of the user
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'membre@exemple.com']);
+        $user = $userRepository->findOneBy(['email' => 'parent.nicole@example.com']);
 
         if (!$user) {
-            $this->markTestSkipped('Aucun utilisateur membre@exemple.com dans les fixtures');
+            $this->markTestSkipped('Aucun utilisateur parent.nicole@example.com dans les fixtures');
         }
 
         $this->client->loginUser($user);
 
-        // Récupère un produit de test
+        // get an item
         $productRepository = static::getContainer()->get('doctrine')->getRepository(Product::class);
-        $product = $productRepository->findOneBy([]);
+        $product = $productRepository->findOneBy(['price' => '40']);
 
         if (!$product) {
             $this->markTestSkipped('Aucun produit dans les fixtures');
         }
 
-        // Ajoute le produit au panier
+        // Add the item into the cart 
         $this->client->request('GET', '/boutique/panier/ajouter' . $product->getId());
 
-        // Vérifie la redirection
+        // check if redirection
         $this->assertResponseRedirects();
     }
 
     /**
-     * TEST 4 : Supprimer un produit du panier
+     * TEST 4 : delete an item from the cart
      */
     public function testRemoveProductFromCart(): void
     {
         // Connexion
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'membre@exemple.com']);
+        $user = $userRepository->findOneBy(['email' => 'parent.nicole@example.com']);
 
         if (!$user) {
-            $this->markTestSkipped('Aucun utilisateur membre@exemple.com dans les fixtures');
+            $this->markTestSkipped('Aucun utilisateur parent.nicole@example.com dans les fixtures');
         }
 
         $this->client->loginUser($user);
 
-        // Récupère un produit
+        // get an item 
         $productRepository = static::getContainer()->get('doctrine')->getRepository(Product::class);
         $product = $productRepository->findOneBy([]);
 
@@ -112,7 +112,7 @@ class CartControllerTest extends WebTestCase
             $this->markTestSkipped('Aucun produit dans les fixtures');
         }
 
-        // Ajoute d'abord un produit
+        // add the item into the cart 
         $this->client->request('GET', '/boutique/panier/ajouter' . $product->getId());
         
         // Récupère le CartItem créé
@@ -124,10 +124,10 @@ class CartControllerTest extends WebTestCase
             $this->markTestSkipped('Le produit n\'a pas été ajouté au panier');
         }
 
-        // Supprime le CartItem
+        // delete the item
         $this->client->request('GET', '/boutique/panier/' . $cartItem->getId());
 
-        // Vérifie la redirection
+        // check the redirection
         $this->assertResponseRedirects('/boutique/panier');
     }
 }
