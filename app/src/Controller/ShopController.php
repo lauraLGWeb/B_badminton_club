@@ -10,10 +10,11 @@ use App\Entity\Product;
 
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[IsGranted('ROLE_MEMBRE')]
+
 final class ShopController extends AbstractController
 {
     #[Route('/Boutique', name: 'app_shop')]
+    #[IsGranted('ROLE_MEMBRE')]
     public function shop(ProductRepository $ProductRepository): Response
     {
 
