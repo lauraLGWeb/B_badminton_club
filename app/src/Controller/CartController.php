@@ -168,7 +168,7 @@ public function Payment(EntityManagerInterface $em) : Response
         return $this->redirectToRoute('app_shop');
     }
 
-    //acgtiviating the api from the secret key
+    //activiating the api from the secret key
     Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
 
     

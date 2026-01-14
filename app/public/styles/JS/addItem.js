@@ -3,8 +3,10 @@
 //  variables
 // ========================
 //******************************
- const btnsNrbItem = document.querySelector(".btnNrbItem");
+const btnsNrbItem = document.querySelector(".btnNrbItem");
 const btnsIncrease = document.querySelectorAll(".btnIncrease");
+
+
  
  
  
@@ -32,5 +34,7 @@ for(let btnIncrease of btnsIncrease){
     })
       
 }
+
+
 
 
