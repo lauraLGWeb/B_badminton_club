@@ -20,7 +20,7 @@ class ActualityControllerTest extends WebTestCase
 
     
     /**
-     * TEST 1 : create actuality only for admin 
+     * TEST 1 : create actuality only by admin 
      */
     public function testCreateActualityPageIsAccessibleForAdmin(): void
     {
@@ -31,7 +31,7 @@ class ActualityControllerTest extends WebTestCase
         if (!$admin) {
             $this->markTestSkipped('Aucun admin trouvé');
         }
-        // connect the user 
+        // connect the admin 
         $this->client->loginUser($admin);
 
         // try to go to the create actuality page
@@ -46,15 +46,15 @@ class ActualityControllerTest extends WebTestCase
     public function testCreateActuality(): void
     {
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $admin = $userRepository->findOneBy(['email' => 'marine98@example.org']);
+        $admin = $userRepository->findOneBy(['email' => 'nnicolas@example.net']);
 
         if (!$admin) {
             $this->markTestSkipped('Aucun admin trouvé');
         }
-
+          // connect the admin 
         $this->client->loginUser($admin);
 
-        //fill up the form
+        //fill up the form 
         $crawler = $this->client->request('GET', '/Actualites/création');
         $form = $crawler->selectButton('Enregistrer')->form([
             'actuality[title]' => 'Test Actualité PHPUnit',
@@ -65,17 +65,17 @@ class ActualityControllerTest extends WebTestCase
 
         $this->client->submit($form);
 
-        // Vérifie la redirection après création
+        // ckeck if we come back to actualities pages 
         $this->assertResponseRedirects('/Actualites');
     }
 
     /**
-     * TEST 6 : Supprimer une actualité
+     * TEST 3 : delete an actuality
      */
     public function testDeleteActuality(): void
     {
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $admin = $userRepository->findOneBy(['email' => 'marine98@example.org']);
+        $admin = $userRepository->findOneBy(['email' => 'nnicolas@example.net']);
 
         if (!$admin) {
             $this->markTestSkipped('Aucun admin trouvé');
@@ -83,7 +83,7 @@ class ActualityControllerTest extends WebTestCase
 
         $this->client->loginUser($admin);
 
-        // Récupère une actualité de test (MongoDB)
+        // get the actuality from mongobd
         $dm = static::getContainer()->get('doctrine_mongodb.odm.document_manager');
         $actuality = $dm->getRepository(Actualities::class)->findOneBy([]);
 
@@ -91,10 +91,10 @@ class ActualityControllerTest extends WebTestCase
             $this->markTestSkipped('Aucune actualité MongoDB trouvée');
         }
 
-        // Supprime l'actualité
+        // delete the actuality 
         $this->client->request('GET', '/Actualites/suppression/' . $actuality->getId());
 
-        // Vérifie la redirection
+        // check if getting back to actuality page 
         $this->assertResponseRedirects('/Actualites');
     }
 }

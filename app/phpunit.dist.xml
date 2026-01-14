@@ -14,6 +14,8 @@
         <server name="APP_ENV" value="test" force="true" />
         <server name="DATABASE_URL" value="mysql://root:passwordbdd@database:3306/bbc_test?serverVersion=8.0" force="true" />
         <server name="SHELL_VERBOSITY" value="-1" />
+        <server name="MONGODB_DB" value="bbc_test" force="true" />\
+        <server name="MONGODB_URI" value="mongodb://mongo:27017" force="true" />
     </php>
 
     <testsuites>

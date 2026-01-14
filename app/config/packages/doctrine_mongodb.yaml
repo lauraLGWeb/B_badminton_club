@@ -3,9 +3,9 @@ doctrine_mongodb:
     auto_generate_hydrator_classes: true
     connections:
         default:
-            server: '%env(resolve:MONGODB_URL)%'
+            server: '%env(resolve:MONGODB_URI)%'
             options: {}
-    default_database: bbc_database
+    default_database: '%env(resolve:MONGODB_DB)%'
     document_managers:
         default:
             auto_mapping: true
@@ -13,7 +13,6 @@ doctrine_mongodb:
                 App:
                     dir: '%kernel.project_dir%/src/Document'
                     prefix: 'App\Document'
-
 when@prod:
     doctrine_mongodb:
         auto_generate_proxy_classes: false
@@ -23,7 +22,6 @@ when@prod:
                 metadata_cache_driver:
                     type: service
                     id: doctrine_mongodb.system_cache_pool
-
     framework:
         cache:
             pools:
