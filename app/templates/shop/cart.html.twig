@@ -32,7 +32,13 @@
                                  width = "150px"
                                  class="product-image">
                                  
-                            <div class="product-name">{{ item.product.title }}</div>
+                            <div class="product-name">
+                                {{ item.product.title }}
+                                {% if item.size and item.gender %}
+                                    ({{ item.size }} - {{ item.gender }})
+                                {% endif %}
+                            </div>
+
                         </td>
 
                         

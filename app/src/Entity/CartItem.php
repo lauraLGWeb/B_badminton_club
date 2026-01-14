@@ -68,24 +68,29 @@ class CartItem
         return $this;
     }
 
+
+
+    // size and gendre can be null 
        public function getSize(): ?string
     {
         return $this->size;
     }
 
-    public function setSize(string $size): static
+    public function setSize(?string $size): static
     {
         $this->size = $size;
 
         return $this;
     }
 
+
+    
      public function getGender(): ?string
     {
         return $this->gender;
     }
 
-    public function setGender(string $gender): static
+    public function setGender(?string $gender): static
     {
         $this->gender = $gender;
 

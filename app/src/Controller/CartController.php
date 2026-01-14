@@ -29,7 +29,6 @@ final class CartController extends AbstractController
         $user = $this->getUser();
         $carts = $em->getRepository(Cart::class)->findBy(['user' => $user]);
 
-
         $actualCart = null;
         foreach ($carts as $cart){
             if(!$cart->isPaid()){
@@ -53,12 +52,20 @@ final class CartController extends AbstractController
 //adding to the cart 
 
  #[Route('/boutique/panier/ajouter{id}', name: 'app_addItem')]
-    public function addItem(EntityManagerInterface $em, Product $product, ): Response
+    public function addItem(EntityManagerInterface $em, Product $product, Request $request): Response
     {
+
+
         $user = $this->getUser();
         if(!$user){
              dd('pas connecté');
         }
+
+
+
+        // Récupère size et gender depuis le formulaire
+        $size = $request->request->get('size') ?: $request->query->get('size');
+        $gender = $request->request->get('gender') ?: $request->query->get('gender');
 
         $carts = $em->getRepository(Cart::class)->findBy(['user' => $user]);
 
@@ -79,26 +86,33 @@ final class CartController extends AbstractController
             $em->persist($actualCart);
         }
 
-            // checking if the item is already in the cart
-            $itemExisting = $em->getRepository(CartItem::class)->findOneBy([
+        // Vérifie si l'item existe AVEC la même taille et genre
+         $itemExisting = $em->getRepository(CartItem::class)->findOneBy([
             'cart' => $actualCart,
-            'product' => $product
+            'product' => $product,
+            'size' => $size,
+            'gender' => $gender
+    ]);
 
-           
-
-        ]);;
+            
             // in this case add One to the existant
             if($itemExisting){
               $itemExisting->setQuantity($itemExisting->getQuantity()+1);
               
               $em->flush();
-                
+              
+
             // adding the item in the cart if not alerady existing 
             } else {
+
                 $newItem = new CartItem();
                 $newItem->setCart($actualCart);
                 $newItem->setProduct($product);
                 $newItem->setQuantity(1);
+                $newItem->setSize($size);      
+                $newItem->setGender($gender);  
+               
+                
                 $em->persist($newItem);
                 $this->addFlash('success', 'Produit ajouté au panier !');
         

@@ -44,8 +44,10 @@
                     <h2 class="productTitle">{{product.title}}</h2>
                     <p>{{product.description}}</p>
                     <p class="price">{{ product.price|number_format(2, ',', ' ') }} €</p>
+
+                    <form action="{{ path('app_addItem', { id: product.id }) }}" method="POST">
                     {% if product.hasSize %}
-                        <select class="size">
+                        <select name="size" class="size">  
                             <option value="">Choisir une taille</option>
                             <option value="XS">XS</option>
                             <option value="S">S</option>
@@ -55,7 +57,7 @@
                             <option value="XXL">XXL</option>  
                         </select>
 
-                        <select class="gender">
+                        <select name="gender" class="gender">  
                             <option value="">Choisir un genre</option>
                             <option value="man">Homme</option>
                             <option value="woman">Femme</option>
@@ -63,7 +65,10 @@
                     {% endif %}
 
                        <a href="{{ path('app_addItem', { id: product.id }) }}" class="btn">
-                    <button>Ajouter au panier</button>
+                       <button type="submit" class="btn">Ajouter au panier</button>
+                    
+                    </form>
+                    
                     </a>
                 </div>
             </div>
