@@ -24,6 +24,11 @@ class CartItem
     #[ORM\Column]
     private ?int $quantity = null;
 
+    #[ORM\Column(length: 15, nullable: true)]
+    private ?string $gender = null;
+
+    #[ORM\Column(length: 5,nullable: true)]
+    private ?string $size = null;
 
     public function getId(): ?int
     {
@@ -60,6 +65,30 @@ class CartItem
     public function setQuantity(int $quantity): static
     {
         $this->quantity = $quantity;
+        return $this;
+    }
+
+       public function getSize(): ?string
+    {
+        return $this->size;
+    }
+
+    public function setSize(string $size): static
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+     public function getGender(): ?string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(string $gender): static
+    {
+        $this->gender = $gender;
+
         return $this;
     }
 }
