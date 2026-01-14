@@ -56,7 +56,7 @@ class ActualityControllerTest extends WebTestCase
 
         //fill up the form 
         $crawler = $this->client->request('GET', '/Actualites/création');
-        $form = $crawler->selectButton('Enregistrer')->form([
+        $form = $crawler->selectButton('publier l\'évenement')->form([
             'actuality[title]' => 'Test Actualité PHPUnit',
             'actuality[description]' => 'Ceci est une actualité de test créée par PHPUnit',
             'actuality[picture]' => 'https://example.com/test.jpg',
