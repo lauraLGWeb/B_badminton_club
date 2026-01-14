@@ -27,6 +27,7 @@ services:
       - ./apache/default-ssl.conf:/etc/apache2/sites-enabled/000-default-ssl.conf
       - ./etc/ssl:/etc/ssl
       - ./app:/var/www
+      - ./app:/var/www:cached
     depends_on:
       - database
   phpma:

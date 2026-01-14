@@ -36,8 +36,14 @@
                         <!-- Navigation -->
                         <ul class="nav-links">
 
-                            <li class="nav-item">
-                                <a href="{{ path('app_members') }}">Le club</a>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link">Le club</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('app_coaches') }}">Entraîneurs</a></li>
+                                    <li><a href="{{ path('app_caMembers') }}">Membres du CA</a></li>
+                                    <li><a href="{{ path('app_rules') }}">Règlement</a></li>
+                                    <li><a href="{{ path('app_internships') }}">Formations</a></li>
+                                </ul>
                             </li>
 
                             <li class="nav-item">

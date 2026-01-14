@@ -165,7 +165,7 @@ div.btn {
 
 /* Header & Navbar Neomorphism */
 header {
-    background-image:url('{{ asset("pictures/fente.jpg") }}');
+    background-image:url('/pictures/fente.jpg');
     box-shadow: 8px 8px 16px var(--shadow-dark),
                 -8px -8px 16px var(--shadow-light);
     border-radius: 20px;
@@ -225,6 +225,8 @@ header {
     justify-content: center;
     flex-direction: column
 }
+
+
 
 .navBarContainer ul {
     list-style: none;
