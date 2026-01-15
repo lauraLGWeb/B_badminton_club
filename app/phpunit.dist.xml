@@ -23,7 +23,7 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-
+    
     <source ignoreSuppressionOfDeprecations="true"
             ignoreIndirectDeprecations="true"
             restrictNotices="true"
