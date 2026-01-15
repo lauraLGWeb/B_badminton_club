@@ -55,12 +55,10 @@ final class CartController extends AbstractController
     public function addItem(EntityManagerInterface $em, Product $product, Request $request): Response
     {
 
-
         $user = $this->getUser();
         if(!$user){
              dd('pas connecté');
         }
-
 
 
         // Récupère size et gender depuis le formulaire
@@ -126,9 +124,81 @@ final class CartController extends AbstractController
 
 
 
+    //going to stripe API 
+#[Route('/boutique/panier/paiement', name: 'app_payment')]
+public function Payment(EntityManagerInterface $em) : Response
+{
+    $user = $this->getUser();
+    
+    $cart = $em->getRepository(Cart::class)->findOneBy([
+        'user' => $user,
+        'isPaid' => false
+    ]);
+
+    if (!$cart || $cart->getCartItem()->isEmpty()) {
+        $this->addFlash('error', 'Votre panier est vide');
+        return $this->redirectToRoute('app_shop');
+    }
+
+     // DEBUG: Afficher un message avant de contacter Stripe
+    $this->addFlash('info', '🔄 Connexion à Stripe en cours...');
+
+
+    // VRAI PAIEMENT STRIPE
+    Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
+    
+    try {
+        $lineItems = [];
+        foreach ($cart->getCartItem() as $item) {
+            $lineItems[] = [
+                'price_data' => [
+                    'currency' => 'eur',
+                    'product_data' => [
+                        'name' => $item->getProduct()->getTitle(),
+                    ],
+                    'unit_amount' => $item->getProduct()->getPrice() * 100,
+                ],
+                'quantity' => $item->getQuantity(),
+            ];
+        }
+
+        $paymentSession = Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => $lineItems,
+            'mode' => 'payment',
+            'success_url' => $this->generateUrl('app_payment_success', [], UrlGeneratorInterface::ABSOLUTE_URL),
+            'cancel_url' => $this->generateUrl('app_payment_canceled', [], UrlGeneratorInterface::ABSOLUTE_URL),
+            'metadata' => [
+                'cart_id' => $cart->getId(),
+            ],
+        ]);
+
+
+         // ✅ Alerte popup avant de rediriger vers Stripe
+        return new Response(
+            '<script>
+                alert("✅ Connexion Stripe réussie ! Redirection vers le paiement...");
+                window.location.href="' . $paymentSession->url . '";
+            </script>'
+        );
+        // // ✅ Si on arrive ici, Stripe a répondu !
+        // $this->addFlash('success', '✅ Connexion Stripe OK ! Redirection...');
+        // return $this->redirect($paymentSession->url);
+      
+        
+    } catch (\Exception $e) {
+        $this->addFlash('error', '❌ Erreur Stripe : ' . $e->getMessage());
+        return $this->redirectToRoute('app_cart');
+    }
+}
+
+
+
+
+
 
 //delete the Item
-    #[Route('/boutique/panier/{id}', name: 'app_deleteItem')]
+    #[Route('/boutique/panier/supprimer/{id}', name: 'app_deleteItem')]
    public function deleteItem(EntityManagerInterface $em, $id) : Response
     {
 
@@ -150,60 +220,11 @@ final class CartController extends AbstractController
 
 
 
-    //going to stripe API 
-#[Route('/boutique/panier/paiement', name: 'app_payment')]
-public function Payment(EntityManagerInterface $em) : Response
-{
-    $user = $this->getUser();
-    
-
-    //getting the unpaid cart from the user connected
-    $cart = $em->getRepository(Cart::class)->findOneBy([
-        'user' => $user,
-        'isPaid' => false
-    ]);
-
-    if (!$cart || $cart->getCartItem()->isEmpty()) {
-        $this->addFlash('error', 'Votre panier est vide');
-        return $this->redirectToRoute('app_shop');
-    }
-
-    //activiating the api from the secret key
-    Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
-
-    
-    $lineItems = [];
-    foreach ($cart->getCartItem() as $item) {
-        $lineItems[] = [
-            'price_data' => [
-                'currency' => 'eur',
-                'product_data' => [
-                    'name' => $item->getProduct()->getTitle(),
-                ],
-                'unit_amount' => $item->getProduct()->getPrice() * 100,
-            ],
-            'quantity' => $item->getQuantity(),
-        ];
-    }
-
-
-    $paymenttSession = Session::create([
-        'payment_method_types' => ['card'], //payment by card only
-        'line_items' => $lineItems, // items from the cart
-        'mode' => 'payment', // it's an only payment
-        'success_url' => $this->generateUrl('app_payment_success', [], UrlGeneratorInterface::ABSOLUTE_URL),  //if payment done, redirection to shop
-        'cancel_url' => $this->generateUrl('app_payment_cancel', [], UrlGeneratorInterface::ABSOLUTE_URL), //if payment canceled, redirection to cart
-    ]);
-
-
-    //sending to the stripe page to do the payment
-    return $this->redirect($paymenttSession->url);
-}
 
 
 // payment succed
 
-    #[Route('/boutique/paiment_accepté}', name: 'app_payment_success')]
+    #[Route('/boutique/paiement_accepté', name: 'app_payment_success')]
  public function paymentSuccess(Request $request, EntityManagerInterface $em): Response
 {
     // 1️⃣ Récupérer l'ID de session envoyé par Stripe
@@ -248,49 +269,15 @@ public function Payment(EntityManagerInterface $em) : Response
 }
 
 
-
-
 // payment cancelled
 
-    #[Route('/boutique/paiment_refusé}', name: 'app_payment_canceled')]
+    #[Route('/boutique/paiement_refusé', name: 'app_payment_canceled')]
    public function cancelledPayment() : Response
     {
           $this->addFlash('warning', 'Paiement annulé. Votre panier est toujours disponible.');
         
         return $this->redirectToRoute('app_cart');
     }
-
-
-
-
-
-
-
-
-
-
-
-//test for API 
-#[Route('/boutique/panier/paiement/stripe', name: 'app_test_stripe')]
-public function testStripe(): Response
-{
-     \Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
-    
-    try {
-        \Stripe\Account::retrieve();
-        $message = "✅ API Stripe connectée avec succès !";
-        $color = "#10b981";
-    } catch (\Exception $e) {
-        $message = "❌ Erreur : " . $e->getMessage();
-        $color = "#ef4444";
-    }
-    
-    return new Response("
-        <div style='text-align:center; margin-top:100px; font-family:Arial;'>
-            <h1 style='font-size:5em; color:{$color};'>$message</h1>
-        </div>
-    ");
-}
 
 }
 
