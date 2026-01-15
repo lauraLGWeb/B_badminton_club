@@ -1,0 +1,131 @@
+.creneaux-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.creneaux-container h1 {
+    color: #3b6fac;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.planning-section {
+    margin-bottom: 4rem;
+}
+
+.planning-section h2 {
+    color: #ffdd00;
+    background: #3b6fac;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.planning-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 0.9rem;
+}
+
+.planning-table thead {
+    background: linear-gradient(135deg, #3b6fac, #2c5a8a);
+    color: white;
+}
+
+.planning-table th {
+    padding: 1rem 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #ddd;
+}
+
+.planning-table td {
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    vertical-align: middle;
+}
+
+.time-cell {
+    background: #f5f5f5;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+    min-width: 100px;
+}
+
+.empty-cell {
+    background: #fafafa;
+}
+
+.activity-cell {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding: 0.5rem;
+}
+
+.activity-cell strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.location {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    font-weight: 600;
+}
+
+/* 5 couleurs principales pour les créneaux */
+
+/* color 1 : light red  */
+.rouge-clair {
+    background: linear-gradient(135deg, #ffebee, #ef9a9a);
+    border-left: 4px solid #e53935;
+}
+
+/* color 2 :  dark red */
+.rouge-fonce {
+    background: linear-gradient(135deg, #f3e5f5, #691118);
+    border-left: 4px solid #c62828;
+}
+
+/* color 3 : blue */
+.bleu {
+    background: linear-gradient(135deg, #e3f2fd, #90caf9);
+    border-left: 4px solid #1976d2;
+}
+
+/* color 4 : pink */
+.rose {
+    background: linear-gradient(135deg, #fce4ec, #f48fb1);
+    border-left: 4px solid #e91e63;
+}
+/* color 5 : dark blue */
+.bleu-fonce {
+    background: linear-gradient(135deg, #376a8e, #0f395c);
+    border-left: 4px solid #1976d2;
+}
+
+/* color 6 : gray */
+.gris {
+    background: linear-gradient(135deg, #a4a4a4, #adaeaf);
+    border-left: 4px solid #1976d2;
+}
+/*
