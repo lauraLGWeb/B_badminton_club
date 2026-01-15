@@ -188,7 +188,7 @@ div.btn {
 
 /* Header & Navbar Neomorphism */
 header {
-    background-image:url('{{ asset("pictures/fente.jpg") }}');
+    background-image:url('/pictures/fente.jpg');
     box-shadow: 8px 8px 16px var(--shadow-dark),
                 -8px -8px 16px var(--shadow-light);
     border-radius: 20px;
@@ -251,6 +251,8 @@ header {
  .nav-links{
     display: flex;
  }
+
+
 
 .navBarContainer ul {
     list-style: none;
@@ -456,3 +458,119 @@ footer button:hover {
  }
 
 
+
+
+/* 
+ =============
+ faq
+ ============ */
+
+ /* FAQ Section */
+h2 {
+    color: var(--accent-color);
+    text-align: center;
+    margin: 2rem 0;
+    font-weight: 600;
+}
+
+/* Container pour la FAQ */
+.faq-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Styling des details/summary */
+details {
+    background: var(--bg-color);
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    box-shadow: 8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+details[open] {
+    box-shadow: inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light);
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    padding: 0.75rem;
+    border-radius: 10px;
+    list-style: none;
+    transition: all 0.2s ease;
+    position: relative;
+    padding-left: 2rem;
+}
+
+summary:hover {
+    color: rgba(19, 116, 214, 0.572);
+    background: rgba(255, 221, 0, 0.1);
+}
+
+/* Icône + pour le summary */
+summary::before {
+    content: '+';
+    position: absolute;
+    left: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+details[open] summary::before {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+/* Retirer le triangle par défaut */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Contenu de la réponse */
+details p {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--bg-color);
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 4px var(--shadow-dark),
+                inset -2px -2px 4px var(--shadow-light);
+    line-height: 1.6;
+}
+
+details a {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid var(--primary-color);
+    transition: all 0.2s ease;
+}
+
+details a:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--accent-color);
+}
+
+/* Message de succès/erreur */
+.emailSent {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, rgba(255, 221, 0, 0.2), rgba(59, 111, 172, 0.2));
+    color: var(--text-color);
+    padding: 1rem;
+    border-radius: 15px;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+}

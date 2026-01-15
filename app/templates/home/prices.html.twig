@@ -5,5 +5,124 @@
 
 {% block body %}
 
+<div class="tarifs-container">
+
+    <h1>Tarifs</h1>
+
+    <h2>Juniors/Séniors/Vétérans: </h2>
+
+    <table>
+    <caption>
+        Tarifs licences
+    </caption>
+    <thead>
+        <tr>
+        <th scope="col">Type de licence</th>
+        <th scope="col">Tarif</th>
+        <th scope="col">Informations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <th scope="row">Jeu libre " loisir"</th>
+        <td>155€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Enseignement</th>
+        <td>210€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Entrainement gr1</th>
+        <td>220€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Entrainement gr2:</th>
+        <td>230€</td>
+        <td></td>
+        </tr>
+    </tbody>
+    </table>
+
+
+    <p>Retouve les créneaux ici : </p>
+    <a href="{{ path('app_schedules') }}">Voir les créneaux Juniors/Séniors/Vétérans:</a>
+
+
+
+
+    <h2>Jeunes: </h2>
+
+    <table>
+    <caption>
+        Tarifs licences
+    </caption>
+    <thead>
+        <tr>
+        <th scope="col">Type de licence</th>
+        <th scope="col">Tarif</th>
+        <th scope="col">Informations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <th scope="row">Minibads</th>
+        <td>140€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Poussins/Benjamins: </th>
+        <td>165€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Minimes/Cadets: </th>
+        <td>165€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Pré Académie (sur sélection uniquement) :</th>
+        <td>205€</td>
+        <td></td>
+        </tr>
+        <tr>
+        <th scope="row">Académie 1/2 (sur sélection uniquement) :</th>
+        <td>240€</td>
+        <td></td>
+        </tr>
+    </tbody>
+    </table>
+
+    <p>Retouve les créneaux ici :</p>
+    <a href="{{ path('app_schedules') }}">Voir les créneaux Jeunes</a>
+</div>
+
+
+
+
+
+ <section>
+    <h2>Les réductions (non cumulables)</h2>
+    <div>
+        <p>Réduction pour les FAMILLES (même adresse)	-10€ sur la seconde cotisation et sur les suivantes</p>
+    </div>
+    <div>
+         <p>Réduction pour ETUDIANTS (post Bac)	-10€ sur la cotisation correspondante</p>
+    </div>
+    <div>
+        <p>Licences prises au club à partir du 01/02	-30€ sur le montant de la cotisation</p>
+    </div>
+    <div>
+        <p>Licences complémentaires (soumis à validation du CA, en fonction des places disponibles et des intérêts du joueur et des deux clubs) : </p>
+        <ul>
+            <li>Complémentaire "Loisir" 100€</li>
+            <li>Complémentaire "Entrainement" 180€</li>
+            <li>Complémentaire "Vacances" 80€</li>
+        </ul>
+    </div>
+
+</section>
 {% endblock %}
 

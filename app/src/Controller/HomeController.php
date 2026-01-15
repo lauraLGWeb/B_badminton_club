@@ -35,19 +35,20 @@ final class HomeController extends AbstractController
 
    }
 
-// routes for the club dropdown
-    #[Route('/Leclub/Membres', name: 'app_members')]
-    public function members(): Response
-    {
-        return $this->render('home/CaMember.html.twig');
-    }
 
+// routes for the club dropdown
+  
       #[Route('/Leclub/Entraineurs', name: 'app_coaches')]
     public function coaches(): Response
     {
         return $this->render('home/coaches.html.twig');
     }
 
+    #[Route('/Leclub/Membres', name: 'app_caMembers')]
+    public function caMembers(): Response
+    {
+        return $this->render('home/caMembers.html.twig');
+    }
 
 #[Route('/Leclub/Reglement', name: 'app_rules')]
     public function rules(): Response
@@ -71,13 +72,7 @@ final class HomeController extends AbstractController
      
   
 // routes for the ecole de bad dropdown
-    // #[Route('/Leclub/Membres', name: 'app_members')]
-    // public function members(): Response
-    // {
-    //     return $this->render('home/CaMember.html.twig', [
-    //         'controller_name' => 'HomeController',
-    //     ]);
-    // }
+ 
 
     //   #[Route('/Leclub/Entraineurs', name: 'app_coaches')]
     // public function coaches(): Response
@@ -109,13 +104,24 @@ final class HomeController extends AbstractController
         return $this->render('home/prices.html.twig');
     }
 
+
+     #[Route('/Actualites', name: 'app_actuality')]
+    public function actuality(): Response
+    {
+        return $this->render('home/actuality.html.twig');
+    }
+
        #[Route('/Partenaires', name: 'app_partners')]
     public function partners(): Response
     {
         return $this->render('home/partners.html.twig');
     }
 
-      
+    #[Route('/Inscription', name: 'app_inscription')]
+    public function Inscription(): Response
+    {
+        return $this->render('home/inscription.html.twig');
+    }
 
 
           #[Route('/Creneaux', name: 'app_schedules')]
