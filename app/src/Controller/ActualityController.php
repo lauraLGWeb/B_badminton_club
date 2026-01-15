@@ -118,7 +118,6 @@ final class ActualityController extends AbstractController
            
            
         } 
-
          return $this->render("admin/createActuality.html.twig", ["form" => $formulaire]);
      }
 

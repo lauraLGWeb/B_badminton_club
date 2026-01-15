@@ -7,6 +7,7 @@
 /public/bundles/
 /var/
 /vendor/
+
 .DS_Store
 /mongo/
 /mysql###< symfony/framework-bundle ###
@@ -49,3 +50,4 @@
 ###> Dependencies ###
 /vendor/
 ###< Dependencies ###
+.env
