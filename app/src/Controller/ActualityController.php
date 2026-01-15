@@ -16,7 +16,6 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 final class ActualityController extends AbstractController
 {
     #[Route('/Actualites', name: 'app_actuality')]
-    #[IsGranted('ROLE_ADMIN')]
     public function actuality(DocumentManager $dm): Response
     {
 
