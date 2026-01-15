@@ -9,11 +9,15 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Regex;
+
+
+// already XSS protection in symfony 
 
 class RegistrationFormType extends AbstractType
 {
@@ -22,8 +26,9 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Merci de rentrer votre adresse mail',
+                    
+                    new Email([
+                        'message' => 'L\'adresse email {{ value }} n\'est pas valide',
                     ]),
                 ]
 
@@ -31,13 +36,10 @@ class RegistrationFormType extends AbstractType
             
             ->add('firstName', TextType::class, [
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Merci de rentrer votre Prénom',
-                    ]),
-            
+                
                      new Length([
                         'min' => 2,
-                        'minMessage' => 'Veuillez rentrer au minimum {{ limit }} lettres',
+                        'minMessage' => 'Minimum {{ limit }} lettres',
                         // max length allowed by Symfony for security reasons
                         'max' => 50,
                     ])
@@ -46,30 +48,17 @@ class RegistrationFormType extends AbstractType
 
             ->add('lastName', TextType::class, [
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Merci de rentrer votre Nom',
-                    ]),
-                    new Length([
+                    
+                     new Length([
                         'min' => 2,
-                        'minMessage' => 'Veuillez rentrer au minimum {{ limit }} lettres',
-                        // max length allowed by Symfony for security reasons
+                        'minMessage' => ' Minimum {{ limit }} lettres',
+                        
                         'max' => 50,
                     ])
                  ],
             ])
             
-            ->add('lienceNbr', TextType::class, [
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Merci de rentrer votre numéro de licence',
-                    ]),
-                    new Length([
-                        'min' => 7,
-                        'max' => 7,
-                        'minMessage' => 'la lience est composée de {{ limit }} chiffres',
-                     ])
-                 ],
-            ])
+            ->add('lienceNbr', TextType::class)
             
             ->add('agreeTerms', CheckboxType::class, [
                                 'mapped' => false,
@@ -85,14 +74,10 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Please enter a password',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
+                    new Regex([
+                        'pattern' => '/^(?=.*[A-Z])(?=.*\d).{8,}$/',
+                        //regex explanation ^→ start : (?=.*[A-Z]) one maj (?=.*\d) one number .{8,}  at least 8 chars $ end
+                        'message' => 'Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre',
                     ]),
                 ],
             ])

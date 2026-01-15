@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator\NoBadWords;
 
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -39,31 +42,40 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-     #[Assert\NotBlank(message: 'Le mot de passe est obligatoire')]
-    #[Assert\PasswordStrength(
-        message: 'Your password is too easy to guess. Company\'s security policy requires to use a stronger password.'
-    )]
-
+     #[Assert\NotBlank(message: 'Le mot de passe est obligatoire')]    
     private ?string $password = null;
 
     #[ORM\Column(length: 50)]
+    #[NoBadWords]
      #[Assert\NotBlank(message: 'Le prénom est obligatoire')]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 50)]
+    #[NoBadWords]
      #[Assert\NotBlank(message: 'Le Nom est obligatoire')]
     private ?string $lastName = null;
 
    #[ORM\Column(type: 'bigint')]
     #[Assert\NotBlank(message: 'Le numéro de licence est obligatoire')]
-    #[Assert\Positive(message: 'Le numéro de licence doit être positif')]
-    #[Assert\Length(
-    min: 7,
-    max: 7,
-    exactMessage: 'Le numéro de licence doit contenir exactement {{ limit }} chiffres'
-)]
-
+    #[Assert\Regex(
+        pattern: '/^\d{7}$/',
+        message: 'Le numéro de licence doit contenir exactement 7 chiffres'
+    )]
+    
     private ?string $lienceNbr = null;
+
+
+   /**
+    * @var Collection<int, Cart>
+    */
+   #[ORM\OneToMany(targetEntity: Cart::class, mappedBy: 'user', cascade: ['remove'],
+    orphanRemoval: true)]
+   private Collection $carts;
+
+   public function __construct()
+   {
+       $this->carts = new ArrayCollection();
+   }
     
 
     public function getId(): ?int
@@ -180,6 +192,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLienceNbr(int $lienceNbr): static
     {
         $this->lienceNbr = $lienceNbr;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Cart>
+     */
+    public function getCarts(): Collection
+    {
+        return $this->carts;
+    }
+
+    public function addCart(Cart $cart): static
+    {
+        if (!$this->carts->contains($cart)) {
+            $this->carts->add($cart);
+            $cart->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCart(Cart $cart): static
+    {
+        if ($this->carts->removeElement($cart)) {
+            // set the owning side to null (unless already changed)
+            if ($cart->getUser() === $this) {
+                $cart->setUser(null);
+            }
+        }
 
         return $this;
     }

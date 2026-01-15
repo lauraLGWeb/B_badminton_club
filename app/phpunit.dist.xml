@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          colors="true"
@@ -14,7 +12,10 @@
         <ini name="display_errors" value="1" />
         <ini name="error_reporting" value="-1" />
         <server name="APP_ENV" value="test" force="true" />
+        <server name="DATABASE_URL" value="mysql://root:passwordbdd@database:3306/bbc_test?serverVersion=8.0" force="true" />
         <server name="SHELL_VERBOSITY" value="-1" />
+        <server name="MONGODB_DB" value="bbc_test" force="true" />
+        <server name="MONGODB_URI" value="mongodb://mongo:27017" force="true" />
     </php>
 
     <testsuites>
@@ -22,7 +23,7 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-
+    
     <source ignoreSuppressionOfDeprecations="true"
             ignoreIndirectDeprecations="true"
             restrictNotices="true"

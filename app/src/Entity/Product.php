@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Validator\NoBadWords;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
@@ -17,16 +18,21 @@ class Product
     private ?string $title = null;
 
     #[ORM\Column(length: 255)]
+    #[NoBadWords]
     private ?string $description = null;
 
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\Column(length: 5)]
-    private ?string $size = null;
+   
 
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
+
+    #[ORM\Column(name: 'has_size')]
+    private ?bool $hasSize = false;
+
+  
 
     public function getId(): ?int
     {
@@ -69,17 +75,7 @@ class Product
         return $this;
     }
 
-    public function getSize(): ?string
-    {
-        return $this->size;
-    }
-
-    public function setSize(string $size): static
-    {
-        $this->size = $size;
-
-        return $this;
-    }
+ 
 
     public function getPicture(): ?string
     {
@@ -92,4 +88,18 @@ class Product
 
         return $this;
     }
+
+    public function getHasSize(): ?bool
+    {
+        return $this->hasSize;
+    }
+
+    public function setHasSize(bool $hasSize): static
+    {
+        $this->hasSize = $hasSize;
+
+        return $this;
+    }
+
+   
 }

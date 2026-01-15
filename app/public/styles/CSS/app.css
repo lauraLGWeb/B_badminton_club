@@ -13,9 +13,32 @@
     --text-color: #f5f5f5;
     --primary-color: #ffdd00f3;
     --accent-color: #3b70aca3;
-    --shadow-light: rgba(255, 255, 255, 0.05);
+    --shadow-light: rgba(63, 60, 60, 0.731);
     --shadow-dark: rgba(0, 0, 0, 0.7);
 }
+
+
+/*  flash */
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    margin: 20px 0;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    margin: 20px 0;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
 
 /* Global */
 
@@ -225,13 +248,17 @@ header {
     justify-content: center;
     flex-direction: column
 }
+ .nav-links{
+    display: flex;
+ }
 
 
 
 .navBarContainer ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    justify-content: center;
+    gap: 1rem;
     padding: 0;
     margin: 0;
 }

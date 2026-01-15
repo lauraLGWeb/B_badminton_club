@@ -1,0 +1,22 @@
+envoyer fixture mongodb 
+php bin/console doctrine:mongodb:fixtures:load --no-interaction
+
+
+# Entre dans Docker
+docker exec -it phpBlois bash
+cd /var/www
+
+# Crée la BDD principale
+php bin/console doctrine:database:create --if-not-exists
+
+# Crée la BDD test
+php bin/console doctrine:database:create --if-not-exists --env=test
+
+# Lance les migrations
+php bin/console doctrine:migrations:migrate --no-interaction
+
+# Lance les migrations test
+php bin/console doctrine:migrations:migrate --no-interaction --env=test
+
+# Charge les fixtures
+php bin/console doctrine:fixtures:load --no-interaction

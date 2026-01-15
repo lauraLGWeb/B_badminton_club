@@ -1,0 +1,294 @@
+/* shop.css - Style Neomorphism BBC */
+
+/* Section principale */
+.shop {
+    background: var(--bg-color);
+    min-height: 100vh;
+    padding: 40px 20px;
+    transition: background 0.3s;
+}
+
+.shop h1 {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px var(--shadow-dark);
+}
+
+/* Présentation */
+.presentationAndCart {
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    padding: 30px;
+    background: var(--bg-color);
+    border-radius: 20px;
+    box-shadow: 
+        8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light);
+}
+
+.presentationAndCart h2 {
+    color: var(--text-color);
+    font-size: 1.1em;
+    line-height: 1.6;
+    font-weight: 400;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* Barre de filtres */
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 20px 30px;
+    background: var(--bg-color);
+    border-radius: 15px;
+    box-shadow: 
+        6px 6px 12px var(--shadow-dark),
+        -6px -6px 12px var(--shadow-light);
+}
+
+.pFilter {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1.1em;
+    margin: 0;
+    padding: 10px 25px;
+    border-radius: 10px;
+    background: var(--bg-color);
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pFilter:hover {
+    box-shadow: 
+        inset 5px 5px 10px var(--shadow-dark),
+        inset -5px -5px 10px var(--shadow-light);
+    color: var(--accent-color);
+}
+
+.filter img {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 20%;
+    background: var(--bg-color);
+    box-shadow: 
+        4px 4px 8px var(--shadow-dark),
+        -4px -4px 8px var(--shadow-light);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter img:hover {
+    box-shadow: 
+        2px 2px 4px var(--shadow-dark),
+        -2px -2px 4px var(--shadow-light);
+    transform: scale(0.95);
+}
+
+.filter img:active {
+    box-shadow: 
+        inset 2px 2px 4px var(--shadow-dark),
+        inset -2px -2px 4px var(--shadow-light);
+}
+
+/* Section produits */
+.products {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 30px;
+}
+
+/* Carte produit */
+.product {
+    background: var(--bg-color);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    box-shadow: 
+        10px 10px 20px var(--shadow-dark),
+        -10px -10px 20px var(--shadow-light);
+    transition: all 0.3s;
+}
+
+.product:hover {
+    box-shadow: 
+        15px 15px 30px var(--shadow-dark),
+        -15px -15px 30px var(--shadow-light);
+    transform: translateY(-5px);
+}
+
+/* Image produit */
+.imgShop {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.imgShop img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+}
+
+/* Détails produit */
+.detailsShop {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.productTitle {
+    color: var(--text-color);
+    font-size: 1.8em;
+    margin: 0 0 10px 0;
+}
+
+.detailsShop p {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.7;
+}
+
+.price {
+    color: var(--accent-color) !important;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 10px 0 !important;
+    opacity: 1 !important;
+    text-shadow: 1px 1px 2px var(--shadow-dark);
+}
+
+/* Selects */
+select {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+    transition: all 0.3s;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 
+        inset 5px 5px 10px var(--shadow-dark),
+        inset -5px -5px 10px var(--shadow-light);
+    border: 2px solid var(--accent-color);
+}
+
+select:hover {
+    border: 1px solid var(--accent-color);
+}
+
+select option {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Bouton */
+.detailsShop button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary-color);
+    color: #111;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: auto;
+    box-shadow: 
+        6px 6px 12px var(--shadow-dark),
+        -6px -6px 12px var(--shadow-light);
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detailsShop button:hover {
+    background: var(--accent-color);
+    color: white;
+    box-shadow: 
+        3px 3px 6px var(--shadow-dark),
+        -3px -3px 6px var(--shadow-light);
+    transform: scale(0.98);
+}
+
+.detailsShop button:active {
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+    transform: scale(0.96);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .imgShop,
+    .detailsShop {
+        width: 100%;
+    }
+    
+    .shop h1 {
+        font-size: 1.8em;
+    }
+    
+    .presentationAndCart {
+        padding: 20px;
+    }
+    
+    .presentationAndCart h2 {
+        font-size: 1em;
+    }
+    
+    .filter {
+        padding: 15px 20px;
+    }
+    
+    .productTitle {
+        font-size: 1.5em;
+    }
+    
+    .price {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .shop {
+        padding: 20px 10px;
+    }
+    
+    .product {
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .detailsShop {
+        gap: 10px;
+    }
+}

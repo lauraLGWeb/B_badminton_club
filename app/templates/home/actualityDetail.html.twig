@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités{% endblock %}
+
+{% block body %}
+
+    <section class="actuality-detail-section">
+            <a href="{{ path('app_actuality')}}" role="button" class="btn-back">Retour aux actualités</a>
+
+             {% if is_granted('ROLE_ADMIN')%}
+                         <a href="{{ path('app_modifyActuality', {'id': actuality.id}) }}" class="btn-actuality">
+                        modifier  →
+                         </a>
+                    {% endif %}
+           
+            <article class="actuality-detail-card">
+
+                 <h1>{{ actuality.title }}</h1>
+                 <div class="actuality-image-container">            
+                        <img src="{{ asset(actuality.picture) }}" alt="{{ actuality.title }}" width="150px">
+                  </div>
+
+                  <div class="actuality-dates-detail">
+                        <div class="date-badge">
+                            <span class="date-badge-label"> Date de l'événement</span>
+                            <span class="date-badge-value">{{ actuality.eventOn|date('d/m/Y') }}</span>
+                        </div>
+                
+                        <div class="date-badge">
+                            <span class="date-badge-label">Publié le</span>
+                            <span class="date-badge-value">{{ actuality.createdAt|date('d/m/Y') }}</span>
+                        </div>
+                  </div>
+
+                  <div class="actuality-description">
+                         <p>{{ actuality.description }}</p>
+                 </div>
+                
+            </article>
+       
+    </section>
+
+{% endblock %}

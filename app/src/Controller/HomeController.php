@@ -7,21 +7,33 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\User;
+use Doctrine\ODM\MongoDB\DocumentManager;
+use App\Document\Actualities;
 use App\Form\ModifyContactType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\UserModify;
 
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
+
 final class HomeController extends AbstractController
 {
        #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(DocumentManager $dm): Response
     {
+        //get all the actualities
+        $actualities = $dm->getRepository(Actualities::class)->findBy([], ['eventOn' => 'DESC'], 3);
+       
+        return $this->render('home/actuality.html.twig', [
+            'actualities' => $actualities,
+        ]);
+
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
+
    }
-
-
 
 
 // routes for the club dropdown
@@ -52,11 +64,10 @@ final class HomeController extends AbstractController
 
 
   #[Route('/Leclub/Membres/compte', name: 'app_account')]
+   #[IsGranted('ROLE_MEMBRE')]
     public function account(): Response
     {
-        return $this->render('home/account.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/account.html.twig');
     }
      
   
@@ -94,25 +105,13 @@ final class HomeController extends AbstractController
     }
 
 
-     #[Route('/Actualites', name: 'app_actuality')]
-    public function actuality(): Response
-    {
-        return $this->render('home/actuality.html.twig');
-    }
-
        #[Route('/Partenaires', name: 'app_partners')]
     public function partners(): Response
     {
         return $this->render('home/partners.html.twig');
     }
 
-       #[Route('/Boutique', name: 'app_shop')]
-    public function shop(): Response
-    {
-        return $this->render('home/shop.html.twig');
-    }
-
-       #[Route('/Inscription', name: 'app_inscription')]
+    #[Route('/Inscription', name: 'app_inscription')]
     public function Inscription(): Response
     {
         return $this->render('home/inscription.html.twig');
@@ -125,16 +124,21 @@ final class HomeController extends AbstractController
         return $this->render('home/schedules.html.twig');
     }
 
+
         #[Route('/Essais', name: 'app_try')]
     public function try(): Response
     {
         return $this->render('home/try.html.twig');
     }
+
+
       #[Route('/admin', name: 'app_admin_dashboard')]
+       #[IsGranted('ROLE_ADMIN')]
     public function adminDash(): Response
     {
         return $this->render('home/adminDashboard.html.twig');
     }
+
 
        #[Route('/mentions', name: 'app_legalMentions')]
     public function legalMentions(): Response
@@ -146,6 +150,7 @@ final class HomeController extends AbstractController
 
 // pages for internship
      #[Route('/Leclub/Stages/gestion', name: 'app_each_intership')]
+      #[IsGranted('ROLE_ENTRAINEUR')]
     public function eachInternship(): Response
     {
         return $this->render('home/eachInternship.html.twig');
@@ -158,6 +163,7 @@ final class HomeController extends AbstractController
 
     // get all the members who has an account online
      #[Route('/admin/membres/liste', name: 'app_membersList')]
+     #[IsGranted('ROLE_ADMIN')]
     public function membersList(EntityManagerInterface $em)
     {
         $repo = $em->getRepository(User::class);
@@ -170,6 +176,7 @@ final class HomeController extends AbstractController
 
         //modify the User
     #[Route('/admin/membres/modifier/{id}', name: 'app_modify')]
+    #[IsGranted('ROLE_ADMIN')]
    public function modify(Request $request, EntityManagerInterface $em, $id)
     {
 
@@ -195,12 +202,10 @@ final class HomeController extends AbstractController
         $statut = $formulaire->get('roles')->getData();
         $user->setRoles([$statut]);
 
-
         $em-> flush();
                   
             return $this->redirectToRoute('app_membersList');
-           
-           
+                      
         } 
 
          return $this->render("admin/modify.html.twig", ["formulaire" => $formulaire]);
@@ -209,6 +214,7 @@ final class HomeController extends AbstractController
 
     //delete the User
     #[Route('/admin/membres/supprimer/{id}', name: 'app_delete')]
+    #[IsGranted('ROLE_ADMIN')]
    public function supprimer(EntityManagerInterface $em, $id) : Response
     {
 

@@ -8,11 +8,12 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class ModifyContactType extends AbstractType
 {
@@ -23,8 +24,11 @@ class ModifyContactType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de rentrer votre adresse mail',
-                    ])
-                ]
+                    ]),
+                    new Email([
+                        'message' => 'L\'adresse email {{ value }} n\'est pas valide',
+                    ]),
+                ],
 
             ])
             
@@ -62,11 +66,10 @@ class ModifyContactType extends AbstractType
                     new NotBlank([
                         'message' => 'Merci de rentrer votre numéro de licence',
                     ]),
-                    new Length([
-                        'min' => 7,
-                        'max' => 7,
-                        'minMessage' => 'la lience est composée de {{ limit }} chiffres',
-                     ])
+                    new Regex([
+                        'pattern' => '/^\d{7}$/',
+                        'message' => 'Le numéro de licence doit contenir exactement 7 chiffres',
+                    ]),
                  ],
                 ])
 

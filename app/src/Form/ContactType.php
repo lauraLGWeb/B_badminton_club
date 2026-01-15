@@ -11,6 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator\NoBadWords;
 
 class ContactType extends AbstractType
 {
@@ -53,10 +54,12 @@ class ContactType extends AbstractType
                 'attr' => ['placeholder' => 'Votre message', 'rows' => 5],
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Le message est obligatoire']),
+                    new NoBadWords(),
                     new Assert\Length([
                         'min' => 10,
                         'minMessage' => 'Le message doit faire au moins {{ limit }} caractères',
                     ]),
+                    
                 ],
             ])
             ->add('send', SubmitType::class, [
