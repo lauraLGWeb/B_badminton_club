@@ -24,13 +24,9 @@ final class HomeController extends AbstractController
         //get all the actualities
         $actualities = $dm->getRepository(Actualities::class)->findBy([], ['eventOn' => 'DESC'], 3);
        
-        return $this->render('home/actuality.html.twig', [
-            'actualities' => $actualities,
-        ]);
-
-
+        
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'actualities' => $actualities,
         ]);
 
    }

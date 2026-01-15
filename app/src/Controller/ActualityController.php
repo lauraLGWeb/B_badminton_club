@@ -30,7 +30,6 @@ final class ActualityController extends AbstractController
 
 
     #[Route('/Actualites/detail/{id}', name: 'app_actualityDetail')]
-    #[IsGranted('ROLE_ADMIN')]
     public function actualitydetail(DocumentManager $dm, $id): Response
     {
 

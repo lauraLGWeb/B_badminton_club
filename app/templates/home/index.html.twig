@@ -2,15 +2,80 @@
 
 
 {% block welcomingMessage %}
-    <div class="container my-5">
     <h1>Bienvenue au Blois Badminton Club ! 🏸</h1>
-    <section class="WelcomingMsgContainer">
-           
-    </section>
+{% endblock %}
 
-     {% block body %}
+{% block body %}
+
+<section class="presentation">
+    <img src="{{ asset('pictures/logo.jpeg') }}" alt="logo">
+    <p> Que vous soyez débutant, joueur confirmé ou simplement curieux de découvrir le badminton, notre club vous accueille dans une ambiance conviviale et chaleureuse, où le plaisir de jouer et le partage sont au cœur de nos valeurs.</p>
+
+    <p>En loisir comme en compétition, chacun trouve sa place au sein du club. Je vous invite à venir nous rencontrer, échanger quelques volants et partager de bons moments sportifs avec nous. </p>
+
+    <p class="signature"><span>La Présidente – Blois Badminton Club</span> </p>
+</section>
      
-      {% endblock %}
 
-</div>
+<section class="picture-main">
+    <img src="{{ asset('pictures/main2.jpg') }}" alt="logo">
+</section>
+
+<section class="main-presentation">
+    <div class="reverse-div">
+         <img src="{{ asset('pictures/loisir.png') }}" alt="logo" class="img-1">
+         <p>Du loisir à la compétition, chacun trouve sa place au Blois Badminton Club !</p>
+    </div>
+     <div>
+         <img src="{{ asset('pictures/entraineur.png') }}" alt="logo">
+         <p>Formation de qualité pour nos jeunes, encadrés par des entraîneurs passionnés et diplômés.</p>
+    </div>
+     <div class="reverse-div">
+         <img src="{{ asset('pictures/competition.png') }}" alt="logo">
+         <p>« Des équipes compétitives, de la départementale à la Nationale  : progressez et dépassez-vous !</p>
+    </div>
+     <div>
+         <img src="{{ asset('pictures/conviviale.png') }}" alt="logo">
+         <p>Une ambiance conviviale et des bénévoles engagés : rejoignez notre famille sportive !</p>
+    </div>
+</section>
+
+
+
+
+<section class="actu-section">
+    <div class="triangle"></div>
+    <h2>Dernières actualités</h2>
+    <div class="actualities-grid">
+            {% for actuality in actualities %}
+                <article class="actuality-card">
+                    <img src="{{ asset(actuality.picture) }}" alt="{{ actuality.title }}">
+                    
+                    <h2>{{ actuality.title }}</h2>
+                    
+                    <div class="actuality-dates">
+                        <div class="actuality-date">
+                            <strong>📅 Événement :</strong> {{ actuality.eventOn|date('d/m/Y') }}
+                        </div>
+                        <div class="actuality-date">
+                            <strong>🕐 Créé le :</strong> {{ actuality.createdAt|date('d/m/Y') }}
+                        </div>
+                    </div>
+                    
+                    <p>{{ actuality.description }}</p>
+                    
+                    <a href="{{ path('app_actualityDetail', {'id': actuality.id}) }}" class="btn-actuality">
+                        En savoir plus →
+                    </a>
+                   
+                    {% if is_granted('ROLE_ADMIN')%}
+                         <a href="{{ path('app_deleteActuality', {'id': actuality.id}) }}" class="btn-actuality">
+                        supprimer  →
+                         </a>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        </div>
+</section>
+
 {% endblock %}
