@@ -3,6 +3,7 @@
 /.env.local
 /.env.local.php
 /.env.*.local
+.env
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
@@ -16,6 +17,7 @@
 /app/.env.local
 /app/.env.local.php
 /app/.env.*.local
+/app/.env
 /app/config/secrets/prod/prod.decrypt.private.php
 /app/public/bundles/
 /app/var/
@@ -50,4 +52,9 @@
 ###> Dependencies ###
 /vendor/
 ###< Dependencies ###
-.env
+
+
+
+# PHPUnit
+.phpunit.cache/
+coverage/
