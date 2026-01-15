@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=12.5.1" rel="stylesheet" type="text/css">
+  <link href="_css/billboard.min.css?v=12.5.1" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=12.5.1" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/var/www/src</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classesCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/ActualityController.php.html#16">App\Controller\ActualityController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#23">App\Controller\CartController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ContactController.php.html#15">App\Controller\ContactController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#19">App\Controller\HomeController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/LogginController.php.html#12">App\Controller\LogginController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistrationController.php.html#15">App\Controller\RegistrationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ShopController.php.html#14">App\Controller\ShopController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/MongoDB/ActualitesFixtures.php.html#9">App\DataFixtures\MongoDB\ActualitesFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ProductFixtures.php.html#10">App\DataFixtures\ProductFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/UserFixtures.php.html#10">App\DataFixtures\UserFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#9">App\Document\Actualities</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/ActualityType.php.html#15">App\Form\ActualityType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/ContactType.php.html#16">App\Form\ContactType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/ModifyContactType.php.html#18">App\Form\ModifyContactType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistrationFormType.php.html#22">App\Form\RegistrationFormType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ActualitiesRepository.php.html#9">App\Repository\ActualitiesRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/CartItemRepository.php.html#12">App\Repository\CartItemRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/CartRepository.php.html#12">App\Repository\CartRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ProductRepository.php.html#12">App\Repository\ProductRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#15">App\Repository\UserRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/NoBadWordsValidator.php.html#9">App\Validator\NoBadWordsValidator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#16">App\Entity\User</a></td><td class="text-right">55%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+         <th class="text-right">Complexity</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/CartController.php.html#23">App\Controller\CartController</a></td><td class="text-right">0.0%</td><td class="text-right">26</td><td class="text-right">702</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#19">App\Controller\HomeController</a></td><td class="text-right">0.0%</td><td class="text-right">20</td><td class="text-right">420</td></tr>
+       <tr><td><a href="Controller/ActualityController.php.html#16">App\Controller\ActualityController</a></td><td class="text-right">0.0%</td><td class="text-right">9</td><td class="text-right">90</td></tr>
+       <tr><td><a href="Entity/User.php.html#16">App\Entity\User</a></td><td class="text-right">55.6%</td><td class="text-right">23</td><td class="text-right">69</td></tr>
+       <tr><td><a href="DataFixtures/UserFixtures.php.html#10">App\DataFixtures\UserFixtures</a></td><td class="text-right">0.0%</td><td class="text-right">6</td><td class="text-right">42</td></tr>
+       <tr><td><a href="Validator/NoBadWordsValidator.php.html#9">App\Validator\NoBadWordsValidator</a></td><td class="text-right">0.0%</td><td class="text-right">6</td><td class="text-right">42</td></tr>
+       <tr><td><a href="Controller/ContactController.php.html#15">App\Controller\ContactController</a></td><td class="text-right">0.0%</td><td class="text-right">4</td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/RegistrationController.php.html#15">App\Controller\RegistrationController</a></td><td class="text-right">0.0%</td><td class="text-right">3</td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#15">App\Repository\UserRepository</a></td><td class="text-right">0.0%</td><td class="text-right">3</td><td class="text-right">12</td></tr>
+       <tr><td><a href="DataFixtures/MongoDB/ActualitesFixtures.php.html#9">App\DataFixtures\MongoDB\ActualitesFixtures</a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2 style="margin-top: 3rem;">Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodsCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/ActualityController.php.html#18"><abbr title="App\Controller\ActualityController::actuality">actuality</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ActualityController.php.html#32"><abbr title="App\Controller\ActualityController::actualitydetail">actualitydetail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ActualityController.php.html#49"><abbr title="App\Controller\ActualityController::createActuality">createActuality</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ActualityController.php.html#74"><abbr title="App\Controller\ActualityController::modifyActuality">modifyActuality</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ActualityController.php.html#129"><abbr title="App\Controller\ActualityController::deleteActuality">deleteActuality</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#26"><abbr title="App\Controller\CartController::cart">cart</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#54"><abbr title="App\Controller\CartController::addItem">addItem</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#129"><abbr title="App\Controller\CartController::Payment">Payment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#196"><abbr title="App\Controller\CartController::deleteItem">deleteItem</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#222"><abbr title="App\Controller\CartController::paymentSuccess">paymentSuccess</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#269"><abbr title="App\Controller\CartController::cancelledPayment">cancelledPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ContactController.php.html#17"><abbr title="App\Controller\ContactController::contact">contact</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#21"><abbr title="App\Controller\HomeController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#41"><abbr title="App\Controller\HomeController::coaches">coaches</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#47"><abbr title="App\Controller\HomeController::caMembers">caMembers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#53"><abbr title="App\Controller\HomeController::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#59"><abbr title="App\Controller\HomeController::internships">internships</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#66"><abbr title="App\Controller\HomeController::account">account</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#101"><abbr title="App\Controller\HomeController::prices">prices</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#108"><abbr title="App\Controller\HomeController::partners">partners</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#114"><abbr title="App\Controller\HomeController::Inscription">Inscription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#121"><abbr title="App\Controller\HomeController::schedules">schedules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#128"><abbr title="App\Controller\HomeController::try">try</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#135"><abbr title="App\Controller\HomeController::adminDash">adminDash</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#143"><abbr title="App\Controller\HomeController::legalMentions">legalMentions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#152"><abbr title="App\Controller\HomeController::eachInternship">eachInternship</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#165"><abbr title="App\Controller\HomeController::membersList">membersList</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#178"><abbr title="App\Controller\HomeController::modify">modify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#216"><abbr title="App\Controller\HomeController::supprimer">supprimer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/LogginController.php.html#14"><abbr title="App\Controller\LogginController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/LogginController.php.html#31"><abbr title="App\Controller\LogginController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistrationController.php.html#17"><abbr title="App\Controller\RegistrationController::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ShopController.php.html#16"><abbr title="App\Controller\ShopController::shop">shop</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/MongoDB/ActualitesFixtures.php.html#11"><abbr title="App\DataFixtures\MongoDB\ActualitesFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ProductFixtures.php.html#12"><abbr title="App\DataFixtures\ProductFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ProductFixtures.php.html#34"><abbr title="App\DataFixtures\ProductFixtures::getGroups">getGroups</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/UserFixtures.php.html#14"><abbr title="App\DataFixtures\UserFixtures::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/UserFixtures.php.html#19"><abbr title="App\DataFixtures\UserFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#38"><abbr title="App\Document\Actualities::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#44"><abbr title="App\Document\Actualities::getTitle">getTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#49"><abbr title="App\Document\Actualities::setTitle">setTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#56"><abbr title="App\Document\Actualities::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#61"><abbr title="App\Document\Actualities::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#68"><abbr title="App\Document\Actualities::getPicture">getPicture</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#73"><abbr title="App\Document\Actualities::setPicture">setPicture</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#80"><abbr title="App\Document\Actualities::getCreatedAt">getCreatedAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#85"><abbr title="App\Document\Actualities::setCreatedAtValue">setCreatedAtValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#95"><abbr title="App\Document\Actualities::getEventOn">getEventOn</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Document/Actualities.php.html#100"><abbr title="App\Document\Actualities::setEventOn">setEventOn</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#37"><abbr title="App\Entity\Product::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#81"><abbr title="App\Entity\User::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#124"><abbr title="App\Entity\User::setRoles">setRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#149"><abbr title="App\Entity\User::__serialize">__serialize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#157"><abbr title="App\Entity\User::eraseCredentials">eraseCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#202"><abbr title="App\Entity\User::getCarts">getCarts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#207"><abbr title="App\Entity\User::addCart">addCart</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#217"><abbr title="App\Entity\User::removeCart">removeCart</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/ActualityType.php.html#17"><abbr title="App\Form\ActualityType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/ActualityType.php.html#69"><abbr title="App\Form\ActualityType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/ContactType.php.html#18"><abbr title="App\Form\ContactType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/ContactType.php.html#73"><abbr title="App\Form\ContactType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/ModifyContactType.php.html#20"><abbr title="App\Form\ModifyContactType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/ModifyContactType.php.html#89"><abbr title="App\Form\ModifyContactType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistrationFormType.php.html#24"><abbr title="App\Form\RegistrationFormType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistrationFormType.php.html#87"><abbr title="App\Form\RegistrationFormType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ActualitiesRepository.php.html#14"><abbr title="App\Repository\ActualitiesRepository::findAll">findAll</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/CartItemRepository.php.html#14"><abbr title="App\Repository\CartItemRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/CartRepository.php.html#14"><abbr title="App\Repository\CartRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ProductRepository.php.html#14"><abbr title="App\Repository\ProductRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#17"><abbr title="App\Repository\UserRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#25"><abbr title="App\Repository\UserRepository::upgradePassword">upgradePassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/NoBadWordsValidator.php.html#15"><abbr title="App\Validator\NoBadWordsValidator::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3 style="margin-top: 2rem;">Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+         <th class="text-right">Complexity</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/CartController.php.html#54"><abbr title="App\Controller\CartController::addItem">addItem</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">8</td><td class="text-right">72</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#222"><abbr title="App\Controller\CartController::paymentSuccess">paymentSuccess</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">6</td><td class="text-right">42</td></tr>
+       <tr><td><a href="Validator/NoBadWordsValidator.php.html#15"><abbr title="App\Validator\NoBadWordsValidator::validate">validate</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">6</td><td class="text-right">42</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#129"><abbr title="App\Controller\CartController::Payment">Payment</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">5</td><td class="text-right">30</td></tr>
+       <tr><td><a href="DataFixtures/UserFixtures.php.html#19"><abbr title="App\DataFixtures\UserFixtures::load">load</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">5</td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#26"><abbr title="App\Controller\CartController::cart">cart</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">4</td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/ContactController.php.html#17"><abbr title="App\Controller\ContactController::contact">contact</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">4</td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#178"><abbr title="App\Controller\HomeController::modify">modify</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">4</td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/ActualityController.php.html#49"><abbr title="App\Controller\ActualityController::createActuality">createActuality</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">3</td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/ActualityController.php.html#74"><abbr title="App\Controller\ActualityController::modifyActuality">modifyActuality</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">3</td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/RegistrationController.php.html#17"><abbr title="App\Controller\RegistrationController::register">register</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">3</td><td class="text-right">12</td></tr>
+       <tr><td><a href="Entity/User.php.html#217"><abbr title="App\Entity\User::removeCart">removeCart</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">3</td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/CartController.php.html#196"><abbr title="App\Controller\CartController::deleteItem">deleteItem</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+       <tr><td><a href="DataFixtures/MongoDB/ActualitesFixtures.php.html#11"><abbr title="App\DataFixtures\MongoDB\ActualitesFixtures::load">load</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/User.php.html#207"><abbr title="App\Entity\User::addCart">addCart</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#25"><abbr title="App\Repository\UserRepository::upgradePassword">upgradePassword</abbr></a></td><td class="text-right">0.0%</td><td class="text-right">2</td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 12.5.1</a> using <a href="https://www.php.net/" target="_top">PHP 8.4.16</a> and <a href="https://phpunit.de/">PHPUnit 12.5.4</a> at Thu Jan 15 17:09:07 UTC 2026.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/billboard.pkgd.min.js?v=12.5.1" type="text/javascript"></script>
+  <script type="application/json" id="complexity_class">[[0,9,"Controller\/ActualityController.php.html#16","App\\Controller\\ActualityController","90"],[0,26,"Controller\/CartController.php.html#23","App\\Controller\\CartController","702"],[0,4,"Controller\/ContactController.php.html#15","App\\Controller\\ContactController","20"],[0,20,"Controller\/HomeController.php.html#19","App\\Controller\\HomeController","420"],[0,2,"Controller\/LogginController.php.html#12","App\\Controller\\LogginController","6"],[0,3,"Controller\/RegistrationController.php.html#15","App\\Controller\\RegistrationController","12"],[0,1,"Controller\/ShopController.php.html#14","App\\Controller\\ShopController","2"],[0,2,"DataFixtures\/MongoDB\/ActualitesFixtures.php.html#9","App\\DataFixtures\\MongoDB\\ActualitesFixtures","6"],[0,2,"DataFixtures\/ProductFixtures.php.html#10","App\\DataFixtures\\ProductFixtures","6"],[0,6,"DataFixtures\/UserFixtures.php.html#10","App\\DataFixtures\\UserFixtures","42"],[0,11,"Document\/Actualities.php.html#9","App\\Document\\Actualities","132"],[0,2,"Form\/ActualityType.php.html#15","App\\Form\\ActualityType","6"],[0,2,"Form\/ContactType.php.html#16","App\\Form\\ContactType","6"],[0,2,"Form\/ModifyContactType.php.html#18","App\\Form\\ModifyContactType","6"],[0,2,"Form\/RegistrationFormType.php.html#22","App\\Form\\RegistrationFormType","6"],[0,1,"Repository\/ActualitiesRepository.php.html#9","App\\Repository\\ActualitiesRepository","2"],[0,1,"Repository\/CartItemRepository.php.html#12","App\\Repository\\CartItemRepository","2"],[0,1,"Repository\/CartRepository.php.html#12","App\\Repository\\CartRepository","2"],[0,1,"Repository\/ProductRepository.php.html#12","App\\Repository\\ProductRepository","2"],[0,3,"Repository\/UserRepository.php.html#15","App\\Repository\\UserRepository","12"],[0,6,"Validator\/NoBadWordsValidator.php.html#9","App\\Validator\\NoBadWordsValidator","42"],[55.55555555555556,23,"Entity\/User.php.html#16","App\\Entity\\User","69.44"],[93.75,11,"Entity\/Product.php.html#9","App\\Entity\\Product","11.03"],[100,14,"Entity\/Cart.php.html#10","App\\Entity\\Cart","14"],[100,11,"Entity\/CartItem.php.html#8","App\\Entity\\CartItem","11"],[100,0,"Kernel.php.html#8","App\\Kernel","0"],[100,0,"Validator\/NoBadWords.php.html#7","App\\Validator\\NoBadWords","0"]]</script>
+  <script type="application/json" id="complexity_method">[[0,1,"Controller\/ActualityController.php.html#18","App\\Controller\\ActualityController::actuality","2"],[0,1,"Controller\/ActualityController.php.html#32","App\\Controller\\ActualityController::actualitydetail","2"],[0,3,"Controller\/ActualityController.php.html#49","App\\Controller\\ActualityController::createActuality","12"],[0,3,"Controller\/ActualityController.php.html#74","App\\Controller\\ActualityController::modifyActuality","12"],[0,1,"Controller\/ActualityController.php.html#129","App\\Controller\\ActualityController::deleteActuality","2"],[0,4,"Controller\/CartController.php.html#26","App\\Controller\\CartController::cart","20"],[0,8,"Controller\/CartController.php.html#54","App\\Controller\\CartController::addItem","72"],[0,5,"Controller\/CartController.php.html#129","App\\Controller\\CartController::Payment","30"],[0,2,"Controller\/CartController.php.html#196","App\\Controller\\CartController::deleteItem","6"],[0,6,"Controller\/CartController.php.html#222","App\\Controller\\CartController::paymentSuccess","42"],[0,1,"Controller\/CartController.php.html#269","App\\Controller\\CartController::cancelledPayment","2"],[0,4,"Controller\/ContactController.php.html#17","App\\Controller\\ContactController::contact","20"],[0,1,"Controller\/HomeController.php.html#21","App\\Controller\\HomeController::index","2"],[0,1,"Controller\/HomeController.php.html#41","App\\Controller\\HomeController::coaches","2"],[0,1,"Controller\/HomeController.php.html#47","App\\Controller\\HomeController::caMembers","2"],[0,1,"Controller\/HomeController.php.html#53","App\\Controller\\HomeController::rules","2"],[0,1,"Controller\/HomeController.php.html#59","App\\Controller\\HomeController::internships","2"],[0,1,"Controller\/HomeController.php.html#66","App\\Controller\\HomeController::account","2"],[0,1,"Controller\/HomeController.php.html#101","App\\Controller\\HomeController::prices","2"],[0,1,"Controller\/HomeController.php.html#108","App\\Controller\\HomeController::partners","2"],[0,1,"Controller\/HomeController.php.html#114","App\\Controller\\HomeController::Inscription","2"],[0,1,"Controller\/HomeController.php.html#121","App\\Controller\\HomeController::schedules","2"],[0,1,"Controller\/HomeController.php.html#128","App\\Controller\\HomeController::try","2"],[0,1,"Controller\/HomeController.php.html#135","App\\Controller\\HomeController::adminDash","2"],[0,1,"Controller\/HomeController.php.html#143","App\\Controller\\HomeController::legalMentions","2"],[0,1,"Controller\/HomeController.php.html#152","App\\Controller\\HomeController::eachInternship","2"],[0,1,"Controller\/HomeController.php.html#165","App\\Controller\\HomeController::membersList","2"],[0,4,"Controller\/HomeController.php.html#178","App\\Controller\\HomeController::modify","20"],[0,1,"Controller\/HomeController.php.html#216","App\\Controller\\HomeController::supprimer","2"],[0,1,"Controller\/LogginController.php.html#14","App\\Controller\\LogginController::login","2"],[0,1,"Controller\/LogginController.php.html#31","App\\Controller\\LogginController::logout","2"],[0,3,"Controller\/RegistrationController.php.html#17","App\\Controller\\RegistrationController::register","12"],[0,1,"Controller\/ShopController.php.html#16","App\\Controller\\ShopController::shop","2"],[0,2,"DataFixtures\/MongoDB\/ActualitesFixtures.php.html#11","App\\DataFixtures\\MongoDB\\ActualitesFixtures::load","6"],[0,1,"DataFixtures\/ProductFixtures.php.html#12","App\\DataFixtures\\ProductFixtures::load","2"],[0,1,"DataFixtures\/ProductFixtures.php.html#34","App\\DataFixtures\\ProductFixtures::getGroups","2"],[0,1,"DataFixtures\/UserFixtures.php.html#14","App\\DataFixtures\\UserFixtures::__construct","2"],[0,5,"DataFixtures\/UserFixtures.php.html#19","App\\DataFixtures\\UserFixtures::load","30"],[0,1,"Document\/Actualities.php.html#38","App\\Document\\Actualities::getId","2"],[0,1,"Document\/Actualities.php.html#44","App\\Document\\Actualities::getTitle","2"],[0,1,"Document\/Actualities.php.html#49","App\\Document\\Actualities::setTitle","2"],[0,1,"Document\/Actualities.php.html#56","App\\Document\\Actualities::getDescription","2"],[0,1,"Document\/Actualities.php.html#61","App\\Document\\Actualities::setDescription","2"],[0,1,"Document\/Actualities.php.html#68","App\\Document\\Actualities::getPicture","2"],[0,1,"Document\/Actualities.php.html#73","App\\Document\\Actualities::setPicture","2"],[0,1,"Document\/Actualities.php.html#80","App\\Document\\Actualities::getCreatedAt","2"],[0,1,"Document\/Actualities.php.html#85","App\\Document\\Actualities::setCreatedAtValue","2"],[0,1,"Document\/Actualities.php.html#95","App\\Document\\Actualities::getEventOn","2"],[0,1,"Document\/Actualities.php.html#100","App\\Document\\Actualities::setEventOn","2"],[0,1,"Entity\/Product.php.html#37","App\\Entity\\Product::getId","2"],[0,1,"Entity\/User.php.html#81","App\\Entity\\User::getId","2"],[0,1,"Entity\/User.php.html#124","App\\Entity\\User::setRoles","2"],[0,1,"Entity\/User.php.html#149","App\\Entity\\User::__serialize","2"],[0,1,"Entity\/User.php.html#157","App\\Entity\\User::eraseCredentials","2"],[0,1,"Entity\/User.php.html#202","App\\Entity\\User::getCarts","2"],[0,2,"Entity\/User.php.html#207","App\\Entity\\User::addCart","6"],[0,3,"Entity\/User.php.html#217","App\\Entity\\User::removeCart","12"],[0,1,"Form\/ActualityType.php.html#17","App\\Form\\ActualityType::buildForm","2"],[0,1,"Form\/ActualityType.php.html#69","App\\Form\\ActualityType::configureOptions","2"],[0,1,"Form\/ContactType.php.html#18","App\\Form\\ContactType::buildForm","2"],[0,1,"Form\/ContactType.php.html#73","App\\Form\\ContactType::configureOptions","2"],[0,1,"Form\/ModifyContactType.php.html#20","App\\Form\\ModifyContactType::buildForm","2"],[0,1,"Form\/ModifyContactType.php.html#89","App\\Form\\ModifyContactType::configureOptions","2"],[0,1,"Form\/RegistrationFormType.php.html#24","App\\Form\\RegistrationFormType::buildForm","2"],[0,1,"Form\/RegistrationFormType.php.html#87","App\\Form\\RegistrationFormType::configureOptions","2"],[0,1,"Repository\/ActualitiesRepository.php.html#14","App\\Repository\\ActualitiesRepository::findAll","2"],[0,1,"Repository\/CartItemRepository.php.html#14","App\\Repository\\CartItemRepository::__construct","2"],[0,1,"Repository\/CartRepository.php.html#14","App\\Repository\\CartRepository::__construct","2"],[0,1,"Repository\/ProductRepository.php.html#14","App\\Repository\\ProductRepository::__construct","2"],[0,1,"Repository\/UserRepository.php.html#17","App\\Repository\\UserRepository::__construct","2"],[0,2,"Repository\/UserRepository.php.html#25","App\\Repository\\UserRepository::upgradePassword","6"],[0,6,"Validator\/NoBadWordsValidator.php.html#15","App\\Validator\\NoBadWordsValidator::validate","42"],[100,1,"Entity\/Cart.php.html#36","App\\Entity\\Cart::__construct","1"],[100,1,"Entity\/Cart.php.html#41","App\\Entity\\Cart::getId","1"],[100,1,"Entity\/Cart.php.html#46","App\\Entity\\Cart::isPaid","1"],[100,1,"Entity\/Cart.php.html#51","App\\Entity\\Cart::setIsPaid","1"],[100,1,"Entity\/Cart.php.html#58","App\\Entity\\Cart::getPurchaseDate","1"],[100,1,"Entity\/Cart.php.html#63","App\\Entity\\Cart::setPurchaseDate","1"],[100,1,"Entity\/Cart.php.html#70","App\\Entity\\Cart::getUser","1"],[100,1,"Entity\/Cart.php.html#75","App\\Entity\\Cart::setUser","1"],[100,1,"Entity\/Cart.php.html#85","App\\Entity\\Cart::getCartItem","1"],[100,2,"Entity\/Cart.php.html#90","App\\Entity\\Cart::addCartItem","2"],[100,3,"Entity\/Cart.php.html#100","App\\Entity\\Cart::removeCartItem","3"],[100,1,"Entity\/CartItem.php.html#33","App\\Entity\\CartItem::getId","1"],[100,1,"Entity\/CartItem.php.html#38","App\\Entity\\CartItem::getCart","1"],[100,1,"Entity\/CartItem.php.html#43","App\\Entity\\CartItem::setCart","1"],[100,1,"Entity\/CartItem.php.html#49","App\\Entity\\CartItem::getProduct","1"],[100,1,"Entity\/CartItem.php.html#54","App\\Entity\\CartItem::setProduct","1"],[100,1,"Entity\/CartItem.php.html#60","App\\Entity\\CartItem::getQuantity","1"],[100,1,"Entity\/CartItem.php.html#65","App\\Entity\\CartItem::setQuantity","1"],[100,1,"Entity\/CartItem.php.html#74","App\\Entity\\CartItem::getSize","1"],[100,1,"Entity\/CartItem.php.html#79","App\\Entity\\CartItem::setSize","1"],[100,1,"Entity\/CartItem.php.html#88","App\\Entity\\CartItem::getGender","1"],[100,1,"Entity\/CartItem.php.html#93","App\\Entity\\CartItem::setGender","1"],[100,1,"Entity\/Product.php.html#42","App\\Entity\\Product::getTitle","1"],[100,1,"Entity\/Product.php.html#47","App\\Entity\\Product::setTitle","1"],[100,1,"Entity\/Product.php.html#54","App\\Entity\\Product::getDescription","1"],[100,1,"Entity\/Product.php.html#59","App\\Entity\\Product::setDescription","1"],[100,1,"Entity\/Product.php.html#66","App\\Entity\\Product::getPrice","1"],[100,1,"Entity\/Product.php.html#71","App\\Entity\\Product::setPrice","1"],[100,1,"Entity\/Product.php.html#80","App\\Entity\\Product::getPicture","1"],[100,1,"Entity\/Product.php.html#85","App\\Entity\\Product::setPicture","1"],[100,1,"Entity\/Product.php.html#92","App\\Entity\\Product::getHasSize","1"],[100,1,"Entity\/Product.php.html#97","App\\Entity\\Product::setHasSize","1"],[100,1,"Entity\/User.php.html#75","App\\Entity\\User::__construct","1"],[100,1,"Entity\/User.php.html#86","App\\Entity\\User::getEmail","1"],[100,1,"Entity\/User.php.html#91","App\\Entity\\User::setEmail","1"],[100,1,"Entity\/User.php.html#103","App\\Entity\\User::getUserIdentifier","1"],[100,1,"Entity\/User.php.html#111","App\\Entity\\User::getRoles","1"],[100,1,"Entity\/User.php.html#134","App\\Entity\\User::getPassword","1"],[100,1,"Entity\/User.php.html#139","App\\Entity\\User::setPassword","1"],[100,1,"Entity\/User.php.html#163","App\\Entity\\User::getFirstName","1"],[100,1,"Entity\/User.php.html#168","App\\Entity\\User::setFirstName","1"],[100,1,"Entity\/User.php.html#175","App\\Entity\\User::getLastName","1"],[100,1,"Entity\/User.php.html#180","App\\Entity\\User::setLastName","1"],[100,1,"Entity\/User.php.html#187","App\\Entity\\User::getLienceNbr","1"],[100,1,"Entity\/User.php.html#192","App\\Entity\\User::setLienceNbr","1"]]</script>
+  <script type="text/javascript" defer>
+  const barLabels = [
+    '0%',
+    '0-10%',
+    '10-20%',
+    '20-30%',
+    '30-40%',
+    '40-50%',
+    '50-60%',
+    '60-70%',
+    '70-80%',
+    '80-90%',
+    '90-100%',
+    '100%'
+  ];
+  const barConfig = (name, fullName, values) => ({
+    axis: {
+      x: {
+        type: "category",
+        categories: barLabels,
+      },
+      y: {
+        label: {
+          text: `#${name}`,
+          position: 'outer-top',
+        },
+      },
+    },
+    bindto: `#${name}CoverageDistribution`,
+    data: {
+      columns: [
+        [fullName].concat(values),
+      ],
+      colors: {
+        [fullName]: "rgba(69, 114, 167, 0.75)",
+      },
+      type: "bar",
+    },
+    bar: {
+      width: {
+        ratio: 0.9,
+      },
+    },
+    grid: {
+      focus: {
+        show: false,
+      },
+      x: {
+        show: true,
+      },
+      y: {
+        show: true,
+      },
+    },
+    legend: {
+      show: false,
+    },
+    tooltip: {
+      contents: function (data) {
+        return `<table class="bb-tooltip"><tbody>
+            <tr><th colspan="2">Coverage ${barLabels[data[0].x]}</th></tr>
+            <tr><td class="value">${data[0].value} ${name}</td></tr>
+          </tbody></table>`;
+      },
+      grouped: false,
+    },
+  });
+  bb.generate(
+    barConfig('classes', "Class Coverage", [21,0,0,0,0,0,1,0,0,0,1,4])
+  );
+  bb.generate(
+    barConfig('methods', "Method Coverage", [72,0,0,0,0,0,0,0,0,0,0,45])
+  );
+
+  const scatterConfig = (name, complexityData) => ({
+    axis: {
+      x: {
+        label: {
+          text: 'Code Coverage (in percent)',
+          position: 'outer-right',
+        },
+        tick: {
+          values: [0, 20, 40, 60, 80, 100],
+        },
+      },
+      y: {
+        label: {
+          text: 'Cyclomatic Complexity',
+          position: 'outer-top',
+        },
+        min: 0,
+        padding: {
+          bottom: 0,
+          top: 5,
+        },
+      },
+    },
+    bindto: `#${name}Complexity`,
+    data: {
+      columns: [
+        ["complexity_x"].concat(complexityData.map(d => d[0])),
+        ["complexity"].concat(complexityData.map(d => d[1])),
+      ],
+      onclick: function(data, element) {
+        window.location = complexityData[data.index][2];
+      },
+      type: "scatter",
+      xs: {
+        "complexity": "complexity_x",
+      },
+    },
+    grid: {
+      focus: {
+        show: true,
+        y: true,
+      },
+      x: {
+        show: true,
+      },
+      y: {
+        show: true,
+      },
+    },
+    legend: {
+      show: false,
+    },
+    tooltip: {
+      contents: function (data) {
+        const coverage = Math.round(data[0].x);
+        const complexity = data[0].value;
+        const targetName = complexityData[data[0].index][3];
+        const crap = complexityData[data[0].index][4];
+        return `<table class="bb-tooltip"><tbody>
+            <tr><th colspan="2">${targetName}</th></tr>
+            <tr class="bb-tooltip-name-complexity"><td>Coverage</td><td class="name">${coverage}%</td></tr>
+            <tr class="bb-tooltip-name-complexity"><td>Complexity</td><td class="value">${complexity}</td></tr>
+            <tr class="bb-tooltip-name-complexity"><td>Crap</td><td class="value">${crap}</td></tr>
+          </tbody></table>`;
+      },
+      grouped: false,
+    },
+  });
+  const classComplexityData = JSON.parse(document.getElementById('complexity_class').textContent);
+  bb.generate(
+    scatterConfig("class", classComplexityData)
+  );
+  const methodComplexityData = JSON.parse(document.getElementById('complexity_method').textContent);
+  bb.generate(
+    scatterConfig("method", methodComplexityData),
+  );
+  </script>
+ </body>
+</html>
