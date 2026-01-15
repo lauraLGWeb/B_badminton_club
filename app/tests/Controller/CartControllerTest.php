@@ -125,7 +125,7 @@ class CartControllerTest extends WebTestCase
         }
 
         // delete the item
-        $this->client->request('GET', '/boutique/panier/' . $cartItem->getId());
+        $this->client->request('GET', '/boutique/panier/supprimer' . $cartItem->getId());
 
         // check the redirection
         $this->assertResponseRedirects('/boutique/panier');
