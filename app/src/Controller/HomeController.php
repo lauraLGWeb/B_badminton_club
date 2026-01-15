@@ -202,12 +202,10 @@ final class HomeController extends AbstractController
         $statut = $formulaire->get('roles')->getData();
         $user->setRoles([$statut]);
 
-
         $em-> flush();
                   
             return $this->redirectToRoute('app_membersList');
-           
-           
+                      
         } 
 
          return $this->render("admin/modify.html.twig", ["formulaire" => $formulaire]);

@@ -98,7 +98,8 @@ final class CartController extends AbstractController
               $itemExisting->setQuantity($itemExisting->getQuantity()+1);
               
               $em->flush();
-              
+              $this->addFlash('success', 'Produit ajouté au panier !');
+              return $this->redirectToRoute('app_shop');
 
             // adding the item in the cart if not alerady existing 
             } else {
@@ -111,11 +112,11 @@ final class CartController extends AbstractController
                 $newItem->setGender($gender);  
                
                 
-                $em->persist($newItem);
-                $this->addFlash('success', 'Produit ajouté au panier !');
-        
+                $em->persist($newItem);      
                 $em->flush();
 
+                $this->addFlash('success', 'Produit ajouté au panier !');
+                return $this->redirectToRoute('app_shop');
             }
 
 
@@ -174,16 +175,10 @@ public function Payment(EntityManagerInterface $em) : Response
         ]);
 
 
-         // ✅ Alerte popup avant de rediriger vers Stripe
-        return new Response(
-            '<script>
-                alert("✅ Connexion Stripe réussie ! Redirection vers le paiement...");
-                window.location.href="' . $paymentSession->url . '";
-            </script>'
-        );
+      
         // // ✅ Si on arrive ici, Stripe a répondu !
-        // $this->addFlash('success', '✅ Connexion Stripe OK ! Redirection...');
-        // return $this->redirect($paymentSession->url);
+      $this->addFlash('success', '✅ Connexion Stripe OK ! Redirection...');
+      return $this->redirect($paymentSession->url);
       
         
     } catch (\Exception $e) {
