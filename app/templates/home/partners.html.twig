@@ -1,12 +1,134 @@
 {% extends 'base.html.twig' %}
 {% block title %} Partenaires {% endblock %}
 
-
-
-
 {% block body %}
-<p>Un grand merci à nos partenaires privés et institutionnels qui apportent tout leur soutien au BLOIS BADMINTON CLUB. </p>
 
-<img src="" alt="">
+{# Section carrousel logos #}
+<section class="partenaires-hero">
+    <h1>Nos partenaires</h1>
+    <p class="subtitle">Ils nous font confiance et soutiennent notre passion du badminton</p>
+    
+    <div class="partners-slider">
+        <div class="partners-track">
+            {# Premier set #}
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire1.png') }}" alt="Partenaire 1"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire2.png') }}" alt="Partenaire 2"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire3.png') }}" alt="Partenaire 3"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire4.png') }}" alt="Partenaire 4"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire5.png') }}" alt="Partenaire 5"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="Partenaire 6"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire7.png') }}" alt="Partenaire 7"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire8.png') }}" alt="Partenaire 8"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire9.png') }}" alt="Partenaire 9"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="Partenaire 10"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire11.png') }}" alt="Partenaire 11"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire12.png') }}" alt="Partenaire 12"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire13.png') }}" alt="Partenaire 13"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire14.png') }}" alt="Partenaire 14"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire15.png') }}" alt="Partenaire 15"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenair16.png') }}" alt="Partenaire 16"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire17.png') }}" alt="Partenaire 17"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire18.png') }}" alt="Partenaire 18"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire19.gif') }}" alt="Partenaire 19"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="Partenaire 20"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="Partenaire 21"></div>
+            
+            {# Duplication #}
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire1.png') }}" alt="Partenaire 1"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire2.png') }}" alt="Partenaire 2"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire3.png') }}" alt="Partenaire 3"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire4.png') }}" alt="Partenaire 4"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire5.png') }}" alt="Partenaire 5"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="Partenaire 6"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire7.png') }}" alt="Partenaire 7"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire8.png') }}" alt="Partenaire 8"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire9.png') }}" alt="Partenaire 9"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="Partenaire 10"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire11.png') }}" alt="Partenaire 11"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire12.png') }}" alt="Partenaire 12"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire13.png') }}" alt="Partenaire 13"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire14.png') }}" alt="Partenaire 14"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire15.png') }}" alt="Partenaire 15"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenair16.png') }}" alt="Partenaire 16"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire17.png') }}" alt="Partenaire 17"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire18.png') }}" alt="Partenaire 18"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire19.gif') }}" alt="Partenaire 19"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="Partenaire 20"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="Partenaire 21"></div>
+        </div>
+    </div>
+</section>
+
+{# Section partenaire principal : +2Bad #}
+<section class="partner-spotlight">
+    <div class="spotlight-container">
+        <div class="spotlight-header neo-card">
+                <img src="{{ asset('pictures/partenairebad.png') }}" alt="+2Bad" class="spotlight-logo">
+        </div>
+
+        <div class="spotlight-content">
+            <div class="spotlight-description neo-card">
+                <h3> Partenaire équipement</h3>
+                <p>Votre club est heureux de vous annoncer un partenariat avec +2Bad.</p>
+                <p>L'enseigne Plusdebad est spécialiste du badminton, vous y trouverez : raquettes, chaussures, volants ainsi que tout l'équipement adapté à la pratique du badminton.</p>
+                
+                <div class="advantage-box">
+                    <div>
+                        <h4>Avantage membres BBC</h4>
+                        <p><strong>-20% de remise</strong> sur les prix catalogues pour tous les membres du club !</p>
+                    </div>
+                </div>
+
+                <p>L'ensemble de l'équipe +2Bad Paris sera heureuse de vous accueillir dans leur magasin place d'Italie afin de vous conseiller au mieux selon vos besoins.</p>
+                <p>Vous retrouverez également un grand choix de raquettes de badminton, bagagerie et chaussures de badminton sur leur site internet.</p>
+            </div>
+
+            <div class="spotlight-aside">
+                <div class="contact-card neo-card">
+                    <h3>Les trouver </h3>
+                    <p>12 rue Coypel <br> 75013 Paris </p>
+                </div>
+
+                <div class="contact-card neo-card">
+                    <h3>Les contacter</h3>
+                            <a class="contact-2bad" href="tel:+33145835111">01 45 83 51 11</a>
+                            <a class="contact-2bad" href="mailto:paris@plusdebad.com">paris@plusdebad.com</a>
+                </div>
+
+                <div class="contact-card neo-card social-card">
+                    <h3>Suivez-les</h3>
+                    <div class="partner-socials">
+                        <a href="https://www.facebook.com/plusdebadparis" 
+                           target="_blank" 
+                           class="neo-circle social-icon-partners social-fb-small" 
+                           aria-label="Facebook +2Bad">
+                        </a>
+                        <a href="https://www.instagram.com/plusdebad/" 
+                           target="_blank" 
+                           class="neo-circle social-icon-partners  social-insta-small" 
+                           aria-label="Instagram +2Bad">
+                        </a>
+                    </div>
+                </div>
+
+                <a href="https://www.plusdebad.com/" 
+                   target="_blank" 
+                   class="visit-btn">
+                    Visiter le site web →
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# Section conclusion #}
+<section class="partners-conclusion">
+    <div class="conclusion-card neo-card">
+        <h2>Ensemble, pour la performance</h2>
+        <p>Le Club est fier de collaborer avec un large éventail de partenaires qui partagent sa passion de la performance, dans des secteurs variés.</p>
+        <p>Vous souhaitez devenir partenaire du Blois Badminton Club ?</p>
+        <a href="{{ path('app_contact') }}" class="contact-cta">Contactez-nous</a>
+    </div>
+</section>
 
 {% endblock %}

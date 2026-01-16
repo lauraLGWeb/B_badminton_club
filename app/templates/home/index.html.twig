@@ -46,52 +46,144 @@
 <section class="actu-section">
     <div class="triangle"></div>
     <h2>Dernières actualités</h2>
-    <div class="actus-in-main">
-            {% for actuality in actualities %}
-                <article class="actu-main" >
-                    <img src="{{ asset(actuality.picture) }}" alt="{{ actuality.title }}">
-                    
-                    <h3>{{ actuality.title }}</h3>
-                    
-                    <div >
-                        <div>
-                            <strong>📅 Événement :</strong> {{ actuality.eventOn|date('d/m/Y') }}
-                        </div>
-                        <div>
-                            <strong>🕐 Créé le :</strong> {{ actuality.createdAt|date('d/m/Y') }}
-                        </div>
-                    </div>
-                    
-                    <p>{{ actuality.description }}</p>
-                    
-                    <a href="{{ path('app_actualityDetail', {'id': actuality.id}) }}">
-                        En savoir plus →
-                    </a>
-                   
-                    {% if is_granted('ROLE_ADMIN')%}
-                         <a href="{{ path('app_deleteActuality', {'id': actuality.id}) }}" >
-                        supprimer  →
-                         </a>
-                    {% endif %}
-                </article>
-            {% endfor %}
-        </div>
-            <div class="fb-page" 
-            data-href="https://www.facebook.com/BloisBadmintonClub" 
-            data-tabs="timeline" 
-            data-width="900px" 
-            data-height="500px" 
-            data-small-header="true" 
-            data-adapt-container-width="true" 
-            data-hide-cover="false" 
-            data-show-facepile="true">
-            <blockquote cite="https://www.facebook.com/BloisBadmintonClub" class="fb-xfbml-parse-ignore">
-                <a href="https://www.facebook.com/BloisBadmintonClub">Blois Badminton Club</a></blockquote>
-        </div>
-        
-        <a class="actu-btn" href="{{ path('app_actuality') }}"> Voir toutes les actualités</a>
 
+        <div class="actus-in-main">
+                {% for actuality in actualities %}
+                    <article class="actu-main" >
+                        <img src="{{ asset(actuality.picture) }}" alt="{{ actuality.title }}">
+                        
+                        <h3>{{ actuality.title }}</h3>
+                        
+                        <div >
+                            <div>
+                                <strong>📅 Événement :</strong> {{ actuality.eventOn|date('d/m/Y') }}
+                            </div>
+                            <div>
+                                <strong>🕐 Créé le :</strong> {{ actuality.createdAt|date('d/m/Y') }}
+                            </div>
+                        </div>
+                        
+                        <p>{{ actuality.description }}</p>
+                        
+                        <a href="{{ path('app_actualityDetail', {'id': actuality.id}) }}">
+                            En savoir plus →
+                        </a>
+                    
+                        {% if is_granted('ROLE_ADMIN')%}
+                            <a href="{{ path('app_deleteActuality', {'id': actuality.id}) }}" >
+                            supprimer  →
+                            </a>
+                        {% endif %}
+                    </article>
+                {% endfor %}
+        </div>
+
+    
+            <div class="fb-page" 
+                data-href="https://www.facebook.com/BloisBadmintonClub" 
+                data-tabs="timeline" 
+                data-width="900" 
+                data-height="500" 
+                data-small-header="true" 
+                data-adapt-container-width="true" 
+                data-hide-cover="false" 
+                data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/BloisBadmintonClub" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/BloisBadmintonClub">Blois Badminton Club</a></blockquote>
+            </div>
+            
+            <div>
+                <a class="actu-btn" href="{{ path('app_actuality') }}"> Voir toutes les actualités</a>
+            </div>
+       
 </section>
 
+<section class="partenaires">
+    <h2>Nos partenaires</h2>
+    <div class="partners-slider">
+
+      <p>Le Club est fier de collaborer avec un large éventail de partenaires qui partagent sa passion de la performance, dans des secteurs variés.</p>
+      
+        <div class="partners-track">
+            {# Premier set #}
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire1.png') }}" alt="Partenaire 1"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire2.png') }}" alt="Partenaire 2"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire3.png') }}" alt="Partenaire 3"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire4.png') }}" alt="Partenaire 4"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire5.png') }}" alt="Partenaire 5"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="Partenaire 6"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire7.png') }}" alt="Partenaire 7"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire8.png') }}" alt="Partenaire 8"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire9.png') }}" alt="Partenaire 9"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="Partenaire 10"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire11.png') }}" alt="Partenaire 11"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire12.png') }}" alt="Partenaire 12"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire13.png') }}" alt="Partenaire 13"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire14.png') }}" alt="Partenaire 14"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire15.png') }}" alt="Partenaire 15"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenair16.png') }}" alt="Partenaire 16"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire17.png') }}" alt="Partenaire 17"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire18.png') }}" alt="Partenaire 18"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire19.gif') }}" alt="Partenaire 19"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="Partenaire 20"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="Partenaire 21"></div>
+            
+            {# Duplication pour effet infini #}
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire1.png') }}" alt="Partenaire 1"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire2.png') }}" alt="Partenaire 2"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire3.png') }}" alt="Partenaire 3"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire4.png') }}" alt="Partenaire 4"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire5.png') }}" alt="Partenaire 5"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="Partenaire 6"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire7.png') }}" alt="Partenaire 7"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire8.png') }}" alt="Partenaire 8"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire9.png') }}" alt="Partenaire 9"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="Partenaire 10"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire11.png') }}" alt="Partenaire 11"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire12.png') }}" alt="Partenaire 12"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire13.png') }}" alt="Partenaire 13"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire14.png') }}" alt="Partenaire 14"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire15.png') }}" alt="Partenaire 15"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenair16.png') }}" alt="Partenaire 16"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire17.png') }}" alt="Partenaire 17"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire18.png') }}" alt="Partenaire 18"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire19.gif') }}" alt="Partenaire 19"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="Partenaire 20"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="Partenaire 21"></div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section class="come">
+    <div class="come-content">
+        <div class="come-text">
+            <h3>Prêt(e) à nous rejoindre ?</h3>
+            <p>Rejoins une communauté de passionnés et découvre le badminton dans une ambiance conviviale !</p>
+        </div>
+        <a href="{{ path('app_inscription') }}" class="come-btn">
+            <span>Nous rejoindre</span>
+        </a>
+    </div>
+    <div class="come-shape"></div>
+</section>
+
+<hr>
+
+<section class="our-medias">
+    <div class="social-icons">
+        <a href="https://www.facebook.com/BloisBadmintonClub" target="_blank" 
+           class="social-icon social-fb" 
+           aria-label="Facebook BBC">
+        </a>
+        <h3> Nos médias</h3>
+        
+        <a href="https://www.instagram.com/blois_badminton_club" target="_blank" 
+           class="social-icon social-insta" 
+           aria-label="Instagram BBC">
+        </a>
+    </div>
+</section>
 
 {% endblock %}
