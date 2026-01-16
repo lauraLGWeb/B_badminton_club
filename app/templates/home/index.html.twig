@@ -46,36 +46,52 @@
 <section class="actu-section">
     <div class="triangle"></div>
     <h2>Dernières actualités</h2>
-    <div class="actualities-grid">
+    <div class="actus-in-main">
             {% for actuality in actualities %}
-                <article class="actuality-card">
+                <article class="actu-main" >
                     <img src="{{ asset(actuality.picture) }}" alt="{{ actuality.title }}">
                     
-                    <h2>{{ actuality.title }}</h2>
+                    <h3>{{ actuality.title }}</h3>
                     
-                    <div class="actuality-dates">
-                        <div class="actuality-date">
+                    <div >
+                        <div>
                             <strong>📅 Événement :</strong> {{ actuality.eventOn|date('d/m/Y') }}
                         </div>
-                        <div class="actuality-date">
+                        <div>
                             <strong>🕐 Créé le :</strong> {{ actuality.createdAt|date('d/m/Y') }}
                         </div>
                     </div>
                     
                     <p>{{ actuality.description }}</p>
                     
-                    <a href="{{ path('app_actualityDetail', {'id': actuality.id}) }}" class="btn-actuality">
+                    <a href="{{ path('app_actualityDetail', {'id': actuality.id}) }}">
                         En savoir plus →
                     </a>
                    
                     {% if is_granted('ROLE_ADMIN')%}
-                         <a href="{{ path('app_deleteActuality', {'id': actuality.id}) }}" class="btn-actuality">
+                         <a href="{{ path('app_deleteActuality', {'id': actuality.id}) }}" >
                         supprimer  →
                          </a>
                     {% endif %}
                 </article>
             {% endfor %}
         </div>
+            <div class="fb-page" 
+            data-href="https://www.facebook.com/BloisBadmintonClub" 
+            data-tabs="timeline" 
+            data-width="900px" 
+            data-height="500px" 
+            data-small-header="true" 
+            data-adapt-container-width="true" 
+            data-hide-cover="false" 
+            data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/BloisBadmintonClub" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/BloisBadmintonClub">Blois Badminton Club</a></blockquote>
+        </div>
+        
+        <a class="actu-btn" href="{{ path('app_actuality') }}"> Voir toutes les actualités</a>
+
 </section>
+
 
 {% endblock %}

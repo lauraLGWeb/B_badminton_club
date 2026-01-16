@@ -2,28 +2,35 @@
 <html>
 <head>
  {% block stylesheets %}
+        {# JS FILES  #}
         <script defer src="{{asset('styles/JS/main.js') }}"></script>
         <script defer src="{{asset('styles/JS/cart.js') }}"></script>
         <script defer src="{{asset('styles/JS/addItem.js') }}"></script>
-
+        
+        {# CSS FILES  #}
         <link rel="stylesheet" href="{{ asset('styles/CSS/app.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/listMembers.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/dashboardadmin.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/schedules.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/tarifs.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/actuality.css') }}">
-        
         <link rel="stylesheet" href="{{ asset('styles/CSS/actualityDetail.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/mentions.css') }}">
 
         <link rel="shortcut icon" href="{{ asset('pictures/logo.jpeg') }}" type="image/x-icon">
-{% endblock %}
+
+       {% endblock %}
     <meta charset="UTF-8">
     <title>{% block title %}Blois Badminton Club{% endblock %}</title>
     
    
     
 </head>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v18.0" 
+        nonce="RANDOM_NONCE">
+    </script>
 
 <body>
 
