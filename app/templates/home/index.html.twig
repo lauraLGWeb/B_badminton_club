@@ -47,6 +47,9 @@
     <div class="triangle"></div>
     <h2>Dernières actualités</h2>
 
+
+    <section class="actus">
+    
         <div class="actus-in-main">
                 {% for actuality in actualities %}
                     <article class="actu-main" >
@@ -79,25 +82,24 @@
         </div>
 
     
-            <div class="fb-page" 
+        <div class="fb-page" 
                 data-href="https://www.facebook.com/BloisBadmintonClub" 
                 data-tabs="timeline" 
-                data-width="900" 
-                data-height="500" 
+                data-width="1200"
+                data-heigth="500" 
                 data-small-header="true" 
                 data-adapt-container-width="true" 
                 data-hide-cover="false" 
                 data-show-facepile="true">
-                <blockquote cite="https://www.facebook.com/BloisBadmintonClub" class="fb-xfbml-parse-ignore">
-                    <a href="https://www.facebook.com/BloisBadmintonClub">Blois Badminton Club</a></blockquote>
-            </div>
-            
-            <div>
-                <a class="actu-btn" href="{{ path('app_actuality') }}"> Voir toutes les actualités</a>
-            </div>
+        </div>
+    </section>
+  
+       
        
 </section>
-
+ <div>
+            <a class="actu-btn" href="{{ path('app_actuality') }}"> Voir toutes les actualités</a>
+        </div>
 <section class="partenaires">
     <h2>Nos partenaires</h2>
     <div class="partners-slider">

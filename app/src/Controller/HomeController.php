@@ -22,7 +22,7 @@ final class HomeController extends AbstractController
     public function index(DocumentManager $dm): Response
     {
         //get all the actualities
-        $actualities = $dm->getRepository(Actualities::class)->findBy([], ['eventOn' => 'DESC'], 3);
+        $actualities = $dm->getRepository(Actualities::class)->findBy([], ['eventOn' => 'DESC'], 2);
        
         
         return $this->render('home/index.html.twig', [

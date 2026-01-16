@@ -755,16 +755,14 @@ details a:hover {
 .actu-section{
     position: relative;
     overflow: hidden;
-    min-height: 1800px;
+    min-height: 1100px;
     padding:0 2rem;
- 
-
-}
+ }
 
 .triangle{
     position: absolute;
     height: 0px;
-    left: 900px;
+    left: 700px;
     top: 750px;
     width: 0px;
     border-left: 100px solid transparent;
@@ -775,7 +773,15 @@ details a:hover {
     opacity: 0.3;
 }
 
+.actus{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding-top:30vh;
 
+}
 
 .actualities-grid{
     display: flex;
@@ -784,7 +790,7 @@ details a:hover {
 
 .actu-section h2{
     position: relative;
-    top: 60px;
+    top: 150px;
     width: 40vw;
     margin-left: 20px;
     text-align: center;
@@ -809,12 +815,10 @@ details a:hover {
 
 .actus-in-main{
     display: flex;
-    position: relative;
-    top: 100px;
 }
 
 .actu-main{
-    width: 30%;
+    width: 50%;
     min-height: 60vh;
     padding: 15px;
     background: var(--bg-color);
@@ -883,9 +887,7 @@ details a:hover {
 }
 
 .fb_iframe_widget {
-    top: 450px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+   height: 450px;
 }
 
 .actu-btn{
@@ -898,11 +900,14 @@ details a:hover {
     text-decoration: none;
     display: inline-block;
     box-shadow: 5px 5px 15px var(--shadow-dark);
-    width: 90px;
+    width: 15vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+   
 }
 
 .actu-btn:hover{
-    transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(255, 107, 53, 0.5);
 }
 
