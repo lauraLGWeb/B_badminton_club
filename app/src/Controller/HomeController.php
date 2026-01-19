@@ -171,6 +171,57 @@ final class HomeController extends AbstractController
            ]);
     }
 
+ //modify the item
+    #[Route('/admin/Liste-boutique/modifier/{id}', name: 'app_modifyItem')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function app_modifyItem(Request $request, EntityManagerInterface $em, $id): Response
+    {
+
+        
+        $item = $em->getRepository(Product::class)->find($id);
+
+        $formulaire = $this->createForm(ArticleType::class, $item);
+
+        
+
+        $formulaire->handleRequest($request);
+        if($formulaire->isSubmitted()&& $formulaire->isValid())
+        {   
+        $em-> flush();
+
+             $this->addFlash('success', 'Produit mis à jour avec succès !');          
+            return $this->redirectToRoute('app_ItemsList');
+        } 
+
+        if($formulaire->isSubmitted()&& !$formulaire->isValid())
+        {   
+         $this->addFlash('error', 'Erreur dans la mise à jour, celle ci n\'est pas prise en compte');
+        }
+         return $this->render("admin/CreateItem.html.twig", ["form" => $formulaire]);
+     }
+
+
+
+
+
+
+    //delete the actuality
+    #[Route('/admin/Liste-boutique/suppression/{id}', name: 'app_deleteItem')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function eleteItem(EntityManagerInterface $em, $id): Response
+    {
+
+        //getting the actuality details
+        $itemToDelete = $em->getRepository(Product::class)->find($id);
+        
+        $em->remove($itemToDelete);
+        $em->flush();
+
+        $this->addFlash('success', 'Article supprimée avec succès !');
+
+       return $this->redirectToRoute('app_ItemsList');
+    }
+
 
 
 

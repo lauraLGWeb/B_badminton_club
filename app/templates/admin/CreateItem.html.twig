@@ -4,6 +4,16 @@
 
 
 {% block body %}
+
+    {% for type, messages in app.flashes %}
+    {# going through each of the 3 messages #}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
 <div class="container">
 
     <h1>Création d'un nouveau produit</h1>

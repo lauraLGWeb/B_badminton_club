@@ -24,9 +24,10 @@ class Product
     #[NoBadWords]
     private ?string $description = null;
 
-    #[ORM\Column]
-     #[Assert\NotBlank(message: 'le prix est obligatoire')]
-    private ?int $price = null;
+    #[Assert\Positive(message: 'Le prix doit être positif')]
+    #[ORM\Column(type: 'decimal', precision: 6, scale: 2)]
+    #[Assert\NotBlank(message: 'le prix est obligatoire')]
+    private ?float $price = null;
 
    
 
@@ -35,7 +36,7 @@ class Product
     private ?string $picture = null;
 
     #[ORM\Column(name: 'has_size')]
-     #[Assert\NotBlank(message: 'Merci de sélectionner une deux deux propositions')]
+    #[Assert\NotNull(message: 'Merci de sélectionner une deux deux propositions')]
     private ?bool $hasSize = false;
 
   
@@ -69,12 +70,12 @@ class Product
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getPrice(): ?string
     {
         return $this->price;
     }
 
-    public function setPrice(int $price): static
+    public function setPrice(string $price): static
     {
         $this->price = $price;
 

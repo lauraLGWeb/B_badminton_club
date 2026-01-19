@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+
 class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -25,7 +26,6 @@ class ArticleType extends AbstractType
                 ],
                 'expanded' => true,  // ← Radio buttons
                 'required' => true,
-                'data' => false // Valeur par défaut = Non
             ]);
     }
 

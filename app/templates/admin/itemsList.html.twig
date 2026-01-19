@@ -15,7 +15,12 @@
                 <img src="{{product.picture}}" alt="{{product.title}}">
                 <p>{{product.description}}</p>
                 <p class="price">{{ product.price|number_format(2, ',', ' ') }} €</p>
-                
+                <a href="{{ path('app_modifyItem', {'id': product.id}) }}" class="btn-actuality">
+                        modifier  →
+                         </a>
+                <a href="{{ path('app_deleteItem', {'id': product.id}) }}" class="btn-actuality">
+                        supprimer  →
+                         </a>
             </div>
     {% endfor %} 
     </section>
