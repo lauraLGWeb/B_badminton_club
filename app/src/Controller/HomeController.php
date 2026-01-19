@@ -206,7 +206,7 @@ final class HomeController extends AbstractController
 
 
     //delete the actuality
-    #[Route('/admin/Liste-boutique/suppression/{id}', name: 'app_deleteItem')]
+    #[Route('/admin/Liste-boutique/suppression/{id}', name: 'app_deleteProduct')]
     #[IsGranted('ROLE_ADMIN')]
     public function eleteItem(EntityManagerInterface $em, $id): Response
     {

@@ -27,7 +27,7 @@ class Product
     #[Assert\Positive(message: 'Le prix doit être positif')]
     #[ORM\Column(type: 'decimal', precision: 6, scale: 2)]
     #[Assert\NotBlank(message: 'le prix est obligatoire')]
-    private ?float $price = null;
+    private ?string $price = null;
 
    
 

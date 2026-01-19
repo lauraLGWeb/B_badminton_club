@@ -12,15 +12,21 @@
     {% for product in products %}
             <div class="product">
                 <h2 class="productTitle">{{product.title}}</h2>
-                <img src="{{product.picture}}" alt="{{product.title}}">
+                <img 
+                class="pic-items" 
+                src="{{ asset(product.picture) }}" 
+                alt="{{product.title}}"
+                onerror="this.src='{{ asset('https://placehold.co/400x250/FF6B35/white?text=Image+Indisponible') }}'">
                 <p>{{product.description}}</p>
                 <p class="price">{{ product.price|number_format(2, ',', ' ') }} €</p>
-                <a href="{{ path('app_modifyItem', {'id': product.id}) }}" class="btn-actuality">
+                <div class="btn-modif-item">
+                <a href="{{ path('app_modifyItem', {'id': product.id}) }}" class="btn-item">
                         modifier  →
                          </a>
-                <a href="{{ path('app_deleteItem', {'id': product.id}) }}" class="btn-actuality">
+                <a href="{{ path('app_deleteProduct', {'id': product.id}) }}" class="btn-item">
                         supprimer  →
                          </a>
+                </div>
             </div>
     {% endfor %} 
     </section>

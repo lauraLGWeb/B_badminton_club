@@ -18,7 +18,7 @@ class ArticleType extends AbstractType
             ->add('description')
             ->add('price')
             ->add('picture')
-             ->add('hasSize', ChoiceType::class, [
+            ->add('hasSize', ChoiceType::class, [
                 'label' => 'Ce produit a-t-il des tailles ?',
                 'choices' => [
                     'Oui' => true,
