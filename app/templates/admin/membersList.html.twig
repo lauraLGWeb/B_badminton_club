@@ -7,6 +7,16 @@
 
 {% block body %}
 
+    {% for type, messages in app.flashes %}
+    {# going through each of the 3 messages #}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
 <div class="members-list">
     <h1>Voici tous les membres</h1>
    
