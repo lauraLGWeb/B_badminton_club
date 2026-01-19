@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Cart;
-use App\Entity\User;
 use App\Entity\CartItem;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -61,7 +60,7 @@ final class CartController extends AbstractController
         }
 
 
-        // Récupère size et gender depuis le formulaire
+        //  get size and gender from the form
         $size = $request->request->get('size') ?: $request->query->get('size');
         $gender = $request->request->get('gender') ?: $request->query->get('gender');
 

@@ -2,7 +2,11 @@
 
 
 {% block welcomingMessage %}
-    <h1>Bienvenue au Blois Badminton Club {{app.user.firstName}}! 🏸</h1>
+    <h1>Bienvenue au Blois Badminton Club 
+    {% if app.user %}
+        {{app.user.firstName}}
+    {% endif %}! 🏸
+    </h1>
 {% endblock %}
 
 {% block body %}

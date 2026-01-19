@@ -59,7 +59,7 @@
                     <form class="add-to-cart-form" action="{{ path('app_addItem', { id: product.id }) }}" method="POST">
                         {% if product.hasSize %}
                         <div class="selects">
-                            <select name="size" class="select-shop">  
+                            <select name="size" class="select-shop size">  
                                 <option value="">Choisir une taille</option>
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
@@ -69,7 +69,7 @@
                                 <option value="XXL">XXL</option>  
                             </select>
 
-                            <select name="gender" class="select-shop">  
+                            <select name="gender" class="select-shop gender">  
                                 <option value="">Choisir un genre</option>
                                 <option value="man">Homme</option>
                                 <option value="woman">Femme</option>
