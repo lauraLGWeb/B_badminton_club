@@ -214,8 +214,18 @@ final class HomeController extends AbstractController
    public function supprimer(EntityManagerInterface $em, $id) : Response
     {
 
+        //get the user connected
+        $actualUser = $this->getUser();
+
         $repo = $em->getRepository(User::class);
         $user = $repo->find($id);
+
+
+        // if i'm connected, i cannot delete my own account
+        if($actualUser === $user){
+            $this->addFlash('erreur', ' Attention Tu ne peux pas supprimer ton propre compte!');
+            return $this->redirectToRoute('app_membersList');
+        } 
 
         $em->remove($user);
         $em->flush();
