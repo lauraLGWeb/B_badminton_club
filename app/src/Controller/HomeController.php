@@ -6,13 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\ProductRepository;
 use App\Entity\User;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use App\Document\Actualities;
-use App\Form\ModifyContactType;
+use App\Form\ArticleType;
 use Symfony\Component\HttpFoundation\Request;
+use App\Form\ModifyContactType;
 use App\Form\UserModify;
-
+use Proxies\__CG__\App\Entity\Product;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 
@@ -134,6 +136,42 @@ final class HomeController extends AbstractController
     {
         return $this->render('home/adminDashboard.html.twig');
     }
+
+// routes for admin shop
+       #[Route('/admin/Liste-boutique', name: 'app_ItemsList')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function ItemsList(ProductRepository $ProductRepository): Response
+    {
+         $product = $ProductRepository->findAll();
+
+        return $this->render('admin/itemsList.html.twig', [
+            'products' => $product,
+        ]);
+    }
+
+      #[Route('/admin/Liste-boutique/ajouter', name: 'app_AddItemsList')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function AddItemsList(Request $request, EntityManagerInterface $em ): Response
+    {
+        $newItemForm = new Product();
+        $form = $this->createForm(ArticleType::class, $newItemForm);
+        $form->handleRequest($request);
+
+         if ($form->isSubmitted() && $form->isValid()) {
+                          
+            $em->persist($newItemForm);
+            $em->flush();        
+
+            $this->addFlash('success', 'Produit créée avec succès !');
+            return $this->redirectToRoute('app_actuality');
+            }
+        
+         return $this->render('admin/CreateItem.html.twig', [
+          'form' => $form,
+           ]);
+    }
+
+
 
 
        #[Route('/mentions', name: 'app_legalMentions')]

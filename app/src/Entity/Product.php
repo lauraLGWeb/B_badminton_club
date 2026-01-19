@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Validator\NoBadWords;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
@@ -14,22 +15,27 @@ class Product
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 155)]
+     #[Assert\NotBlank(message: 'le titre est obligatoire')]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 505)]
+     #[Assert\NotBlank(message: 'la description est obligatoire')]
     #[NoBadWords]
     private ?string $description = null;
 
     #[ORM\Column]
+     #[Assert\NotBlank(message: 'le prix est obligatoire')]
     private ?int $price = null;
 
    
 
     #[ORM\Column(length: 255)]
+     #[Assert\NotBlank(message: 'l\'image est obligatoire')]
     private ?string $picture = null;
 
     #[ORM\Column(name: 'has_size')]
+     #[Assert\NotBlank(message: 'Merci de sélectionner une deux deux propositions')]
     private ?bool $hasSize = false;
 
   

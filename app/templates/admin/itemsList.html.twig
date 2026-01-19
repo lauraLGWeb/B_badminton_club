@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des membres{% endblock %}
+
+
+
+
+{% block body %}
+<div class="members-list">
+    <h1>Voici tous les articles</h1>
+    <section class="products">
+    {% for product in products %}
+            <div class="product">
+                <h2 class="productTitle">{{product.title}}</h2>
+                <img src="{{product.picture}}" alt="{{product.title}}">
+                <p>{{product.description}}</p>
+                <p class="price">{{ product.price|number_format(2, ',', ' ') }} €</p>
+                
+            </div>
+    {% endfor %} 
+    </section>
+</div>
+
+   
+    
+
+{% endblock %}
