@@ -4,7 +4,6 @@
 
 
 {% block body %}
-<h1 style="background: red; color: yellow; font-size: 100px;">TEST RECHARGEMENT !!!</h1>
     <h1 class="PageTitle">Créer mon compte</h1>
 
     {{ form_errors(registrationForm) }}
@@ -27,7 +26,7 @@
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
         
-        <button type="submit" class="btn">Créer mon compte</button>
+        <button type="submit" class="submit-button">Créer mon compte</button>
     {{ form_end(registrationForm) }}
 
 

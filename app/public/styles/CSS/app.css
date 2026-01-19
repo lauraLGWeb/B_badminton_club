@@ -139,7 +139,7 @@ input:not([type="checkbox"]),
 #contact_send,
 #contact_reset,
 textarea {
-    width: 100%;
+    width: 90%;
     padding: 0.9rem 1.2rem;
     border-radius: 12px;
     border: 2px solid transparent;

@@ -69,7 +69,9 @@
         })  }}
 
         {{ form_row(contactForm.send) }}
-        {{ form_row(contactForm.reset) }}
+        {{ form_row(contactForm.reset, {
+            label: ' Effacer'
+        })  }}
       
     {{ form_end(contactForm) }}
 
