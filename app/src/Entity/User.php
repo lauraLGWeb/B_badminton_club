@@ -41,8 +41,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      */
-    #[ORM\Column]
-     #[Assert\NotBlank(message: 'Le mot de passe est obligatoire')]    
+    #[ORM\Column]  
     private ?string $password = null;
 
     #[ORM\Column(length: 50)]
@@ -55,7 +54,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      #[Assert\NotBlank(message: 'Le Nom est obligatoire')]
     private ?string $lastName = null;
 
-   #[ORM\Column(type: 'bigint')]
+   #[ORM\Column(type: 'string')]
     #[Assert\NotBlank(message: 'Le numéro de licence est obligatoire')]
     #[Assert\Regex(
         pattern: '/^\d{7}$/',
@@ -184,12 +183,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getLienceNbr(): ?int
+    public function getLienceNbr(): ?string
     {
         return $this->lienceNbr;
     }
 
-    public function setLienceNbr(int $lienceNbr): static
+    public function setLienceNbr(string $lienceNbr): static
     {
         $this->lienceNbr = $lienceNbr;
 

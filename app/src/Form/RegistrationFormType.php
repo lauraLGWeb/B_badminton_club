@@ -79,6 +79,10 @@ class RegistrationFormType extends AbstractType
                         //regex explanation ^→ start : (?=.*[A-Z]) one maj (?=.*\d) one number .{8,}  at least 8 chars $ end
                         'message' => 'Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre',
                     ]),
+                    new NotBlank([
+                        'message' => 'Le mot de passe est obligatoire test',
+
+                    ]),
                 ],
             ])
         ;
