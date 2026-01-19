@@ -141,8 +141,6 @@ public function Payment(EntityManagerInterface $em) : Response
         return $this->redirectToRoute('app_shop');
     }
 
-     // DEBUG: Afficher un message avant de contacter Stripe
-    $this->addFlash('info', '🔄 Connexion à Stripe en cours...');
 
 
     // VRAI PAIEMENT STRIPE
@@ -176,9 +174,8 @@ public function Payment(EntityManagerInterface $em) : Response
 
 
       
-        // // ✅ Si on arrive ici, Stripe a répondu !
-      $this->addFlash('success', '✅ Connexion Stripe OK ! Redirection...');
-      return $this->redirect($paymentSession->url);
+        // ✅ Si on arrive ici, Stripe a répondu !
+           return $this->redirect($paymentSession->url);
       
         
     } catch (\Exception $e) {

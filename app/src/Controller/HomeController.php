@@ -163,7 +163,7 @@ final class HomeController extends AbstractController
             $em->flush();        
 
             $this->addFlash('success', 'Produit créée avec succès !');
-            return $this->redirectToRoute('app_actuality');
+            return $this->redirectToRoute('app_ItemsList');
             }
         
          return $this->render('admin/CreateItem.html.twig', [

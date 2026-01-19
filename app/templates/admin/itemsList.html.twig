@@ -8,6 +8,9 @@
 {% block body %}
 <div class="members-list">
     <h1>Voici tous les articles</h1>
+     <a href="{{ path('app_AddItemsList') }}" class="btn-item">
+                         + Ajouter un produit  →
+                         </a> 
     <section class="products">
     {% for product in products %}
             <div class="product">
