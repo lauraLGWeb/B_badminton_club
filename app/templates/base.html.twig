@@ -40,12 +40,50 @@
 <body>
 
 
-    {% include 'home/header.html.twig' %}
+    {% if app.request.attributes.get('_route') == 'app_home' %}
+        {% include 'home/header.html.twig' %}
+    {% else %}
+        {% include 'home/headerOtherPages.html.twig' %}
+    {% endif %}
+
 
     {% block welcomingMessage %}{% endblock %}
 
     {% block body %}{% endblock %}
 
     {% include 'home/footer.html.twig' %}
+
+
+    <script>// Header sticky when i scroll
+    
+    // Détecte si on est sur la page d'accueil
+const isHomePage = window.location.pathname === '/';
+
+
+    // Code sticky normal
+   window.addEventListener('scroll', function() {
+        const logo = document.querySelector('.logo-btns');
+        const mainNav = document.querySelector('.navBarContainer');
+        const heroBtn= document.querySelector('.hero-buttons');
+        const heroBtnLinks= document.querySelectorAll('.hero-buttons-links');
+
+        
+        for(let heroBtnLink of heroBtnLinks){
+            //scroll up to 150px gets the simulation
+            if (window.scrollY > 150) {
+                logo.classList.add('compact');
+                mainNav.classList.add('sticky');
+                heroBtn.classList.add('sticky');
+                heroBtnLink.classList.add('sticky');
+        } else {
+                logo.classList.remove('compact');
+                mainNav.classList.remove('sticky');
+                heroBtn.classList.remove('sticky');
+                heroBtnLink.classList.remove('sticky');
+            }
+        }      
+    });
+
+    </script>
 </body>
 </html>

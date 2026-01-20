@@ -51,8 +51,6 @@ btndarkMode.addEventListener("click", function () {
         darkmode.style.display = "block";
         lightmode.style.display = "none";
     }
-
-
 })
 
 

@@ -2,7 +2,7 @@
     <section class="footerSection">
             {# Logo + Description #}
             <div >
-                <a href="{{ path('app_home') }}">
+                <a class="a-footer" href="{{ path('app_home') }}">
                  <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="logo">
                 </a>
                 <p>Blois Badminton Club<br>
@@ -13,10 +13,10 @@
             <div>
                 <h5 >Le Club</h5>
                 <ul >
-                    <li><a href="{{ path('app_prices') }}" >Tarifs</a></li>
-                    <li><a href="{{ path('app_home') }}" >École de bad</a></li>
-                    <li><a href="{{ path('app_actuality') }}" >Actualités</a></li>
-                    <li><a href="{{ path('app_partners') }}" >Partenaires</a></li>
+                    <li><a class="a-footer" href="{{ path('app_prices') }}" >Tarifs</a></li>
+                    <li><a class="a-footer" href="{{ path('app_home') }}" >École de bad</a></li>
+                    <li><a class="a-footer" href="{{ path('app_actuality') }}" >Actualités</a></li>
+                    <li><a class="a-footer" href="{{ path('app_partners') }}" >Partenaires</a></li>
                 </ul>
             </div>
             
@@ -24,11 +24,11 @@
             <div>
                 <h5 >Services</h5>
                 <ul >
-                    <li><a href="{{ path('app_schedules') }}" >Nos horaires</a></li>
-                    <li><a href="{{ path('app_try') }}" >Réserver un essai</a></li>
-                    <li><a href="{{ path('app_register') }}" >S'inscrire au club</a></li>
+                    <li><a class="a-footer" href="{{ path('app_schedules') }}" >Nos horaires</a></li>
+                    <li><a class="a-footer" href="{{ path('app_try') }}" >Réserver un essai</a></li>
+                    <li><a class="a-footer" href="{{ path('app_register') }}" >S'inscrire au club</a></li>
                     {% if app.user %}
-                        <li><a href="{{ path('app_shop') }}" >Boutique</a></li>
+                        <li><a class="a-footer" href="{{ path('app_shop') }}" >Boutique</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -38,17 +38,17 @@
                 <h5 >Nous contacter</h5>
                 <ul >
                     <li>
-                        <a href="https://maps.app.goo.gl/zgVd9cG8kY91rZ2J6">
+                        <a class="a-footer" href="https://maps.app.goo.gl/zgVd9cG8kY91rZ2J6">
         Gymnase François Rabelais, Rue Buffon, 41000 Blois</a>
                     </li>
                     <li>
-                        <a href="tel:++330625204617">06 25 20 46 17</a>
+                        <a class="a-footer" href="tel:++330625204617">06 25 20 46 17</a>
                     </li>
                     <li>
-                        <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a>
+                        <a class="a-footer" href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a>
                     </li>
                 </ul>
-                <a href="{{ path('app_contact') }}">
+                <a class="a-footer" href="{{ path('app_contact') }}">
                     📧 Formulaire de contact
                 </a>
         
@@ -58,14 +58,14 @@
         {# Mentions légales #}
         <div>
             <div >
-                <a href="{{ path('app_legalMentions')}}#legalMentions" >Mentions légales</a>
-                <a href="{{ path('app_legalMentions')}}#confidential" >Politique de confidentialité</a>
-                <a href="{{ path('app_legalMentions')}}#cgv" >CGV</a>
+                <a  class="a-footer" href="{{ path('app_legalMentions')}}#legalMentions" >Mentions légales</a>
+                <a class="a-footer" href="{{ path('app_legalMentions')}}#confidential" >Politique de confidentialité</a>
+                <a class="a-footer" href="{{ path('app_legalMentions')}}#cgv" >CGV</a>
             </div>
             <div>
                 <p >© 2025 Blois Badminton Club - Tous droits réservés</p>
             </div class="top-icon">
-                <a href="{{ path('app_home')}}#top"> ▲ </a>
+                <a class="top-link" href="{{ path('app_home')}}#top"> ▲ </a>
             </div>  
     </section>
 </footer>
