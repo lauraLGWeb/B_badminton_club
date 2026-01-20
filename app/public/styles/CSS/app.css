@@ -1,9 +1,12 @@
-/* Variables de couleurs - ELECTRIC SPORT */
 *,
 ::after,
-::before{
-    overflow-x: hidden;
+::before {
+    box-sizing: border-box;
 }
+
+
+
+
 /* ========================================
    SCROLLBAR
    ======================================== */
@@ -49,6 +52,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
    
 }
 
@@ -93,7 +97,7 @@ h1 {
     color: var(--accent-color);
     font-weight: 700;
     text-align: center;
-    padding: 20px;
+    padding: 20vh 20px 20px 20px;
     font-size: 2.5rem;
     background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
     -webkit-background-clip: text;
@@ -227,7 +231,7 @@ div.btn:hover {
    HEADER 
    ========== */
 
-header {
+.header {
     background: linear-gradient(135deg, rgba(255, 107, 53, 0.299) 0%, rgba(0, 78, 137, 0.225) 100%), 
                 url(/pictures/main2.jpg);
     background-size: cover;
@@ -482,6 +486,10 @@ header {
 
   .mainNavBarSticky{
     display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
     align-items: center;
     justify-content: space-evenly;
     backdrop-filter: blur(40px);
@@ -489,6 +497,7 @@ header {
     padding: 0.8rem 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.4s ease;
+    z-index: 10;
   }
 
   .logoOtherMenu{

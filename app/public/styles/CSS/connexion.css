@@ -19,13 +19,15 @@
         -20px -20px 40px var(--shadow-light);
     max-width: 450px;
     width: 100%;
+    margin-top: 20vh;
 }
 
 .login-title {
     font-size: 2rem;
     font-weight: 700;
     color: var(--text-color);
-    margin: 0 0 0.5rem 0;
+    padding: 5px;
+    margin: 0;
     text-align: center;
     background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
     -webkit-background-clip: text;
