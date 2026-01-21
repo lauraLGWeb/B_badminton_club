@@ -6,6 +6,7 @@
         <script defer src="{{asset('styles/JS/main.js') }}"></script>
         <script defer src="{{asset('styles/JS/cart.js') }}"></script>
         <script defer src="{{asset('styles/JS/addItem.js') }}"></script>
+        <script defer src="{{asset('styles/JS/navBar.js') }}"></script>
         
         {# CSS FILES  #}
         <link rel="stylesheet" href="{{ asset('styles/CSS/app.css') }}">
@@ -56,15 +57,16 @@
 
     <script>// Header sticky when i scroll
     
-    // Détecte si on est sur la page d'accueil
+    // are we on the main page ? 
 const isHomePage = window.location.pathname === '/';
 
-
-    // Code sticky normal
-   window.addEventListener('scroll', function() {
+    // on srcoll 
+    if (isHomePage){
+        window.addEventListener('scroll', function() {
         const logo = document.querySelector('.logo-btns');
         const mainNav = document.querySelector('.navBarContainer');
         const heroBtn= document.querySelector('.hero-buttons');
+        const menuBurger= document.getElementById('menuIcon');
         const heroBtnLinks= document.querySelectorAll('.hero-buttons-links');
 
         
@@ -75,14 +77,18 @@ const isHomePage = window.location.pathname === '/';
                 mainNav.classList.add('sticky');
                 heroBtn.classList.add('sticky');
                 heroBtnLink.classList.add('sticky');
+                menuBurger.classList.add('sticky');
         } else {
                 logo.classList.remove('compact');
                 mainNav.classList.remove('sticky');
                 heroBtn.classList.remove('sticky');
                 heroBtnLink.classList.remove('sticky');
+                menuBurger.classList.remove('sticky');
             }
         }      
     });
+}
+   
 
     </script>
 </body>

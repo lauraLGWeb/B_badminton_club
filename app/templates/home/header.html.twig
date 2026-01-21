@@ -31,14 +31,20 @@
             {% endblock %}
 
             {% block menu %}
-            <section class="navBarContainer">
-                <section class="navBarContainer">
+            <a href="javascript:void(0);" id="menuIcon">
+                 <img src="{{ asset('pictures/menu.png') }}" width="70px" alt="menu">
+            </a>
+            
+            <section class="navBarContainer responsiveNavBar">
+                <section class="navBarContainer ">
                     <nav class="custom-nav">
+                    
                         <!-- Navigation -->
-                        <ul class="nav-links">
+                        <ul class="nav-links burger">
+                        <img src="{{ asset('pictures/close.png') }}" class="closeBtnMenu" width="30px" alt="menu">
 
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link">Le club</a>
+                                <a href="#" class="nav-link link-burger-menu">Le club</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ path('app_coaches') }}">Entraîneurs</a></li>
                                     <li><a href="{{ path('app_caMembers') }}">Membres du CA</a></li>
@@ -48,7 +54,7 @@
                             </li>
 
                              <li class="nav-item dropdown">
-                                <a href="#" class="nav-link">École du bad</a>
+                                <a href="#" class="nav-link link-burger-menu">École du bad</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ path('app_coaches') }}">Le Projet Jeune</a></li>
                                     <li><a href="{{ path('app_caMembers') }}">L'école Française de Badminton</a></li>
@@ -94,9 +100,10 @@
                                     <a href="{{ path('app_admin_dashboard') }}">Administration</a>
                                 </li>
                             {% endif %}
-                        </ul>
+                        </ul> 
                     </nav>
                 </section>
+                
 
             {% endblock %}
 
