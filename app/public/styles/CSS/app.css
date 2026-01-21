@@ -443,8 +443,8 @@ div.btn:hover {
 
 .navBarContainer li ul li a {
     padding: 0.7rem 1rem;
-    color: var(--text-color);
     border-radius: 10px;
+    background-color: var(--gradient-end);;
     width: 100%;
     text-align: left;
 }
@@ -456,7 +456,7 @@ div.btn:hover {
 .navBarContainer li ul li a:hover {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: white;
-    transform: translateX(5px);
+    transform: translateX(2px);
 }
 
 /* Hero buttons */
@@ -487,7 +487,7 @@ div.btn:hover {
 .hero-buttons a:hover, .hero-buttons-links:hover {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: white;
-    transform: translateY(-5px);
+    transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(255, 107, 53, 0.5);
 }
 
@@ -542,7 +542,7 @@ div.btn:hover {
 
 .nav-links a:hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: translateX(20px);
+    transform: translateY(-5px);
 }
 
 /* Cache le menu burger en desktop */
@@ -1089,8 +1089,9 @@ details a:hover {
 .actu-section{
     position: relative;
     overflow: hidden;
-    min-height: 1100px;
+    min-height: 900px;
     padding:0 2rem;
+
  }
 
 .triangle{
@@ -1114,6 +1115,7 @@ details a:hover {
     align-items: center;
     justify-content: space-around;
     padding-top:30vh;
+    margin-bottom: 50px;
 
 }
 

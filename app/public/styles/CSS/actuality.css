@@ -152,6 +152,12 @@
     opacity: 0.7;
 }
 
+
+.actu-btn{
+    margin: 40px;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
     .actualities-section h1 {
