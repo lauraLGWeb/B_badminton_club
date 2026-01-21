@@ -339,8 +339,8 @@ This project validates the following **8 professional competencies (UC)** requir
 - [x] PHPUnit configuration
 - [x] Test database setup
 - [x] Functional tests for CartController
-- [ ] Complete functional tests for ActualityController
-- [ ] User acceptance testing
+- [x] Complete functional tests for ActualityController
+- [x] User acceptance testing
 - [ ] Professional documentation (dossier de projet)
 - [ ] Oral presentation preparation
 - [ ] Final code review and refactoring
@@ -348,7 +348,7 @@ This project validates the following **8 professional competencies (UC)** requir
 ### 🎯 Phase 4: Optional Enhancements
 
 - [ ] Multilingual support (FR/EN) - i18n
-- [ ] Social media feed integration (Facebook/Instagram)
+- [x] Social media feed integration (Facebook asked by the Club Manager)
 - [ ] Advanced stock management
 - [ ] Email notifications for training sessions
 
