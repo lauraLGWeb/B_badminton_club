@@ -344,6 +344,7 @@ div.btn:hover {
 }
 .hero-buttons.sticky{
     display: flex;
+    width: 25vw;
 }
 
 .hero-buttons-links.sticky{
@@ -469,6 +470,7 @@ div.btn:hover {
     justify-content: center;
     gap: 1.5rem;
     padding: 1rem;
+    width: 25vw;
    
 }
 
@@ -741,7 +743,7 @@ div.btn:hover {
     align-items: center;
     justify-content: flex-start;
     backdrop-filter: blur(40px);
-    background-color: rgba(47, 65, 142, 0.577);
+    background-color: rgba(97, 115, 197, 0.853);
     padding: 0.8rem 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.4s ease;
@@ -752,7 +754,7 @@ div.btn:hover {
     height: 80px;
   }
 .hero-buttonsOtherMenu .hero-buttons-links{
-    max-width: 20vw;
+    max-width: 15vw;
   
 
 }
