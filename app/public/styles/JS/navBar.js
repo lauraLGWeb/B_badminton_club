@@ -31,11 +31,7 @@ closeBtnMenu.addEventListener("click", function () {
     
 });
 
-// dropdown when clic on phone version
-
-
-
-
+// menu change when dropp down on main page 
 
 for(let dropdown of dropdowns){
     const Mainlink = dropdown.querySelector("a")
