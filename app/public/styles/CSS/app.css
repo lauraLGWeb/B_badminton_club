@@ -347,7 +347,7 @@ div.btn:hover {
 }
 
 .hero-buttons-links.sticky{
-    width: 80px;
+    width: 15vw;
     background-color: rgba(202, 130, 53, 0.398);
     
 }
@@ -741,7 +741,7 @@ div.btn:hover {
     align-items: center;
     justify-content: flex-start;
     backdrop-filter: blur(40px);
-    background-color: rgba(53, 80, 202, 0.398);
+    background-color: rgba(47, 65, 142, 0.577);
     padding: 0.8rem 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.4s ease;
@@ -752,8 +752,8 @@ div.btn:hover {
     height: 80px;
   }
 .hero-buttonsOtherMenu .hero-buttons-links{
-    width: auto;
-    height: 80px;
+    max-width: 20vw;
+  
 
 }
 .menuBtnsOtherMenu{
@@ -1012,7 +1012,7 @@ details a:hover {
 .picture-main {
     margin: 4rem 0;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    height: 450px;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1677,13 +1677,66 @@ input[type="radio"]:checked + label {
         inset -2px -2px 8px rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    input[type="radio"] + label {
-        display: flex;
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
+
+
+/*------------------
+my account
+-------------------*/
+.accountSection{
+    padding: 20px;
+}
+
+.span-account {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+.mail-account {
+    color: #3b6fac;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.mail-account:hover {
+    color: #ffdd00;
+    border-bottom: 2px solid #ffdd00;
+}
+
+
+.newLicence {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(145deg, #3b6fac, #2d5489);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 
+        5px 5px 10px rgba(0, 0, 0, 0.2),
+        -5px -5px 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.newLicence:hover {
+    background: linear-gradient(145deg, #ffdd00, #e6c700);
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 
+        7px 7px 15px rgba(0, 0, 0, 0.3),
+        -7px -7px 15px rgba(255, 255, 255, 0.15);
+}
+
+.newLicence:active {
+    transform: translateY(0);
+    box-shadow: 
+        3px 3px 7px rgba(0, 0, 0, 0.2),
+        -3px -3px 7px rgba(255, 255, 255, 0.1);
 }
 
 
@@ -1702,7 +1755,18 @@ input[type="radio"]:checked + label {
 
 
 
+
 /* Responsive */
+@media (max-width: 768px) {
+    input[type="radio"] + label {
+        display: flex;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+
 @media (max-width: 768px) {
     .partners-slider::before,
     .partners-slider::after {

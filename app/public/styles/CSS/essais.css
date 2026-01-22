@@ -1,5 +1,28 @@
-/* Page Faire un essai - Style neomorphisme BBC */
+:root {
+    --bg-color: #f5f7fa;
+    --text-color: #1a1d29;
+    --primary-color: #ff6b35;
+    --accent-color: #004e89;
+    --shadow-light: rgba(255, 255, 255, 0.9);
+    --shadow-dark: rgba(0, 78, 137, 0.15);
+    --gradient-start: #ff6b35;
+    --gradient-end: #f7931e;
+    --card-bg: #ffffff;
+    --header-height: 80px;
+    --pressed: 
+        inset 8px 8px 16px var(--shadow-dark),
+        inset -8px -8px 16px var(--shadow-light);
+}
 
+.dark {
+    --bg-color: #1a1d29;
+    --text-color: #f5f7fa;
+    --primary-color: #ff6b35;
+    --accent-color: #00a6fb;
+    --shadow-light: rgba(255, 255, 255, 0.05);
+    --shadow-dark: rgba(0, 0, 0, 0.6);
+    --card-bg: #242936;
+}
 .essai-container {
     max-width: 900px;
     margin: 2rem auto;
@@ -7,15 +30,14 @@
 }
 
 .essai-container h1 {
-    color: #3b6fac;
+    color: var(--accent-color);
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2rem;
 }
 
-/* Carte principale avec neomorphisme */
 .essai-card {
-    background: #f0f0f0;
+    background: var(--bg-color);
     border-radius: 20px;
     padding: 2rem;
     box-shadow: 
@@ -24,9 +46,9 @@
     margin-bottom: 2rem;
 }
 
-/* Zone de mise en avant des 2 essais */
+
 .highlight-essais {
-    background: linear-gradient(135deg, #ffdd00, #ffd700);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     border-radius: 15px;
     padding: 1.5rem;
     margin: 2rem 0;
@@ -39,7 +61,7 @@
 .highlight-essais .number {
     font-size: 4rem;
     font-weight: bold;
-    color: #3b6fac;
+    color: var(--accent-color);
     line-height: 1;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -51,10 +73,10 @@
     margin-top: 0.5rem;
 }
 
-/* Zone de contact email - mise en avant */
+
 .contact-box {
-    background: #3b6fac;
-    color: white;
+    background: var(--accent-color);
+    color: var(--bg-color);
     border-radius: 15px;
     padding: 2rem;
     margin: 2rem 0;
@@ -65,7 +87,7 @@
 }
 
 .contact-box h2 {
-    color: #3b6fac;
+    color: var(--accent-color);
     margin-bottom: 1rem;
     font-size: 1.8rem;
 }
@@ -77,8 +99,8 @@
 
 .contact-box .email-link {
     display: inline-block;
-    background: #ffdd00;
-    color: #3b6fac;
+    background: var(--gradient-start);
+    color: var(--accent-color);
     padding: 1rem 2rem;
     border-radius: 10px;
     text-decoration: none;
@@ -97,9 +119,9 @@
         -3px -3px 8px rgba(255, 255, 255, 0.2);
 }
 
-/* Section matériel */
+/*  what to bring */
 .materiel-section {
-    background: #f0f0f0;
+    background: var(--bg-color);
     border-radius: 15px;
     padding: 2rem;
     margin: 2rem 0;
@@ -109,23 +131,22 @@
 }
 
 .materiel-section h2 {
-    color: #3b6fac;
+    color: var(--accent-color);
     margin-bottom: 1rem;
     font-size: 1.8rem;
 }
 
-/* Liste du matériel */
 .materiel-list {
     list-style: none;
     padding: 0;
 }
 
 .materiel-list li {
-    background: white;
+    background: var(--bg-color);
     padding: 1rem;
     margin: 0.8rem 0;
     border-radius: 10px;
-    border-left: 4px solid #ffdd00;
+    border-left: 4px solid var(--gradient-end);
     box-shadow: 
         3px 3px 6px rgba(0, 0, 0, 0.08),
         -2px -2px 4px rgba(255, 255, 255, 0.9);
@@ -136,11 +157,11 @@
     margin-right: 10px;
 }
 
-/* Badge raquette prêtée */
+
 .info-badge {
     display: inline-block;
-    background: #ffdd00;
-    color: #3b6fac;
+    background: var((--gradient-end));
+    color: var(--accent-color);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: 600;
@@ -150,7 +171,7 @@
         -1px -1px 3px rgba(255, 255, 255, 0.8);
 }
 
-/* Texte d'introduction */
+
 .intro-text {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -159,19 +180,19 @@
 }
 
 .intro-text strong {
-    color: #3b6fac;
+    color: var(--accent-color);
     font-weight: 600;
 }
 
-/* Message de bienvenue final */
+
 .welcome-message {
     text-align: center;
     font-size: 1.3rem;
-    color: #3b6fac;
+    color: var(--accent-color);
     font-weight: 600;
     margin-top: 2rem;
     padding: 1.5rem;
-    background: white;
+    background: var(--bg-color);
     border-radius: 15px;
     box-shadow: 
         4px 4px 8px rgba(0, 0, 0, 0.08),
@@ -199,7 +220,7 @@
     }
 }
 
-/* Animation au chargement */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
