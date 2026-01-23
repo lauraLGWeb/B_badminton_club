@@ -557,6 +557,7 @@ div.btn:hover {
 
 .closeBtnMenu {
     display: none;
+    z-index: 3;
 }
 
 /* ========================================
@@ -734,6 +735,7 @@ div.btn:hover {
 }
 .menuBtnsSticky{
     left: 15px;
+    width: 10vw;
 }
 
     /*not on the hover but on click (bellow)*/
@@ -1009,7 +1011,9 @@ details a:hover {
                 -4px -4px 8px var(--shadow-light);
 }
 
-/* Main page sections */
+/*------------------ 
+Main page sections 
+--------------------*/
 .presentation {
     display: flex;
     align-items: center;
@@ -1119,6 +1123,224 @@ details a:hover {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     margin: 30px;
 
+}
+
+
+/* ========================================
+   CLUB PRESENTATION SECTION
+   ======================================== */
+
+.club-presentation {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.club-presentation h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Introduction text */
+.intro-text {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 1.5rem;
+}
+
+.intro-text strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Key numbers grid */
+.key-numbers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.number-card {
+    background: var(--bg-color);
+    padding: 2rem 1rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 
+        8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.number-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        12px 12px 24px var(--shadow-dark),
+        -12px -12px 24px var(--shadow-light);
+}
+
+.number-card .number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.number-card .label {
+    display: block;
+    font-size: 1rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.coaches-section {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(5, 92, 160, 0.392));
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 
+        8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light);
+}
+
+.coaches-section h3 {
+    color: var(--accent-color);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.coaches-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.coaches-section strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.highlight-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 
+        8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        12px 12px 24px var(--shadow-dark),
+        -12px -12px 24px var(--shadow-light);
+}
+
+.highlight-card h3 {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.highlight-card p {
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.highlight-card strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Transition text to next section */
+.transition-text {
+    text-align: center;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--accent-color);
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--bg-color);
+    border-radius: 15px;
+    box-shadow: 
+        inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .club-presentation h2 {
+        font-size: 2rem;
+    }
+    
+    .key-numbers {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .number-card .number {
+        font-size: 2rem;
+    }
+    
+    .coaches-section {
+        padding: 1.5rem;
+    }
+    
+    .coaches-section h3 {
+        font-size: 1.3rem;
+    }
+    
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .club-presentation h2 {
+        font-size: 2rem;
+    }
+    
+    .chiffres-cles {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .chiffre-item .nombre {
+        font-size: 2rem;
+    }
+    
+    .highlights {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Actualités section */
@@ -1405,6 +1627,7 @@ details a:hover {
         -12px -12px 24px var(--shadow-light);
     border-radius: 30px;
     position: relative;
+    z-index: 0;
 }
 
 .social-icons::before {
@@ -1454,6 +1677,7 @@ details a:hover {
 .social-fb {
     background-image: url('/pictures/facebook-dark.png');
     
+    
 }
 
 .social-fb:hover {
@@ -1464,6 +1688,7 @@ details a:hover {
 
 .social-insta {
     background-image: url('/pictures/instagram-dark.png');
+   
     
 }
 
