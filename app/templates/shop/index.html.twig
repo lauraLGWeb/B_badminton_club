@@ -15,7 +15,7 @@
 
 
 {% block body %}
-
+{% if is_granted('ROLE_ENTRAINEUR') or is_granted('ROLE_ADMIN' or is_granted('ROLE_MEMBRE')) %}
 {# flash messages, first getting the type and the messages from the flshes array #}
 
     {% for type, messages in app.flashes %}

@@ -29,11 +29,11 @@ class RegistrationControllerTest extends WebTestCase
 
         // Remplir le formulaire
         $form = $crawler->selectButton('Créer mon compte')->form([ 
-            'registration_form[email]' => 'laura@example.net',
+            'registration_form[email]' => 'efeutest@example.com',
             'registration_form[lastName]' => 'Vallet',
             'registration_form[firstName]' => 'laura',
             'registration_form[plainPassword]' => 'Mappy123',
-            'registration_form[lienceNbr]' => '1234567',
+            'registration_form[lienceNbr]' => '9958978',
             'registration_form[agreeTerms]' => 1,
             
         ]);

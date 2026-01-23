@@ -27,13 +27,9 @@ class CartControllerTest extends WebTestCase
     {
         // take a user test with specific email
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'parent.nicole@example.com']);
+        $user = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
 
-        // error if no user with this mail
-        if (!$user) {
-            $this->markTestSkipped('Aucun utilisateur parent.nicole@example.com dans les fixtures');
-        }
-
+    
         // connect the user
         $this->client->loginUser($user);
 
@@ -66,11 +62,9 @@ class CartControllerTest extends WebTestCase
     {
         // connexion of the user
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'parent.nicole@example.com']);
+        $user = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
 
-        if (!$user) {
-            $this->markTestSkipped('Aucun utilisateur parent.nicole@example.com dans les fixtures');
-        }
+    
 
         $this->client->loginUser($user);
 
@@ -96,11 +90,7 @@ class CartControllerTest extends WebTestCase
     {
         // Connexion
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'parent.nicole@example.com']);
-
-        if (!$user) {
-            $this->markTestSkipped('Aucun utilisateur parent.nicole@example.com dans les fixtures');
-        }
+        $user = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
 
         $this->client->loginUser($user);
 
@@ -109,7 +99,7 @@ class CartControllerTest extends WebTestCase
         $product = $productRepository->findOneBy([]);
 
         if (!$product) {
-            $this->markTestSkipped('Aucun produit dans les fixtures');
+            $this->assertNotNull($product, 'Aucun produit dans les fixtures');
         }
 
         // add the item into the cart 
@@ -121,11 +111,11 @@ class CartControllerTest extends WebTestCase
         $cartItem = $cartItemRepository->findOneBy(['product' => $product]);
 
         if (!$cartItem) {
-            $this->markTestSkipped('Le produit n\'a pas été ajouté au panier');
+            $this->assertNotNull('Le produit n\'a pas été ajouté au panier');
         }
 
         // delete the item
-        $this->client->request('GET', '/boutique/panier/supprimer' . $cartItem->getId());
+        $this->client->request('GET', '/boutique/panier/supprimer/' . $cartItem->getId());
 
         // check the redirection
         $this->assertResponseRedirects('/boutique/panier');

@@ -26,10 +26,10 @@ class ActualityControllerTest extends WebTestCase
     {
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
         //get an admin user
-        $admin = $userRepository->findOneBy(['email' => 'nnicolas@example.net']);
+        $admin = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
 
         if (!$admin) {
-            $this->markTestSkipped('Aucun admin trouvé');
+            $this->assertNotNull('Aucun admin trouvé');
         }
         // connect the admin 
         $this->client->loginUser($admin);
@@ -46,10 +46,11 @@ class ActualityControllerTest extends WebTestCase
     public function testCreateActuality(): void
     {
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $admin = $userRepository->findOneBy(['email' => 'nnicolas@example.net']);
+        $admin = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
 
         if (!$admin) {
-            $this->markTestSkipped('Aucun admin trouvé');
+            $this->assertNotNull('Aucun admin trouvé');
+        
         }
           // connect the admin 
         $this->client->loginUser($admin);
@@ -75,10 +76,10 @@ class ActualityControllerTest extends WebTestCase
     public function testDeleteActuality(): void
     {
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $admin = $userRepository->findOneBy(['email' => 'nnicolas@example.net']);
+        $admin = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
 
         if (!$admin) {
-            $this->markTestSkipped('Aucun admin trouvé');
+            $this->assertNotNull('Aucun admin trouvé');
         }
 
         $this->client->loginUser($admin);
@@ -88,7 +89,7 @@ class ActualityControllerTest extends WebTestCase
         $actuality = $dm->getRepository(Actualities::class)->findOneBy([]);
 
         if (!$actuality) {
-            $this->markTestSkipped('Aucune actualité MongoDB trouvée');
+            $this->assertNotNull('Aucune actualité MongoDB trouvée');
         }
 
         // delete the actuality 

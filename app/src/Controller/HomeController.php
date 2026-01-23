@@ -11,10 +11,10 @@ use App\Entity\User;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use App\Document\Actualities;
 use App\Form\ArticleType;
+use App\Entity\Product;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ModifyContactType;
 use App\Form\UserModify;
-use Proxies\__CG__\App\Entity\Product;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 
