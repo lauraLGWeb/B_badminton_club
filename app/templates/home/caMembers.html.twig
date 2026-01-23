@@ -5,4 +5,133 @@
 
 {% block body %}
 
+<div class="team-container">
+    <h1>L'équipe du Blois Badminton Club</h1>
+    
+    {# members #}
+    <section class="board-section">
+        <h2> Le Bureau - Saison 2024-2025</h2>
+        
+        <div class="members">
+            <div class="member-card president">
+                <div class="member-icon">👤</div>
+                <h3>Mélanie PETEL</h3>
+                <p class="member-role">Présidente</p>
+            </div>
+            
+            <div class="member-card">
+                <div class="member-icon">👤</div>
+                <h3>Christophe JULIEN</h3>
+                <p class="member-role">Vice-Président</p>
+            </div>
+            
+            <div class="member-card">
+                <div class="member-icon">📝</div>
+                <h3>Pauline CALLU</h3>
+                <p class="member-role">Secrétaire</p>
+            </div>
+            
+            <div class="member-card">
+                <div class="member-icon">💰</div>
+                <h3>Chanhmaly BOUTTAVONG</h3>
+                <p class="member-role">Trésorière</p>
+            </div>
+            
+            <div class="member-card">
+                <div class="member-icon">💰</div>
+                <h3>Maxime DEGRELLE</h3>
+                <p class="member-role">Vice-Trésorier</p>
+            </div>
+        </div>
+    </section>
+
+    {# CA #}
+    <section class="board-members-section">
+        <h2> Le Conseil d'Administration</h2>
+        
+        <div class="volunteer-call">
+            <p>
+                Le club est continuellement à la recherche de <strong>bénévoles</strong> pour 
+                étoffer son Comité d'Administration et l'aider au quotidien à son bon fonctionnement.
+            </p>
+            <a href="{{ path('app_contact') }}" class="volunteer-btn">Rejoindre l'équipe en nous contactant</a>
+        </div>
+        
+        <div class="members-grid small">
+            <div class="member-card small">
+                <div class="member-icon">👤</div>
+                <h3>Nadia CARVALHO</h3>
+                <p class="member-role">Membre CA</p>
+            </div>
+            
+            <div class="member-card small">
+                <div class="member-icon">👤</div>
+                <h3>Solène GARCIA</h3>
+                <p class="member-role">Membre CA</p>
+            </div>
+            
+            <div class="member-card small">
+                <div class="member-icon">👤</div>
+                <h3>Nicolas HEURTAUX</h3>
+                <p class="member-role">Membre CA</p>
+            </div>
+            
+            <div class="member-card small">
+                <div class="member-icon">👤</div>
+                <h3>Frédéric PICOT</h3>
+                <p class="member-role">Membre CA</p>
+            </div>
+            
+            <div class="member-card small">
+                <div class="member-icon">👤</div>
+                <h3>Anthony PITON</h3>
+                <p class="member-role">Membre CA</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="coaches-team-section">
+        <h2>Nos Entraîneurs Professionnels</h2>
+        
+        <div class="coaches">
+            <div class="coach-card">
+                <div class="coach-header">
+                    <div class="coach-icon">🏸</div>
+                    <div class="coach-info">
+                        <h3>Simon PATON</h3>
+                        <p class="coach-position">Éducateur sportif chargé du Club Avenir</p>
+                    </div>
+                </div>
+                
+                <div class="coach-qualifications">
+                    <h4>Formation :</h4>
+                    <ul>
+                        <li>✅ DEJEPS Perfectionnement Sportif mention Badminton</li>
+                        <li>🎯 En préparation du DESJEPS Performance Sportive mention Badminton</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="coach-card">
+                <div class="coach-header">
+                    <div class="coach-icon">🏸</div>
+                    <div class="coach-info">
+                        <h3>Tom ...</h3>
+                        <p class="coach-position">Agent de développement en charge de la performance sociale</p>
+                    </div>
+                </div>
+                
+                <div class="coach-qualifications">
+                    <h4>Formation :</h4>
+                    <ul>
+                        <li>✅ CQP Animateur de Badminton</li>
+                        <li>✅ DEJEPS Perfectionnement Sportif mention Badminton</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
 {% endblock %}
