@@ -465,12 +465,15 @@ div.btn:hover {
     position: relative;
 }
 
+.hero-buttonsOtherMenu{
+    width: 20vw;
+}
 .hero-buttons, .hero-buttonsOtherMenu{
     display: flex;
     justify-content: center;
     gap: 1.5rem;
     padding: 1rem;
-    width: 25vw;
+    
    
 }
 
@@ -560,7 +563,7 @@ div.btn:hover {
    burger menu (< 1200px)
    ======================================== */
 
-@media (max-width: 1200px) {
+@media (max-width: 1360px) {
 
     /* Icône burger */
     #menuIcon, 
@@ -591,7 +594,6 @@ div.btn:hover {
     }
     
     /* Cache les boutons desktop */
-    .menuBtns, 
     .menuBtnsOtherMenu {
         display: none;
     }
@@ -672,11 +674,19 @@ div.btn:hover {
         color: #fff;
         font-size: 1.2rem;
         font-weight: 500;
-        padding: 15px 20px;
+        padding: 5px 20px;
         z-index: 1;
 
     }
     
+    .menuBtns-burger{
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        
+    }
+
+
     .nav-links a::before {
         left: 0;
         width: 4px;
@@ -708,6 +718,23 @@ div.btn:hover {
         overflow: visible;  /* ✅ AJOUTER */
 
     }
+
+    .hero-buttons.sticky{
+    width: 70vw;
+    margin: auto;
+}
+.hero-buttonsOtherMenu {
+    width: 70vw;
+}
+.navBarContainer {
+    padding:0;
+}
+.navBarContainer.sticky {
+    justify-content: center;
+}
+.menuBtnsSticky{
+    left: 15px;
+}
 
     /*not on the hover but on click (bellow)*/
     .navBarContainer li:hover >  .dropdown-menu {
@@ -762,7 +789,14 @@ div.btn:hover {
     max-width: 70px;
 }
 
+@media (max-width: 800px) {
 
+    .menuBtnsSticky.sticky{
+        flex-direction: column;
+        align-items: baseline;
+        left: 15px;
+    }
+}
 
 
 

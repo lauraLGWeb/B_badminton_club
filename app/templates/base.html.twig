@@ -69,6 +69,7 @@ const isHomePage = window.location.pathname === '/';
         const heroBtn= document.querySelector('.hero-buttons');
         const menuBurger= document.getElementById('menuIcon');
         const heroBtnLinks= document.querySelectorAll('.hero-buttons-links');
+        const menuBtnsSticky= document.querySelector(".menuBtnsSticky")
 
         
         for(let heroBtnLink of heroBtnLinks){
@@ -79,12 +80,15 @@ const isHomePage = window.location.pathname === '/';
                 heroBtn.classList.add('sticky');
                 heroBtnLink.classList.add('sticky');
                 menuBurger.classList.add('sticky');
+                menuBtnsSticky.classList.add('sticky');
+
         } else {
                 logo.classList.remove('compact');
                 mainNav.classList.remove('sticky');
                 heroBtn.classList.remove('sticky');
                 heroBtnLink.classList.remove('sticky');
                 menuBurger.classList.remove('sticky');
+                menuBtnsSticky.classList.remove('sticky');
             }
         }      
     });
