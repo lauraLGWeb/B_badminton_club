@@ -157,90 +157,7 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Coaches section */
-.coaches {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
-}
 
-.coach-card {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 20px;
-    border-left: 5px solid var(--primary-color);
-    box-shadow: 
-        8px 8px 16px var(--shadow-dark),
-        -8px -8px 16px var(--shadow-light);
-    transition: all 0.3s ease;
-}
-
-.coach-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-        12px 12px 24px var(--shadow-dark),
-        -12px -12px 24px var(--shadow-light);
-}
-
-.coach-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 2px solid var(--bg-color);
-}
-
-.coach-icon {
-    font-size: 3rem;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-color);
-    border-radius: 50%;
-    box-shadow: 
-        inset 4px 4px 8px var(--shadow-dark),
-        inset -4px -4px 8px var(--shadow-light);
-    flex-shrink: 0;
-}
-
-.coach-info h3 {
-    color: var(--accent-color);
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-.coach-position {
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 0.95rem;
-   
-}
-
-.coach-qualifications h4 {
-    color: var(--accent-color);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.coach-qualifications ul {
-    list-style: none;
-    padding: 0;
-}
-
-.coach-qualifications li {
-    padding: 0.7rem 0;
-    color: var(--text-color);
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
-
-/* Responsive design */
 @media (max-width: 768px) {
     .team-container h1 {
         font-size: 2rem;
@@ -255,15 +172,7 @@
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 1rem;
     }
-    
-    .coaches-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .coach-header {
-        flex-direction: column;
-        text-align: center;
-    }
+
 }
 
 @media (max-width: 480px) {
