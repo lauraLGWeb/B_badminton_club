@@ -29,8 +29,10 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe : Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-        
+        {{ form_row(registrationForm.agreeTerms, {
+            label: 'J\'accepte les <a href="' ~ path('app_legalMentions') ~ '">conditions générales</a>',
+            label_html: true
+        }) }}
         <button type="submit" class="submit-button">Créer mon compte</button>
     {{ form_end(registrationForm) }}
 
