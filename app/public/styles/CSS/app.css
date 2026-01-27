@@ -33,6 +33,7 @@
     --pressed: 
         inset 8px 8px 16px var(--shadow-dark),
         inset -8px -8px 16px var(--shadow-light);
+        
 }
 
 .dark {
@@ -196,7 +197,32 @@ div.btn:hover {
     width: 24px;
     height: 24px;
     cursor: pointer;
+    
 }
+
+
+.btnmode:hover #darkMode, .btnmode:hover #lightMode{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.btnmode:hover .text{
+    opacity: 1;
+    width: auto;
+    height: auto;
+    padding: 0;
+    font-size: small;
+} 
+
+.text{
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    text-align: center;
+}
+
+
 
 /* Alert messages */
 .alert {
@@ -769,8 +795,8 @@ div.btn:hover {
     top: 0;
     right: 0;
     left: 0;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: flex-start;
     backdrop-filter: blur(40px);
     background-color: rgba(97, 115, 197, 0.853);
     padding: 0.8rem 2rem;
