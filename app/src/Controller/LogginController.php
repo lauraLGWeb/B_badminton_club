@@ -11,7 +11,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class LogginController extends AbstractController
 {
-    #[Route(path: '/membre/connexion', name: 'app_login')]
+    #[Route(path: '/connexion', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         // get the login error if there is one
@@ -28,7 +28,7 @@ class LogginController extends AbstractController
 
 
 
-    #[Route(path: '/logout', name: 'app_logout')]
+    #[Route(path: '/membre/logout', name: 'app_logout')]
     #[IsGranted('ROLE_MEMBRE')]
     public function logout(): void
     {

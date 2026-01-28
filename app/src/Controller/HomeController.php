@@ -61,13 +61,7 @@ final class HomeController extends AbstractController
     }
 
 
-  #[Route('/Leclub/Membres/compte', name: 'app_account')]
-   #[IsGranted('ROLE_MEMBRE')]
-    public function account(): Response
-    {
-        return $this->render('home/account.html.twig');
-    }
-     
+
   
 // routes for the ecole de bad dropdown
  
@@ -129,6 +123,14 @@ final class HomeController extends AbstractController
         return $this->render('home/try.html.twig');
     }
 
+  #[Route('/membre/Leclub/Membres/compte', name: 'app_account')]
+   #[IsGranted('ROLE_MEMBRE')]
+    public function account(): Response
+    {
+        return $this->render('home/account.html.twig');
+    }
+     
+
 
       #[Route('/admin', name: 'app_admin_dashboard')]
        #[IsGranted('ROLE_ADMIN')]
@@ -137,7 +139,7 @@ final class HomeController extends AbstractController
         return $this->render('home/adminDashboard.html.twig');
     }
 
-// routes for admin shop
+
        #[Route('/admin/Liste-boutique', name: 'app_ItemsList')]
     #[IsGranted('ROLE_ADMIN')]
     public function ItemsList(ProductRepository $ProductRepository): Response
@@ -147,79 +149,6 @@ final class HomeController extends AbstractController
         return $this->render('admin/itemsList.html.twig', [
             'products' => $product,
         ]);
-    }
-
-      #[Route('/admin/Liste-boutique/ajouter', name: 'app_AddItemsList')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function AddItemsList(Request $request, EntityManagerInterface $em ): Response
-    {
-        $newItemForm = new Product();
-        $form = $this->createForm(ArticleType::class, $newItemForm);
-        $form->handleRequest($request);
-
-         if ($form->isSubmitted() && $form->isValid()) {
-                          
-            $em->persist($newItemForm);
-            $em->flush();        
-
-            $this->addFlash('success', 'Produit créée avec succès !');
-            return $this->redirectToRoute('app_ItemsList');
-            }
-        
-         return $this->render('admin/CreateItem.html.twig', [
-          'form' => $form,
-           ]);
-    }
-
- //modify the item
-    #[Route('/admin/Liste-boutique/modifier/{id}', name: 'app_modifyItem')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function app_modifyItem(Request $request, EntityManagerInterface $em, $id): Response
-    {
-
-        
-        $item = $em->getRepository(Product::class)->find($id);
-
-        $formulaire = $this->createForm(ArticleType::class, $item);
-
-        
-
-        $formulaire->handleRequest($request);
-        if($formulaire->isSubmitted()&& $formulaire->isValid())
-        {   
-        $em-> flush();
-
-             $this->addFlash('success', 'Produit mis à jour avec succès !');          
-            return $this->redirectToRoute('app_ItemsList');
-        } 
-
-        if($formulaire->isSubmitted()&& !$formulaire->isValid())
-        {   
-         $this->addFlash('error', 'Erreur dans la mise à jour, celle ci n\'est pas prise en compte');
-        }
-         return $this->render("admin/CreateItem.html.twig", ["form" => $formulaire]);
-     }
-
-
-
-
-
-
-    //delete the actuality
-    #[Route('/admin/Liste-boutique/suppression/{id}', name: 'app_deleteProduct')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function eleteItem(EntityManagerInterface $em, $id): Response
-    {
-
-        //getting the actuality details
-        $itemToDelete = $em->getRepository(Product::class)->find($id);
-        
-        $em->remove($itemToDelete);
-        $em->flush();
-
-        $this->addFlash('success', 'Article supprimée avec succès !');
-
-       return $this->redirectToRoute('app_ItemsList');
     }
 
 
@@ -241,8 +170,24 @@ final class HomeController extends AbstractController
         return $this->render('home/eachInternship.html.twig');
     }
       
+
+
+
+
+
+
+
+
+
+    //======================
     //======================
     //pages for the admins
+    //======================
+    //======================
+
+
+    //======================
+    //FOR USER 
     //======================
 
 
@@ -321,5 +266,83 @@ final class HomeController extends AbstractController
         
         return $this->redirectToRoute('app_membersList');
     }
+
+
+
+     //======================
+    //FOR Shop 
+    //======================
+
+// create the shopitem 
+      #[Route('/admin/Liste-boutique/ajouter', name: 'app_AddItemsList')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function AddItemsList(Request $request, EntityManagerInterface $em ): Response
+    {
+        $newItemForm = new Product();
+        $form = $this->createForm(ArticleType::class, $newItemForm);
+        $form->handleRequest($request);
+
+         if ($form->isSubmitted() && $form->isValid()) {
+                          
+            $em->persist($newItemForm);
+            $em->flush();        
+
+            $this->addFlash('success', 'Produit créée avec succès !');
+            return $this->redirectToRoute('app_ItemsList');
+            }
+        
+         return $this->render('admin/CreateItem.html.twig', [
+          'form' => $form,
+           ]);
+    }
+
+ //modify the shopitem
+    #[Route('/admin/Liste-boutique/modifier/{id}', name: 'app_modifyItem')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function app_modifyItem(Request $request, EntityManagerInterface $em, $id): Response
+    {
+
+        
+        $item = $em->getRepository(Product::class)->find($id);
+
+        $formulaire = $this->createForm(ArticleType::class, $item);
+
+        
+
+        $formulaire->handleRequest($request);
+        if($formulaire->isSubmitted()&& $formulaire->isValid())
+        {   
+        $em-> flush();
+
+             $this->addFlash('success', 'Produit mis à jour avec succès !');          
+            return $this->redirectToRoute('app_ItemsList');
+        } 
+
+        if($formulaire->isSubmitted()&& !$formulaire->isValid())
+        {   
+         $this->addFlash('error', 'Erreur dans la mise à jour, celle ci n\'est pas prise en compte');
+        }
+         return $this->render("admin/CreateItem.html.twig", ["form" => $formulaire]);
+     }
+
+
+
+    //delete the shopitem
+    #[Route('/admin/Liste-boutique/suppression/{id}', name: 'app_deleteProduct')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function eleteItem(EntityManagerInterface $em, $id): Response
+    {
+
+        //getting the actuality details
+        $itemToDelete = $em->getRepository(Product::class)->find($id);
+        
+        $em->remove($itemToDelete);
+        $em->flush();
+
+        $this->addFlash('success', 'Article supprimée avec succès !');
+
+       return $this->redirectToRoute('app_ItemsList');
+    }
+
 
 }

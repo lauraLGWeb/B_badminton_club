@@ -44,8 +44,12 @@ final class ActualityController extends AbstractController
 
 
 
+
+// admin routes 
+
+
     //create actuality
-    #[Route('/Actualites/création', name: 'app_createActuality')]
+    #[Route('/admin/Actualites/création', name: 'app_createActuality')]
     #[IsGranted('ROLE_ADMIN')]
     public function createActuality(Request $request, DocumentManager $dm,): Response
     {
@@ -70,7 +74,7 @@ final class ActualityController extends AbstractController
 
 
  //modify actuality
-    #[Route('/Actualites/modifier/{id}', name: 'app_modifyActuality')]
+    #[Route('/admin/Actualites/modifier/{id}', name: 'app_modifyActuality')]
     #[IsGranted('ROLE_ADMIN')]
     public function modifyActuality(Request $request, DocumentManager $dm, $id): Response
     {
@@ -125,7 +129,7 @@ final class ActualityController extends AbstractController
 
 
     //delete the actuality
-    #[Route('/Actualites/suppression/{id}', name: 'app_deleteActuality')]
+    #[Route('/admin/Actualites/suppression/{id}', name: 'app_deleteActuality')]
     #[IsGranted('ROLE_ADMIN')]
     public function deleteActuality(DocumentManager $dm, $id): Response
     {
