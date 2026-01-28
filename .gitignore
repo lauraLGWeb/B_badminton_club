@@ -1,25 +1,13 @@
-
-###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-.env
-.env.test
-.env.test.localgit 
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
-/var/
-/vendor/
-
 .DS_Store
 /mongo/
 /mysql###< symfony/framework-bundle ###
 
 ###> symfony/framework-bundle ###
 /app/.env.local
+/app/.env.test
+/app/.env.test.local
 /app/.env.local.php
 /app/.env.*.local
-/app/.env
 /app/config/secrets/prod/prod.decrypt.private.php
 /app/public/bundles/
 /app/var/
@@ -60,3 +48,15 @@
 # PHPUnit
 .phpunit.cache/
 coverage/
+
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+.env.test
+.env.test.localgit 
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
