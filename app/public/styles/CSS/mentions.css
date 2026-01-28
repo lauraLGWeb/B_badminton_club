@@ -1,9 +1,37 @@
+
+.legalMentions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.legalMentions > div {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 .mentions{
-    padding: 50px;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 10px;
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+     -5px -5px 10px var(--shadow-light);
+     transition: 0.3s;
+
+}
+
+.mentions:hover{ 
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 20px 10px var(--shadow-dark);
 }
 
 .legalMentions{
     display: flex;
     flex-direction: column;
-
 }
