@@ -101,32 +101,32 @@ class HomeControllerTest extends WebTestCase
 
     public function testAccountPageRedirectsWhenNotLoggedIn(): void
     {
-        $this->client->request('GET', '/Leclub/Membres/compte');
-        $this->assertResponseRedirects('/membre/connexion');
+        $this->client->request('GET', '/membre/Leclub/Membres/compte');
+        $this->assertResponseRedirects('/connexion');
     }
 
     public function testAdminDashboardRedirectsWhenNotLoggedIn(): void
     {
         $this->client->request('GET', '/admin');
-        $this->assertResponseRedirects('/membre/connexion');
+        $this->assertResponseRedirects('/connexion');
     }
 
     public function testItemsListRedirectsWhenNotLoggedIn(): void
     {
         $this->client->request('GET', '/admin/Liste-boutique');
-        $this->assertResponseRedirects('/membre/connexion');
+        $this->assertResponseRedirects('/connexion');
     }
 
     public function testMembersListRedirectsWhenNotLoggedIn(): void
     {
         $this->client->request('GET', '/admin/membres/liste');
-        $this->assertResponseRedirects('/membre/connexion');
+        $this->assertResponseRedirects('/connexion');
     }
 
     public function testEachInternshipRedirectsWhenNotLoggedIn(): void
     {
         $this->client->request('GET', '/Leclub/Stages/gestion');
-        $this->assertResponseRedirects('/membre/connexion');
+        $this->assertResponseRedirects('/connexion');
     }
 
     // ========================================

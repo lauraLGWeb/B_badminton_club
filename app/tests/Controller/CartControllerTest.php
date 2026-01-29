@@ -34,7 +34,7 @@ class CartControllerTest extends WebTestCase
         $this->client->loginUser($user);
 
         // goes to the cart page 
-        $this->client->request('GET', '/boutique/panier');
+        $this->client->request('GET', '/membre/boutique/panier');
 
         // wait for the response
         $this->assertResponseIsSuccessful();
@@ -49,10 +49,10 @@ class CartControllerTest extends WebTestCase
     public function testCartPageRedirectsIfNotLoggedIn(): void
     {
         // try to go to cart page without connexion
-        $this->client->request('GET', '/boutique/panier');
+        $this->client->request('GET', '/membre/boutique/panier');
 
         // wait if redirect to connexion page 
-        $this->assertResponseRedirects('/membre/connexion');
+        $this->assertResponseRedirects('/connexion');
     }
 
     /**
@@ -77,7 +77,7 @@ class CartControllerTest extends WebTestCase
         }
 
         // Add the item into the cart 
-        $this->client->request('GET', '/boutique/panier/ajouter' . $product->getId());
+        $this->client->request('GET', '/membre/boutique/panier/ajouter/' . $product->getId());
 
         // check if redirection
         $this->assertResponseRedirects();
@@ -103,7 +103,7 @@ class CartControllerTest extends WebTestCase
         }
 
         // add the item into the cart 
-        $this->client->request('GET', '/boutique/panier/ajouter' . $product->getId());
+        $this->client->request('GET', '/membre/boutique/panier/ajouter' . $product->getId());
         
         // Récupère le CartItem créé
         $em = static::getContainer()->get('doctrine')->getManager();
@@ -115,9 +115,9 @@ class CartControllerTest extends WebTestCase
         }
 
         // delete the item
-        $this->client->request('GET', '/boutique/panier/supprimer/' . $cartItem->getId());
+        $this->client->request('GET', '/membre/boutique/panier/supprimer/' . $cartItem->getId());
 
         // check the redirection
-        $this->assertResponseRedirects('/boutique/panier');
+        $this->assertResponseRedirects('/membre/boutique/panier');
     }
 }

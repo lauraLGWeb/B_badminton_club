@@ -35,7 +35,7 @@ class ActualityControllerTest extends WebTestCase
         $this->client->loginUser($admin);
 
         // try to go to the create actuality page
-        $this->client->request('GET', '/Actualites/création');
+        $this->client->request('GET', '/admin/Actualites/création');
         
         $this->assertResponseIsSuccessful();
     }
@@ -56,7 +56,7 @@ class ActualityControllerTest extends WebTestCase
         $this->client->loginUser($admin);
 
         //fill up the form 
-        $crawler = $this->client->request('GET', '/Actualites/création');
+        $crawler = $this->client->request('GET', '/admin/Actualites/création');
         $form = $crawler->selectButton('publier l\'évenement')->form([
             'actuality[title]' => 'Test Actualité PHPUnit',
             'actuality[description]' => 'Ceci est une actualité de test créée par PHPUnit',
@@ -93,7 +93,7 @@ class ActualityControllerTest extends WebTestCase
         }
 
         // delete the actuality 
-        $this->client->request('GET', '/Actualites/suppression/' . $actuality->getId());
+        $this->client->request('GET', '/admin/Actualites/suppression/' . $actuality->getId());
 
         // check if getting back to actuality page 
         $this->assertResponseRedirects('/Actualites');

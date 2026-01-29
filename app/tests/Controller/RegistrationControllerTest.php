@@ -12,7 +12,7 @@ class RegistrationControllerTest extends WebTestCase
     public function testRegistrationPageIsAccessible(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/membre/inscription');
+        $crawler = $client->request('GET', '/inscription');
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Créer'); 
@@ -25,15 +25,15 @@ class RegistrationControllerTest extends WebTestCase
     public function testUserCanRegister(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/membre/inscription');
+        $crawler = $client->request('GET', '/inscription');
 
         // Remplir le formulaire
         $form = $crawler->selectButton('Créer mon compte')->form([ 
-            'registration_form[email]' => 'efeutest@example.com',
+            'registration_form[email]' => 'efeutGHest@example.com',
             'registration_form[lastName]' => 'Vallet',
             'registration_form[firstName]' => 'laura',
-            'registration_form[plainPassword]' => 'Mappy123',
-            'registration_form[lienceNbr]' => '9958978',
+            'registration_form[plainPassword]' => 'MaphjJJpy123',
+            'registration_form[lienceNbr]' => '9340478',
             'registration_form[agreeTerms]' => 1,
             
         ]);
@@ -70,7 +70,7 @@ class RegistrationControllerTest extends WebTestCase
     public function testRegistrationWithInvalidData(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/membre/inscription');
+        $crawler = $client->request('GET', '/inscription');
 
         //  invalid user
         $form = $crawler->selectButton('Créer mon compte')->form([
@@ -97,7 +97,7 @@ class RegistrationControllerTest extends WebTestCase
         $userRepository = static::getContainer()->get(UserRepository::class);
         $existingUser = $userRepository->findOneBy(['email' => 'adelaide66@example.net']);
 
-        $crawler = $client->request('GET', '/membre/inscription');
+        $crawler = $client->request('GET', '/inscription');
 
         $form = $crawler->selectButton('Créer mon compte')->form([
             'registration_form[email]' => $existingUser->getEmail(),
