@@ -5,8 +5,6 @@
 }
 
 
-
-
 /* ========================================
    SCROLLBAR
    ======================================== */
@@ -16,7 +14,6 @@
     scroll-behavior: smooth;
     
 }
-
 
 
 :root {
@@ -40,7 +37,7 @@
     --bg-color: #1a1d29;
     --text-color: #f5f7fa;
     --primary-color: #ff6b35;
-    --accent-color: #00a6fb;
+    --accent-color: #a8abac;
     --shadow-light: rgba(255, 255, 255, 0.05);
     --shadow-dark: rgba(0, 0, 0, 0.6);
     --card-bg: #242936;
@@ -191,8 +188,9 @@ div.btn {
 
 div.btn:hover {
     transform: translateY(-3px);
+    color: var(--accent-color);
     box-shadow: 0 8px 20px var(--shadow-dark);
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    transform: translateY(-2px);
     color: white;
 }
 
@@ -202,7 +200,6 @@ div.btn:hover {
     cursor: pointer;
     
 }
-
 
 .btnmode:hover #darkMode, .btnmode:hover #lightMode{
     opacity: 0;
@@ -318,7 +315,7 @@ div.btn:hover {
 .menuBtns .btn {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    color: white;
+    color: var(--bg-color);
     border: 2px solid rgba(255, 255, 255, 0.3);
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
@@ -326,7 +323,7 @@ div.btn:hover {
 }
 
 .menuBtns .btn:hover {
-    background: white;
+    background: var(--bg-color);
     color: var(--accent-color);
     transform: translateY(-2px);
 }
@@ -721,22 +718,22 @@ div.btn:hover {
         left: 0;
         width: 4px;
         height: 0;
-        background: #ff6b35;
+        background: #var(var(--gradient-start));
         transform: none;
     }
     
 
     .dropdown-menu {
-    display: block;          /* ✅ CHANGER none en block */
+    display: block;          
     align-items: center;         
-    position: relative;      /* ✅ AJOUTER */
+    position: relative;      
     max-height: 0;
-    overflow: visible;       /* ✅ CHANGER hidden en visible */
+    overflow: visible;       
     opacity: 0;
     margin-left: 20px;
     background: rgba(0, 0, 0, 0.25);
     border-radius: 8px;
-    z-index: 10;             /* ✅ CHANGER 1000 en 10 */
+    z-index: 10;             
     transition: max-height 0.4s ease, opacity 0.3s ease;
 }
 
@@ -745,7 +742,7 @@ div.btn:hover {
         padding: 10px 0;
         display: block;
         opacity: 1;   
-        overflow: visible;  /* ✅ AJOUTER */
+        overflow: visible;  
 
     }
 
@@ -813,11 +810,15 @@ div.btn:hover {
   }
 .hero-buttonsOtherMenu .hero-buttons-links{
     max-width: 15vw;
-  
 
 }
+
 .menuBtnsOtherMenu{
-    max-width: 70px;
+    max-width: 80px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 5px;
+
 }
 
 @media (max-width: 800px) {
@@ -1881,7 +1882,7 @@ input[type="radio"] + label:hover {
 /* Style quand le radio est coché */
 input[type="radio"]:checked + label {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: white;
+    color: var(--bg-color);
     box-shadow: 
         inset 4px 4px 8px rgba(0, 0, 0, 0.3),
         inset -2px -2px 8px rgba(255, 255, 255, 0.1);
@@ -1898,13 +1899,13 @@ my account
 
 .span-account {
     font-size: 1.1rem;
-    color: #333;
+    color: var(--text-color);
     line-height: 1.6;
 }
 
 
 .mail-account {
-    color: #3b6fac;
+    color: var(--accent-color);
     font-weight: bold;
     text-decoration: none;
     transition: all 0.3s ease;
