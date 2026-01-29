@@ -3,15 +3,16 @@
             {# Logo + Description #}
             <div >
                 <a class="a-footer" href="{{ path('app_home') }}">
-                 <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="logo">
+                 <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="logo du club">
                 </a>
                 <p>Blois Badminton Club<br>
                 Passion • Convivialité • Performance</p>
             </div>
 
             {# Navigation #}
+            <section class="footerLinksSection">
             <div>
-                <h5 >Le Club</h5>
+                <h2 class="footerTitle">Le Club</h2>
                 <ul >
                     <li><a class="a-footer" href="{{ path('app_prices') }}" >Tarifs</a></li>
                     <li><a class="a-footer" href="{{ path('app_home') }}" >École de bad</a></li>
@@ -22,7 +23,7 @@
             
             {# Services #}
             <div>
-                <h5 >Services</h5>
+                <h2 class="footerTitle" >Services</h2>
                 <ul >
                     <li><a class="a-footer" href="{{ path('app_schedules') }}" >Nos horaires</a></li>
                     <li><a class="a-footer" href="{{ path('app_try') }}" >Réserver un essai</a></li>
@@ -35,7 +36,7 @@
             
             {# Contact #}
             <div >
-                <h5 >Nous contacter</h5>
+                <h2 class="footerTitle" >Nous contacter</h2>
                 <ul >
                     <li>
                         <a class="a-footer" href="https://maps.app.goo.gl/zgVd9cG8kY91rZ2J6">
@@ -51,7 +52,7 @@
                 <a class="a-footer" href="{{ path('app_contact') }}">
                     📧 Formulaire de contact
                 </a>
-        
+        </section>
     </section>
     <hr >
     <section class="legalMentions">

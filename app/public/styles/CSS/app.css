@@ -196,7 +196,8 @@ div.btn {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px var(--shadow-dark);
-    display: inline-block;
+    display: inline-flex; 
+       
 }
 
 div.btn:hover {
@@ -204,14 +205,20 @@ div.btn:hover {
     color: var(--accent-color);
     box-shadow: 0 8px 20px var(--shadow-dark);
     transform: translateY(-2px);
-    color: white;
+
+    
 }
 
 #darkMode, #lightMode {
     width: 24px;
     height: 24px;
     cursor: pointer;
-    
+}
+
+#textLightMode, #textDarkMode{
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .btnmode:hover #darkMode, .btnmode:hover #lightMode{
@@ -219,22 +226,13 @@ div.btn:hover {
     width: 0;
     height: 0;
 }
-.btnmode:hover .text{
+.btnmode:hover #textLightMode, .btnmode:hover #textDarkMode{
     opacity: 1;
     width: auto;
     height: auto;
     padding: 0;
     font-size: small;
 } 
-
-.text{
-    opacity: 0;
-    width: 0;
-    height: 0;
-    margin: 0;
-    text-align: center;
-}
-
 
 
 /* Alert messages */
@@ -635,7 +633,7 @@ div.btn:hover {
     
     /* Cache les boutons desktop */
     .menuBtnsOtherMenu {
-        display: none;
+        opacity: 0;
     }
     
     /* Menu burger caché par défaut */
@@ -831,6 +829,7 @@ div.btn:hover {
     display: flex;
     flex-direction: column-reverse;
     gap: 5px;
+    margin-left: 10px;
 
 }
 
@@ -857,6 +856,12 @@ footer {
     color: var(--text-color);
     font-size: 0.9rem;
 }
+.footerLinksSection{
+    display: flex;;
+}
+.footerLinksSection div{
+    width: 20vw;
+}
 
 .footerSection{
     display: flex;
@@ -865,11 +870,12 @@ footer {
 }
 
 
-footer h5 {
+.footerTitle {
     color: var(--primary-color);
     margin-bottom: 1.5rem;
     font-size: 1.3rem;
     font-weight: 700;
+    box-shadow: none;
 }
 
 footer a {
@@ -1352,10 +1358,7 @@ Main page sections
     .highlights-grid {
         grid-template-columns: 1fr;
     }
-}
 
-/* Responsive */
-@media (max-width: 768px) {
     .club-presentation h2 {
         font-size: 2rem;
     }
@@ -1989,11 +1992,7 @@ my account
         width: 100%;
         margin-bottom: 0.5rem;
     }
-}
 
-
-
-@media (max-width: 768px) {
     .partners-slider::before,
     .partners-slider::after {
         width: 80px;
@@ -2024,8 +2023,49 @@ my account
     }
 }
 
+@media (max-width: 750px) {
 
 
+.footerSection{
+    display: flex;
+    width: 100;
+    flex-direction: column;
+    align-items: center;
+}
+.footerLinksSection{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.footerLinksSection div{
+    width: 30vw;
+}
+.a-footer img{
+    width: 100%;
+}
+.footerSection p{
+    text-align: center;
+    
+}
+ }
+
+@media (max-width: 500px) {
 
 
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerLinksSection{
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerLinksSection div{
+    text-align: center;
+}
+    
+ }
 

@@ -15,75 +15,76 @@
 
 
 {% block body %}
-    {% if is_granted('ROLE_ENTRAINEUR') or is_granted('ROLE_ADMIN') or is_granted('ROLE_MEMBRE') %}
-    {# flash messages, first getting the type and the messages from the flshes array #}
 
-        {% for type, messages in app.flashes %}
-        {# going through each of the 3 messages #}
-            {% for message in messages %}
-                <div class="flash-{{ type }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
+{# flash messages, first getting the type and the messages from the flshes array #}
+
+    {% for type, messages in app.flashes %}
+    {# going through each of the 3 messages #}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
         {% endfor %}
+    {% endfor %}
 
 
-    <section class="shop">
-        <h1> Bienvenue dans la boutique du Blois Badminton Club !</h1>
+<section class="shop">
+    <h1> Bienvenue dans la boutique du Blois Badminton Club !</h1>
 
-        <div class="presentationAndCart">
-            <h2>Ici, tu peux commander directement tes articles et payer en ligne par carte bancaire en toute sécurité.
-            Une fois ton paiement effectué, tu pourras récupérer tes produits auprès d'un membre du bureau du club.
-            Parcours notre sélection de T-shirts, accessoires et matériel, et équipe-toi facilement tout en soutenant le club !</h2>
-        </div>
+    <div class="presentationAndCart">
+        <h2>Ici, tu peux commander directement tes articles et payer en ligne par carte bancaire en toute sécurité.
+        Une fois ton paiement effectué, tu pourras récupérer tes produits auprès d'un membre du bureau du club.
+        Parcours notre sélection de T-shirts, accessoires et matériel, et équipe-toi facilement tout en soutenant le club !</h2>
+    </div>
 
-        <div class="filter">
-            <p class="pFilter"> filtres </p>
-            <a href="{{ path('app_cart') }}"> 
-                <img src="{{asset("pictures/cart.png")}}" alt="logo panier">
-            </a>
-        </div>
+    <div class="filter">
+        <p class="pFilter"> filtres </p>
+        <a href="{{ path('app_cart') }}"> 
+            <img src="{{asset("pictures/cart.png")}}" alt="logo panier">
+        </a>
+    </div>
 
-        <section class="products">
-        {% for product in products %}
-                <div class="product">
-                    <div class="imgShop">
-                        <img src="{{product.picture}}" alt="{{product.title}}">
-                    </div>
-                    <div class="detailsShop">
-                        <h2 class="productTitle">{{product.title}}</h2>
-                        <p>{{product.description}}</p>
-                        <p class="price">{{ product.price|number_format(2, ',', ' ') }} €</p>
+    <section class="products">
+    {% for product in products %}
+            <div class="product">
+                <div class="imgShop">
+                    <img src="{{asset(product.picture)}}" alt="{{product.title}}">
+                </div>
+                <div class="detailsShop">
+                    <h2 class="productTitle">{{product.title}}</h2>
+                    <p>{{product.description}}</p>
+                    <p class="price">{{ product.price|number_format(2, ',', ' ') }} €</p>
+
+                    
+                    <form class="add-to-cart-form" action="{{ path('app_addItem', { id: product.id }) }}" method="POST">
+                        {% if product.hasSize %}
+                        <div class="selects">
+                        <label for="size" >Choisit la taille:</label>
+                            <select name="size" id="size" class="select-shop size">  
+                                <option value="">Choisir une taille</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>  
+                            </select>
+                            <label for="gender">Choisit le genre:</label>
+                            <select name="gender" id="gender"class="select-shop gender">  
+                                <option value="">Choisir un genre</option>
+                                <option value="man">Homme</option>
+                                <option value="woman">Femme</option>
+                            </select>
+                        </div>
+                        {% endif %}
 
                         
-                        <form class="add-to-cart-form" action="{{ path('app_addItem', { id: product.id }) }}" method="POST">
-                            {% if product.hasSize %}
-                            <div class="selects">
-                                <select name="size" class="select-shop size">  
-                                    <option value="">Choisir une taille</option>
-                                    <option value="XS">XS</option>
-                                    <option value="S">S</option>
-                                    <option value="M">M</option>
-                                    <option value="L">L</option>
-                                    <option value="XL">XL</option>
-                                    <option value="XXL">XXL</option>  
-                                </select>
-
-                                <select name="gender" class="select-shop gender">  
-                                    <option value="">Choisir un genre</option>
-                                    <option value="man">Homme</option>
-                                    <option value="woman">Femme</option>
-                                </select>
-                            </div>
-                            {% endif %}
-
-                            
-                            <button type="submit" class="btn">Ajouter au panier</button>
-                        </form>
-                    </div>
+                        <button type="submit" class="btn">Ajouter au panier</button>
+                    </form>
                 </div>
-            {% endfor %} 
-        {% endif %} 
-        </section>
+            </div>
+    {% endfor %} 
     </section>
+</section>
+
 {% endblock %}

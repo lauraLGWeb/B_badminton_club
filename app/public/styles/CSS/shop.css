@@ -156,11 +156,10 @@
 }
 
 .price {
-    color: var(--accent-color) !important;
-    font-size: 1.5em;
-    font-weight: 700;
-    margin: 10px 0 !important;
-    opacity: 1 !important;
+    color: var(--accent-color); 
+    font-size: 1.3em;
+    margin: 10px 0;
+    opacity: 1;
     text-shadow: 1px 1px 2px var(--shadow-dark);
 }
 
@@ -208,7 +207,7 @@ flex-direction: column;
     border: none;
     border-radius: 12px;
     background: var(--primary-color);
-    color: #111;
+    color: white;
     font-size: 1.1em;
     font-weight: 700;
     cursor: pointer;
@@ -271,6 +270,7 @@ flex-direction: column;
     
     .price {
         font-size: 1.3em;
+        
     }
 }
 

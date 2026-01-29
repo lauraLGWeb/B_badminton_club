@@ -25,8 +25,6 @@
 }
 
 .mentions:hover{ 
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: white;
     transform: translateY(-2px);
     box-shadow: 0 20px 10px var(--shadow-dark);
 }
@@ -35,3 +33,16 @@
     display: flex;
     flex-direction: column;
 }
+
+
+
+@media (max-width: 500px) {
+.legalMentions div div:first-child{
+    display: flex;
+    flex-direction: column;
+}
+.legalMentions .a-footer{
+    width: 90vw;
+    margin: 10px 0;
+}
+ }
