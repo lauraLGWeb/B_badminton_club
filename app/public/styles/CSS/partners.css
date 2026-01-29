@@ -17,13 +17,19 @@
     margin-right: auto;
 }
 
+.partenaires h2{
+    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
 /* Carrousel (déjà fourni précédemment) */
 .partners-slider {
     width: 100%;
     overflow: hidden;
     padding: 2rem 0;
-    position: relative;
-    
 }
 
 .partners-slider::before,
@@ -122,7 +128,10 @@
 
 .spotlight-header h2{
     box-shadow: none;
-    background:none
+    background:none;
+}
+.spotlight-content h2{
+     color: #004e89;
 }
 
 .spotlight-logo {
@@ -260,20 +269,23 @@
 }
 
 
+.advantage-box a{
+    color: #004e89;
+}
 
-
-.contact-card h3 {
-    color: var(--accent-color);
+.contact-card h3, .advantage-box h3 {
+    color: #004e89;
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
+
 .contact-card p {
     line-height: 1.8;
+    color: var(--bg-color);
     font-size: 1.05rem;
-    color: var(--text-color);
     margin: 0;
 }
 
@@ -378,7 +390,7 @@
 }
 
 .conclusion-card h2 {
-    color: var(--accent-color);
+    color: 004e89;
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
 }

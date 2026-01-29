@@ -1,5 +1,6 @@
-
-
+/* ========================================
+   LOGIN CONTAINER
+   ======================================== */
 .login-container {
     min-height: calc(100vh - var(--header-height));
     display: flex;
@@ -8,6 +9,9 @@
     padding: 2rem;
 }
 
+/* ========================================
+   LOGIN FORM
+   ======================================== */
 .login-form {
     background: var(--bg-color);
     padding: 3rem 2.5rem;
@@ -20,6 +24,9 @@
     margin-top: 20vh;
 }
 
+/* ========================================
+   TITLE
+   ======================================== */
 .login-title {
     font-size: 2rem;
     font-weight: 700;
@@ -33,6 +40,9 @@
     background-clip: text;
 }
 
+/* ========================================
+   NO COUNT LINK
+   ======================================== */
 .register-prompt {
     text-align: center;
     color: var(--text-color);
@@ -63,6 +73,9 @@
     width: 100%;
 }
 
+/* ========================================
+   INPUTS
+   ======================================== */
 .input-group {
     margin-bottom: 1.5rem;
 }
@@ -101,6 +114,9 @@
     color: rgba(26, 29, 41, 0.4);
 }
 
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
 .submit-button {
     width: 100%;
     padding: 1.25rem;
@@ -131,6 +147,9 @@
     box-shadow: var(--pressed);
 }
 
+/* ========================================
+   ALERTS & MESSAGES
+   ======================================== */
 .alert-message {
     background: var(--bg-color);
     color: #d63031;
@@ -144,6 +163,9 @@
     border-left: 4px solid #d63031;
 }
 
+/* ========================================
+   USER INFO
+   ======================================== */
 .user-info {
     background: var(--bg-color);
     padding: 1rem 1.25rem;
@@ -156,6 +178,9 @@
     font-size: 0.95rem;
 }
 
+/* ========================================
+   LOGOUT LINK
+   ======================================== */
 .logout-link {
     color: var(--primary-color);
     text-decoration: none;
@@ -168,7 +193,9 @@
     text-decoration: underline;
 }
 
-/* Mode sombre pour la page de connexion */
+/* ========================================
+   DARK MODE
+   ======================================== */
 .dark .input-field {
     background: var(--bg-color);
     color: var(--text-color);
@@ -178,7 +205,9 @@
     background: var(--card-bg);
 }
 
-/* Responsive pour la page de connexion */
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
 @media (max-width: 500px) {
     .login-form {
         padding: 2rem 1.5rem;

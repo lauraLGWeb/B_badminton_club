@@ -1,4 +1,6 @@
-
+/* ========================================
+   COACHES CONTAINER
+   ======================================== */
 .coaches {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -6,6 +8,9 @@
     margin: 2rem 0;
 }
 
+/* ========================================
+   COACH CARD
+   ======================================== */
 .coach-card {
     background: var(--card-bg);
     padding: 2rem;
@@ -24,6 +29,9 @@
         -12px -12px 24px var(--shadow-light);
 }
 
+/* ========================================
+   COACH TITLE
+   ======================================== */
 .coach-header {
     display: flex;
     align-items: center;
@@ -48,6 +56,9 @@
     flex-shrink: 0;
 }
 
+/* ========================================
+   COACH INFO
+   ======================================== */
 .coach-info h3 {
     color: var(--accent-color);
     font-size: 1.4rem;
@@ -59,9 +70,11 @@
     color: var(--primary-color);
     font-weight: 600;
     font-size: 0.95rem;
-   
 }
 
+/* ========================================
+   COACH QUALIFICATIONS
+   ======================================== */
 .coach-qualifications h4 {
     color: var(--accent-color);
     font-size: 1.1rem;
@@ -81,10 +94,10 @@
     font-size: 0.95rem;
 }
 
-
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
 @media (max-width: 768px) {
- 
-    
     .coaches-grid {
         grid-template-columns: 1fr;
     }
