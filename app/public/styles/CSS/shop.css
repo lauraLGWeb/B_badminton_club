@@ -1,28 +1,4 @@
-:root {
-    --bg-color: #f5f7fa;
-    --text-color: #1a1d29;
-    --primary-color: #ff6b35;
-    --accent-color: #004e89;
-    --shadow-light: rgba(255, 255, 255, 0.9);
-    --shadow-dark: rgba(0, 78, 137, 0.15);
-    --gradient-start: #ff6b35;
-    --gradient-end: #f7931e;
-    --card-bg: #ffffff;
-    --header-height: 80px;
-    --pressed: 
-        inset 8px 8px 16px var(--shadow-dark),
-        inset -8px -8px 16px var(--shadow-light);
-}
 
-.dark {
-    --bg-color: #1a1d29;
-    --text-color: #f5f7fa;
-    --primary-color: #ff6b35;
-    --accent-color: #014669;
-    --shadow-light: rgba(255, 255, 255, 0.05);
-    --shadow-dark: rgba(0, 0, 0, 0.6);
-    --card-bg: #242936;
-}
 .shop {
     background: var(--bg-color);
     min-height: 100vh;
@@ -30,13 +6,6 @@
     transition: background 0.3s;
 }
 
-.shop h1 {
-    text-align: center;
-    color: var(--text-color);
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px var(--shadow-dark);
-}
 
 /* prensetation */
 .presentationAndCart {
