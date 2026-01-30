@@ -27,9 +27,16 @@
     --gradient-end: #F18509;
     --card-bg: #f5f7fa;
     --header-height: 80px;
-    --pressed: 
-        inset 8px 8px 16px var(--shadow-dark),
-        inset -8px -8px 16px var(--shadow-light);
+
+
+    --pressed:  
+        inset 2px 2px 4px var(--shadow-dark),
+        inset -2px -2px 4px (--shadow-light);
+    --unpressed: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+
+
     --font-poppins : Poppins, sans-serif;
     --font-inter: Inter, sans-serif;
 }
@@ -38,7 +45,7 @@
     --bg-color: #1a1d29;
     --text-color: #f5f7fa;
     --primary-color: #ff6b35;
-    --accent-color: #c4d0d4;
+    --accent-color: #e3e3e3;
     --gradient-start: #cf633c;
     --gradient-end: #edbf8b;
     --shadow-light: rgba(255, 255, 255, 0.05);
@@ -73,7 +80,7 @@ h1, h2, h3 {
 
 h1 {
     text-align: center;
-    padding-top: 30vh;
+    padding-top: 25vh;
     margin: 0;
     font-size: clamp(2rem, 5vw, 2.8rem);
     background: linear-gradient(135deg, var(--accent-color), var(--primary-color));

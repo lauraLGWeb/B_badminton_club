@@ -1,34 +1,23 @@
 
-/* Container */
 .members-list {
     background: var(--bg-color);
-    min-height: 100vh;
     padding: 0 20px 50px 20px;
 }
-
-
-/* ========================================
-   TABLE
-======================================== */
-
-/* Table container avec effet neomorphisme */
+.members-list h1{
+    padding: 20vh 0 0 0;
+}
 table {
-    width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
-    border-collapse: separate;
-    border-spacing: 0;
     background: var(--bg-color);
-    border-radius: 20px;
-    overflow: hidden;
-    
-    /* Effet relief sur toute la table */
-    box-shadow: 
+    border-radius: 10px;
+    box-shadow:
         10px 10px 20px var(--shadow-dark),
         -10px -10px 20px var(--shadow-light);
 }
 
-/* En-tête de table */
+/* ========================================
+   TABLE HEADER
+   ======================================== */
 thead {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
 }
@@ -40,16 +29,18 @@ thead th {
     font-weight: 600;
     text-align: left;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    
 }
 
-/* Lignes du corps */
+/* ========================================
+   TABLE BODY
+   ======================================== */
 tbody tr {
     background: var(--bg-color);
     transition: all 0.3s ease;
+    
 }
 
-/* Effet au survol d'une ligne */
 tbody tr:hover {
     background: var(--bg-color);
     box-shadow: 
@@ -57,22 +48,21 @@ tbody tr:hover {
         inset -3px -3px 6px var(--shadow-light);
 }
 
-/* Cellules */
 tbody td {
     padding: 18px 15px;
     color: var(--text-color);
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Dernière ligne sans bordure */
 tbody tr:last-child td {
     border-bottom: none;
 }
 
 /* ========================================
-   BOUTONS ACTIONS (Modifier/Supprimer)
-======================================== */
+   ACTION BUTTONS
+   ======================================== */
 
+/* modify and Delete buttons */
 tbody td a {
     display: inline-block;
     padding: 8px 15px;
@@ -83,61 +73,64 @@ tbody td a {
     border-radius: 8px;
     font-size: 0.9em;
     font-weight: 600;
-    
-    /* Petit effet neomorphisme */
     box-shadow: 
         4px 4px 8px var(--shadow-dark),
         -4px -4px 8px var(--shadow-light);
-    
     transition: all 0.3s ease;
 }
 
-/* Hover des boutons */
 tbody td a:hover {
     color: var(--primary-color);
-    
-    /* Effet enfoncé */
     box-shadow: 
         inset 2px 2px 4px var(--shadow-dark),
         inset -2px -2px 4px var(--shadow-light);
-    
     transform: scale(0.95);
 }
 
-/* Bouton Supprimer en rouge au hover */
-tbody td a:last-child:hover {
-    color: #e74c3c;
+/* Delete button  */
+.deleteItem {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+.deleteItem:hover {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
 }
 
 /* ========================================
-   RESPONSIVE (mobile)
-======================================== */
+   MEDIA QUERIES
+   ======================================== */
 
-@media (max-width: 768px) {
-    table {
-        font-size: 0.9em;
-    }
-    
-    thead th,
-    tbody td {
-        padding: 12px 8px;
-    }
-    
-    tbody td a {
-        padding: 6px 10px;
-        font-size: 0.85em;
-    }
-}
-
-/* Pour très petits écrans : table scrollable */
-@media (max-width: 600px) {
+@media (max-width: 950px) {
+    /* get the table into card and not table anymore*/
     .members-list {
         padding: 30px 10px;
     }
     
-    table {
+    table,
+    thead,
+    tbody,
+    tr,
+    td {
         display: block;
-        overflow-x: auto;
-        white-space: nowrap;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow:
+            4px 4px 8px var(--shadow-dark),
+            -4px -4px 8px var(--shadow-light);
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
     }
 }

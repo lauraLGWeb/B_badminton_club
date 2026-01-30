@@ -1,4 +1,6 @@
-
+/* ========================================
+   MENTION CONTAINER
+   ======================================== */
 .legalMentions {
     display: flex;
     flex-direction: column;
@@ -14,6 +16,10 @@
     justify-content: center;
     align-items: center;
 }
+
+/* ========================================
+   LINKS BUTTONS
+   ======================================== */
 .mentions{
     padding: 15px;
     border-radius: 10px;
@@ -21,7 +27,6 @@
     box-shadow: 5px 5px 10px var(--shadow-dark),
      -5px -5px 10px var(--shadow-light);
      transition: 0.3s;
-
 }
 
 .mentions:hover{ 
@@ -29,11 +34,9 @@
     box-shadow: 0 20px 10px var(--shadow-dark);
 }
 
-.legalMentions{
-    display: flex;
-    flex-direction: column;
-}
-
+/* ========================================
+     MEDIA QUERIES
+   ======================================== */
 
 
 @media (max-width: 500px) {

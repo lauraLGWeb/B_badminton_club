@@ -1,22 +1,27 @@
 
 .essai-container {
     max-width: 900px;
-    margin: 2rem auto;
-    padding: 2rem;
+    margin: 0 auto;
+    padding: 0 2rem 3rem 2rem;
 }
 
+/* ========================================
+   ESSAI CARD
+   ======================================== */
 .essai-card {
     background: var(--bg-color);
     border-radius: 20px;
     padding: 2rem;
-    margin-top:30px ;
+    margin-top: 30px;
     box-shadow: 
         8px 8px 16px rgba(0, 0, 0, 0.1),
         -8px -8px 16px rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
 }
 
-
+/* ========================================
+   ESSAI NUMBER SECTION
+   ======================================== */
 .highlight-essais {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     border-radius: 15px;
@@ -43,7 +48,9 @@
     margin-top: 0.5rem;
 }
 
-
+/* ========================================
+   CONTACT CARD
+   ======================================== */
 .contact-box {
     background: var(--accent-color);
     color: var(--bg-color);
@@ -54,17 +61,6 @@
     box-shadow: 
         6px 6px 12px rgba(0, 0, 0, 0.2),
         -3px -3px 8px rgba(255, 255, 255, 0.1);
-}
-
-.titleTry{
-    background-color:  var(--bg-color);
-    font-size: 1.5rem;
-    padding: 15px 15px;
-    border-radius: 10px;
-    
-    color: var(--accent-color);
-    margin: 0;
-    box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
 }
 
 .contact-box p {
@@ -94,7 +90,24 @@
         -3px -3px 8px rgba(255, 255, 255, 0.2);
 }
 
-/*  what to bring */
+
+
+/* ========================================
+   MATERIAL SECTION
+   ======================================== */
+
+.titleTry {
+    background-color: var(--bg-color);
+    font-size: 1.5rem;
+    padding: 15px 15px;
+    border-radius: 10px;
+    color: var(--accent-color);
+    margin: 0;
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark), 
+        inset -3px -3px 6px var(--shadow-light);
+}
+
 .materiel-section {
     background: var(--bg-color);
     border-radius: 15px;
@@ -139,7 +152,9 @@
         -1px -1px 3px rgba(255, 255, 255, 0.8);
 }
 
-
+/* ========================================
+   EXPERIENCE CARD
+   ======================================== */
 .intro-text {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -152,7 +167,9 @@
     font-weight: 600;
 }
 
-
+/* ========================================
+   WELCOME MESSAGE
+   ======================================== */
 .welcome-message {
     text-align: center;
     font-size: 1.3rem;
@@ -167,28 +184,10 @@
         -2px -2px 6px rgba(255, 255, 255, 0.9);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .essai-container {
-        padding: 1rem;
-    }
 
-    .essai-container h1 {
-        font-size: 2rem;
-    }
-
-    .highlight-essais .number {
-        font-size: 3rem;
-    }
-
-    .contact-box .email-link {
-        display: block;
-        word-break: break-all;
-        padding: 0.8rem 1rem;
-    }
-}
-
-
+/* ========================================
+   ANIMATIONS
+   ======================================== */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -208,4 +207,29 @@
 
 .highlight-essais {
     animation: fadeIn 0.6s ease-out 0.2s both;
+}
+
+
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+@media (max-width: 768px) {
+    .essai-container {
+        padding: 1rem;
+    }
+
+    .essai-container h1 {
+        font-size: 2rem;
+    }
+
+    .highlight-essais .number {
+        font-size: 3rem;
+    }
+
+    .contact-box .email-link {
+        display: block;
+        word-break: break-all;
+        padding: 0.8rem 1rem;
+    }
 }

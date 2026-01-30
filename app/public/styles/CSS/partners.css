@@ -1,11 +1,11 @@
-
-/* Hero section */
+/* ========================================
+   PARTNERS CONTAINER
+   ======================================== */
 .partenaires-hero {
     padding: 0 2rem;
     background: var(--bg-color);
     text-align: center;
 }
-
 
 .subtitle {
     font-size: 1.3rem;
@@ -17,15 +17,9 @@
     margin-right: auto;
 }
 
-.partenaires h2{
-    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 20px;
-    transition: 0.3s;
-}
-
-/* Carrousel (déjà fourni précédemment) */
+/* ========================================
+   PARTNERS SLIDER
+   ======================================== */
 .partners-slider {
     width: 100%;
     overflow: hidden;
@@ -52,21 +46,16 @@
     right: 0;
     background: linear-gradient(270deg, var(--bg-color) 0%, transparent 100%);
 }
-
+/*infinite list*/
 .partners-track {
     display: flex;
     gap: 3rem;
     animation: scrollInfinite 50s linear infinite;
     width: fit-content;
 }
-
+/*infinite list stops on hover*/
 .partners-track:hover {
     animation-play-state: paused;
-}
-
-@keyframes scrollInfinite {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
 }
 
 .partner-item {
@@ -102,8 +91,9 @@
     opacity: 1;
 }
 
-/*  main partner */
-
+/* ========================================
+   MAIN PARTNER 
+   ======================================== */
 .partner-spotlight {
     padding: 0 2rem;
     background: linear-gradient(135deg, rgba(220, 218, 217, 0.807), var(--accent-color)),
@@ -126,12 +116,13 @@
     flex-wrap: wrap;
 }
 
-.spotlight-header h2{
+.spotlight-header h2 {
     box-shadow: none;
-    background:none;
+    background: none;
 }
-.spotlight-content h2{
-     color: #004e89;
+
+.spotlight-content h2 {
+    color: #004e89;
 }
 
 .spotlight-logo {
@@ -139,21 +130,24 @@
     object-fit: contain;
 }
 
-
 .spotlight-tag {
     color: var(--primary-color);
     font-size: 1.1rem;
     font-weight: 600;
 }
 
+
 .spotlight-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
     align-items: start;
-    padding: 2rem 0 ;
+    padding: 2rem 0;
 }
 
+/* ========================================
+   SPOTLIGHT DESCRIPTION
+   ======================================== */
 .spotlight-description {
     padding: 0 3rem 3rem 3rem;
 }
@@ -184,6 +178,9 @@
     color: var(--bg-color);
 }
 
+/* ========================================
+   ADVANTAGE CARD
+   ======================================== */
 .advantage-box {
     display: flex;
     align-items: flex-start;
@@ -210,22 +207,47 @@
     margin: 0;
 }
 
-/* Aside cards */
-.spotlight-aside {
-   display: flex;
-   flex-direction: column;
-   align-items: flex-start
+.advantage-box a {
+    color: #004e89;
 }
 
+.advantage-box h3 {
+    color: #004e89;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ========================================
+    ASIDE
+   ======================================== */
+.spotlight-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* contact*/
 .contact-card {
     padding: 2rem;
-    
 }
 
 .contact-card h3 {
-    color: var(--accent-color);
-    font-size: 1.3rem;
+    color: #004e89;
+    font-size: 1.4rem;
     margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-card p {
+    line-height: 1.8;
+    color: var(--bg-color);
+    font-size: 1.05rem;
+    margin: 0;
 }
 
 .address {
@@ -268,27 +290,6 @@
     color: var(--primary-color);
 }
 
-
-.advantage-box a{
-    color: #004e89;
-}
-
-.contact-card h3, .advantage-box h3 {
-    color: #004e89;
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.contact-card p {
-    line-height: 1.8;
-    color: var(--bg-color);
-    font-size: 1.05rem;
-    margin: 0;
-}
-
 .contact-2bad {
     display: block;
     color: var(--text-color);
@@ -302,12 +303,14 @@
     box-shadow: var(--neo-shadow-inset-subtle);
 }
 
-/* Social card */
+/* ========================================
+   SOCIALS MEDIA
+   ======================================== */
 .social-card {
     text-align: center;
 }
 
-.social-icon-partners{
+.social-icon-partners {
     width: 90px;
     height: 90px;
     border-radius: 50%;
@@ -325,7 +328,6 @@
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    
 }
 
 .social-icon.social-fb-small,
@@ -341,7 +343,6 @@
 
 .social-fb-small:hover {
     background-image: url('/pictures/fb-light.png');
-    
 }
 
 .social-insta-small {
@@ -350,10 +351,11 @@
 
 .social-insta-small:hover {
     background-image: url('/pictures/instagram-light.png');
-   
 }
 
-/* Visit button */
+/* ========================================
+   VISIT THEIR WEBSITE BUTTON
+   ======================================== */
 .visit-btn {
     display: block;
     text-align: center;
@@ -374,9 +376,8 @@
 }
 
 /* ========================================
-   CONCLUSION SECTION
+   CONTACT US
    ======================================== */
-
 .partners-conclusion {
     padding: 4rem 2rem;
     background: var(--bg-color);
@@ -421,9 +422,16 @@
 }
 
 /* ========================================
-   RESPONSIVE
+   ANIMATIONS
    ======================================== */
+@keyframes scrollInfinite {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
 
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
 @media (max-width: 968px) {
     .spotlight-content {
         grid-template-columns: 1fr;

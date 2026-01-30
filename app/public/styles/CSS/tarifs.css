@@ -1,23 +1,28 @@
 
 .tarifs-container {
     max-width: 900px;
-    margin: 2rem auto;
-    padding: 2rem;
+    margin: 0 auto;
+    padding: 0 2rem 0 2rem;
 }
 
-
-
+/* ========================================
+   TITLE
+   ======================================== */
 .priceTitle {
     color: var(--text-color);
-    margin: 2rem 0 1.5rem 0;
+    margin: 1rem 0 1.5rem 0;
     font-size: 1.8rem;
     padding: 1rem;
     background: var(--bg-color);
     border-radius: 15px;
     box-shadow: 5px 5px 10px var(--shadow-dark),
                 -5px -5px 10px var(--shadow-light);
+    
 }
 
+/* ========================================
+   TABLE
+   ======================================== */
 table {
     width: 100%;
     margin: 2rem 0;
@@ -30,6 +35,9 @@ table {
                 -8px -8px 16px var(--shadow-light);
 }
 
+/* ========================================
+   TABLE CAPTION
+   ======================================== */
 caption {
     caption-side: top;
     padding: 1rem;
@@ -38,6 +46,9 @@ caption {
     color: var(--accent-color);
 }
 
+/* ========================================
+   TABLE HEADER
+   ======================================== */
 thead {
     background: var(--primary-color);
     color: var(--text-color);
@@ -51,12 +62,11 @@ thead th {
                 inset -2px -2px 4px var(--shadow-light);
 }
 
+/* ========================================
+   TABLE BODY
+   ======================================== */
 tbody tr {
     transition: all 0.2s ease;
-}
-
-tbody tr:hover {
-    background: rgba(255, 221, 0, 0.1);
 }
 
 tbody th,
@@ -80,7 +90,9 @@ tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* Liens vers horaires */
+/* ========================================
+   LINKS
+   ======================================== */
 .tarifs-container > p {
     margin-top: 1.5rem;
     font-weight: 500;
@@ -89,7 +101,6 @@ tbody tr:last-child td {
 
 .tarifs-container > a {
     display: inline-block;
-    margin-bottom: 3rem;
     padding: 0.75rem 1.5rem;
     background: var(--bg-color);
     color: var(--accent-color);
@@ -107,18 +118,22 @@ tbody tr:last-child td {
     color: var(--primary-color);
 }
 
-
-/* offer section */
+/* ========================================
+   DISCOUNTS SECTION
+   ======================================== */
 .discounts-section {
     max-width: 900px;
-    margin: 0 auto;
+    margin: 2rem auto;
     padding: 2rem;
+    border-radius: 15px;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                inset -3px -3px 6px var(--shadow-light);
+
 }
 
-.discounts-title {
-    text-align: center;
-}
-
+/* ========================================
+   DISCOUNT CARD
+   ======================================== */
 .discount-card {
     margin: 1.5rem 0;
     padding: 1.5rem;
@@ -127,12 +142,7 @@ tbody tr:last-child td {
     box-shadow: 5px 5px 10px var(--shadow-dark),
                 -5px -5px 10px var(--shadow-light);
     transition: all 0.3s ease;
-}
-
-.discount-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 8px 8px 16px var(--shadow-dark),
-                -8px -8px 16px var(--shadow-light);
+    border-left: 4px solid var(--accent-color);
 }
 
 .discount-description {
@@ -142,32 +152,51 @@ tbody tr:last-child td {
     margin: 0;
 }
 
-/* Carte spéciale pour les licences complémentaires */
+/* ========================================
+   COMPLEMENTARY CARD
+   ======================================== */
 .discount-card--complementary {
     border-left: 4px solid var(--accent-color);
 }
 
-/* Liste des licences complémentaires */
+/* ========================================
+   COMPLEMENTARY LIST
+   ======================================== */
 .complementary-list {
     margin-top: 1rem;
     padding-left: 0;
     list-style: none;
 }
 
+/* ========================================
+   COMPLEMENTARY ITEM
+   ======================================== */
 .complementary-item {
     padding: 0.75rem 1.5rem;
     margin: 0.5rem 0;
-    background: rgba(236, 188, 130, 0.215);
-    border-left: 4px solid var(--accent-color);
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+                -5px -5px 10px var(--shadow-light);
+    border-left: 4px solid var(--primary-color);
     border-radius: 8px;
     color: var(--text-color);
     font-weight: 500;
     transition: all 0.2s ease;
 }
 
-
-/* Responsive pour les réductions */
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
 @media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+    
+    thead th,
+    tbody th,
+    tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+    
     .discounts-section {
         padding: 1rem;
     }
@@ -183,16 +212,3 @@ tbody tr:last-child td {
 
 
 
-
-/* Responsive */
-@media (max-width: 768px) {
-    table {
-        font-size: 0.9rem;
-    }
-    
-    thead th,
-    tbody th,
-    tbody td {
-        padding: 0.75rem 0.5rem;
-    }
-}

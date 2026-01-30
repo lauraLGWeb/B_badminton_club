@@ -1,13 +1,12 @@
-
 .rules-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 0 2rem 3rem 2rem;
 }
 
-
-
-
+/* ========================================
+   INTRO TEXT
+   ======================================== */
 .intro-text {
     text-align: center;
     font-size: 1.1rem;
@@ -17,7 +16,9 @@
     margin: 0 auto 3rem;
 }
 
-
+/* ========================================
+   DOCUMENTS 
+   ======================================== */
 .documents-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -25,7 +26,9 @@
     margin: 3rem 0;
 }
 
-
+/* ========================================
+   DOCUMENT CARD
+   ======================================== */
 .document-card {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -47,7 +50,7 @@
         -15px -15px 30px var(--shadow-light);
 }
 
-
+/* icon */
 .document-icon {
     font-size: 4rem;
     width: 100px;
@@ -63,6 +66,7 @@
         inset -6px -6px 12px var(--shadow-light);
 }
 
+/* title */
 .document-card h2 {
     color: var(--accent-color);
     font-size: 1.6rem;
@@ -70,7 +74,7 @@
     font-weight: 700;
 }
 
-
+/* description */
 .document-description {
     color: var(--text-color);
     line-height: 1.6;
@@ -79,48 +83,11 @@
 }
 
 
-.file-type {
-    font-weight: 600;
-}
 
-/* Download button */
-.download-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.05rem;
-    transition: all 0.3s ease;
-    box-shadow: 
-        0 6px 20px rgba(255, 107, 53, 0.4);
-}
 
-.download-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-        0 10px 30px rgba(255, 107, 53, 0.6);
-}
-
-.logoDownload{
-    height: 25px;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
-/* Important notice section */
+/* ========================================
+   IMPORTANT CARD
+   ======================================== */
 .important-notice {
     background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(0, 78, 137, 0.1));
     padding: 2rem;
@@ -147,7 +114,9 @@
     font-size: 1rem;
 }
 
-/* Contact section */
+/* ========================================
+   CONTACT CARD
+   ======================================== */
 .contact-section {
     text-align: center;
     margin-top: 3rem;
@@ -177,7 +146,21 @@
     border-bottom-color: var(--accent-color);
 }
 
-/* Responsive design */
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
 @media (max-width: 768px) {
     .rules-container h1 {
         font-size: 2rem;

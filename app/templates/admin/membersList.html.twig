@@ -26,6 +26,8 @@
             <th> prenom </th>
             <th> email </th>
             <th> licence </th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
         </thead>
         <tbody>
             {% for user in user%}      
@@ -38,13 +40,8 @@
                         <a href="{{ path('app_modify', {'id': user.id}) }}" >Modifier</a>
                     </td>
                     <td>   
-                        <a href="{{ path('app_delete', {'id': user.id}) }}" >Supprimer</a>
+                        <a class="deleteItem" href="{{ path('app_delete', {'id': user.id}) }}" >Supprimer</a>
                     </td>
-
-
-
-
-                    
                 </tr>
             {% endfor %}
         </tbody>

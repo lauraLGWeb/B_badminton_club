@@ -1,127 +1,207 @@
 
-
 .creneaux-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0 2rem 0 2rem;
 }
 
-
+/* ========================================
+   PLANNING SECTION
+   ======================================== */
 .planning-section {
     margin-bottom: 4rem;
 }
 
 .planning-section h2 {
-    color: #ffdd00;
-    background: #3b6fac;
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+    color: var(--accent-color);
+    background: var(--bg-color);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 
+        8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light);
 }
 
+/* ========================================
+   TABLE RESPONSIVE
+   ======================================== */
 .table-responsive {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    box-shadow: 
+        12px 12px 24px var(--shadow-dark),
+        -12px -12px 24px var(--shadow-light);
+    border-radius: 20px;
     margin-bottom: 2rem;
+    background: var(--bg-color);
+    padding: 1rem;
 }
 
+/* ========================================
+   PLANNING TABLE
+   ======================================== */
 .planning-table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    font-size: 0.9rem;
+    background: var(--bg-color);
+    font-size: 0.95rem;
 }
 
 .planning-table thead {
-    background: linear-gradient(135deg, #3b6fac, #2c5a8a);
+    background: linear-gradient(135deg, var(--accent-color), #2c5a8a);
     color: white;
 }
 
 .planning-table th {
-    padding: 1rem 0.5rem;
+    padding: 1.2rem 0.8rem;
     text-align: center;
-    font-weight: 600;
-    border: 1px solid #ddd;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .planning-table td {
-    padding: 0.8rem 0.5rem;
+    padding: 1rem 0.8rem;
     text-align: center;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     vertical-align: middle;
 }
 
+/* ========================================
+   CELLS
+   ======================================== */
 .time-cell {
-    background: #f5f5f5;
-    font-weight: 600;
-    color: #333;
+    background: var(--bg-color);
+    font-weight: 700;
+    color: var(--accent-color);
     white-space: nowrap;
     min-width: 100px;
+    font-size: 1rem;
 }
 
 .empty-cell {
-    background: #fafafa;
+    background: var(--bg-color);
 }
 
 .activity-cell {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    padding: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 0.8rem;
 }
 
 .activity-cell strong {
     display: block;
-    margin-bottom: 0.3rem;
-    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--accent-color);
 }
 
+/* ========================================
+   LOCATION
+   ======================================== */
 .location {
     display: inline-block;
-    background: rgba(0, 0, 0, 0.1);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
+    background: rgba(255, 107, 53, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
     font-weight: 600;
+    color: var(--primary-color);
 }
 
-/* 5 couleurs principales pour les créneaux */
-
-/* color 1 : light red  */
+/* ========================================
+   COLORS CELLS
+   ======================================== */
+/* Light red */
 .rouge-clair {
-    background: linear-gradient(135deg, #ffebee, #ef9a9a);
-    border-left: 4px solid #e53935;
+    background: linear-gradient(135deg, #ffe5e5, #ffb8b8);
+    border-left: 5px solid #ff4444;
+    box-shadow: 
+        inset 2px 2px 4px rgba(255, 68, 68, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5);
 }
 
-/* color 2 :  dark red */
+/* Dark red */
 .rouge-fonce {
-    background: linear-gradient(135deg, #f3e5f5, #691118);
-    border-left: 4px solid #c62828;
+    background: linear-gradient(135deg, #ffcccc, #ff6b6b);
+    border-left: 5px solid #c62828;
+    box-shadow: 
+        inset 2px 2px 4px rgba(198, 40, 40, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5);
 }
 
-/* color 3 : blue */
+/* Blue */
 .bleu {
-    background: linear-gradient(135deg, #e3f2fd, #90caf9);
-    border-left: 4px solid #1976d2;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-left: 5px solid var(--accent-color);
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 78, 137, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5);
 }
 
-/* color 4 : pink */
+/* Pink */
 .rose {
-    background: linear-gradient(135deg, #fce4ec, #f48fb1);
-    border-left: 4px solid #e91e63;
-}
-/* color 5 : dark blue */
-.bleu-fonce {
-    background: linear-gradient(135deg, #376a8e, #0f395c);
-    border-left: 4px solid #1976d2;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    border-left: 5px solid #e91e63;
+    box-shadow: 
+        inset 2px 2px 4px rgba(233, 30, 99, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5);
 }
 
-/* color 6 : gray */
-.gris {
-    background: linear-gradient(135deg, #a4a4a4, #adaeaf);
-    border-left: 4px solid #1976d2;
+/* Dark blue */
+.bleu-fonce {
+    background: linear-gradient(135deg, #5a8bb8, #1e4d73);
+    border-left: 5px solid #004e89;
+    color: white;
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 78, 137, 0.2),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.1);
 }
-/*
+
+.bleu-fonce strong,
+.bleu-fonce .location {
+    color: white;
+}
+
+/* Gray */
+.gris {
+    background: linear-gradient(135deg, #e0e0e0, #bdbdbd);
+    border-left: 5px solid #757575;
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+
+
+
+/* ========================================
+   GYMNASES
+   ======================================== */
+
+.location{
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: var(--bg-color);
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+}
+
+.location:hover{
+   background-color: var(--bg-color);
+   box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+   transition: 0.6s;
+   transform: translateY(2px);
+}

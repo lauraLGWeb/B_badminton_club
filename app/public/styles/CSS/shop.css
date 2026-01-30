@@ -6,8 +6,9 @@
     transition: background 0.3s;
 }
 
-
-/* prensetation */
+/* ========================================
+   PRESENTATION SECTION
+   ======================================== */
 .presentationAndCart {
     max-width: 1000px;
     margin: 0 auto 40px;
@@ -28,7 +29,9 @@
     opacity: 0.8;
 }
 
-/* filters*/
+/* ========================================
+   FILTERS
+   ======================================== */
 .filter {
     display: flex;
     justify-content: space-between;
@@ -65,6 +68,7 @@
     color: var(--accent-color);
 }
 
+/*cart icon*/
 .filter img {
     width: 40px;
     height: 40px;
@@ -91,7 +95,9 @@
         inset -2px -2px 4px var(--shadow-light);
 }
 
-/*  products */
+/* ========================================
+   PRODUCTS
+   ======================================== */
 .products {
     max-width: 1200px;
     margin: 0 auto;
@@ -99,6 +105,9 @@
     gap: 30px;
 }
 
+/* ========================================
+   PRODUCT CARD
+   ======================================== */
 .product {
     background: var(--bg-color);
     border-radius: 20px;
@@ -118,7 +127,9 @@
     transform: translateY(-5px);
 }
 
-
+/* ========================================
+   PRODUCT IMAGE
+   ======================================== */
 .imgShop {
     width: 40%;
     display: flex;
@@ -134,7 +145,9 @@
         -5px -5px 10px var(--shadow-light);
 }
 
-/*details*/
+/* ========================================
+   PRODUCT DETAILS
+   ======================================== */
 .detailsShop {
     width: 60%;
     display: flex;
@@ -156,14 +169,21 @@
 }
 
 .price {
-    color: var(--accent-color); 
+    color: var(--accent-color);
     font-size: 1.3em;
     margin: 10px 0;
     opacity: 1;
     text-shadow: 1px 1px 2px var(--shadow-dark);
 }
 
-/* Selects */
+/* ========================================
+   SELECTS
+   ======================================== */
+.selects {
+    display: flex;
+    flex-direction: column;
+}
+
 .select-shop {
     padding: 12px 20px;
     border: none;
@@ -178,11 +198,6 @@
     transition: all 0.3s;
     margin-bottom: 10px;
 }
-.selects{
-display: flex;
-flex-direction: column;
-}
-
 
 .select-shop:focus {
     outline: none;
@@ -201,7 +216,9 @@ flex-direction: column;
     color: var(--text-color);
 }
 
-/* Button */
+/* ========================================
+   BUTTON
+   ======================================== */
 .detailsShop button {
     padding: 15px 30px;
     border: none;
@@ -236,61 +253,11 @@ flex-direction: column;
     transform: scale(0.96);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .product {
-        flex-direction: column;
-        padding: 20px;
-    }
-    
-    .imgShop,
-    .detailsShop {
-        width: 100%;
-    }
-    
-    .shop h1 {
-        font-size: 1.8em;
-    }
-    
-    .presentationAndCart {
-        padding: 20px;
-    }
-    
-    .presentationAndCart h2 {
-        font-size: 1em;
-    }
-    
-    .filter {
-        padding: 15px 20px;
-    }
-    
-    .productTitle {
-        font-size: 1.5em;
-    }
-    
-    .price {
-        font-size: 1.3em;
-        
-    }
-}
-
-@media (max-width: 480px) {
-    .shop {
-        padding: 20px 10px;
-    }
-    
-    .product {
-        padding: 15px;
-        gap: 15px;
-    }
-    
-    .detailsShop {
-        gap: 10px;
-    }
-}
-
-/* ==================== cart ==================== */
-
+/* ========================================
+========================================
+   OTHER PAGE : CART 
+   ========================================
+   ======================================== */
 .cart-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -307,7 +274,9 @@ flex-direction: column;
     text-shadow: 2px 2px 4px var(--shadow-dark);
 }
 
-/* ========== PANIER VIDE ========== */
+/* ========================================
+   EMPTY CART
+   ======================================== */
 .empty-cart {
     text-align: center;
     padding: 60px 40px;
@@ -325,7 +294,9 @@ flex-direction: column;
     opacity: 0.7;
 }
 
-/* ========== TABLE DU PANIER ========== */
+/* ========================================
+   CART TABLE
+   ======================================== */
 .cart-table {
     width: 100%;
     background: var(--bg-color);
@@ -378,9 +349,10 @@ flex-direction: column;
     border-radius: 0 15px 15px 0;
 }
 
-/* ========== CELLULES DU PANIER ========== */
-
-/* Cellule produit */
+/* ========================================
+   CART CELLS
+   ======================================== */
+/* Product cell */
 .product-cell {
     display: flex;
     align-items: center;
@@ -409,14 +381,14 @@ flex-direction: column;
     margin-top: 5px;
 }
 
-/* Cellule prix */
+/* Price cell */
 .price-cell {
     font-size: 1.1em;
     color: var(--accent-color);
     font-weight: 600;
 }
 
-/* Cellule quantité */
+/* Quantity cell */
 .quantity-cell {
     text-align: center;
 }
@@ -434,19 +406,21 @@ flex-direction: column;
     min-width: 60px;
 }
 
-/* Cellule total */
+/* Total cell */
 .total-cell {
     font-size: 1.2em;
     color: var(--accent-color);
     font-weight: 700;
 }
 
-/* Cellule actions */
+/* Actions cell */
 .actions-cell {
     text-align: center;
 }
 
-/* ========== BOUTON SUPPRIMER ========== */
+/* ========================================
+   DELETE BUTTON
+   ======================================== */
 .cart-delete-btn {
     padding: 10px 20px;
     border: none;
@@ -476,7 +450,9 @@ flex-direction: column;
         inset -2px -2px 4px rgba(255,255,255,0.1);
 }
 
-/* ========== RÉSUMÉ DU PANIER ========== */
+/* ========================================
+   CART SUMMARY
+   ======================================== */
 .cart-summary {
     background: var(--bg-color);
     border-radius: 20px;
@@ -533,7 +509,9 @@ flex-direction: column;
     font-weight: 700;
 }
 
-/* ========== BOUTONS D'ACTION DU PANIER ========== */
+/* ========================================
+   CART ACTIONS
+   ======================================== */
 .cart-actions {
     display: flex;
     gap: 20px;
@@ -590,9 +568,44 @@ flex-direction: column;
     transform: scale(0.96);
 }
 
-
-/* ========== RESPONSIVE MOBILE ========== */
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
 @media (max-width: 768px) {
+    .product {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .imgShop,
+    .detailsShop {
+        width: 100%;
+    }
+    
+    .shop h1 {
+        font-size: 1.8em;
+    }
+    
+    .presentationAndCart {
+        padding: 20px;
+    }
+    
+    .presentationAndCart h2 {
+        font-size: 1em;
+    }
+    
+    .filter {
+        padding: 15px 20px;
+    }
+    
+    .productTitle {
+        font-size: 1.5em;
+    }
+    
+    .price {
+        font-size: 1.3em;
+    }
+    
     .cart-container {
         padding: 20px 10px;
     }
@@ -665,6 +678,19 @@ flex-direction: column;
 }
 
 @media (max-width: 480px) {
+    .shop {
+        padding: 20px 10px;
+    }
+    
+    .product {
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .detailsShop {
+        gap: 10px;
+    }
+    
     .cart-summary {
         padding: 20px;
     }
