@@ -351,6 +351,7 @@ p a:hover::after {
     background-attachment: fixed;
     min-height: 100vh;
     position: relative;
+    
 }
 body.dark .header{
      background: linear-gradient(135deg, rgba(22, 9, 5, 0.299) 0%, rgba(0, 20, 35, 0.225) 100%), 

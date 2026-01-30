@@ -21,10 +21,13 @@
    PARTNERS SLIDER
    ======================================== */
 .partners-slider {
+    position: relative;
     width: 100%;
     overflow: hidden;
     padding: 2rem 0;
 }
+
+
 
 .partners-slider::before,
 .partners-slider::after {
