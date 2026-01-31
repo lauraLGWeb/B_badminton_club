@@ -13,10 +13,19 @@ use Symfony\Component\Validator\Constraints as Assert;
 use App\Validator\NoBadWords;
 
 
+// Déclare cette classe comme une entité Doctrine (table 'user' en BDD)
+// et lui associe son repository pour les requêtes personnalisées
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+
+// Cunicity check on MySQL for the email, double check with symfony validation
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
-#[UniqueEntity(fields: ['email'], message: 'Un compte existe déja aevc cette adresse mail')]
-#[UniqueEntity(fields: ['lienceNbr'], message: 'ce numéro de licence est déja utilisé')]
+
+//  Symfony validation: chekc the unicity of email and licence nbr before to push it into the bdd 
+#[UniqueEntity(fields: ['email'], message: 'Un compte existe déjà avec cette adresse e-mail')]
+#[UniqueEntity(fields: ['licenceNbr'], message: 'Ce numéro de licence est déjà utilisé')]
+
+
+
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {

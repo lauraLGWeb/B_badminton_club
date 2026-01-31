@@ -12,7 +12,10 @@
     scrollbar-color: var(--primary-color) var(--bg-color);
     scroll-behavior: smooth;
 }
-
+/*accessibility focus */
+:focus {
+  outline: 2px solid #005fcc;
+}
 /* ========================================
    CSS VARIABLES
    ======================================== */
