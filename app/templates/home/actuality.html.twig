@@ -5,7 +5,12 @@
 {% block body %}
 
 
-{# flash messages, first getting the type and the messages from the flshes array #}
+
+
+<section class="actualities-section">
+    <h1 id="top"> Actualités du club</h1>
+
+    {# flash messages, first getting the type and the messages from the flshes array #}
 
     {% for type, messages in app.flashes %}
     {# going through each of the 3 messages #}
@@ -15,9 +20,6 @@
             </div>
         {% endfor %}
     {% endfor %}
-
-<section class="actualities-section">
-    <h1 id="top"> Actualités du club</h1>
 
     {% if actualities is empty %}
         <div class="no-actuality">

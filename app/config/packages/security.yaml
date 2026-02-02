@@ -39,7 +39,7 @@ security:
 
     # Note: Only the *first* matching rule is applied
     access_control:
-    #only accessible by an admin
+    #only accessible by an adminpath: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/admin, roles: ROLE_ADMIN }
     #only accessible by a connected user
         - { path: ^/membre, roles: ROLE_MEMBRE }

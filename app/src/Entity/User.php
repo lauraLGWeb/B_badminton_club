@@ -13,8 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 use App\Validator\NoBadWords;
 
 
-// Déclare cette classe comme une entité Doctrine (table 'user' en BDD)
-// et lui associe son repository pour les requêtes personnalisées
+// Déclare this class as doctrine entity (table 'user' en the BDD)
+// eand associate its repository for requests
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 
 // Cunicity check on MySQL for the email, double check with symfony validation
@@ -23,9 +23,6 @@ use App\Validator\NoBadWords;
 //  Symfony validation: chekc the unicity of email and licence nbr before to push it into the bdd 
 #[UniqueEntity(fields: ['email'], message: 'Un compte existe déjà avec cette adresse e-mail')]
 #[UniqueEntity(fields: ['licenceNbr'], message: 'Ce numéro de licence est déjà utilisé')]
-
-
-
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -120,7 +117,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
          $roles = $this->roles;
 
-    // rôle par défaut
+    // default role
     $roles[] = 'ROLE_MEMBRE';
 
     return array_unique($roles);
@@ -152,7 +149,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them, as supported since Symfony 7.3.
+     * Ensure the session doesn't contain actual password hashes by CRC32C-hashing them
      */
     public function __serialize(): array
     {

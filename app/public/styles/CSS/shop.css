@@ -11,7 +11,7 @@
    ======================================== */
 .presentationAndCart {
     max-width: 1000px;
-    margin: 0 auto 40px;
+    margin: 40px auto;
     padding: 30px;
     background: var(--bg-color);
     border-radius: 20px;
@@ -70,11 +70,11 @@
 
 /*cart icon*/
 .filter img {
-    width: 40px;
-    height: 40px;
+    width: 70px;
+    height: 70px;
     padding: 10px;
     border-radius: 20%;
-    background: var(--bg-color);
+    background: #f5f7fa;
     box-shadow: 
         4px 4px 8px var(--shadow-dark),
         -4px -4px 8px var(--shadow-light);
@@ -94,6 +94,33 @@
         inset 2px 2px 4px var(--shadow-dark),
         inset -2px -2px 4px var(--shadow-light);
 }
+
+
+/* cartItem number*/
+.filter div{
+    position: relative;
+}
+
+.cartItemNbr{
+    background-color: var(--gradient-start);
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    border-radius: 15px;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    left: 50px;
+    color: var(--bg-color);
+     display: flex;
+    align-items: center;
+    justify-content: center;
+   border: 1px solid var(--bg-color);
+    
+}
+
+
+
 
 /* ========================================
    PRODUCTS

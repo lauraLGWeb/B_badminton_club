@@ -16,6 +16,11 @@
 
 {% block body %}
 
+
+
+<section class="shop">
+    <h1> Bienvenue dans la boutique du Blois Badminton Club !</h1>
+
 {# flash messages, first getting the type and the messages from the flshes array #}
 
     {% for type, messages in app.flashes %}
@@ -28,9 +33,6 @@
     {% endfor %}
 
 
-<section class="shop">
-    <h1> Bienvenue dans la boutique du Blois Badminton Club !</h1>
-
     <div class="presentationAndCart">
         <h2>Ici, tu peux commander directement tes articles et payer en ligne par carte bancaire en toute sécurité.
         Une fois ton paiement effectué, tu pourras récupérer tes produits auprès d'un membre du bureau du club.
@@ -39,9 +41,17 @@
 
     <div class="filter">
         <p class="pFilter"> filtres </p>
-        <a href="{{ path('app_cart') }}"> 
-            <img src="{{asset("pictures/cart.png")}}" alt="logo panier">
-        </a>
+        <div>
+            <a href="{{ path('app_cart') }}"> 
+                <img src="{{asset("pictures/cart.png")}}" alt="logo panier">
+            </a>
+            
+                    {% set total = 0 %}
+                    {% for item in cart.CartItem %}
+                        {% set total = total + (item.quantity) %}
+                    {% endfor %}
+            <p class="cartItemNbr">{{total}}</p>
+         </div>
     </div>
 
     <section class="products">

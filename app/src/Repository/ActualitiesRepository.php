@@ -9,7 +9,7 @@ use Doctrine\ODM\MongoDB\Repository\DocumentRepository;
 class ActualitiesRepository extends DocumentRepository
 {
     /**
-     * Récupérer toutes les actualités, triées par date de création (DESC)
+     * Get all the activities by creation date
      */
     public function findAll(): array
     {
