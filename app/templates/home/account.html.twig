@@ -37,11 +37,15 @@
                 <p>{{ item.product.title }}  {{ item.size }}  {{ item.gender }} (x{{ item.quantity }})</p>
             {% endfor %}
         </div>
-      
     </div>
 </section>
 
 {% endfor %}
+    {% if orders is empty %}
+            <div class="no-actuality">
+                <p>Aucune commande pour le moment.</p>
+            </div>
+    {% endif %}
 
 {% endblock %}
 
