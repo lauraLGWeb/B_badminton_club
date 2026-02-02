@@ -15,7 +15,6 @@ use App\Entity\Product;
 use App\Entity\Cart;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ModifyContactType;
-use App\Form\UserModify;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 
@@ -257,15 +256,12 @@ final class HomeController extends AbstractController
     //delete the User
     #[Route('/admin/membres/supprimer/{id}', name: 'app_delete')]
     #[IsGranted('ROLE_ADMIN')]
-   public function supprimer(EntityManagerInterface $em, $id) : Response
+   public function supprimer(Request $request, User $user, EntityManagerInterface $em) : Response
     {
 
+    
         //get the user connected
         $actualUser = $this->getUser();
-
-        $repo = $em->getRepository(User::class);
-        $user = $repo->find($id);
-
 
         // if i'm connected, i cannot delete my own account
         if($actualUser === $user){
@@ -372,7 +368,7 @@ final class HomeController extends AbstractController
     ]);
     }
 
-    // order given
+    // order given to the member
     #[Route('/admin/Liste-boutique/commandes/{id}', name: 'app_orderGiven')]
     #[IsGranted('ROLE_ADMIN')]
     public function orderGiven(Cart $cart, EntityManagerInterface $em, Request $request, ): Response
@@ -389,6 +385,26 @@ final class HomeController extends AbstractController
     $this->addFlash('success', 'Commande marquée comme donnée !');  
     
     return $this->redirectToRoute('app_orders');
+}
+
+
+    //  validated licences button
+    #[Route('/admin/membres/liste/validate/{id}', name: 'app_validateLicence')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function validateLicence(User $user, EntityManagerInterface $em, Request $request, ): Response
+    {
+    $token = $request->request->get('_token');
+    if (!$this->isCsrfTokenValid('validate_licence_' . $user->getId(), $token)) {
+        $this->addFlash('error', 'Token invalide');
+        return $this->redirectToRoute('app_membersList');
+    }
+    // mark the cart as given 
+    $user->setIsVerified(true);
+    $em->flush();
+    
+    $this->addFlash('success', 'La licence est validée !');  
+    
+    return $this->redirectToRoute('app_membersList');
 }
 
 }

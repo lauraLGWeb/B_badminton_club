@@ -6,7 +6,9 @@
     background: var(--bg-color);
     text-align: center;
 }
-
+.partenaires p{
+   padding: 1rem 2rem; 
+}
 .subtitle {
     font-size: 1.3rem;
     color: var(--text-color);
@@ -35,7 +37,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 200px;
+    width: 100px;
     z-index: 2;
     pointer-events: none;
 }

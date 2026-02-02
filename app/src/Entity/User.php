@@ -77,9 +77,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     orphanRemoval: true)]
    private Collection $carts;
 
+   #[ORM\Column]
+   private ?bool $isVerified = false;
+
    public function __construct()
    {
        $this->carts = new ArrayCollection();
+       $this->isVerified=false;
    }
     
 
@@ -227,6 +231,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $cart->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
