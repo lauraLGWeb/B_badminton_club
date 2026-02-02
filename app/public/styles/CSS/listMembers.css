@@ -91,12 +91,24 @@ tbody td a:hover {
 .deleteItem {
     background-color: var(--primary-color);
     color: var(--bg-color);
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+    border-radius: 10px;
+    padding: 15px;
+    border: none;
 }
 .deleteItem:hover {
     background-color: var(--bg-color);
     color: var(--primary-color);
+      box-shadow: 
+        inset 2px 2px 4px var(--shadow-dark),
+        inset -2px -2px 4px var(--shadow-light);
 }
 
+.noStyle
+{
+   box-shadow: none;
+   background-color: transparent;
+}
 /* ========================================
    MEDIA QUERIES
    ======================================== */

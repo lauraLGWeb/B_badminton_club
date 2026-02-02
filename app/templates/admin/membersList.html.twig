@@ -40,7 +40,11 @@
                         <a href="{{ path('app_modify', {'id': user.id}) }}" >Modifier</a>
                     </td>
                     <td>   
-                        <a class="deleteItem" href="{{ path('app_delete', {'id': user.id}) }}" >Supprimer</a>
+                         <form class="noStyle" action="{{ path('app_delete', { id: user.id }) }}" 
+                                  method="post" 
+                                  onsubmit="return confirm('Supprimer cet article ?')">
+                                <button type="submit" class="deleteItem">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
             {% endfor %}
