@@ -124,11 +124,22 @@ final class HomeController extends AbstractController
         return $this->render('home/try.html.twig');
     }
 
+
   #[Route('/membre/Leclub/Membres/compte', name: 'app_account')]
    #[IsGranted('ROLE_MEMBRE')]
-    public function account(): Response
+    public function account(EntityManagerInterface $em ): Response
     {
-        return $this->render('home/account.html.twig');
+    $actualUser = $this->getUser();
+
+    $orders = $em->getRepository(Cart::class)->findBy(
+        ['isPaid' => true, 'user' => $actualUser],
+        ['purchaseDate' => 'DESC']
+        );
+    
+    return $this->render('home/account.html.twig', [
+        'orders' => $orders])
+        ;
+    
     }
      
 

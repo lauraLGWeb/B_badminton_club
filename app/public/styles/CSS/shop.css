@@ -610,10 +610,11 @@
 .ordersDiv {
     background: var(--bg-color);
     border-radius: 20px;
-    box-shadow: var(--unpressed);
+    box-shadow: inset 13px 11px 5px var(--shadow-dark), 
+                inset -20px -14px 5px var(--shadow-light);
     transition: all 0.3s ease;
     padding: 25px;
-    margin: 15px 0;
+    margin: 25px 0;
 }
 .ordersDiv:hover {
     transform: none;
@@ -646,7 +647,7 @@
 .ordersDiv div p {
     padding: 8px 15px;
     margin: 5px 0;
-    background: rgba(0, 0, 0, 0.02);
+    background: rgb(143 154 244 / 48%);
     border-radius: 10px;
     font-size: 0.95em;
 }
