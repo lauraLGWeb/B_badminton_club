@@ -360,4 +360,24 @@ final class HomeController extends AbstractController
         'orders' => $orders
     ]);
     }
+
+    // order given
+    #[Route('/admin/Liste-boutique/commandes/{id}', name: 'app_orderGiven')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function orderGiven(Cart $cart, EntityManagerInterface $em, Request $request, ): Response
+    {
+            $token = $request->request->get('_token');
+    if (!$this->isCsrfTokenValid('mark_order_' . $cart->getId(), $token)) {
+        $this->addFlash('error', 'Token invalide');
+        return $this->redirectToRoute('app_orders');
+    }
+    // mark the cart as given 
+    $cart->setIsGiven(true);
+    $em->flush();
+    
+    $this->addFlash('success', 'Commande marquée comme donnée !');  
+    
+    return $this->redirectToRoute('app_orders');
+}
+
 }
