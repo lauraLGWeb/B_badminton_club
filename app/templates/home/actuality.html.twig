@@ -49,9 +49,11 @@
                     </a>
                    
                     {% if is_granted('ROLE_ADMIN')%}
-                         <a href="{{ path('app_deleteActuality', {'id': actu.id}) }}" class="btn-actuality">
-                        supprimer  →
-                         </a>
+                         <form class="actuForm" action="{{ path('app_deleteActuality', { id: actu.id }) }}" 
+                                  method="post" 
+                                  onsubmit="return confirm('Supprimer cet article ?')">
+                                <button type="submit" class="btn-actuality"> supprimer  →</button>
+                        </form>
                     {% endif %}
                 </article>
             {% endfor %}

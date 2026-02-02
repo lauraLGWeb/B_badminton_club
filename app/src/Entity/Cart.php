@@ -16,7 +16,7 @@ class Cart
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?bool $isPaid = null;
+    private ?bool $isPaid = false;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $purchaseDate = null;
@@ -33,9 +33,14 @@ class Cart
     )]
     private Collection $cartItems;
 
+    #[ORM\Column]
+    private ?bool $IsGiven = false;
+
     public function __construct()
     {
         $this->cartItems = new ArrayCollection();
+        $this->IsGiven = false;  
+        $this->isPaid= false;
     }
 
     public function getId(): ?int
@@ -43,7 +48,7 @@ class Cart
         return $this->id;
     }
 
-    public function isPaid(): ?bool
+    public function isPaid(): bool
     {
         return $this->isPaid;
     }
@@ -105,6 +110,18 @@ class Cart
                 $cartItem->setCart(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isGiven(): bool
+    {
+        return $this->IsGiven;
+    }
+
+    public function setIsGiven(bool $IsGiven): static
+    {
+        $this->IsGiven = $IsGiven;
 
         return $this;
     }

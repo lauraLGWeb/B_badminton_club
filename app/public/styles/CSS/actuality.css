@@ -95,6 +95,14 @@
 /* ========================================
    BUTTONS
    ======================================== */
+
+   .actuForm{
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+   }
+
 .btn-actuality {
     display: inline-block;
     padding: 12px 30px;
@@ -108,6 +116,7 @@
     box-shadow: 
         5px 5px 10px var(--shadow-dark),
         -5px -5px 10px var(--shadow-light);
+    
 }
 
 .btn-actuality:hover {

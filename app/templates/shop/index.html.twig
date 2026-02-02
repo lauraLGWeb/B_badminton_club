@@ -45,12 +45,13 @@
             <a href="{{ path('app_cart') }}"> 
                 <img src="{{asset("pictures/cart.png")}}" alt="logo panier">
             </a>
-            
+                 {% if cart %}
                     {% set total = 0 %}
                     {% for item in cart.CartItem %}
                         {% set total = total + (item.quantity) %}
                     {% endfor %}
-            <p class="cartItemNbr">{{total}}</p>
+                    <p class="cartItemNbr">{{total}}</p>
+            {% endif %}
          </div>
     </div>
 

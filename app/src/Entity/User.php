@@ -22,7 +22,7 @@ use App\Validator\NoBadWords;
 
 //  Symfony validation: chekc the unicity of email and licence nbr before to push it into the bdd 
 #[UniqueEntity(fields: ['email'], message: 'Un compte existe déjà avec cette adresse e-mail')]
-#[UniqueEntity(fields: ['licenceNbr'], message: 'Ce numéro de licence est déjà utilisé')]
+#[UniqueEntity(fields: ['lienceNbr'], message: 'Ce numéro de licence est déjà utilisé')]
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {

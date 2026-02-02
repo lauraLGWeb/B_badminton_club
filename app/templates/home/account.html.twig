@@ -20,5 +20,32 @@
     </section>
 {% endif %}
 
+       
+<h2> Mes commandes: </h2>
+
+
+{% for order in orders %}
+<section class="ordersContainer">
+
+    <div class="ordersDiv">
+        <h3>Commande numéro : {{ order.id }}</h3>
+        <p>Date : {{ order.purchaseDate|date('d/m/Y H:i') }}</p>
+        
+        <h4>Articles :</h4>
+        <div>
+            {% for item in order.cartItem %}
+                <p>{{ item.product.title }}  {{ item.size }}  {{ item.gender }} (x{{ item.quantity }})</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endfor %}
+    {% if orders is empty %}
+            <div class="no-actuality">
+                <p>Aucune commande pour le moment.</p>
+            </div>
+    {% endif %}
+
 {% endblock %}
 

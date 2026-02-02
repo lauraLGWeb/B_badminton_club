@@ -12,6 +12,7 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use App\Document\Actualities;
 use App\Form\ArticleType;
 use App\Entity\Product;
+use App\Entity\Cart;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ModifyContactType;
 use App\Form\UserModify;
@@ -123,11 +124,22 @@ final class HomeController extends AbstractController
         return $this->render('home/try.html.twig');
     }
 
+
   #[Route('/membre/Leclub/Membres/compte', name: 'app_account')]
    #[IsGranted('ROLE_MEMBRE')]
-    public function account(): Response
+    public function account(EntityManagerInterface $em ): Response
     {
-        return $this->render('home/account.html.twig');
+    $actualUser = $this->getUser();
+
+    $orders = $em->getRepository(Cart::class)->findBy(
+        ['isPaid' => true, 'user' => $actualUser],
+        ['purchaseDate' => 'DESC']
+        );
+    
+    return $this->render('home/account.html.twig', [
+        'orders' => $orders])
+        ;
+    
     }
      
 
@@ -179,11 +191,11 @@ final class HomeController extends AbstractController
 
 
 
-    //======================
-    //======================
+    //============================================
+    //============================================
     //pages for the admins
-    //======================
-    //======================
+    //=============================================
+    //============================================
 
 
     //======================
@@ -344,5 +356,39 @@ final class HomeController extends AbstractController
        return $this->redirectToRoute('app_ItemsList');
     }
 
+// access the orders
+    #[Route('/admin/Liste-boutique/commandes', name: 'app_orders')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function seeOrders(EntityManagerInterface $em ): Response
+    {
+         // Rget all the paid carts by dates
+    $orders = $em->getRepository(Cart::class)->findBy(
+        ['isPaid' => true],
+        ['purchaseDate' => 'DESC']
+        );
+    
+    return $this->render('admin/orders.html.twig', [
+        'orders' => $orders
+    ]);
+    }
+
+    // order given
+    #[Route('/admin/Liste-boutique/commandes/{id}', name: 'app_orderGiven')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function orderGiven(Cart $cart, EntityManagerInterface $em, Request $request, ): Response
+    {
+            $token = $request->request->get('_token');
+    if (!$this->isCsrfTokenValid('mark_order_' . $cart->getId(), $token)) {
+        $this->addFlash('error', 'Token invalide');
+        return $this->redirectToRoute('app_orders');
+    }
+    // mark the cart as given 
+    $cart->setIsGiven(true);
+    $em->flush();
+    
+    $this->addFlash('success', 'Commande marquée comme donnée !');  
+    
+    return $this->redirectToRoute('app_orders');
+}
 
 }

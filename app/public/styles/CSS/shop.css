@@ -595,6 +595,126 @@
     transform: scale(0.96);
 }
 
+
+
+/* ========================================
+   ORDERS HISTORIC
+   ======================================== */
+
+.ordersContainer{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem 0 2rem;
+}
+/* Order card */
+.ordersDiv {
+    background: var(--bg-color);
+    border-radius: 20px;
+    box-shadow: inset 13px 11px 5px var(--shadow-dark), 
+                inset -20px -14px 5px var(--shadow-light);
+    transition: all 0.3s ease;
+    padding: 25px;
+    margin: 25px 0;
+}
+.ordersDiv:hover {
+    transform: none;
+}
+
+.ordersDiv h3{
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--gradient-start);
+    margin-bottom: 15px;
+}
+
+/* Client info and date */
+.ordersDiv p {
+    margin: 8px 0;
+    color: var(--text-color);
+}
+
+/* Articles section title */
+.ordersDiv h4 {
+    color: var(--gradient-start);
+    margin: 20px 0 10px 0;
+    font-size: 1.1em;
+    width: auto;
+    border-bottom: 2px solid var(--gradient-start);
+    padding-bottom: 5px;
+}
+
+/* Articles list */
+.ordersDiv div p {
+    padding: 8px 15px;
+    margin: 5px 0;
+    background: rgb(143 154 244 / 48%);
+    border-radius: 10px;
+    font-size: 0.95em;
+}
+
+/* Form button section */
+.ordersDiv form {
+     
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+ .ordersTop{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+ }
+.ordersDiv label {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* button */
+.btn-validate {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow:var(--pressed);
+    transition: all 0.3s ease;
+}
+
+.btn-validate:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+
+/*  titles */
+h2 {
+    color: var(--gradient-start);
+    font-size: 1.8em;
+    margin: 40px 0 20px 0;
+    padding-left: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Empty  nogiven order message */
+.no-actuality {
+    background: var(--bg-color);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: inset 2px 2px 5px var(--shadow-dark),
+                inset -2px -2px 5px var(--shadow-light);
+    max-width: 600px;
+}
+
 /* ========================================
    MEDIA QUERIES
    ======================================== */

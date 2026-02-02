@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="login-container">
-        <form method="post" class="login-form">
+        <form method="post" class="login-form" >
             {% if error %}
                 <div class="alert-message">
                    Mot de passe ou email incorrect.
@@ -28,7 +28,6 @@
                 <label for="username" class="input-label">Email</label>
                 <input 
                     type="email" 
-                    type="hidden"
                     value="{{ last_username }}" 
                     name="_username" 
                     id="username" 
@@ -43,7 +42,6 @@
                 <label for="password" class="input-label">Mot de passe</label>
                 <input 
                     type="password"
-                     type="hidden" 
                     name="_password" 
                     id="password" 
                     class="input-field" 
