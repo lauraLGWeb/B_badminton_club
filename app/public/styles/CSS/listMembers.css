@@ -101,6 +101,49 @@ tbody td a:hover {
    MEDIA QUERIES
    ======================================== */
 
+#modify_contact_roles{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+    transition: all 0.3s;
+    margin-bottom: 10px;
+}
+
+.submit-btn{
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: auto;
+    box-shadow: var(--unpressed);
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.submit-btn:hover{
+    background: var(--accent-color);
+    box-shadow: var(--pressed);
+    transform: scale(0.98);
+    
+}
+
+
+
+
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+
 @media (max-width: 950px) {
     /* get the table into card and not table anymore*/
     .members-list {
@@ -134,3 +177,6 @@ tbody td a:hover {
         padding: 10px 0;
     }
 }
+
+
+
