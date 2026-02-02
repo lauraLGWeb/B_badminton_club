@@ -71,9 +71,11 @@ final class CartController extends AbstractController
         try {
             // create strip session
             $paymentSession = $stripeService->createCheckoutSession($cart);
-
+            
             // goes to stripe
+
             return $this->redirect($paymentSession->url);
+            
             
         } catch (\Exception $e) {
             $this->addFlash('error', '❌ Erreur Stripe : ' . $e->getMessage());
@@ -121,11 +123,12 @@ final class CartController extends AbstractController
                 $cartId = $session->metadata->cart_id;
                 $cart = $em->getRepository(Cart::class)->find($cartId);
                 
-                if ($cart && !$cart->isIsPaid()) {
-
+                if ($cart && !$cart->IsPaid()) {
+                    // mark the cart as paid
                     $cartService->markAsPaid($cart);
                     
                     $this->addFlash('success', '🎉 Paiement confirmé ! Merci pour votre commande.');
+                   
                 }
             }
             
@@ -136,6 +139,8 @@ final class CartController extends AbstractController
 
         return $this->redirectToRoute('app_shop');
     }
+
+
 
     // Payment canceled
     #[Route('/membre/boutique/paiement_refusé', name: 'app_payment_canceled')]

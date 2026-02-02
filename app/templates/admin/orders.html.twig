@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des commandes{% endblock %}
+
+
+
+
+{% block body %}
+<div>
+    <h1>Voici toutes les commandes passées</h1>
+
+{% for order in orders %}
+<section class="ordersContainer">
+
+    <div class="ordersDiv">
+        <p>Commande numéro : {{ order.id }}</p>
+        <p>Client : {{ order.user.firstName }} {{ order.user.lastName }}</p>
+        <p>Date : {{ order.purchaseDate|date('d/m/Y H:i') }}</p>
+        
+        <h2>Articles :</h2>
+        <div>
+            {% for item in order.cartItem %}
+                <p>{{ item.product.title }}  {{ item.size }}  {{ item.gender }} (x{{ item.quantity }})</p>
+            {% endfor %}
+        </div>
+        
+    </div>
+</section>
+{% endfor %}
+
+     
+</div>
+{% endblock %}

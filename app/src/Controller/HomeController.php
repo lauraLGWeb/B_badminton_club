@@ -12,6 +12,7 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use App\Document\Actualities;
 use App\Form\ArticleType;
 use App\Entity\Product;
+use App\Entity\Cart;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ModifyContactType;
 use App\Form\UserModify;
@@ -179,11 +180,11 @@ final class HomeController extends AbstractController
 
 
 
-    //======================
-    //======================
+    //============================================
+    //============================================
     //pages for the admins
-    //======================
-    //======================
+    //=============================================
+    //============================================
 
 
     //======================
@@ -344,5 +345,19 @@ final class HomeController extends AbstractController
        return $this->redirectToRoute('app_ItemsList');
     }
 
-
+// access the orders
+    #[Route('/admin/Liste-boutique/commandes', name: 'app_orders')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function seeOrders(EntityManagerInterface $em ): Response
+    {
+         // Rget all the paid carts by dates
+    $orders = $em->getRepository(Cart::class)->findBy(
+        ['isPaid' => true],
+        ['purchaseDate' => 'DESC']
+        );
+    
+    return $this->render('admin/orders.html.twig', [
+        'orders' => $orders
+    ]);
+    }
 }

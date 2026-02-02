@@ -595,6 +595,31 @@
     transform: scale(0.96);
 }
 
+
+
+
+/*orders*/
+
+.ordersContainer{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem 0 2rem;
+}
+.ordersDiv{
+    background: var(--bg-color);
+    border-radius: 20px;
+    box-shadow: var(--unpressed);
+    transition: all 0.3s ease;
+    width: auto;
+    padding: 20px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+
 /* ========================================
    MEDIA QUERIES
    ======================================== */
