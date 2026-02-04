@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Unit\Entity;
+namespace App\Tests\Entity;
 
 use App\Entity\CartItem;
 use App\Entity\Cart;
@@ -9,7 +9,9 @@ use PHPUnit\Framework\TestCase;
 
 class CartItemEntityTest extends TestCase
 {
-    // get the cartitem selected 
+    /**
+     * TEST 1 : get the cartitem selected 
+     */
     public function testCartItemInitialization(): void
     {
         $cartItem = new CartItem();
@@ -22,7 +24,9 @@ class CartItemEntityTest extends TestCase
         $this->assertNull($cartItem->getGender());
     }
 
-    //attribute the item to the user cart
+    /**
+     * TEST 2 : attribute the item to the user cart
+     */
     public function testCartRelation(): void
     {
         $cart = new Cart();
@@ -33,8 +37,10 @@ class CartItemEntityTest extends TestCase
         $this->assertSame($cart, $cartItem->getCart());
     }
 
-
-    // get the item selected into the cart as the cartitem
+    /**
+     * TEST 3 : get the item selected into the cart as the cartitem
+     */
+    
     public function testProductRelation(): void
     {
         $product = new Product();
@@ -45,8 +51,10 @@ class CartItemEntityTest extends TestCase
         $this->assertSame($product, $cartItem->getProduct());
     }
 
-
-    // testing the quantity of items 
+    /**
+     * TEST 4 : testing the quantity of items 
+     */
+    
     public function testQuantity(): void
     {
         $cartItem = new CartItem();
@@ -56,8 +64,10 @@ class CartItemEntityTest extends TestCase
         $this->assertSame(3, $cartItem->getQuantity());
     }
 
-
-    //  setting size if item has size
+    /**
+     * TEST 5 : setting size if item has size
+     */
+     
     public function testNullableSize(): void
     {
         $cartItem = new CartItem();
@@ -69,8 +79,10 @@ class CartItemEntityTest extends TestCase
         $this->assertSame('M', $cartItem->getSize());
     }
 
-
-       //  setting gender if item has gender
+    /**
+     * TEST 6 : setting gender if item has gender
+     */
+       
     public function testNullableGender(): void
     {
         $cartItem = new CartItem();

@@ -1,3 +1,8 @@
+//================================================================
+// cannot click on "add to the cart" if size and gender are not selected 
+//================================================================
+
+
 
 // wait until the page is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -10,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const sizeSelect = form.querySelector('.size');
             const genderSelect = form.querySelector('.gender');
             
-           
+           // if they exist but are empty--> mesg to select one 
             if (sizeSelect && genderSelect) {
                 if (sizeSelect.value === '' || genderSelect.value === '') {
                     e.preventDefault(); // Empêche l'envoi du formulaire
@@ -19,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-           //if select, then ok the form is sent
+        
         });
     });
 });

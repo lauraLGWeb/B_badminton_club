@@ -29,11 +29,11 @@ class RegistrationControllerTest extends WebTestCase
 
         // Remplir le formulaire
         $form = $crawler->selectButton('Créer mon compte')->form([ 
-            'registration_form[email]' => 'efeutGHest@example.com',
+            'registration_form[email]' => 'testou@example.com',
             'registration_form[lastName]' => 'Vallet',
             'registration_form[firstName]' => 'laura',
-            'registration_form[plainPassword]' => 'MaphjJJpy123',
-            'registration_form[lienceNbr]' => '9340478',
+            'registration_form[plainPassword]' => 'Testou123',
+            'registration_form[lienceNbr]' => '9001378',
             'registration_form[agreeTerms]' => 1,
             
         ]);
@@ -45,10 +45,10 @@ class RegistrationControllerTest extends WebTestCase
         $client->followRedirect();
 
         
-
-        // is the user created in database
+        
+        // is the user created in database ?
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $user = $userRepository->findOneBy(['email' => 'laura@example.net']);
+        $user = $userRepository->findOneBy(['email' => 'testou@example.com']);
 
         $this->assertNotNull($user);
         $this->assertSame('Vallet', $user->getLastName());
@@ -57,7 +57,7 @@ class RegistrationControllerTest extends WebTestCase
 
         // is the password hashed 
         $passwordHasher = static::getContainer()->get(UserPasswordHasherInterface::class);
-        $this->assertTrue($passwordHasher->isPasswordValid($user, 'Mappy123'));
+        $this->assertTrue($passwordHasher->isPasswordValid($user, 'Testou123'));
 
         //  should connect the user
         $this->assertNotNull($client->getContainer()->get('security.token_storage')->getToken());
@@ -78,7 +78,7 @@ class RegistrationControllerTest extends WebTestCase
             'registration_form[lastName]' => 'Test',
             'registration_form[firstName]' => 'User',
             'registration_form[plainPassword]' => '123', 
-            'registration_form[lienceNbr]' => '7050503',
+            'registration_form[lienceNbr]' => '8880503',
             'registration_form[agreeTerms]' => 1,
         ]);
 
@@ -95,7 +95,7 @@ class RegistrationControllerTest extends WebTestCase
         
         // Créer un utilisateur existant
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $existingUser = $userRepository->findOneBy(['email' => 'adelaide66@example.net']);
+        $existingUser = $userRepository->findOneBy(['email' => 'labbe.arnaude@example.org']);
 
         $crawler = $client->request('GET', '/inscription');
 
@@ -104,7 +104,7 @@ class RegistrationControllerTest extends WebTestCase
             'registration_form[lastName]' => 'Vallet',
             'registration_form[firstName]' => 'Margot',
             'registration_form[plainPassword]' => 'motdepasse123',
-            'registration_form[lienceNbr]' => '9194197',
+            'registration_form[lienceNbr]' => '9194997',
             'registration_form[agreeTerms]' => 1,
         ]);
 

@@ -93,5 +93,16 @@ class UserEntityTest extends TestCase
         $this->assertEquals($password, $this->user->getPassword());
     }
 
+
+    /**
+     * TEST 7 : is the profil checked
+     */
+    public function testIsVerified(): void
+    {
+        $user = new User();
+        $user->setIsVerified(true);
+
+        $this->assertTrue($user->isVerified());
+    }
     
 }

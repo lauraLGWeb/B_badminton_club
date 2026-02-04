@@ -17,12 +17,10 @@ class ContactController extends AbstractController
     #[Route('/contact', name: 'app_contact')]
     public function contact(Request $request, MailerInterface $mailer): Response
     {
-       
-
+    
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
-        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();

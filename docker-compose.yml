@@ -1,56 +1,57 @@
 services:
+    # --- MySQL ---
     database:
         container_name: databaseBlois
         image: mysql:8.0
         environment:
             MYSQL_ROOT_PASSWORD: passwordbdd
-            MYSQL_DATABASE: blois_badminton_club
-            MYSQL_USER: symfony
+            MYSQL_DATABASE: blois_badminton_club  # bdd name automaticly creatided
+            MYSQL_USER: symfony                    # user for Symfony
             MYSQL_PASSWORD: symfony
         ports:
-            - '4306:3306'
+            - '4306:3306'                          
         volumes:
-            - ./mysql:/var/lib/mysql
+            - ./mysql:/var/lib/mysql               
 
+    # --- Base de données NoSQL MongoDB (actualités) ---
     mongo:
         container_name: mongodbBlois
         image: mongo:6
-        restart: always
+        restart: always                            # always restart if any error 
         ports:
-            - "27017:27017"   
+            - "27017:27017"
         volumes:
-            - ./mongo:/data/db
+            - ./mongo:/data/db                     #  MongoDB persist
 
+    # --- Serveur PHP + Apache (coeur de l'application Symfony) ---
     php:
         container_name: phpBlois
         build:
-            context: ./php
+            context: ./php                         # built the picture from dockerfile  in ./php
         ports:
-            - 8081:80
+            - 8081:80                              # Site accessible on localhost:8081
         environment:
-            APP_ENV: dev
-            # DATABASE_URL: mysql://symfony:symfony@database:3306/blois_badminton_club?serverVersion=8.0&charset=utf8mb4
-            MAILER_DSN: smtp://laura.maglegall@gmail.com:cfutfqisudgrzpjt@smtp.gmail.com:587
-            MONGODB_URI: mongodb://mongo:27017   # Symfony communique avec le conteneur, pas avec l’hôte
-            # because need to go to the test data for tests
-            # MONGODB_DB: bbc_database
+            APP_ENV: dev                           # dev environnement 
+            #MAILER_DSN: ${MAILER_DSN}              # difined in .env.local
+            MONGODB_URI: mongodb://mongo:27017     #  MongoDB connection with le nconteneur name (réseau Docker)
         volumes:
-            - ./apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
-            - ./apache/default-ssl.conf:/etc/apache2/sites-enabled/000-default-ssl.conf
-            - ./etc/ssl:/etc/ssl
-            - ./app:/var/www
-        depends_on:
+            - ./apache/default.conf:/etc/apache2/sites-enabled/000-default.conf       # Config Apache HTTP
+            - ./apache/default-ssl.conf:/etc/apache2/sites-enabled/000-default-ssl.conf  # Config Apache HTTPS
+            - ./etc/ssl:/etc/ssl                   # Certificats SSL
+            - ./app:/var/www                       # app source code
+        depends_on:                                # PHP starts after MySQL and MongoDB
             - database
             - mongo
 
+    # --- phpMYADMIN  ---
     phpma:
         image: phpmyadmin/phpmyadmin
         container_name: phpmyadminBlois
         environment:
-            PMA_ARBITRARY: 1
-            PMA_HOST: database
+            PMA_ARBITRARY: 1                       
+            PMA_HOST: database                     
             PMA_USER: root
             PMA_PASSWORD: passwordbdd
-            UPLOAD_LIMIT: 20M
+            UPLOAD_LIMIT: 20M                     
         ports:
-            - 8899:80
+            - 8899:80                              # phpMyAdmin accessible on localhost:8899

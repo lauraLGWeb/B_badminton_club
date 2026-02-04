@@ -137,7 +137,7 @@ class HomeControllerTest extends WebTestCase
     public function testMembreCannotAccessAdminDashboard(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $membre = $userRepository->findOneBy(['email' => 'audrey03@example.com']);
+        $membre = $userRepository->findOneBy(['email' => 'dmuller@example.net']);
 
         $this->client->loginUser($membre);
         $this->client->request('GET', '/admin');
@@ -152,7 +152,7 @@ class HomeControllerTest extends WebTestCase
     public function testAdminCanAccessDashboard(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $admin = $userRepository->findOneBy(['email' => 'bernard.besnard@example.com']);
+        $admin = $userRepository->findOneBy(['email' => 'fguyon@example.org']);
 
         $this->client->loginUser($admin);
         $this->client->request('GET', '/admin');
@@ -163,7 +163,7 @@ class HomeControllerTest extends WebTestCase
     public function testAdminCanAccessItemsList(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $admin = $userRepository->findOneBy(['email' => 'bernard.besnard@example.com']);
+        $admin = $userRepository->findOneBy(['email' => 'marques.victoire@example.com']);
 
         $this->client->loginUser($admin);
         $this->client->request('GET', '/admin/Liste-boutique');
@@ -174,7 +174,7 @@ class HomeControllerTest extends WebTestCase
     public function testAdminCanAccessMembersList(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $admin = $userRepository->findOneBy(['email' => 'bernard.besnard@example.com']);
+        $admin = $userRepository->findOneBy(['email' => 'fguyon@example.org']);
 
         $this->client->loginUser($admin);
         $this->client->request('GET', '/admin/membres/liste');
@@ -185,7 +185,7 @@ class HomeControllerTest extends WebTestCase
     public function testAdminCanAccessAddItemsPage(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $admin = $userRepository->findOneBy(['email' => 'bernard.besnard@example.com']);
+        $admin = $userRepository->findOneBy(['email' => 'fguyon@example.org']);
 
         $this->client->loginUser($admin);
         $this->client->request('GET', '/admin/Liste-boutique/ajouter');
@@ -200,7 +200,7 @@ class HomeControllerTest extends WebTestCase
     public function testEntraineurCanAccessInternshipManagement(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $entraineur = $userRepository->findOneBy(['email' => 'besnard.martin@example.com']);
+        $entraineur = $userRepository->findOneBy(['email' => 'martin.isabelle@example.net']);
 
         $this->client->loginUser($entraineur);
         $this->client->request('GET', '/Leclub/Stages/gestion');
@@ -211,7 +211,7 @@ class HomeControllerTest extends WebTestCase
     public function testMembreCannotAccessInternshipManagement(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $membre = $userRepository->findOneBy(['email' => 'amace@example.com']);
+        $membre = $userRepository->findOneBy(['email' => 'lucas.guilbert@example.com']);
 
         $this->client->loginUser($membre);
         $this->client->request('GET', '/Leclub/Stages/gestion');

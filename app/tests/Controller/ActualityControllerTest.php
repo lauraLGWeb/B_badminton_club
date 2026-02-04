@@ -26,7 +26,7 @@ class ActualityControllerTest extends WebTestCase
     {
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
         //get an admin user
-        $admin = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
+        $admin = $userRepository->findOneBy(['email' => 'foucher.antoine@example.com']);
 
         if (!$admin) {
             $this->assertNotNull('Aucun admin trouvé');
@@ -46,7 +46,7 @@ class ActualityControllerTest extends WebTestCase
     public function testCreateActuality(): void
     {
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $admin = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
+        $admin = $userRepository->findOneBy(['email' => 'foucher.antoine@example.com']);
 
         if (!$admin) {
             $this->assertNotNull('Aucun admin trouvé');
@@ -76,7 +76,7 @@ class ActualityControllerTest extends WebTestCase
     public function testDeleteActuality(): void
     {
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $admin = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
+        $admin = $userRepository->findOneBy(['email' => 'foucher.antoine@example.com']);
 
         if (!$admin) {
             $this->assertNotNull('Aucun admin trouvé');

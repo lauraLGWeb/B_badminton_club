@@ -27,7 +27,7 @@ class CartControllerTest extends WebTestCase
     {
         // take a user test with specific email
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
+        $user = $userRepository->findOneBy(['email' => 'foucher.antoine@example.com']);
 
     
         // connect the user
@@ -62,7 +62,7 @@ class CartControllerTest extends WebTestCase
     {
         // connexion of the user
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
+        $user = $userRepository->findOneBy(['email' => 'foucher.antoine@example.com']);
 
     
 
@@ -90,7 +90,7 @@ class CartControllerTest extends WebTestCase
     {
         // Connexion
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'thierry.breton@example.net']);
+        $user = $userRepository->findOneBy(['email' => 'foucher.antoine@example.com']);
 
         $this->client->loginUser($user);
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Integration;
+namespace App\Tests\Service;
 
 use PHPUnit\Framework\TestCase;
 
@@ -8,9 +8,11 @@ class StripeTest extends TestCase
 {
     public function testStripeConnection(): void
     {
+        //  Connect to Stripe using the secret key from .env.local.test
         \Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
 
         try {
+            // Create a test payment session with a product at 10€
             $session = \Stripe\Checkout\Session::create([
                 'mode' => 'payment',
                 'payment_method_types' => ['card'],
@@ -28,6 +30,7 @@ class StripeTest extends TestCase
                 'cancel_url' => 'http://localhost:8081/cancel',
             ]);
 
+            // Verify that the session and its ID were successfully created
             $this->assertNotNull($session);
             $this->assertNotNull($session->id);
             
