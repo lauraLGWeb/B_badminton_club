@@ -16,6 +16,8 @@
 :focus {
   outline: 2px solid #005fcc;
 }
+
+
 /* ========================================
    CSS VARIABLES
    ======================================== */
@@ -69,6 +71,8 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    cursor: url('/pictures/cursor1.png') 32 32, auto;
+
 }
 
 body, p {
