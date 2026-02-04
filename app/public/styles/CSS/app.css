@@ -34,7 +34,7 @@
 
     --pressed:  
         inset 2px 2px 4px var(--shadow-dark),
-        inset -2px -2px 4px (--shadow-light);
+        inset -2px -2px 4px var(--shadow-light);
     --unpressed: 
         5px 5px 10px var(--shadow-dark),
         -5px -5px 10px var(--shadow-light);
@@ -1654,6 +1654,24 @@ details a:hover {
         transform: translateX(-50%);
     }
 }
+
+
+
+/* licence page */
+.sectionInscription{
+    box-shadow: var(--pressed);
+    border-radius:15px;
+    padding: 15px;
+    margin-bottom: 40px;
+}
+
+.sectionInscription h2{
+    margin-top: 10px;
+    color: var(--gradient-start);
+}
+    
+
+
 
 /* ========================================
    MEDIA QUERIES
