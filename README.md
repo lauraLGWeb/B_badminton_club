@@ -81,7 +81,7 @@ This project is developed as part of my web development training program and aim
 - **Registration Management**: Enroll members or external players to sessions
 - **Inventory Management**: Add, modify, or delete products
 - **News Management**: Create, edit, and delete news posts stored in MongoDB
-- **Stock Management**: Track product availability
+- **Members Management** :  Accept new member, modify, or delete members
 - **Full CRUD operations** on all entities
 
 ---
@@ -178,6 +178,13 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
 
 # Mailer Configuration
 MAILER_DSN=gmail+smtp://your-email@gmail.com:your-app-password@default
+
+# Test Key environment variables
+# .env.test for test configuration
+APP_ENV=test
+
+# .env.test.local  -connection to the database
+DATABASE_URL="mysql://root:root@database:3306/blois_badminton_test?serverVersion=8.0.32"
 ```
 
 ### 5️⃣ Create the databases
@@ -196,9 +203,9 @@ php bin/console doctrine:fixtures:load
 ✅ **phpMyAdmin**: `http://localhost:8899`
 
 **Default test accounts** (if fixtures loaded):
-- **Admin**: `admin@bloisbad.fr` / Password: `Admin123!`
-- **Trainer**: `trainer@bloisbad.fr` / Password: `Trainer123!`
-- **Member**: `member@bloisbad.fr` / Password: `Member123!`
+- **Admin**: `genevieve50@example.com` / Password: `motdepasse123!`
+- **Trainer**: `audrey04@example.net` / Password: `motdepasse123!`
+- **Member**: `aime.meyer@example.org` / Password: `motdepasse123!`
 
 ---
 
@@ -222,20 +229,20 @@ The NoSQL database handles:
 
 - News posts and announcements (Actualite document)
 - Article metadata (title, description, dates)
-- Dynamic content updates
+
 
 ---
 
 ## 👥 User Roles
 
-The application implements **four distinct user roles** with specific permissions:
+The application implements **three distinct user roles** with specific permissions:
 
 | Role | Description | Access Level |
 |------|-------------|--------------|
-| **👤 Visitor** | Non-authenticated user | View public pages, contact form, registration links |
-| **🏅 Member** | Authenticated club member | Visitor access + shop with cart and payment |
-| **👨‍🏫 Trainer** | Club trainer | Member access + session schedules and participant contact |
-| **👑 Admin** | Administrator | Full access - all CRUD operations |
+| **👤 Visitor** | No ROLE | Non-authenticated user | View public pages, contact form, registration links |
+| **🏅 Member** | ROLE_MEMBRE | Authenticated club member | Visitor access + shop with cart and payment |
+| **👨‍🏫 Trainer** | ROLE_ENTRAINEUR | Club trainer | Member access + session schedules and participant contact |
+| **👑 Admin** | ROLE_ADMIN | Administrator | Full access - all CRUD operations |
 
 ### 📊 Role Hierarchy
 ```
@@ -261,16 +268,9 @@ docker compose exec php bash
 # Run all tests
 php bin/phpunit
 
-# Run specific test
+# Run specific test exemple
 php bin/phpunit tests/Controller/CartControllerTest.php
 ```
-
-### Test Coverage
-
-- **CartController**: Cart management, adding items with size/gender variants
-- **ActualityController**: MongoDB news CRUD operations
-- **Functional tests**: End-to-end user flows
-- **Test database**: Separate isolated test environment
 
 ### Test Configuration
 
@@ -341,7 +341,7 @@ This project validates the following **8 professional competencies (UC)** requir
 - [x] Functional tests for CartController
 - [x] Complete functional tests for ActualityController
 - [x] User acceptance testing
-- [ ] Professional documentation (dossier de projet)
+- [x] Professional documentation (dossier de projet)
 - [ ] Oral presentation preparation
 - [ ] Final code review and refactoring
 

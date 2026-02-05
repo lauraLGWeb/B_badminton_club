@@ -57,7 +57,9 @@
                             <form action="{{ path('app_deleteItem', { id: item.id }) }}" 
                                   method="post" 
                                   onsubmit="return confirm('Supprimer cet article ?')">
-                                  <input type="hidden" name="_token" value="{{ csrf_token('delete_item' ~ item.id) }}">
+                                  <input type="hidden"
+                                        name="_token" 
+                                        value="{{ csrf_token('delete_item' ~ item.id) }}">
                                 <button type="submit" class="cart-delete-btn">🗑️ Supprimer</button>
                             </form>
                         </td>
