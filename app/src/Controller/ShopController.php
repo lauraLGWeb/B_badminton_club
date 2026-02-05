@@ -16,17 +16,21 @@ final class ShopController extends AbstractController
 {
     #[Route('/membre/Boutique', name: 'app_shop')]
     #[IsGranted('ROLE_MEMBRE')]
-    public function shop(ProductRepository $ProductRepository, EntityManagerInterface $em): Response
+    public function shop( ProductRepository $ProductRepository, EntityManagerInterface $em): Response
     {
-           $user = $this->getUser();
     
-    // On récupère le panier SANS le créer
+   
+        
+        $user = $this->getUser();
+    
+    // get the cart, no creation
     $cart = $em->getRepository(Cart::class)->findOneBy([
         'user' => $user,
         'isPaid' => false
     ]);
-    // Si pas de panier, $cart = null, c'est OK !
 
+
+    // if no cart, it's ok!
        $product = $ProductRepository->findAll();
 
         return $this->render('shop/index.html.twig', [

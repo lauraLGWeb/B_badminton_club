@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Form\ActualityType;
+use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 
 use Symfony\Component\HttpFoundation\Request;
 
@@ -131,8 +132,13 @@ final class ActualityController extends AbstractController
     //delete the actuality
     #[Route('/admin/Actualites/suppression/{id}', name: 'app_deleteActuality')]
     #[IsGranted('ROLE_ADMIN')]
-    public function deleteActuality(DocumentManager $dm, $id): Response
+    public function deleteActuality(Request $request, DocumentManager $dm, $id): Response
     {
+
+        //  token check
+    if (!$this->isCsrfTokenValid('delete_actuality_' . $id, $request->request->get('_token'))) {
+        throw new InvalidCsrfTokenException();
+    }
 
         //getting the actuality details
         $actualityToDelete = $dm->getRepository(Actualities::class)->find($id);

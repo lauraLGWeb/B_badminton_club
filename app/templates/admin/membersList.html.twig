@@ -50,6 +50,9 @@
                                 <form class="noStyle" action="{{ path('app_delete', { id: user.id }) }}" 
                                         method="post" 
                                         onsubmit="return confirm('Supprimer ce membre ?')">
+                                        <input type="hidden" 
+                                                name="_token" 
+                                                value="{{ csrf_token('delete_member_' ~ user.id) }}">
                                         <button type="submit" class="deleteItem">Supprimer</button>
                                 </form>
                             </td>
@@ -95,8 +98,15 @@
                          <form class="noStyle" action="{{ path('app_delete', { id: user.id }) }}" 
                                   method="post" 
                                   onsubmit="return confirm('Supprimer cet article ?')">
+                                  <input type="hidden" 
+                                         name="_token" 
+                                         value="{{ csrf_token('delete_member_' ~ user.id) }}">
                                 <button type="submit" class="deleteItem">Supprimer</button>
                         </form>
+                    </td>
+                     <td>   
+                     <p>Déja validé</p>
+                                
                     </td>
                 </tr>
             {% endif %}

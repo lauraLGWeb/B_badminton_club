@@ -10,6 +10,7 @@ use App\Service\StripeService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -29,8 +30,13 @@ final class CartController extends AbstractController
 
     // add an item
     #[Route('/membre/boutique/panier/ajouter/{id}', name: 'app_addItem')]
-    public function addItem(Product $product, Request $request, CartService $cartService): Response
+    public function addItem(int $id,Product $product, Request $request, CartService $cartService): Response
     {
+
+             //  token check
+    if (!$this->isCsrfTokenValid('hasSize_form' . $id, $request->request->get('_token'))) {
+        throw new InvalidCsrfTokenException();
+    }
         $user = $this->getUser();
         
         if (!$user) {
@@ -85,8 +91,15 @@ final class CartController extends AbstractController
 
     // delete an item
     #[Route('/membre/boutique/panier/supprimer/{id}', name: 'app_deleteItem')]
-    public function deleteItem(EntityManagerInterface $em, $id, CartService $cartService): Response
+    public function deleteItem(Request $request, EntityManagerInterface $em, $id, CartService $cartService): Response
     {
+
+                     //  token check
+    if (!$this->isCsrfTokenValid('delete_item' . $id, $request->request->get('_token'))) {
+        throw new InvalidCsrfTokenException();
+    }
+
+
         $repo = $em->getRepository(CartItem::class);
         $item = $repo->find($id);
 

@@ -13,6 +13,7 @@ use App\Document\Actualities;
 use App\Form\ArticleType;
 use App\Entity\Product;
 use App\Entity\Cart;
+use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ModifyContactType;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -140,8 +141,6 @@ final class HomeController extends AbstractController
         ;
     
     }
-     
-
 
       #[Route('/admin', name: 'app_admin_dashboard')]
        #[IsGranted('ROLE_ADMIN')]
@@ -256,9 +255,13 @@ final class HomeController extends AbstractController
     //delete the User
     #[Route('/admin/membres/supprimer/{id}', name: 'app_delete')]
     #[IsGranted('ROLE_ADMIN')]
-   public function supprimer(Request $request, User $user, EntityManagerInterface $em) : Response
+   public function supprimer(int $id, Request $request, User $user, EntityManagerInterface $em) : Response
     {
 
+        // token check 
+    if (!$this->isCsrfTokenValid('delete_member_' . $id, $request->request->get('_token'))) {
+        throw new InvalidCsrfTokenException();
+    }
     
         //get the user connected
         $actualUser = $this->getUser();
@@ -368,7 +371,7 @@ final class HomeController extends AbstractController
     ]);
     }
 
-    // order given to the member
+    // button for order given to the member
     #[Route('/admin/Liste-boutique/commandes/{id}', name: 'app_orderGiven')]
     #[IsGranted('ROLE_ADMIN')]
     public function orderGiven(Cart $cart, EntityManagerInterface $em, Request $request, ): Response
@@ -393,6 +396,8 @@ final class HomeController extends AbstractController
     #[IsGranted('ROLE_ADMIN')]
     public function validateLicence(User $user, EntityManagerInterface $em, Request $request, ): Response
     {
+
+        // token check 
     $token = $request->request->get('_token');
     if (!$this->isCsrfTokenValid('validate_licence_' . $user->getId(), $token)) {
         $this->addFlash('error', 'Token invalide');

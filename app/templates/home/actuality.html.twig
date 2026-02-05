@@ -52,6 +52,7 @@
                          <form class="actuForm" action="{{ path('app_deleteActuality', { id: actu.id }) }}" 
                                   method="post" 
                                   onsubmit="return confirm('Supprimer cet article ?')">
+                                 <input type="hidden" name="_token" value="{{ csrf_token('delete_actuality_' ~ order.id) }}">
                                 <button type="submit" class="btn-actuality"> supprimer  →</button>
                         </form>
                     {% endif %}
