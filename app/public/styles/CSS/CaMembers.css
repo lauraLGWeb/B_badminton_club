@@ -1,0 +1,189 @@
+/* ========================================
+   TEAM 
+   ======================================== */
+.team-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.team-container h2 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* ========================================
+   TEAM SECTION
+   ======================================== */
+.board-section,
+.board-members-section,
+.coaches-team-section {
+    margin-bottom: 4rem;
+}
+
+/* ========================================
+   MEMBERS PART
+   ======================================== */
+.members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.members-grid.small {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ========================================
+   MEMBER CARD
+   ======================================== */
+.member-card {
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 
+        8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        12px 12px 24px var(--shadow-dark),
+        -12px -12px 24px var(--shadow-light);
+}
+
+/* President card  */
+.member-card.president {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(0, 78, 137, 0.1));
+    border: 2px solid var(--primary-color);
+}
+
+/* Ca members cards */
+.member-card.small {
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.member-card.small .member-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+}
+
+.member-card.small h3 {
+    font-size: 1rem;
+}
+
+.member-card.small .member-role {
+    font-size: 0.85rem;
+}
+
+/* ========================================
+   MEMBER CARD CONTENT
+   ======================================== */
+.member-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-color);
+    border-radius: 50%;
+    box-shadow: 
+        inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light);
+}
+
+.member-card h3 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.member-role {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+    VOLUNTEERS PART 
+   ======================================== */
+.volunteer-call {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 
+        8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light);
+}
+
+.volunteer-call p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.volunteer-call strong {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.volunteer-btn {
+    display: inline-block;
+    background: white;
+    color: var(--accent-color);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.volunteer-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+@media (max-width: 768px) {
+    .team-container h1 {
+        font-size: 2rem;
+    }
+    
+    .team-container h2 {
+        font-size: 1.5rem;
+    }
+    
+    .members-grid,
+    .members-grid.small {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .members-grid,
+    .members-grid.small {
+        grid-template-columns: 1fr;
+    }
+}

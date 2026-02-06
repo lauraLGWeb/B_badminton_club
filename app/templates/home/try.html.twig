@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Faire un essai {% endblock %}
+
+
+{% block body %}
+
+<div class="essai-container">
+    <h1>Comment faire un essai ?</h1>
+
+    <div class="essai-card">
+        <p class="intro-text">
+            Vous souhaitez <strong>découvrir le badminton</strong> et essayer avant de vous inscrire ?
+            C'est possible ! Le club propose des séances d'essai pour les personnes non licenciées la saison précédente.
+        </p>
+
+       
+        <div class="highlight-essais">
+            <div class="number">2</div>
+            <div class="text">SÉANCES D'ESSAI GRATUITES</div>
+        </div>
+
+        <p class="intro-text">
+            Ces séances sont ouvertes à <strong>tous les niveaux</strong>, y compris aux débutants n'ayant jamais pratiqué le badminton.
+        </p>
+    </div>
+
+   
+    <div class="contact-box">
+        <h2 class="titleTry">Pour réserver votre essai</h2>
+        <p>Contactez-nous par email pour planifier votre venue :</p>
+        <a href="mailto:bloisbadclub@gmail.com" class="email-link">
+            bloisbadclub@gmail.com
+        </a>
+    </div>
+
+   
+    <div class="materiel-section">
+        <h2 class="titleTry">Matériel et tenue</h2>
+        
+        <p class="info-badge">
+           Une raquette peut être prêtée par le club si besoin
+        </p>
+
+        <p style="margin: 1.5rem 0;">Merci de venir avec :</p>
+
+        <ul class="materiel-list">
+            <li>Une paire de chaussures de salle propres (indispensable)</li>
+            <li>Une tenue de sport confortable</li>
+            <li>Une bouteille d'eau</li>
+        </ul>
+    </div>
+
+    <div class="essai-card">
+        <p class="intro-text">
+            Aucune expérience préalable n'est requise : l'objectif est de <strong>découvrir le sport</strong>, 
+            l'ambiance du club et de <strong>prendre du plaisir</strong> sur le terrain.
+        </p>
+    </div>
+
+    <div class="welcome-message">
+        Au plaisir de vous accueillir sur le terrain ! 🏸
+    </div>
+</div>
+{% endblock %}

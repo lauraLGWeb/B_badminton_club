@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités{% endblock %}
+
+{% block body %}
+
+
+
+
+<section class="actualities-section">
+    <h1 id="top"> Actualités du club</h1>
+
+    {# flash messages, first getting the type and the messages from the flshes array #}
+
+    {% for type, messages in app.flashes %}
+    {# going through each of the 3 messages #}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% if actualities is empty %}
+        <div class="no-actuality">
+            <p>Aucune actualité pour le moment.</p>
+        </div>
+    {% else %}
+        <div class="actualities-grid">
+            {% for actu in actualities %}
+                <article class="actuality-card">
+                    <img src="{{ asset(actu.picture) }}" alt="{{ actu.title }}">
+                    
+                    <h2>{{ actu.title }}</h2>
+                    
+                    <div class="actuality-dates">
+                        <div class="actuality-date">
+                            <strong>📅 Événement :</strong> {{ actu.eventOn|date('d/m/Y') }}
+                        </div>
+                        <div class="actuality-date">
+                            <strong>🕐 Créé le :</strong> {{ actu.createdAt|date('d/m/Y') }}
+                        </div>
+                    </div>
+                    
+                    <p>{{ actu.description }}</p>
+                    
+                    <a href="{{ path('app_actualityDetail', {'id': actu.id}) }}" class="btn-actuality">
+                        En savoir plus →
+                    </a>
+                   
+                    {% if is_granted('ROLE_ADMIN')%}
+                         <form class="actuForm" action="{{ path('app_deleteActuality', { id: actu.id }) }}" 
+                                  method="post" 
+                                  onsubmit="return confirm('Supprimer cet article ?')">
+                                 <input type="hidden" name="_token" value="{{ csrf_token('delete_actuality_' ~ actu.id) }}">
+                                <button type="submit" class="btn-actuality"> supprimer  →</button>
+                        </form>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>
+
+{% endblock %}

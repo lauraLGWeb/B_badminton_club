@@ -1,0 +1,9 @@
+# Ignorer les fichiers MySQL
+mysql/
+*.ibd
+*.sql
+*.frm
+*.iblog
+*.redo*
+# Docker volumes
+mysql/

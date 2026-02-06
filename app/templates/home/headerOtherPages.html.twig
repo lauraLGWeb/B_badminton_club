@@ -1,0 +1,109 @@
+    
+        <header>
+            {% block logoContainer %}
+            <section class="mainNavBarSticky">
+           
+                <div id="topOtherMenu">
+                    <a  href="{{ path('app_home') }}">
+                        <img id="top" class= "logoOtherMenu" src="{{ asset('pictures/logo.jpeg') }}" alt="logo">
+                    </a>
+                </div>
+
+                 <a href="javascript:void(0);" id="menuIcon">
+                    <img src="{{ asset('pictures/menu.png') }}" width="70px" alt="menu">
+                 </a>
+
+                <section class="navBarContainer">
+                    <nav class="custom-nav">
+                       
+                         <ul class="nav-links burger">
+                            <img src="{{ asset('pictures/close.png') }}" class="closeBtnMenu" width="30px" alt="menu">
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link link-burger-menu">Le club</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('app_coaches') }}">Entraîneurs</a></li>
+                                    <li><a href="{{ path('app_caMembers') }}">Membres du CA</a></li>
+                                    <li><a href="{{ path('app_rules') }}">Règlement</a></li>
+                                    <li><a href="{{ path('app_internships') }}">Formations</a></li>
+                                </ul>
+                            </li>
+                             <li class="nav-item dropdown">
+                                <a href="#" class="nav-link">École du bad</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('app_coaches') }}">Le Projet Jeune</a></li>
+                                    <li><a href="{{ path('app_caMembers') }}">L'école Française de Badminton</a></li>
+                                    <li><a href="{{ path('app_rules') }}">Les plumes</a></li>
+                                    <li><a href="{{ path('app_internships') }}">Club Avenir</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('app_prices') }}">Tarifs</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('app_actuality') }}">Actualité</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('app_partners') }}">Partenaires</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('app_contact') }}">Contact</a>
+                            </li>
+
+                            {% if app.user %}
+                                <li>
+                                    <a href="{{ path('app_shop') }}" >Boutique</a>
+                                </li>
+                            {% endif %}
+
+                            {% if app.user %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_login') }}">Connexion</a>
+                                </li>
+                            {% endif %}
+
+                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_COACH') %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_admin_dashboard') }}">Administration</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </section>
+                
+
+            
+                <div class="hero-buttonsOtherMenu">
+                    <a class="hero-buttons-links sticky" href="{{ path('app_schedules') }}">Voir les créneaux</a>
+                    {% if app.user %} 
+                        <a class="hero-buttons-links sticky" href="{{ path('app_account') }}">Mon compte</a>
+                    {% else %} 
+                        <a class="hero-buttons-links sticky" href="{{ path('app_inscription') }}"> Les licences</a>
+                    {% endif %}
+                    <a class="hero-buttons-links sticky" href="{{ path('app_try') }}">Faire un essai</a>
+                </div>
+
+                <section class= "menuBtnsOtherMenu">
+                    <div class= "btnmode btn btn-outline-secondary">
+                            <img
+                                src="{{ asset('pictures/darkmode.png') }}"
+                                alt="change light mode"
+                                id = "darkMode"/>
+                            <p id="textDarkMode">Thème sombre</p>
+                            <img
+                                src="{{ asset('pictures/lightmode.png') }}"
+                                alt="change light mode"
+                                id = "lightMode"/>
+                            <p id="textLightMode">Thème clair </p>
+                    </div>
+                    <div class="btn btn-outline-secondary">EN </div>
+                </section>
+            </section>
+             {% endblock %}
+        </header>

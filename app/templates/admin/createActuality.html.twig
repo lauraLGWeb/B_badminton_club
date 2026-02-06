@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Création d'une nouvelle actualité{% endblock %}
+
+
+{% block body %}
+
+    {% for type, messages in app.flashes %}
+    {# going through each of the 3 messages #}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <h1>Création d'une nouvelle actualité</h1>
+
+    {{ form_errors(form) }}
+
+    {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+        
+       
+        {{ form_row(form.title, {
+            label: 'Titre'
+        }) }}
+        {{ form_row(form.description, {
+            label: 'Description'
+        }) }}
+        {{ form_row(form.picture, {
+            label: 'Lien de l\'image '
+        }) }}
+        {{ form_row(form.eventOn, {
+            label: 'Date de l\'évenement'
+        }) }} 
+            
+
+        <button type="submit" class="submit-button">publier l'évenement</button>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
+

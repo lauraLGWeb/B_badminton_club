@@ -1,0 +1,124 @@
+    
+        <header class="header">
+            {% block logoContainer %}
+            <section class="logo-btns">
+                <div id="top" class= "logo">
+                    <a href="{{ path('app_home') }}">
+                        <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="logo du club">
+                    </a>
+                </div>
+            {# darkmode #}
+                <div class= "menuBtns menuBtnsSticky">
+                    <div class="btn btn-outline-secondary">EN </div>
+                    <div class="btnmode btn btn-outline-secondary">
+                        <img
+                            src="{{ asset('pictures/darkmode.png') }}"
+                            alt="change light mode"
+                            id = "darkMode"
+                        />
+                        <p id="textDarkMode">Thème sombre</p>
+                        <img
+                            src="{{ asset('pictures/lightmode.png') }}"
+                            alt="change light mode"
+                            id = "lightMode"
+                        />
+                        <p id="textLightMode">Thème clair </p>
+                    </div>
+
+                    
+                </div>
+            </section>
+       
+            {% endblock %}
+
+            {% block menu %}
+            <a href="javascript:void(0);" id="menuIcon">
+                 <img src="{{ asset('pictures/menu.png') }}" width="70px" alt="menu">
+            </a>
+            
+            <section class="navBarContainer responsiveNavBar">
+                <section class="navBarContainer ">
+                    <nav class="custom-nav">
+                    
+                        <!-- Navigation -->
+                        <ul class="nav-links burger">
+                        <img src="{{ asset('pictures/close.png') }}" class="closeBtnMenu" width="30px" alt="menu">
+
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link link-burger-menu">Le club</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('app_coaches') }}">Entraîneurs</a></li>
+                                    <li><a href="{{ path('app_caMembers') }}">Membres du CA</a></li>
+                                    <li><a href="{{ path('app_rules') }}">Règlement</a></li>
+                                    <li><a href="{{ path('app_internships') }}">Formations</a></li>
+                                </ul>
+                            </li>
+
+                             <li class="nav-item dropdown">
+                                <a href="#" class="nav-link link-burger-menu">École du bad</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('app_coaches') }}">Le Projet Jeune</a></li>
+                                    <li><a href="{{ path('app_caMembers') }}">L'école Française de Badminton</a></li>
+                                    <li><a href="{{ path('app_rules') }}">Les plumes</a></li>
+                                    <li><a href="{{ path('app_internships') }}">Club Avenir</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('app_prices') }}">Tarifs</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('app_actuality') }}">Actualité</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('app_partners') }}">Partenaires</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ path('app_contact') }}">Contact</a>
+                            </li>
+
+                            {% if app.user %}
+                                <li>
+                                    <a href="{{ path('app_shop') }}" >Boutique</a>
+                                </li>
+                            {% endif %}
+
+                            {% if app.user %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_login') }}">Connexion</a>
+                                </li>
+                            {% endif %}
+
+                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_COACH') %}
+                                <li class="nav-item">
+                                    <a href="{{ path('app_admin_dashboard') }}">Admin</a>
+                                </li>
+                            {% endif %}
+                        </ul> 
+                    </nav>
+                </section>
+                
+
+            {% endblock %}
+
+            {% block buttunsContainers %}
+           <section class="hero">
+                <div class="hero-buttons">
+                    <a class="hero-buttons-links" href="{{ path('app_schedules') }}">Voir les créneaux</a>
+                    {% if app.user %} 
+                        <a class="hero-buttons-links" href="{{ path('app_account') }}">Mon compte</a>
+                    {% else %} 
+                        <a class="hero-buttons-links" href="{{ path('app_inscription') }}"> Les licences</a>
+                    {% endif %}
+                    <a class="hero-buttons-links" href="{{ path('app_try') }}">Faire un essai</a>
+                </div>
+            </section>
+            {% endblock %}
+        </header>

@@ -1,0 +1,196 @@
+/* ========================================
+   NEWS 
+   ======================================== */
+.actualities-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.actualities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* ========================================
+   NEWS CARD
+   ======================================== */
+.actuality-card {
+    background: var(--bg-color);
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.actuality-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        12px 12px 24px var(--shadow-dark),
+        -12px -12px 24px var(--shadow-light);
+}
+
+/* Card image */
+.actuality-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+}
+
+/* Card title */
+.actuality-card h2 {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Card description */
+.actuality-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   DATES
+   ======================================== */
+.actuality-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.actuality-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background: var(--bg-color);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    width: fit-content;
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+}
+
+.actuality-date strong {
+    color: var(--accent-color);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+   .actuForm{
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+   }
+
+.btn-actuality {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 10px;
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+    
+}
+
+.btn-actuality:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        7px 7px 14px var(--shadow-dark),
+        -7px -7px 14px var(--shadow-light);
+}
+
+.btn-actuality:active {
+    transform: translateY(0);
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+}
+
+.actu-btn {
+    margin: 40px;
+}
+
+/* ========================================
+   "NO NEWS" MESSAGE
+   ======================================== */
+.no-actuality {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--bg-color);
+    border-radius: 20px;
+    box-shadow: 
+        inset 8px 8px 16px var(--shadow-dark),
+        inset -8px -8px 16px var(--shadow-light);
+}
+
+.no-actuality p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+@media (max-width: 768px) {
+    .actualities-section h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .actualities-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .actuality-card {
+        padding: 20px;
+    }
+    
+    .actuality-card h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .actualities-section {
+        padding: 30px 15px;
+    }
+    
+    .actualities-section h1 {
+        font-size: 1.7rem;
+    }
+    
+    .actuality-card img {
+        height: 180px;
+    }
+}

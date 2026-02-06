@@ -1,0 +1,182 @@
+.rules-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem 2rem;
+}
+
+/* ========================================
+   INTRO TEXT
+   ======================================== */
+.intro-text {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+/* ========================================
+   DOCUMENTS 
+   ======================================== */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+/* ========================================
+   DOCUMENT CARD
+   ======================================== */
+.document-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 
+        10px 10px 20px var(--shadow-dark),
+        -10px -10px 20px var(--shadow-light);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.document-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        15px 15px 30px var(--shadow-dark),
+        -15px -15px 30px var(--shadow-light);
+}
+
+/* icon */
+.document-icon {
+    font-size: 4rem;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-color);
+    border-radius: 50%;
+    box-shadow: 
+        inset 6px 6px 12px var(--shadow-dark),
+        inset -6px -6px 12px var(--shadow-light);
+}
+
+/* title */
+.document-card h2 {
+    color: var(--accent-color);
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+/* description */
+.document-description {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+
+
+
+/* ========================================
+   IMPORTANT CARD
+   ======================================== */
+.important-notice {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(0, 78, 137, 0.1));
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 
+        6px 6px 12px var(--shadow-dark),
+        -6px -6px 12px var(--shadow-light);
+}
+
+.important-notice h3 {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.important-notice p {
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* ========================================
+   CONTACT CARD
+   ======================================== */
+.contact-section {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--bg-color);
+    border-radius: 15px;
+    box-shadow: 
+        inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light);
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.contact-section a {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.contact-section a:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+@media (max-width: 768px) {
+    .rules-container h1 {
+        font-size: 2rem;
+    }
+    
+    .documents-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .document-card {
+        padding: 2rem;
+    }
+    
+    .document-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 3rem;
+    }
+}

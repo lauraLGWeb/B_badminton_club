@@ -1,0 +1,224 @@
+/* ========================================
+   LOGIN CONTAINER
+   ======================================== */
+.login-container {
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* ========================================
+   LOGIN FORM
+   ======================================== */
+.login-form {
+    background: var(--bg-color);
+    padding: 3rem 2.5rem;
+    border-radius: 30px;
+    box-shadow: 
+        20px 20px 40px var(--shadow-dark),
+        -20px -20px 40px var(--shadow-light);
+    max-width: 450px;
+    width: 100%;
+    margin-top: 20vh;
+}
+
+/* ========================================
+   TITLE
+   ======================================== */
+.login-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========================================
+   NO COUNT LINK
+   ======================================== */
+.register-prompt {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.register-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.register-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.register-link:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   INPUTS
+   ======================================== */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-label {
+    display: block;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: none;
+    border-radius: 15px;
+    background: var(--bg-color);
+    box-shadow: 
+        inset 6px 6px 12px var(--shadow-dark),
+        inset -6px -6px 12px var(--shadow-light);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-field:focus {
+    box-shadow: 
+        inset 8px 8px 16px var(--shadow-dark),
+        inset -8px -8px 16px var(--shadow-light);
+    border: 2px solid var(--primary-color);
+}
+
+.input-field::placeholder {
+    color: rgba(26, 29, 41, 0.4);
+}
+
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
+.submit-button {
+    width: 100%;
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 
+        8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light);
+    transition: all 0.3s ease;
+    text-transform: none;
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        12px 12px 24px var(--shadow-dark),
+        -12px -12px 24px var(--shadow-light);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: var(--pressed);
+}
+
+/* ========================================
+   ERROR MESSAGES
+   ======================================== */
+.alert-message {
+    background: var(--bg-color);
+    color: #d63031;
+    padding: 1rem 1.25rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    box-shadow: 
+        inset 4px 4px 8px rgba(214, 48, 49, 0.15),
+        inset -4px -4px 8px var(--shadow-light);
+    font-size: 0.95rem;
+    border-left: 4px solid #d63031;
+}
+
+/* ========================================
+   USER INFO
+   ======================================== */
+.user-info {
+    background: var(--bg-color);
+    padding: 1rem 1.25rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    box-shadow: 
+        8px 8px 16px var(--shadow-dark),
+        -8px -8px 16px var(--shadow-light);
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   LOGOUT LINK
+   ======================================== */
+.logout-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.logout-link:hover {
+    color: var(--gradient-end);
+    text-decoration: underline;
+}
+
+/* ========================================
+   DARK MODE
+   ======================================== */
+.dark .input-field {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.dark .alert-message {
+    background: var(--card-bg);
+}
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+@media (max-width: 500px) {
+    .login-form {
+        padding: 2rem 1.5rem;
+    }
+
+    .login-title {
+        font-size: 1.75rem;
+    }
+
+    .submit-button {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}

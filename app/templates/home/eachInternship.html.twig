@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscriptions Stage{% endblock %}
+
+
+{% block body %}   
+{% if is_granted('ROLE_ENTRAINEUR') or is_granted('ROLE_ADMIN') %}    
+Ici tu peux voir le nombre d'inscrits aux différentes dates de stage
+{% endif %}
+{% endblock %} 
+

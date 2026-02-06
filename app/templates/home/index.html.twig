@@ -1,0 +1,266 @@
+{% extends 'base.html.twig' %}
+
+
+{% block welcomingMessage %}
+    <h1 class="firstTitle">Bienvenue au Blois Badminton Club 
+    {% if app.user %}
+        {{app.user.firstName}}
+    {% endif %}! 🏸
+    </h1>
+{% endblock %}
+
+{% block body %}
+
+
+<section class="clubPresentation">
+   <p class="intro-text">
+        Depuis sa création, le club ne cesse de grandir grâce à l'engagement de ses bénévoles 
+        et à la passion de ses <strong>deux entraîneurs salariés</strong>. Une aventure collective 
+        tournée vers l'excellence et le plaisir de jouer !
+    </p>
+
+    <div class="key-numbers">
+        <div class="number-card">
+            <span class="number">165</span>
+            <span class="label">licenciés</span>
+        </div>
+        <div class="number-card">
+            <span class="number">75</span>
+            <span class="label">jeunes</span>
+        </div>
+        <div class="number-card">
+            <span class="number">8</span>
+            <span class="label">équipes engagées</span>
+        </div>
+        <div class="number-card">
+            <span class="number">⭐⭐⭐⭐</span>
+            <span class="label">École de Bad</span>
+        </div>
+    </div>
+
+    <div class="coaches-section">
+        <h2>👥 Encadrement Professionnel</h2>
+        <p>
+            Le BBC s'appuie sur <strong>deux entraîneurs salariés</strong> pour garantir un 
+            encadrement de qualité : Simon <strong>juin 2019</strong>, rejoint par 
+            Tom en <strong>2022</strong> pour accompagner le développement du club vers 
+            le haut niveau. Une expertise au service de tous les licenciés, du loisir à la compétition !
+        </p>
+    </div>
+
+    <div class="highlights">
+        <div class="highlight-card">
+            <h2>🏆 Excellence Sportive</h2>
+            <p>
+                Pour la première fois de son histoire, le BBC évolue en <strong>Nationale 3</strong> 
+                cette saison ! Une fierté collective qui récompense des années de travail et 
+                d'investissement de nos entraîneurs et joueurs.
+            </p>
+        </div>
+
+        <div class="highlight-card">
+            <h2>🎓 Formation de Qualité</h2>
+            <p>
+                Notre École Française de Badminton <strong>4 étoiles</strong> fait partie des 
+                26 clubs d'élite en France. En partenariat avec la ville de Blois, nous proposons 
+                également des <strong>Classes à Horaires Aménagés</strong> pour 15 collégiens passionnés.
+            </p>
+        </div>
+
+        <div class="highlight-card">
+            <h2 class="noAround">🌟 Label Club Avenir</h2>
+            <p>
+                Reconnu pour la qualité de son encadrement professionnel et sa structuration, 
+                le BBC porte depuis 2021 le prestigieux <strong>Label Club Avenir</strong>, 
+                gage de notre engagement vers le haut niveau.
+            </p>
+        </div>
+    </div>
+
+    <p class="transition-text">
+        Derrière ces chiffres et ces labels, ce sont avant tout des femmes et des hommes 
+        engagés qui font vivre le club au quotidien. Découvrez le mot de notre présidente...
+    </p>
+</section>
+
+
+
+<section class="presentation">
+    <img src="{{ asset('pictures/logo.jpeg') }}" alt="femme jouant au badminton">
+    <p> Que vous soyez débutant, joueur confirmé ou simplement curieux de découvrir le badminton, notre club vous accueille dans une ambiance conviviale et chaleureuse, où le plaisir de jouer et le partage sont au cœur de nos valeurs.</p>
+
+    <p>En loisir comme en compétition, chacun trouve sa place au sein du club. Je vous invite à venir nous rencontrer, échanger quelques volants et partager de bons moments sportifs avec nous. </p>
+
+    <p class="signature"><span>La Présidente – Blois Badminton Club</span> </p>
+</section>
+     
+
+<section class="picture-main">
+    <img src="{{ asset('pictures/main2.jpg') }}" alt="joueuse de badminton ">
+</section>
+
+<section class="main-presentation">
+    <div class="reverse-div">
+         <img src="{{ asset('pictures/loisir.png') }}" alt="joueur loisir de badminton" class="img-1">
+         <p>Du loisir à la compétition, chacun trouve sa place au Blois Badminton Club !</p>
+    </div>
+     <div>
+         <img src="{{ asset('pictures/entraineur.png') }}" alt="entraineur de badminton">
+         <p>Formation de qualité pour nos jeunes, encadrés par des entraîneurs passionnés et diplômés.</p>
+    </div>
+     <div class="reverse-div">
+         <img src="{{ asset('pictures/competition.png') }}" alt="compétition de badmiton avec t-shirt à l'éffigie du club">
+         <p>« Des équipes compétitives, de la départementale à la Nationale  : progressez et dépassez-vous !</p>
+    </div>
+     <div>
+         <img src="{{ asset('pictures/conviviale.png') }}" alt="buvette conviviale pendant un tournois">
+         <p>Une ambiance conviviale et des bénévoles engagés : rejoignez notre famille sportive !</p>
+    </div>
+</section>
+
+<section class="actu-section">
+    <div class="triangle"></div>
+    <h2>Dernières actualités</h2>
+
+
+    <section class="actus">
+    
+        <div class="actus-in-main">
+                {% for actuality in actualities %}
+                    <article class="actu-main" >
+                        <img src="{{ asset(actuality.picture) }}" alt="{{ actuality.title }}">
+                        
+                        <h3>{{ actuality.title }}</h3>
+                        
+                        <div >
+                            <div>
+                                <strong>📅 Événement :</strong> {{ actuality.eventOn|date('d/m/Y') }}
+                            </div>
+                            <div>
+                                <strong>🕐 Créé le :</strong> {{ actuality.createdAt|date('d/m/Y') }}
+                            </div>
+                        </div>
+                        
+                        <p>{{ actuality.description }}</p>
+                        
+                        <a href="{{ path('app_actualityDetail', {'id': actuality.id}) }}">
+                            En savoir plus →
+                        </a>
+                    
+                        {% if is_granted('ROLE_ADMIN')%}
+                            <a href="{{ path('app_deleteActuality', {'id': actuality.id}) }}" >
+                            supprimer  →
+                            </a>
+                        {% endif %}
+                    </article>
+                {% endfor %}
+        </div>
+
+    
+        <div class="fb-page" 
+                data-href="https://www.facebook.com/BloisBadmintonClub" 
+                data-tabs="timeline" 
+                data-width="1200"
+                data-heigth="500" 
+                data-small-header="true" 
+                data-adapt-container-width="true" 
+                data-hide-cover="false" 
+                data-show-facepile="true">
+        </div>
+    </section>
+  
+       
+       
+</section>
+ <div>
+            <a class="actu-btn" href="{{ path('app_actuality') }}"> Voir toutes les actualités</a>
+        </div>
+<section class="partenaires">
+    <h2>Nos partenaires</h2>
+    <div class="partners-slider">
+
+      <p>Le Club est fier de collaborer avec un large éventail de partenaires qui partagent sa passion de la performance, dans des secteurs variés.</p>
+      
+        <div class="partners-track">
+            {# Premier set #}
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire1.png') }}" alt="Partenaire 1"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire2.png') }}" alt="Partenaire 2"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire3.png') }}" alt="Partenaire 3"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire4.png') }}" alt="Partenaire 4"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire5.png') }}" alt="Partenaire 5"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="Partenaire 6"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire7.png') }}" alt="Partenaire 7"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire8.png') }}" alt="Partenaire 8"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire9.png') }}" alt="Partenaire 9"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="Partenaire 10"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire11.png') }}" alt="Partenaire 11"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire12.png') }}" alt="Partenaire 12"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire13.png') }}" alt="Partenaire 13"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire14.png') }}" alt="Partenaire 14"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire15.png') }}" alt="Partenaire 15"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenair16.png') }}" alt="Partenaire 16"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire17.png') }}" alt="Partenaire 17"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire18.png') }}" alt="Partenaire 18"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire19.gif') }}" alt="Partenaire 19"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="Partenaire 20"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="Partenaire 21"></div>
+            
+            {# Duplication pour effet infini #}
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire1.png') }}" alt="Partenaire 1"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire2.png') }}" alt="Partenaire 2"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire3.png') }}" alt="Partenaire 3"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire4.png') }}" alt="Partenaire 4"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire5.png') }}" alt="Partenaire 5"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="Partenaire 6"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire7.png') }}" alt="Partenaire 7"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire8.png') }}" alt="Partenaire 8"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire9.png') }}" alt="Partenaire 9"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="Partenaire 10"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire11.png') }}" alt="Partenaire 11"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire12.png') }}" alt="Partenaire 12"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire13.png') }}" alt="Partenaire 13"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire14.png') }}" alt="Partenaire 14"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire15.png') }}" alt="Partenaire 15"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenair16.png') }}" alt="Partenaire 16"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire17.png') }}" alt="Partenaire 17"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire18.png') }}" alt="Partenaire 18"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire19.gif') }}" alt="Partenaire 19"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="Partenaire 20"></div>
+            <div class="partner-item"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="Partenaire 21"></div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section class="come">
+    <div class="come-content">
+        <div class="come-text">
+            <h3>Prêt(e) à nous rejoindre ?</h3>
+            <p>Rejoins une communauté de passionnés et découvre le badminton dans une ambiance conviviale !</p>
+        </div>
+        <a href="{{ path('app_inscription') }}" class="come-btn">
+            <span>Nous rejoindre</span>
+        </a>
+    </div>
+    <div class="come-shape"></div>
+</section>
+
+<hr>
+
+<section class="our-medias">
+    <div class="social-icons">
+        <a href="https://www.facebook.com/BloisBadmintonClub" target="_blank" 
+           class="social-icon social-fb" 
+           aria-label="Facebook BBC">
+        </a>
+        <h3> Nos médias</h3>
+        
+        <a href="https://www.instagram.com/blois_badminton_club" target="_blank" 
+           class="social-icon social-insta" 
+           aria-label="Instagram BBC">
+        </a>
+    </div>
+</section>
+
+{% endblock %}

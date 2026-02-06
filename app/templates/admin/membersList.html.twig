@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des membres{% endblock %}
+
+
+
+
+{% block body %}
+
+
+
+<div class="members-list">
+    <h1>Voici tous les membres</h1>
+
+        {% for type, messages in app.flashes %}
+    {# going through each of the 3 messages #}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+    <h2>Licences à Valider</h2>
+
+    <table>
+        <thead>
+            <th> nom </th>
+            <th> prenom </th>
+            <th> email </th>
+            <th> licence </th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+            <th>Valider</th>
+        </thead>
+        <tbody>
+        {% for user in user%}
+        
+        {% if not user.isVerified %}
+                        <tr> 
+                            <td>  {{user.firstName}} </td>
+                            <td>  {{user.lastName}} </td>
+                            <td>  {{user.email}} </td>
+                            <td>  {{user.lienceNbr}}</td> 
+                            <td>   
+                                <a href="{{ path('app_modify', {'id': user.id}) }}" >Modifier</a>
+                            </td>
+                            <td>   
+                                <form class="noStyle" action="{{ path('app_delete', { id: user.id }) }}" 
+                                        method="post" 
+                                        onsubmit="return confirm('Supprimer ce membre ?')">
+                                        <input type="hidden" 
+                                                name="_token" 
+                                                value="{{ csrf_token('delete_member_' ~ user.id) }}">
+                                        <button type="submit" class="deleteItem">Supprimer</button>
+                                </form>
+                            </td>
+                            <td>   
+                                <form class="noStyle" action="{{ path('app_validateLicence', { id: user.id }) }}" 
+                                    method="post" 
+                                    onsubmit="return confirm('Valider l\'Inscription ?')">
+                                    <input type="hidden" 
+                                        name="_token" 
+                                        value="{{ csrf_token('validate_licence_' ~ user.id) }}">
+                                    <button type="submit" class="deleteItem">Valider</button>
+                                </form>
+                            </td>
+                        </tr>
+               {% endif %}          
+            {% endfor %}
+         </tbody>
+        </table>
+
+        <h2>Licences vérifiées</h2>
+        <table>
+        <thead>
+            <th> nom </th>
+            <th> prenom </th>
+            <th> email </th>
+            <th> licence </th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+            <th>Valider</th>
+        </thead>
+        <tbody>
+            {% for user in user%} 
+             {% if user.isVerified%}     
+                <tr> 
+                    <td>  {{user.firstName}} </td>
+                    <td>  {{user.lastName}} </td>
+                    <td>  {{user.email}} </td>
+                    <td>  {{user.lienceNbr}}</td> 
+                    <td>   
+                        <a href="{{ path('app_modify', {'id': user.id}) }}" >Modifier</a>
+                    </td>
+                    <td>   
+                         <form class="noStyle" action="{{ path('app_delete', { id: user.id }) }}" 
+                                  method="post" 
+                                  onsubmit="return confirm('Supprimer cet article ?')">
+                                  <input type="hidden" 
+                                         name="_token" 
+                                         value="{{ csrf_token('delete_member_' ~ user.id) }}">
+                                <button type="submit" class="deleteItem">Supprimer</button>
+                        </form>
+                    </td>
+                     <td>   
+                     <p>Déja validé</p>
+                                
+                    </td>
+                </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

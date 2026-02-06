@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block title %}Stages{% endblock %}
+
+
+{% block body %}
+<h1>entrainements </h1>
+{% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-outline-light me-2" href="{{ path('app_each_intership') }}">Voir les inscrits</a>
+                    
+{% endif %}
+
+{% endblock %}
+

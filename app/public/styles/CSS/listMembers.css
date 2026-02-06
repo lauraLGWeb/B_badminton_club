@@ -1,0 +1,196 @@
+
+.members-list {
+    background: var(--bg-color);
+    padding: 0 20px 50px 20px;
+}
+.members-list h1{
+    padding: 20vh 0 0 0;
+}
+table {
+    margin: 0 auto;
+    background: var(--bg-color);
+    border-radius: 10px;
+    box-shadow:
+        10px 10px 20px var(--shadow-dark),
+        -10px -10px 20px var(--shadow-light);
+}
+
+/* ========================================
+   TABLE HEADER
+   ======================================== */
+thead {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+thead th {
+    padding: 20px 15px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+    
+}
+
+/* ========================================
+   TABLE BODY
+   ======================================== */
+tbody tr {
+    background: var(--bg-color);
+    transition: all 0.3s ease;
+    
+}
+
+tbody tr:hover {
+    background: var(--bg-color);
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+}
+
+tbody td {
+    padding: 18px 15px;
+    color: var(--text-color);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ========================================
+   ACTION BUTTONS
+   ======================================== */
+
+/* modify and Delete buttons */
+tbody td a {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0 5px;
+    background: var(--bg-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: 600;
+    box-shadow: 
+        4px 4px 8px var(--shadow-dark),
+        -4px -4px 8px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+tbody td a:hover {
+    color: var(--primary-color);
+    box-shadow: 
+        inset 2px 2px 4px var(--shadow-dark),
+        inset -2px -2px 4px var(--shadow-light);
+    transform: scale(0.95);
+}
+
+/* Delete button  */
+.deleteItem {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+    border-radius: 10px;
+    padding: 15px;
+    border: none;
+}
+.deleteItem:hover {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+      box-shadow: 
+        inset 2px 2px 4px var(--shadow-dark),
+        inset -2px -2px 4px var(--shadow-light);
+}
+
+.noStyle
+{
+   box-shadow: none;
+   background-color: transparent;
+   margin: 0;
+   padding: 0;
+}
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+
+#modify_contact_roles{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+    transition: all 0.3s;
+    margin-bottom: 10px;
+}
+
+.submit-btn{
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: auto;
+    box-shadow: var(--unpressed);
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.submit-btn:hover{
+    background: var(--accent-color);
+    box-shadow: var(--pressed);
+    transform: scale(0.98);
+    
+}
+
+
+
+
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+
+@media (max-width: 950px) {
+    /* get the table into card and not table anymore*/
+    .members-list {
+        padding: 30px 10px;
+    }
+    
+    table,
+    thead,
+    tbody,
+    tr,
+    td {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow:
+            4px 4px 8px var(--shadow-dark),
+            -4px -4px 8px var(--shadow-light);
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+}
+
+
+

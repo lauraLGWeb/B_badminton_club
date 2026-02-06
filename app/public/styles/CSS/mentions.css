@@ -1,0 +1,51 @@
+/* ========================================
+   MENTION CONTAINER
+   ======================================== */
+.legalMentions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.legalMentions > div {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ========================================
+   LINKS BUTTONS
+   ======================================== */
+.mentions{
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 10px;
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+     -5px -5px 10px var(--shadow-light);
+     transition: 0.3s;
+}
+
+.mentions:hover{ 
+    transform: translateY(-2px);
+    box-shadow: 0 20px 10px var(--shadow-dark);
+}
+
+/* ========================================
+     MEDIA QUERIES
+   ======================================== */
+
+
+@media (max-width: 500px) {
+.legalMentions div div:first-child{
+    display: flex;
+    flex-direction: column;
+}
+.legalMentions .a-footer{
+    width: 90vw;
+    margin: 10px 0;
+}
+ }

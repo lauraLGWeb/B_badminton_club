@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block title %}Contacte-nous{% endblock %}
+
+{% block body %}
+
+<h1> Contacte-nous !</h1>
+
+<h2>Regarde notre FAQ, peut être que la réponse à ta question y est déja</h2>
+
+<details>
+  <summary>Faut-il apporter son propre matériel ou le club en fournit ?</summary>
+  <p> Pour les essais, nous pouvons préter un raquette !</p> 
+  <p> Sinon nous te conseillons de venir avec les indispensables de la pratique du badminton que tu retrouve <a href="{{ path('app_try') }}"> dans la section Essai</a></p> 
+</details>
+
+<details>
+  <summary>Comment s'inscrire au club ?</summary>
+ <p>L'inscription au club se fait directement sur le site de 
+<a href="https://www.ffbad.org/pratiquer-se-licencier-licence" target=blank > La Fédération Française De Badminton : FFBAD</a></p>
+</details>
+
+<details>
+  <summary>Le club accepte-t-il les débutants ?</summary>
+  <p>Tout à fait, tout le monde est le bienvenue au club !</p> 
+</details>
+
+<details>
+  <summary>Peut-on faire un cours d'essai avant de s'inscrire ?</summary>
+  <p> Oui et nous te le recommandons avant de t'engager! Jette un coup d'oeil à notre section <a href="{{ path('app_try') }}">essais</a></p> 
+</details>
+
+<details>
+  <summary>Y a-t-il une limite d'âge pour rejoindre le club ?</summary>
+  <p>Tu peux t'inscrire peut importe ton âge ! </p>
+  <p>Si tu veux faire venir ton très jeune enfant (3-5 ans), nous lui proposons un essai qui sera encadré par l'un de nos entraîneurs afin de définir s'il n'est pas trop jeune pour joeur.</p>
+  
+</details>
+
+<h2> Sinon, envoi nous un mail directement via ce formulaire</h2>
+
+    <div class="emailSent">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>  
+    
+    {{ form_errors(contactForm) }}
+
+    {{ form_start(contactForm) }}
+        
+        {{ form_row(contactForm.firstName, {
+            label: 'Prénom'
+        }) }}
+        {{ form_row(contactForm.lastName, {
+            label: 'Nom'
+        }) }}
+        {{ form_row(contactForm.email, {
+            label: 'email'
+        }) }}
+        {{ form_row(contactForm.message, {
+            label: 'Ton message'
+        })  }}
+
+        {{ form_row(contactForm.send) }}
+        {{ form_row(contactForm.reset, {
+            label: ' Effacer'
+        })  }}
+      
+    {{ form_end(contactForm) }}
+
+
+{% endblock %}
+

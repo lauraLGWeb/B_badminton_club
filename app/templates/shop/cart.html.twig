@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Panier{% endblock %}
+
+{% block body %}
+
+<div class="cart-container">
+    <h1>Mon Panier</h1>
+
+    {% if cart.CartItem is empty %}
+        <div class="empty-cart">
+            <p>Votre panier est vide.</p>
+            <a href="{{ path('app_shop') }}" class="cart-btn cart-btn-primary">Découvrir nos produits</a>
+        </div>
+    {% else %}
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix unitaire</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart.CartItem %}
+                    <tr>
+                        <td class="product-cell" data-label="Produit">
+                            <img src="{{ asset(item.product.picture) }}" 
+                                 alt="{{ item.product.title }}" 
+                                 width="150px"
+                                 class="product-image"
+                                 onerror="this.src='{{ asset('images/no-image.png') }}'">
+                                 
+                            <div class="product-name">
+                                {{ item.product.title }}
+                                {% if item.size and item.gender %}
+                                    <span class="product-variant">({{ item.size }} - {{ item.gender }})</span>
+                                {% endif %}
+                            </div>
+                        </td>
+
+                        <td class="price-cell" data-label="Prix">
+                            {{ item.product.price|number_format(2, ',', ' ') }} €
+                        </td>
+
+                        <td class="quantity-cell" data-label="Quantité">
+                            <span class="quantity-display">{{ item.quantity }}</span>
+                        </td>
+
+                        <td class="total-cell" data-label="Total">
+                            <strong>{{ (item.product.price * item.quantity)|number_format(2, ',', ' ') }} €</strong>
+                        </td>
+
+                        <td class="actions-cell" data-label="Actions">
+                            <form action="{{ path('app_deleteItem', { id: item.id }) }}" 
+                                  method="post" 
+                                  onsubmit="return confirm('Supprimer cet article ?')">
+                                  <input type="hidden"
+                                        name="_token" 
+                                        value="{{ csrf_token('delete_item' ~ item.id) }}">
+                                <button type="submit" class="cart-delete-btn">🗑️ Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+         {# Total du panier #}
+        {% set total = 0 %}
+        {% for item in cart.CartItem %}
+            {% set total = total + (item.product.price * item.quantity) %}
+        {% endfor %}
+
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span class="summary-label">Sous-total :</span>
+                <span class="summary-value">{{ total|number_format(2, ',', ' ') }} €</span>
+            </div>
+            
+            <hr>
+
+            <div class="summary-row total-row">
+                <span class="summary-label">Total :</span>
+                <span class="summary-value">{{ total|number_format(2, ',', ' ') }} €</span>
+            </div>
+        </div>
+
+        {# Boutons d'action #}
+        <div class="cart-actions">
+            <a href="{{ path('app_shop') }}" class="cart-btn cart-btn-secondary">← Continuer mes achats</a>
+            <a href="{{ path('app_payment') }}" class="cart-btn cart-btn-primary">Passer à la caisse →</a>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

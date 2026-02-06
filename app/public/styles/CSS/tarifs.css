@@ -1,0 +1,214 @@
+
+.tarifs-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem 0 2rem;
+}
+
+/* ========================================
+   TITLE
+   ======================================== */
+.priceTitle {
+    color: var(--text-color);
+    margin: 1rem 0 1.5rem 0;
+    font-size: 1.8rem;
+    padding: 1rem;
+    background: var(--bg-color);
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+                -5px -5px 10px var(--shadow-light);
+    
+}
+
+/* ========================================
+   TABLE
+   ======================================== */
+table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+}
+
+/* ========================================
+   TABLE CAPTION
+   ======================================== */
+caption {
+    caption-side: top;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+/* ========================================
+   TABLE HEADER
+   ======================================== */
+thead {
+    background: var(--primary-color);
+    color: var(--text-color);
+}
+
+thead th {
+    padding: 1rem;
+    font-weight: 700;
+    text-align: left;
+    box-shadow: inset 2px 2px 4px var(--shadow-dark),
+                inset -2px -2px 4px var(--shadow-light);
+}
+
+/* ========================================
+   TABLE BODY
+   ======================================== */
+tbody tr {
+    transition: all 0.2s ease;
+}
+
+tbody th,
+tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+tbody th {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+tbody td {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ========================================
+   LINKS
+   ======================================== */
+.tarifs-container > p {
+    margin-top: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.tarifs-container > a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 600;
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+                -5px -5px 10px var(--shadow-light);
+    transition: all 0.2s ease;
+}
+
+.tarifs-container > a:hover {
+    box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                inset -3px -3px 6px var(--shadow-light);
+    color: var(--primary-color);
+}
+
+/* ========================================
+   DISCOUNTS SECTION
+   ======================================== */
+.discounts-section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                inset -3px -3px 6px var(--shadow-light);
+
+}
+
+/* ========================================
+   DISCOUNT CARD
+   ======================================== */
+.discount-card {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: var(--bg-color);
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+                -5px -5px 10px var(--shadow-light);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--accent-color);
+}
+
+.discount-description {
+    color: var(--text-color);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========================================
+   COMPLEMENTARY CARD
+   ======================================== */
+.discount-card--complementary {
+    border-left: 4px solid var(--accent-color);
+}
+
+/* ========================================
+   COMPLEMENTARY LIST
+   ======================================== */
+.complementary-list {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+}
+
+/* ========================================
+   COMPLEMENTARY ITEM
+   ======================================== */
+.complementary-item {
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem 0;
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+                -5px -5px 10px var(--shadow-light);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+    
+    thead th,
+    tbody th,
+    tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .discounts-section {
+        padding: 1rem;
+    }
+    
+    .discount-card {
+        padding: 1rem;
+    }
+    
+    .complementary-item {
+        padding: 0.5rem 1rem;
+    }
+}
+
+
+

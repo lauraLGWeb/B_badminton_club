@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des commandes{% endblock %}
+
+
+
+
+{% block body %}
+<div>
+    <h1>Voici toutes les commandes passées</h1>
+
+        {# flash messages, first getting the type and the messages from the flshes array #}
+
+    {% for type, messages in app.flashes %}
+    {# going through each of the 3 messages #}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+<h2>A donner : </h2>
+
+{% set pendingOrders = 0 %}
+
+
+{#show the order not given yet#}
+{% for order in orders %}
+    {% if not order.IsGiven %}
+        {% set pendingOrders = pendingOrders + 1 %}
+        <section class="ordersContainer">
+
+            <div class="ordersDiv">
+                <div class="ordersTop">
+                    <div>
+                        <h3>Commande numéro : {{ order.id }}</h3>
+                        <p>Client : {{ order.user.firstName }} {{ order.user.lastName }}</p>
+                        <p>Date : {{ order.purchaseDate|date('d/m/Y H:i') }}</p>
+                    </div>
+                
+        
+                    <form method="post" action="{{ path('app_orderGiven', {id: order.id}) }}" onsubmit="return confirm('Valider la remise du/des produit(s)?')">
+                        <label for="orderGiven">Commande donnée : </label>
+                        <input type="hidden" name="_token" value="{{ csrf_token('mark_order_' ~ order.id) }}">
+                        <button type="submit" class="btn-validate">oui</button>
+                    </form>
+                     
+                </div>
+                
+                <h4>Articles :</h4>
+                <div>
+                    {% for item in order.cartItem %}
+                        <p>{{ item.product.title }}  {{ item.size }}  {{ item.gender }} (x{{ item.quantity }})</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endfor %}
+
+{% if pendingOrders == 0 %}
+        <div class="no-actuality">
+            <p>Aucune commande non remise pour le moment.</p>
+        </div>
+{% endif %}
+
+<h2> Déja donnée : </h2>
+
+{#show the order already given#}
+{% for order in orders %}
+{% if order.IsGiven %}
+<section class="ordersContainer">
+
+    <div class="ordersDiv">
+        <h3>Commande numéro : {{ order.id }}</h3>
+        <p>Client : {{ order.user.firstName }} {{ order.user.lastName }}</p>
+        <p>Date : {{ order.purchaseDate|date('d/m/Y H:i') }}</p>
+        
+        <h4>Articles :</h4>
+        <div>
+            {% for item in order.cartItem %}
+                <p>{{ item.product.title }}  {{ item.size }}  {{ item.gender }} (x{{ item.quantity }})</p>
+            {% endfor %}
+        </div>
+      
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+     
+</div>
+{% endblock %}

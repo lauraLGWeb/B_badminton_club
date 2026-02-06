@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Règlement du club{% endblock %}
+
+
+
+
+{% block body %}
+
+<div class="rules-container">
+    <h1> Règlement et Charte</h1>
+    
+    <p class="intro-text">
+        Pour garantir le bon fonctionnement du club et le respect de tous, 
+        merci de prendre connaissance de nos documents officiels.
+    </p>
+
+    <div class="documents-grid">
+        {# Internal rules document #}
+        <div class="document-card">
+            <div class="document-icon">📜</div>
+            <h2>Règlement Intérieur</h2>
+            <p class="document-description">
+                Le règlement intérieur définit les règles de vie au sein du club : 
+                horaires, comportement, utilisation des installations, obligations des membres...
+            </p>
+            
+                <a href="{{ asset('files/Reglement-interieur-BBC.pdf') }}" download="Réglement intérieur Blois Badminton Club" >
+                <span class="btn-actuality" >Télécharger </span>
+            </a>
+        </div>
+
+        {# Club charter document #}
+        <div class="document-card">
+            <div class="document-icon">⭐</div>
+            <h2>Charte du Club</h2>
+            <p class="document-description">
+                La charte du club présente nos valeurs, notre éthique sportive et 
+                l'engagement de chacun pour un badminton respectueux et convivial.
+            </p>
+    
+            <a href="{{ asset('files/Charte-Interclub-BBC.pdf') }}" download="Charte interclub Blois Badminton Club" >
+                <span class="btn-actuality" >Télécharger</span>
+               
+            </a>
+        </div>
+    </div>
+
+    <div class="important-notice">
+        <h3>⚠️ Important</h3>
+        <p>
+            Tous les licenciés s'engagent à respecter le règlement intérieur et la charte 
+            lors de leur inscription au club. En cas de non-respect, des sanctions peuvent être appliquées.
+        </p>
+    </div>
+
+    <div class="contact-section">
+        <p>
+            Une question sur le règlement ou la charte ? 
+            <a href="{{ path('app_contact') }}">Contactez-nous</a>
+        </p>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,109 @@
+
+.admin-dashboard {
+    background: var(--bg-color);
+    min-height: 100vh;
+    padding: 0 20px 50px 20px;
+}
+
+
+.admin-dashboard ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.admin-dashboard > ul > li {
+    margin-bottom: 20px;
+}
+
+/* Main menu buttons */
+.admin-dashboard > ul > li > a {
+    display: block;
+    padding: 20px 30px;
+    background: var(--bg-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    box-shadow: 
+        8px 8px 15px var(--shadow-dark),
+        -8px -8px 15px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+COLLAPSES
+======================================== */
+.admin-dashboard .collapse {
+    margin-top: 15px;
+    padding: 0 10px;
+}
+
+.admin-dashboard .collapse ul {
+    padding: 0;
+}
+
+.admin-dashboard .collapse li {
+    margin-bottom: 10px;
+}
+
+/* links */
+.admin-dashboard .collapse a {
+    display: block;
+    padding: 12px 20px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1em;
+    box-shadow: 
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.admin-dashboard .collapse a:hover {
+    color: var(--accent-color);
+    box-shadow: 
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+    transform: translateX(5px);
+}
+
+/* ========================================
+   GO BACK BUTTON
+   ======================================== */
+.admin-dashboard > ul > li:last-child > a {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    font-weight: bold;
+    box-shadow: 
+        8px 8px 20px var(--shadow-dark),
+        -8px -8px 20px var(--shadow-light);
+}
+
+.admin-dashboard > ul > li:last-child > a:hover {
+    box-shadow: 
+        inset 4px 4px 10px rgba(0,0,0,0.4),
+        inset -4px -4px 10px rgba(255,255,255,0.1);
+}
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+@media (max-width: 768px) {
+    .admin-dashboard {
+        padding: 30px 15px;
+    }
+    
+    .admin-dashboard h1 {
+        font-size: 2em;
+    }
+    
+    .admin-dashboard > ul > li > a {
+        font-size: 1.1em;
+        padding: 15px 20px;
+    }
+}
