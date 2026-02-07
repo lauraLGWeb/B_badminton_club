@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block title %}Stages{% endblock %}
+
+
+{% block body %}
+<h1>Stages d'entrainement  </h1>
+
+<p>Le club propose des stages d'entrainement avec notre entraineur Simon</p>
+<p>Voici les différents créneaux</p>
+
+{% for internship in internships %}
+    <div>
+        <h2>{{ internship.internshipTitle }}</h2>
+        <p> Stage prévu le {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }} </p>
+        <p>Rendez-vous au Gymnase {{ internship.Gymnase }}</p>
+        <p> {{ internship.price }} € par personne pour le stage (paiement via virement/chèque/espèces)</p>
+        <p> Nombre de joueur maximum accepté : {{ internship.MaxPlayersNbr }}</p>
+        {% if internship.AlreadyBooked > 0 %}
+        <p> Il y a déja {{ internship.AlreadyBooked }} joueurs d'incrits </p>
+         {% else %}
+         <p> Il n'y a pas encore d'inscrit pour ce stage </p>
+         {% endif %}
+    </div>
+
+{% endfor %}
+
+
+
+{% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-outline-light me-2" href="{{ path('app_each_intership') }}">Voir les inscrits</a>
+                    
+{% endif %}
+
+{% endblock %}
+

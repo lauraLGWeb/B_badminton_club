@@ -55,11 +55,7 @@ final class HomeController extends AbstractController
         return $this->render('home/rules.html.twig');
     }
 
-        #[Route('/Leclub/Stages', name: 'app_internships')]
-    public function internships(): Response
-    {
-        return $this->render('home/internships.html.twig');
-    }
+   
 
 
 
