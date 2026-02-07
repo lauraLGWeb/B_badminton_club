@@ -3,25 +3,52 @@
 
 
 {% block body %}
-<h1>Stages d'entrainement  </h1>
+<h1>Stages d'entraînement</h1>
 
-<p>Le club propose des stages d'entrainement avec notre entraineur Simon</p>
-<p>Voici les différents créneaux</p>
+<p>
+Tout au long de la saison, le club organise des stages d'entraînement encadrés par notre entraîneur <strong>Simon</strong>.
+Que vous souhaitiez progresser techniquement, améliorer votre condition physique ou simplement partager un bon moment autour du badminton, ces stages sont faits pour vous 🏸
+</p>
+
+<p>
+Les inscriptions se font en ligne via notre <strong> formulaire </strong>, ou directement <strong>via un membre du bureau</strong>.
+Pour toute question ou inscription par email :
+<a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a>
+</p>
+
+<p>Découvrez ci-dessous les différents créneaux proposés :</p>
+
+
+{# showing every internship #}
 
 {% for internship in internships %}
-    <div>
+<div class="internshipCard">
+
+    <div class="internshipHeader">
         <h2>{{ internship.internshipTitle }}</h2>
-        <p> Stage prévu le {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }} </p>
-        <p>Rendez-vous au Gymnase {{ internship.Gymnase }}</p>
-        <p> {{ internship.price }} € par personne pour le stage (paiement via virement/chèque/espèces)</p>
-        <p> Nombre de joueur maximum accepté : {{ internship.MaxPlayersNbr }}</p>
-        {% if internship.AlreadyBooked > 0 %}
-        <p> Il y a déja {{ internship.AlreadyBooked }} joueurs d'incrits </p>
-         {% else %}
-         <p> Il n'y a pas encore d'inscrit pour ce stage </p>
-         {% endif %}
+        <span>{{ internship.price }} €</span>
     </div>
 
+    <div class="internshipInfo">
+        <p> Le {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</p>
+        <p> Gymnase {{ internship.Gymnase }}</p>
+        <p>{{ internship.MaxPlayersNbr }} joueurs maximum</p>
+    </div>
+
+    <div class="internshipStatus">
+        {% if internship.AlreadyBooked > 0 %}
+            <p class="booked">Déjà {{ internship.AlreadyBooked }} inscrit(s)</p>
+        {% else %}
+            <p class="empty">Aucun inscrit pour le moment</p>
+        {% endif %}
+    </div>
+
+    <div class="internshipFooter">
+        <p>Paiement : virement · chèque · espèces</p>
+        <a href="#" class="internship-btn">M'inscrire</a>
+    </div>
+
+</div>
 {% endfor %}
 
 
