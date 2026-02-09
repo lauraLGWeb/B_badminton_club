@@ -5,6 +5,8 @@
 {% block body %}
     <h1> M'inscrire pour le "{{ internship.internshipTitle }}" du {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</h1>
 
+    <a href="{{ path('app_internships')}}" role="button" class="btn-back">Retour aux stages</a>
+
 
    <p>Actuellement 
     {% if internship.AlreadyBooked > 0 %}

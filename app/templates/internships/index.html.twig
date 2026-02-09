@@ -5,6 +5,15 @@
 {% block body %}
     <h1>Stages d'entraînement</h1>
 
+  {% for type, messages in app.flashes %}
+    {# going through each of the 3 messages #}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    
     <p>
     Tout au long de la saison, le club organise des stages d'entraînement encadrés par notre entraîneur <strong>Simon</strong>.
     Que vous souhaitiez progresser techniquement, améliorer votre condition physique ou simplement partager un bon moment autour du badminton, ces stages sont faits pour vous 🏸

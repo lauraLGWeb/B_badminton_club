@@ -42,6 +42,10 @@ class InternshipPlayer
     #[Assert\NotBlank(message: 'merci de remplir cette case, si tu n\'a pas de classement, séléctionne la case NC')]
     private ?string $MixteRank = null;
 
+    #[ORM\ManyToOne(inversedBy: 'internshipPlayers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Internships $internship = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -127,6 +131,18 @@ class InternshipPlayer
     public function setMixteRank(string $MixteRank): static
     {
         $this->MixteRank = $MixteRank;
+
+        return $this;
+    }
+
+    public function getInternship(): ?Internships
+    {
+        return $this->internship;
+    }
+
+    public function setInternship(?Internships $internship): static
+    {
+        $this->internship = $internship;
 
         return $this;
     }

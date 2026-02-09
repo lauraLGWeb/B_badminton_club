@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\InternshipsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -32,6 +34,17 @@ class Internships
 
     #[ORM\Column]
     private ?int $alreadyBooked = null;
+
+    /**
+     * @var Collection<int, InternshipPlayer>
+     */
+    #[ORM\OneToMany(targetEntity: InternshipPlayer::class, mappedBy: 'internship', orphanRemoval: true)]
+    private Collection $internshipPlayers;
+
+    public function __construct()
+    {
+        $this->internshipPlayers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -108,6 +121,36 @@ class Internships
     public function setAlreadyBooked(int $alreadyBooked): static
     {
         $this->alreadyBooked = $alreadyBooked;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, InternshipPlayer>
+     */
+    public function getInternshipPlayers(): Collection
+    {
+        return $this->internshipPlayers;
+    }
+
+    public function addInternshipPlayer(InternshipPlayer $internshipPlayer): static
+    {
+        if (!$this->internshipPlayers->contains($internshipPlayer)) {
+            $this->internshipPlayers->add($internshipPlayer);
+            $internshipPlayer->setInternship($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInternshipPlayer(InternshipPlayer $internshipPlayer): static
+    {
+        if ($this->internshipPlayers->removeElement($internshipPlayer)) {
+            // set the owning side to null (unless already changed)
+            if ($internshipPlayer->getInternship() === $this) {
+                $internshipPlayer->setInternship(null);
+            }
+        }
 
         return $this;
     }

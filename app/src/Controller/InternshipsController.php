@@ -8,11 +8,16 @@ use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\InternshipsRepository;
 use App\Entity\InternshipPlayer;
 use App\Form\InternshipType;
+use App\Repository\InternshipPlayerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 final class InternshipsController extends AbstractController
 {
+
+
+
+    //get the intersnhips 
     #[Route('/Leclub/Stages', name: 'app_internships')]
     public function internships(InternshipsRepository $ir): Response
     {
@@ -25,19 +30,24 @@ final class InternshipsController extends AbstractController
     }
 
     #[Route('/Leclub/Stages/Inscription/{id}', name: 'app_intershipInscription')]
-    public function intershipInscription($id, InternshipsRepository $ir, Request $request, EntityManagerInterface $em): Response
+    public function intershipInscription($id, InternshipsRepository $ir,InternshipPlayerRepository $Ipr,  Request $request, EntityManagerInterface $em): Response
     {
 
         //get the internship clicked on
         $internship = $ir->find($id);
 
-        //create the form
+        //create the new player and associate to the internship
         $newPlayer = new InternshipPlayer();
+        $newPlayer->setInternship($internship);
+
+
+        //create the form
         $form = $this->createForm(InternshipType::class, $newPlayer);
         $form->handleRequest($request);
 
          if ($form->isSubmitted() && $form->isValid()) {
-                          
+            
+        
             $em->persist($newPlayer);
             $em->flush();        
 
@@ -50,5 +60,6 @@ final class InternshipsController extends AbstractController
           'internship' => $internship,
            ]); 
     }
+
 }
 
