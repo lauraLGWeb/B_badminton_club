@@ -1,11 +1,53 @@
 {% extends 'base.html.twig' %}
+{% block title %}Stages{% endblock %}
 
-{% block title %}Inscriptions Stage{% endblock %}
+
+{% block body %}
+    <h1> M'inscrire pour le "{{ internship.internshipTitle }}" du {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</h1>
 
 
-{% block body %}   
-{% if is_granted('ROLE_ENTRAINEUR') or is_granted('ROLE_ADMIN') %}    
-Ici tu peux voir le nombre d'inscrits aux différentes dates de stage
-{% endif %}
-{% endblock %} 
+   <p>Actuellement 
+    {% if internship.AlreadyBooked > 0 %}
+        <span class="booked"> il y à {{ internship.AlreadyBooked }} inscrits</span>
+    {% else %}
+        <span class="empty">il n'y a aucun inscrit</span>
+    {% endif %}
+    <span> sur {{ internship.MaxPlayersNbr }} joueurs </span>
+    </p>
+
+
+<h2>Je m'inscris :</h2>
+
+    {{ form_errors(form) }}
+
+    {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+       
+        {{ form_row(form.LastName, {
+            label: 'Nom'
+        }) }}
+        {{ form_row(form.FirstName, {
+            label: 'Description'
+        }) }}
+        {{ form_row(form.email, {
+            label: 'Email '
+        }) }}
+        {{ form_row(form.phoneNumber, {
+            label: 'Numéro de portable'
+        }) }} 
+        {{ form_row(form.SimpleRank, {
+            label: 'Classement en Simple'
+        }) }} 
+        {{ form_row(form.DoubleRank, {
+            label: 'Classement en Double'
+        }) }} 
+        {{ form_row(form.MixteRank, {
+            label: 'Classement en Mixte'
+        }) }} 
+
+        <button type="submit" class="submit-button"> Envoyer mon inscription</button>
+
+    {{ form_end(form) }}
+      
+
+{% endblock %}
 

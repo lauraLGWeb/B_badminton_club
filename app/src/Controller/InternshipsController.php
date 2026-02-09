@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\InternshipsRepository;
+use App\Entity\InternshipPlayer;
+use App\Form\InternshipType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 final class InternshipsController extends AbstractController
 {
@@ -19,4 +23,32 @@ final class InternshipsController extends AbstractController
         ]);
 
     }
+
+    #[Route('/Leclub/Stages/Inscription/{id}', name: 'app_intershipInscription')]
+    public function intershipInscription($id, InternshipsRepository $ir, Request $request, EntityManagerInterface $em): Response
+    {
+
+        //get the internship clicked on
+        $internship = $ir->find($id);
+
+        //create the form
+        $newPlayer = new InternshipPlayer();
+        $form = $this->createForm(InternshipType::class, $newPlayer);
+        $form->handleRequest($request);
+
+         if ($form->isSubmitted() && $form->isValid()) {
+                          
+            $em->persist($newPlayer);
+            $em->flush();        
+
+            $this->addFlash('success', 'tu es bien inscrit !');
+            return $this->redirectToRoute('app_internships');
+            }
+        
+         return $this->render('internships/eachInternship.html.twig', [
+          'form' => $form,
+          'internship' => $internship,
+           ]); 
+    }
 }
+

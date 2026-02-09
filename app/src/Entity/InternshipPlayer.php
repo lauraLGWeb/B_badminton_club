@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\InternshipPlayerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: InternshipPlayerRepository::class)]
 class InternshipPlayer
@@ -14,24 +15,31 @@ class InternshipPlayer
     private ?int $id = null;
 
     #[ORM\Column(length: 60)]
+    #[Assert\NotBlank(message: 'Le Nom est obligatoire')]
     private ?string $LastName = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(message: 'Le prénom est obligatoire')]
     private ?string $FirstName = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'Le mail est obligatoire')]
     private ?string $email = null;
 
     #[ORM\Column(length: 15)]
+    #[Assert\NotBlank(message: 'Le portable est obligatoire')]
     private ?string $phoneNumber = null;
 
     #[ORM\Column(length: 3)]
+    #[Assert\NotBlank(message: 'merci de remplir cette case, si tu n\'a pas de classement, séléctionne la case NC')]
     private ?string $SimpleRank = null;
 
     #[ORM\Column(length: 3)]
+    #[Assert\NotBlank(message: 'merci de remplir cette case, si tu n\'a pas de classement, séléctionne la case NC')]
     private ?string $DoubleRank = null;
 
     #[ORM\Column(length: 3)]
+    #[Assert\NotBlank(message: 'merci de remplir cette case, si tu n\'a pas de classement, séléctionne la case NC')]
     private ?string $MixteRank = null;
 
     public function getId(): ?int
