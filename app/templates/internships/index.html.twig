@@ -13,58 +13,65 @@
             </div>
         {% endfor %}
     {% endfor %}
-    
-    <p>
-    Tout au long de la saison, le club organise des stages d'entraînement encadrés par notre entraîneur <strong>Simon</strong>.
-    Que vous souhaitiez progresser techniquement, améliorer votre condition physique ou simplement partager un bon moment autour du badminton, ces stages sont faits pour vous 🏸
-    </p>
+    <section class="internship">
+        <section class="internshipPresentation">
+            <p>
+            Tout au long de la saison, le club organise des stages d'entraînement encadrés par notre entraîneur <strong>Simon</strong>.
+            Que vous souhaitiez progresser techniquement, améliorer votre condition physique ou simplement partager un bon moment autour du badminton, ces stages sont faits pour vous 🏸
+            </p>
 
-    <p>
-    Les inscriptions se font en ligne via notre <strong> formulaire </strong>, ou directement <strong>via un membre du bureau</strong>.
-    Pour toute question ou inscription par email :
-    <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a>
-    </p>
+            <p>
+            Les inscriptions se font en ligne via notre <strong> formulaire </strong>, ou directement <strong>via un membre du bureau</strong>.
+            Pour toute question ou inscription par email :
+            <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a>
+            </p>
 
-    <p>Découvrez ci-dessous les différents créneaux proposés :</p>
-
+            <p>Découvrez ci-dessous les différents créneaux proposés :</p>
+        </section>
 
     {# showing every internship #}
 
-    {% for internship in internships %}
-        <div class="internshipCard">
+    <section class="internshipCard">
+        {% for internship in internships %}
+            <section class="eachInternshipCard">
+                <div class="internshipHeader">
+                    <h2>Le {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</h2>
+                    <span>{{ internship.price }} €</span>
+                </div>
 
-            <div class="internshipHeader">
-                <h2>{{ internship.internshipTitle }}</h2>
-                <span>{{ internship.price }} €</span>
-            </div>
+                <div class="internshipInfo">
+                    <p>{{ internship.internshipTitle }}</p>
+                    <p> Gymnase {{ internship.Gymnase }}</p>
+                    <p>{{ internship.MaxPlayersNbr }} joueurs maximum</p>
+                </div>
 
-            <div class="internshipInfo">
-                <p> Le {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</p>
-                <p> Gymnase {{ internship.Gymnase }}</p>
-                <p>{{ internship.MaxPlayersNbr }} joueurs maximum</p>
-            </div>
+                <div class="internshipStatus">
+                    {%  if internship.AlreadyBooked is same as internship.maxPlayersNbr %}
+                        <p class="full">Stage complet ! </p>
+                    {% elseif internship.AlreadyBooked >= 1 %}
+                        <p class="booked"> Déjà {{ internship.AlreadyBooked }} inscrit(s)</p>
+                    {% else %}
+                        <p class="empty">Aucun inscrit pour le moment</p>
+                    {% endif %}
+                </div>
 
-            <div class="internshipStatus">
-                {% if internship.AlreadyBooked > 0 %}
-                    <p class="booked">Déjà {{ internship.AlreadyBooked }} inscrit(s)</p>
-                {% else %}
-                    <p class="empty">Aucun inscrit pour le moment</p>
-                {% endif %}
-            </div>
+                <div class="internshipFooter">
+                    <p>Paiement : virement · chèque · espèces</p>
 
-            <div class="internshipFooter">
-                <p>Paiement : virement · chèque · espèces</p>
-                <a href="{{ path('app_intershipInscription', {'id': internship.id}) }}" class="internship-btn">M'inscrire</a>
-            </div>
+                    {# if internship fulll, no possibility to book it #}
+                    {% if not internship.AlreadyBooked is same as internship.maxPlayersNbr %}
+                        <a href="{{ path('app_intershipInscription', {'id': internship.id}) }}" class="internship-btn">M'inscrire</a>
+                    {% endif %}   
+                </div>
 
-        </div>
-    {% endfor %}
+            {% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
+                <a class="btn btn-outline-light me-2" href="{{ path('app_bookedPlayersInternship', {'id': internship.id}) }}">Voir les inscrits</a>      
+            {% endif %}
+            </section>
+        {% endfor %}
+    </section>
 
-
-    {% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
-            <a class="btn btn-outline-light me-2" href="{{ path('app_each_intership') }}">Voir les inscrits</a>
-                        
-    {% endif %}
+   </section>
 
 {% endblock %}
 

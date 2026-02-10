@@ -13,6 +13,7 @@ use App\Document\Actualities;
 use App\Form\ArticleType;
 use App\Entity\Product;
 use App\Entity\Cart;
+use App\Entity\Internships;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ModifyContactType;
@@ -126,14 +127,20 @@ final class HomeController extends AbstractController
     public function account(EntityManagerInterface $em ): Response
     {
     $actualUser = $this->getUser();
-
+       
+     // GET THE INTERNSHIPS To come
+    $internships = $em->getRepository(Internships::class)->findAll();
+    
+    
+    // GET THE OREDERS
     $orders = $em->getRepository(Cart::class)->findBy(
         ['isPaid' => true, 'user' => $actualUser],
         ['purchaseDate' => 'DESC']
         );
     
     return $this->render('home/account.html.twig', [
-        'orders' => $orders])
+        'orders' => $orders, 
+        'internships'=> $internships])
         ;
     
     }

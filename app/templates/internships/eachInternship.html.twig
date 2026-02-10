@@ -3,22 +3,26 @@
 
 
 {% block body %}
-    <h1> M'inscrire pour le "{{ internship.internshipTitle }}" du {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</h1>
+    <section class="IntershipBookingPresentation">
+    <div class="titleAndBtnComeBack">
+        <h1> M'inscrire pour le stage du {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</h1>
 
-    <a href="{{ path('app_internships')}}" role="button" class="btn-back">Retour aux stages</a>
+        <a href="{{ path('app_internships')}}" role="button" class="btn-back">Retour aux stages</a>
+    </div>
 
+    <div class="bookingState">
+    <p>Actuellement 
+        {% if internship.AlreadyBooked > 0 %}
+            <span class="booked"> il y à {{ internship.AlreadyBooked }} inscription(s) faite()</span>
+        {% else %}
+            <span class="empty">il n'y a aucun inscrit</span>
+        {% endif %}
+        <span> sur {{ internship.MaxPlayersNbr }} places </span>
+        </p>
+    </div>
+</section>
 
-   <p>Actuellement 
-    {% if internship.AlreadyBooked > 0 %}
-        <span class="booked"> il y à {{ internship.AlreadyBooked }} inscrits</span>
-    {% else %}
-        <span class="empty">il n'y a aucun inscrit</span>
-    {% endif %}
-    <span> sur {{ internship.MaxPlayersNbr }} joueurs </span>
-    </p>
-
-
-<h2>Je m'inscris :</h2>
+<h2>{{ internship.internshipTitle }} :</h2>
 
     {{ form_errors(form) }}
 
@@ -28,7 +32,7 @@
             label: 'Nom'
         }) }}
         {{ form_row(form.FirstName, {
-            label: 'Description'
+            label: 'Prénom'
         }) }}
         {{ form_row(form.email, {
             label: 'Email '

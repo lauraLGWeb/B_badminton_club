@@ -30,7 +30,8 @@ class InternshipType extends AbstractType
                         'R5'  => 'P5',
                         'R4'  => 'P4',
                     ],
-                    'placeholder' => 'Choisir un niveau'
+                    'placeholder' => 'Choisir un niveau',
+                    'attr' => ['class' => 'select-shop']
             ])
             ->add('DoubleRank', ChoiceType::class, [
                     'choices' => [
@@ -45,7 +46,8 @@ class InternshipType extends AbstractType
                         'R5'  => 'P5',
                         'R4'  => 'P4',
                     ],
-                    'placeholder' => 'Choisir un niveau'
+                    'placeholder' => 'Choisir un niveau',
+                    'attr' => ['class' => 'select-shop']
             ])
             ->add('MixteRank', ChoiceType::class, [
                     'choices' => [
@@ -60,7 +62,8 @@ class InternshipType extends AbstractType
                         'R5'  => 'P5',
                         'R4'  => 'P4',
                     ],
-                    'placeholder' => 'Choisir un niveau'
+                    'placeholder' => 'Choisir un niveau',
+                    'attr' => ['class' => 'select-shop']
             ])
         ;
     }

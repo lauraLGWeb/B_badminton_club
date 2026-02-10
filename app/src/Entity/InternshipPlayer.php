@@ -24,6 +24,9 @@ class InternshipPlayer
 
     #[ORM\Column(length: 100)]
     #[Assert\NotBlank(message: 'Le mail est obligatoire')]
+    #[Assert\Email(
+        message: 'le mail {{ value }} n\'est pas valide.',
+    )]
     private ?string $email = null;
 
     #[ORM\Column(length: 15)]

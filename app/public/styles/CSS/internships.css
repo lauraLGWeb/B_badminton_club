@@ -1,0 +1,156 @@
+.dark {
+  
+    --accent-color: #9da0a4;
+  
+}
+/* ========================================
+ MAIN PAGE
+   ======================================== */
+
+.internshipPresentation{
+    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+    margin: 15px;
+    padding: 15px;
+     border-radius: 20px;
+}
+
+.internshipCard{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.eachInternshipCard{
+    background: var(--bg-color);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+    transition: all 0.3s ease;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.internshipHeader h2{
+    margin: 10px;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.internshipHeader span{
+    background: var(--gradient-start);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+  
+}
+.internshipInfo{
+    margin: 20px;
+}
+
+.internshipInfo p {
+    margin: 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+/*booking status*/
+.internshipStatus, .bookingState {
+    text-align: center;
+    padding: 12px;
+    background: rgba(255, 107, 53, 0.08);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.internshipStatus p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.internshipStatus .full {
+    color: var(--gradient-start);
+}
+.internshipStatus .booked {
+    color: var(--accent-color);
+}
+
+.internshipStatus .empty {
+    color: #6c757d;
+    font-style: italic;
+}
+
+
+
+.internshipFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.internshipFooter p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* Bouton d'inscription */
+.internship-btn {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    padding: 6px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow:var(--unpressed);
+         transition: all 0.4s ease;
+}
+
+.internship-btn:hover {
+    width: 100%;
+    box-shadow: var(--pressed);
+}
+
+
+/* ========================================
+ INSCRIPTION PAGE
+   ======================================== */
+.titleAndBtnComeBack{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 20vh;
+    justify-content: space-around;
+
+}
+
+.titleAndBtnComeBack h1{
+    padding-top: 0;
+
+}
+
+.IntershipBookingPresentation .btn-back{
+    margin: 20px;
+}
+
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  
+}

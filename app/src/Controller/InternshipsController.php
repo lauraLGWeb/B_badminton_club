@@ -11,13 +11,14 @@ use App\Form\InternshipType;
 use App\Repository\InternshipPlayerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 final class InternshipsController extends AbstractController
 {
 
 
 
-    //get the intersnhips 
+    //get all the intersnhips 
     #[Route('/Leclub/Stages', name: 'app_internships')]
     public function internships(InternshipsRepository $ir): Response
     {
@@ -29,12 +30,19 @@ final class InternshipsController extends AbstractController
 
     }
 
+
+    //get the one i click on to make inscription 
     #[Route('/Leclub/Stages/Inscription/{id}', name: 'app_intershipInscription')]
-    public function intershipInscription($id, InternshipsRepository $ir,InternshipPlayerRepository $Ipr,  Request $request, EntityManagerInterface $em): Response
+    public function intershipInscription(int $id, InternshipsRepository $ir,  Request $request, EntityManagerInterface $em): Response
     {
 
         //get the internship clicked on
         $internship = $ir->find($id);
+
+
+        if (!$internship) {
+            throw $this->createNotFoundException('Stage introuvable');
+}
 
         //create the new player and associate to the internship
         $newPlayer = new InternshipPlayer();
@@ -46,8 +54,9 @@ final class InternshipsController extends AbstractController
         $form->handleRequest($request);
 
          if ($form->isSubmitted() && $form->isValid()) {
-            
-        
+            // incrementation of "alreadybooked"
+            $internship->setAlreadyBooked($internship->getAlreadyBooked()+1);
+
             $em->persist($newPlayer);
             $em->flush();        
 
@@ -60,6 +69,65 @@ final class InternshipsController extends AbstractController
           'internship' => $internship,
            ]); 
     }
+
+
+
+// admin and trainer part : see the inscription on one internship
+   #[Route('entraineur/Leclub/Stages/inscriptions/{id}', name: 'app_bookedPlayersInternship')]
+    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_ENTRAINEUR')]
+    public function bookedPlayersInternship(int $id, InternshipsRepository $ir): Response
+    {
+           //get the internship clicked on
+        $internship = $ir->find($id);
+
+        $players = $internship->getInternshipPlayers();
+
+        return $this->render('internships/bookedPlayersInternship.html.twig', [
+            'internship' => $internship,
+            'players'=>$players,
+        ]);
+
+    }
+
+
+// cancel player from the selected internship
+   #[Route('entraineur/Leclub/Stages/inscriptions/supprimer/{id}', name: 'app_deletePlayersInternship')]
+    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_ENTRAINEUR')]
+    public function deletePlayersInternship(int $id, EntityManagerInterface $em,InternshipPlayerRepository $ipr): Response
+    {
+        //get the player clicked on
+        $player = $ipr->find($id);
+
+         // check that player exist
+        if (!$player) {
+        throw $this->createNotFoundException('Joueur introuvable');
+    }
+
+        //get the internship clicked on
+        $internship = $player->getInternship();
+
+        // getting all the players to still mention them on the page after deleting the person
+        $players = $internship->getInternshipPlayers();
+
+         // decrementation of "alreadybooked"
+        $internship->setAlreadyBooked($internship->getAlreadyBooked()-1);
+
+        $em->remove($player);
+         $em->flush();
+
+        $this->addFlash('success', 'joueur bien enlevé de ce stage ');
+
+          return $this->redirectToRoute('app_bookedPlayersInternship', [
+        'id' => $internship->getId()
+    ]);
+
+
+    }
+
+
+
 
 }
 

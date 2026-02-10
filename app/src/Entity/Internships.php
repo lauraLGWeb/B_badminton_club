@@ -8,6 +8,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
+
 #[ORM\Entity(repositoryClass: InternshipsRepository::class)]
 class Internships
 {
@@ -17,19 +20,24 @@ class Internships
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'Le Titre est obligatoire')]
     private ?string $internshipTitle = null;
 
    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+   #[Assert\NotBlank(message: 'La date et heure sont obligatoire')]
     private ?\DateTimeInterface $dateTime = null;
 
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le lieu est obligatoire')]
     private ?string $gymnase = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
+    #[Assert\NotBlank(message: 'Le tarif est obligatoire')]
     private ?string $price = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Le nombre de personne maximum accepté est obligatoire')]
     private ?int $maxPlayersNbr = null;
 
     #[ORM\Column]
