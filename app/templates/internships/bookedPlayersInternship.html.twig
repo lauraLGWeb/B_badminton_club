@@ -3,66 +3,87 @@
 
 
 {% block body %}
-    <h1> Inscriptions "{{ internship.internshipTitle }}" du {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</h1>
+    <section class="members-list">
+        <section class="IntershipBookingPresentation">
+            <div class="titleAndBtnComeBack">
+                <h1> Inscriptions pour le stage du {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</h1>
+
+                <a href="{{ path('app_internships')}}" role="button" class="btn-back">Retour aux stages</a>
+            </div>
+        </section>
 
     {% for type, messages in app.flashes %}
-    {# going through each of the 3 messages #}
-        {% for message in messages %}
-            <div class="flash-{{ type }}">
-                {{ message }}
-            </div>
+        {# going through each of the 3 messages #}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
 
-    
-    <a href="{{ path('app_internships')}}" role="button" class="btn-back">Retour aux stages</a>
-
-{# message fo how many people booked out on max  #}
-   <p> 
-    {% if internship.AlreadyBooked > 0 %}
-        <span class="booked"> {{ internship.AlreadyBooked }} </span>
-    {% else %}
-        <span class="empty">0</span>
-    {% endif %}
-
-    <span> / {{ internship.MaxPlayersNbr }}  </span>
-    </p>
+    {# message fo how many people booked out on max  #}
+    <section class="internshipStatus">
+            {%  if internship.AlreadyBooked is same as internship.maxPlayersNbr %}
+                <p class="full">Stage complet ! </p>
+            {% endif %}
 
 
-{# as soon as inscription, showing the table #}
-{% if internship.AlreadyBooked > 0 %}
-    <table class="blueTable">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Simple</th>
-                <th>Double</th>
-                <th>Mixte</th>  
-                <th>Email</th>
-                <th>Portable</th>
-                <th>Supprimer</th>
+            {% if internship.AlreadyBooked > 0 %}
+                <span class="booked" > {{ internship.AlreadyBooked }} </span>
+            {% else %}
+                <p class="full">Il n'y a pas encore d'inscrit </p> 
+                <span class="booked">0</span>
+            {% endif %}
 
-            </tr>
-        </thead>
-        <tbody>
-    {% for player in players %}
-                        <tr>
-                            <td>{{ player.LastName }}</td>
-                            <td>{{ player.FirstName }}</td>
-                            <td>{{ player.SimpleRank }}</td>
-                            <td>{{ player.DoubleRank }}</td>
-                            <td>{{ player.MixteRank }}</td>
-                            <td>{{ player.email }}</td>
-                            <td>{{ player.phoneNumber }}</td>
-                            <td><a href="{{ path('app_deletePlayersInternship', {'id': player.id})}}" role="button" class="btn-back"> Désinscrire de ce stage</a> </td>
-                        </tr>
-                    {% endfor %}
-        </tbody>
-    </table>
-{% else %}   
-<p>Il n'y a pas encore d'inscrit </p> 
-{% endif %}      
+            <span class="booked" > / {{ internship.MaxPlayersNbr }}  </span>
+        </section>
+
+        
+
+
+        {# as soon as inscription, showing the table #}
+        {% if internship.AlreadyBooked > 0 %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Simple</th>
+                        <th>Double</th>
+                        <th>Mixte</th>  
+                        <th>Email</th>
+                        <th>Portable</th>
+                        <th>Supprimer</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+            {% for player in players %}
+                                <tr>
+                                    <td>{{ player.LastName }}</td>
+                                    <td>{{ player.FirstName }}</td>
+                                    <td>{{ player.SimpleRank }}</td>
+                                    <td>{{ player.DoubleRank }}</td>
+                                    <td>{{ player.MixteRank }}</td>
+                                    <td>{{ player.email }}</td>
+                                    <td>{{ player.phoneNumber }}</td>
+                                    <td> 
+                                        <form class="noStyle" action="{{ path('app_deletePlayersInternship', { id: player.id }) }}" 
+                                        method="post" 
+                                        onsubmit="return confirm('Supprimer ce joueur du stage ?')">
+                                            <input type="hidden" 
+                                                    name="_token" 
+                                                    value="{{ csrf_token('delete_player_' ~ player.id) }}">
+                                            <button type="submit" class="deleteItem">Désinscrire de ce stage</button>
+                                            </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                </tbody>
+            </table>  
+        {% endif %}     
+
+    </section>
 
 {% endblock %}
 

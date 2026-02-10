@@ -65,7 +65,7 @@
                 </div>
 
             {% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
-                <a class="btn btn-outline-light me-2" href="{{ path('app_bookedPlayersInternship', {'id': internship.id}) }}">Voir les inscrits</a>      
+                <a class="internship-btn-other " href="{{ path('app_bookedPlayersInternship', {'id': internship.id}) }}">Voir les inscrits</a>      
             {% endif %}
             </section>
         {% endfor %}

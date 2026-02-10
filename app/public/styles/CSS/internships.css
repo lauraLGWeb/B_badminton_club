@@ -117,11 +117,27 @@
     width: 50%;
     text-align: center;
     transition: all 0.3s;
+
+    box-shadow:var(--unpressed);
+         transition: all 0.4s ease;
+}
+.internship-btn-other {
+    background: var(--gradient-start);
+    color: var(--bg-color);
+    padding: 6px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    transition: all 0.3s;
+    margin-top: 10px;
     box-shadow:var(--unpressed);
          transition: all 0.4s ease;
 }
 
-.internship-btn:hover {
+.internship-btn:hover, .internship-btn-other:hover{
     width: 100%;
     box-shadow: var(--pressed);
 }
@@ -133,7 +149,7 @@
 .titleAndBtnComeBack{
     display: flex;
     flex-direction: row-reverse;
-    padding-top: 20vh;
+    padding-top: 23vh;
     justify-content: space-around;
 
 }
@@ -145,7 +161,16 @@
 
 .IntershipBookingPresentation .btn-back{
     margin: 20px;
+    margin-top: 0;
 }
+
+.members-list .IntershipBookingPresentation {
+    padding: 0 ;
+}
+
+
+
+
 
 
 /* ========================================

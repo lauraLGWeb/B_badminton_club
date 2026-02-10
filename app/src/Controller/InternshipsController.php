@@ -95,10 +95,19 @@ final class InternshipsController extends AbstractController
    #[Route('entraineur/Leclub/Stages/inscriptions/supprimer/{id}', name: 'app_deletePlayersInternship')]
     #[IsGranted('ROLE_ADMIN')]
     #[IsGranted('ROLE_ENTRAINEUR')]
-    public function deletePlayersInternship(int $id, EntityManagerInterface $em,InternshipPlayerRepository $ipr): Response
+    public function deletePlayersInternship(int $id, EntityManagerInterface $em,InternshipPlayerRepository $ipr, Request $request): Response
     {
+
         //get the player clicked on
         $player = $ipr->find($id);
+
+
+        // token check 
+        $token = $request->request->get('_token');
+        if (!$this->isCsrfTokenValid('delete_player_' . $player->getId(), $token)) {
+            $this->addFlash('error', 'Token invalide');
+            return $this->redirectToRoute('app_internships');
+        }
 
          // check that player exist
         if (!$player) {
