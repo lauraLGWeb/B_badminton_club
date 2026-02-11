@@ -1,87 +1,93 @@
 {% extends 'base.html.twig' %}
-{% block title %}Stages{% endblock %}
-
+{% block title %}{{ 'Stages'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Stages d'entraînement</h1>
+    <h1>{{ 'Stages d\'entraînement'|trans }}</h1>
 
-  {% for type, messages in app.flashes %}
-    {# going through each of the 3 messages #}
+    {% for type, messages in app.flashes %}
         {% for message in messages %}
             <div class="flash-{{ type }}">
-                {{ message }}
+                {{ message|trans }}
             </div>
         {% endfor %}
     {% endfor %}
+    
     <section class="internship">
         <section class="internshipPresentation">
             <p>
-            Tout au long de la saison, le club organise des stages d'entraînement encadrés par notre entraîneur <strong>Simon</strong>.
-            Que vous souhaitiez progresser techniquement, améliorer votre condition physique ou simplement partager un bon moment autour du badminton, ces stages sont faits pour vous 🏸
+                {{ 'Tout au long de la saison, le club organise des stages d\'entraînement encadrés par notre entraîneur'|trans }} <strong>Simon</strong>.
+                {{ 'Que vous souhaitiez progresser techniquement, améliorer votre condition physique ou simplement partager un bon moment autour du badminton, ces stages sont faits pour vous'|trans }} 🏸
             </p>
 
             <p>
-            Les inscriptions se font en ligne via notre <strong> formulaire </strong>, ou directement <strong>via un membre du bureau</strong>.
-            Pour toute question ou inscription par email :
-            <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a>
+                {{ 'Les inscriptions se font en ligne via notre'|trans }} <strong>{{ 'formulaire'|trans }}</strong>, {{ 'ou directement'|trans }} <strong>{{ 'via un membre du bureau'|trans }}</strong>.
+                {{ 'Pour toute question ou inscription par email'|trans }} :
+                <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a>
             </p>
 
-            <p>Découvrez ci-dessous les différents créneaux proposés :</p>
+            <p>{{ 'Découvrez ci-dessous les différents créneaux proposés'|trans }} :</p>
         </section>
 
-    {# showing every internship #}
+        {# showing every internship #}
+        <section class="internshipCard">
+            {% for internship in internships %}
+                <section class="eachInternshipCard">
+                    <div class="internshipHeader">
+                        <h2>{{ 'Le'|trans }} {{ internship.dateTime|date('d/m/Y') }} {{ 'à'|trans }} {{ internship.dateTime|date('H:i') }}</h2>
+                        <span>{{ internship.price }} €</span>
+                    </div>
 
-    <section class="internshipCard">
-        {% for internship in internships %}
-            <section class="eachInternshipCard">
-                <div class="internshipHeader">
-                    <h2>Le {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</h2>
-                    <span>{{ internship.price }} €</span>
-                </div>
+                    <div class="internshipInfo">
+                        <p>{{ internship.internshipTitle }}</p>
+                        <p>{{ 'Gymnase'|trans }} {{ internship.Gymnase }}</p>
+                        <p>{{ internship.MaxPlayersNbr }} {{ 'joueurs maximum'|trans }}</p>
+                    </div>
 
-                <div class="internshipInfo">
-                    <p>{{ internship.internshipTitle }}</p>
-                    <p> Gymnase {{ internship.Gymnase }}</p>
-                    <p>{{ internship.MaxPlayersNbr }} joueurs maximum</p>
-                </div>
+                    <div class="internshipStatus">
+                        {% if internship.AlreadyBooked is same as internship.maxPlayersNbr %}
+                            <p class="full">{{ 'Stage complet !'|trans }}</p>
+                        {% elseif internship.AlreadyBooked >= 1 %}
+                            <p class="booked">{{ 'Déjà'|trans }} {{ internship.AlreadyBooked }} {{ 'inscrit(s)'|trans }}</p>
+                        {% else %}
+                            <p class="empty">{{ 'Aucun inscrit pour le moment'|trans }}</p>
+                        {% endif %}
+                    </div>
 
-                <div class="internshipStatus">
-                    {%  if internship.AlreadyBooked is same as internship.maxPlayersNbr %}
-                        <p class="full">Stage complet ! </p>
-                    {% elseif internship.AlreadyBooked >= 1 %}
-                        <p class="booked"> Déjà {{ internship.AlreadyBooked }} inscrit(s)</p>
-                    {% else %}
-                        <p class="empty">Aucun inscrit pour le moment</p>
-                    {% endif %}
-                </div>
+                    <div class="internshipFooter">
+                        <p>{{ 'Paiement : virement · chèque · espèces'|trans }}</p>
 
-                <div class="internshipFooter">
-                    <p>Paiement : virement · chèque · espèces</p>
+                        {# if internship full, no possibility to book it #}
+                        {% if not internship.AlreadyBooked is same as internship.maxPlayersNbr %}
+                            <a href="{{ path('app_intershipInscription', {'id': internship.id}) }}" class="internship-btn">
+                                {{ 'M\'inscrire'|trans }}
+                            </a>
+                        {% endif %}
 
-                    {# if internship fulll, no possibility to book it #}
-                    {% if not internship.AlreadyBooked is same as internship.maxPlayersNbr %}
-                        <a href="{{ path('app_intershipInscription', {'id': internship.id}) }}" class="internship-btn">M'inscrire</a>
-                    {% endif %}   
-                
+                        {% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
+                            <a class="internship-btn" href="{{ path('app_bookedPlayersInternship', {'id': internship.id}) }}">
+                                {{ 'Voir les inscrits'|trans }}
+                            </a>
 
-                    {% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
-                        <a class="internship-btn" href="{{ path('app_bookedPlayersInternship', {'id': internship.id}) }}">Voir les inscrits</a>
+                            <a class="internship-btn-other" href="{{ path('app_modifyInternship', {'id': internship.id}) }}">
+                                {{ 'Modifier le stage'|trans }}
+                            </a>
 
-                        <a class="internship-btn-other " href="{{ path('app_modifyInternship', {'id': internship.id}) }}">Modifier le stage</a>    
-                            
-                        <form class="btn-back" action="{{ path('app_deleteInternship', {'id': internship.id})}}" 
-                                        method="post" 
-                                        onsubmit="return confirm('Supprimer cet article ?')">
-                                        <input type="hidden" name="_token" value="{{ csrf_token('delete_Internship_' ~ internship.id) }}">
-                                        <button type="submit" class="internship-btn-other"> Supprimer ce stage</button>
-                        </form>
-                     {% endif %}
-                 </div>
-            </section>
-        {% endfor %}
+                            <form class="btn-back" 
+                                  action="{{ path('app_deleteInternship', {'id': internship.id})}}" 
+                                  method="post" 
+                                  onsubmit="return confirm('{{ 'Supprimer ce stage ?'|trans }}')">
+                                <input type="hidden" 
+                                       name="_token" 
+                                       value="{{ csrf_token('delete_Internship_' ~ internship.id) }}">
+                                <button type="submit" class="internship-btn-other">
+                                    {{ 'Supprimer ce stage'|trans }}
+                                </button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </section>
+            {% endfor %}
+        </section>
     </section>
 
-   </section>
-
 {% endblock %}
-

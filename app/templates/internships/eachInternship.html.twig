@@ -1,59 +1,62 @@
 {% extends 'base.html.twig' %}
-{% block title %}Stages{% endblock %}
-
+{% block title %}{{ 'Stages'|trans }}{% endblock %}
 
 {% block body %}
     <section class="IntershipBookingPresentation">
-    <div class="titleAndBtnComeBack">
-        <h1> M'inscrire pour le stage du {{ internship.dateTime|date('d/m/Y') }} à {{ internship.dateTime|date('H:i') }}</h1>
+        <div class="titleAndBtnComeBack">
+            <h1>{{ 'M\'inscrire pour le stage du'|trans }} {{ internship.dateTime|date('d/m/Y') }} {{ 'à'|trans }} {{ internship.dateTime|date('H:i') }}</h1>
 
-        <a href="{{ path('app_internships')}}" role="button" class="btn-back">Retour aux stages</a>
-    </div>
+            <a href="{{ path('app_internships') }}" role="button" class="btn-back">{{ 'Retour aux stages'|trans }}</a>
+        </div>
 
-    <div class="bookingState">
-    <p>Actuellement 
-        {% if internship.AlreadyBooked > 0 %}
-            <span class="booked"> il y à {{ internship.AlreadyBooked }} inscription(s) faite()</span>
-        {% else %}
-            <span class="empty">il n'y a aucun inscrit</span>
-        {% endif %}
-        <span> sur {{ internship.MaxPlayersNbr }} places </span>
-        </p>
-    </div>
-</section>
+        <div class="bookingState">
+            <p>{{ 'Actuellement'|trans }}
+                {% if internship.AlreadyBooked > 0 %}
+                    <span class="booked">{{ 'il y a'|trans }} {{ internship.AlreadyBooked }} {{ 'inscription(s) faite(s)'|trans }}</span>
+                {% else %}
+                    <span class="empty">{{ 'il n\'y a aucun inscrit'|trans }}</span>
+                {% endif %}
+                <span>{{ 'sur'|trans }} {{ internship.MaxPlayersNbr }} {{ 'places'|trans }}</span>
+            </p>
+        </div>
+    </section>
 
-<h2>{{ internship.internshipTitle }} :</h2>
+    <h2>{{ internship.internshipTitle }} :</h2>
 
     {{ form_errors(form) }}
 
-    {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
        
         {{ form_row(form.LastName, {
-            label: 'Nom'
+            'label': 'Nom'|trans
         }) }}
+        
         {{ form_row(form.FirstName, {
-            label: 'Prénom'
+            'label': 'Prénom'|trans
         }) }}
+        
         {{ form_row(form.email, {
-            label: 'Email '
+            'label': 'Email'|trans
         }) }}
+        
         {{ form_row(form.phoneNumber, {
-            label: 'Numéro de portable'
-        }) }} 
+            'label': 'Numéro de portable'|trans
+        }) }}
+        
         {{ form_row(form.SimpleRank, {
-            label: 'Classement en Simple'
-        }) }} 
+            'label': 'Classement en Simple'|trans
+        }) }}
+        
         {{ form_row(form.DoubleRank, {
-            label: 'Classement en Double'
-        }) }} 
+            'label': 'Classement en Double'|trans
+        }) }}
+        
         {{ form_row(form.MixteRank, {
-            label: 'Classement en Mixte'
-        }) }} 
+            'label': 'Classement en Mixte'|trans
+        }) }}
 
-        <button type="submit" class="submit-button"> Envoyer mon inscription</button>
+        <button type="submit" class="submit-button">{{ 'Envoyer mon inscription'|trans }}</button>
 
     {{ form_end(form) }}
-      
 
 {% endblock %}
-

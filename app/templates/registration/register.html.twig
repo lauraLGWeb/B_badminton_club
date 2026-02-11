@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Création compte{% endblock %}
-
+{% block title %}{{ 'Création compte'|trans }}{% endblock %}
 
 {% block body %}
-    <h1 class="PageTitle">Créer mon compte</h1>
+    <h1 class="PageTitle">{{ 'Créer mon compte'|trans }}</h1>
 
     {# Affiche les erreurs globales ET celles des champs #}
     {% for error in registrationForm.vars.errors %}
@@ -13,29 +12,33 @@
 
     {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm, {'attr': {'novalidate' : 'novalidate'}}) }}
+    {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
         
-       
         {{ form_row(registrationForm.firstName, {
-            label: 'Prénom'
+            'label': 'Prénom'|trans
         }) }}
+        
         {{ form_row(registrationForm.lastName, {
-            label: 'Nom'
+            'label': 'Nom'|trans
         }) }}
+        
         {{ form_row(registrationForm.lienceNbr, {
-            label: 'Numéro de Licence'
+            'label': 'Numéro de Licence'|trans
         }) }}
+        
         {{ form_row(registrationForm.email) }}
+        
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Mot de passe : Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre'
+            'label': 'Mot de passe : Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre'|trans
         }) }}
+        
         {{ form_row(registrationForm.agreeTerms, {
-            label: 'J\'accepte les <a href="' ~ path('app_legalMentions') ~ '">conditions générales</a>',
-            label_html: true
+            'label': ('J\'accepte les <a href="' ~ path('app_legalMentions') ~ '">conditions générales</a>')|trans,
+            'label_html': true
         }) }}
-        <button type="submit" class="submit-button">Créer mon compte</button>
+        
+        <button type="submit" class="submit-button">{{ 'Créer mon compte'|trans }}</button>
+        
     {{ form_end(registrationForm) }}
 
-
 {% endblock %}
-

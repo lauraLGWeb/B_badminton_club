@@ -1,51 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Créneaux{% endblock %}
+{% block title %}{{ 'Créneaux'|trans }}{% endblock %}
 
 {% block body %}
 
 <div class="creneaux-container">
-    <h1 >Créneaux d'entraînement</h1>
-    
+    <h1>{{ 'Créneaux d\'entraînement'|trans }}</h1>
 
     {# Créneaux SENIORS #}
     <section class="planning-section">
-        <h2 id="planningSenior">Planning Seniors</h2>
+        <h2 id="planningSenior">{{ 'Planning Seniors'|trans }}</h2>
         
-<div class="tarifs-container">
-    <p> Pour le Jeu libre tout public le Week End : Il faudra  intégrer le groupe Whatsapp dédié. (il te suffit de nous le demander et nous t'ajouterons !) <br>
-    En effet, l'ouverture et la fermeture du gymnase se fait par des bénévoles du club.</p>
+        <div class="tarifs-container">
+            <p>
+                {{ 'Pour le Jeu libre tout public le Week End : Il faudra intégrer le groupe Whatsapp dédié. (il te suffit de nous le demander et nous t\'ajouterons !)'|trans }}<br>
+                {{ 'En effet, l\'ouverture et la fermeture du gymnase se fait par des bénévoles du club.'|trans }}
+            </p>
 
-    <a href="{{ path('app_prices') }}" class="email-link">
-           Voir les tarifs d'inscription
-        </a>
-</div>
-
-    
+            <a href="{{ path('app_prices') }}" class="email-link">
+                {{ 'Voir les tarifs d\'inscription'|trans }}
+            </a>
+        </div>
 
         <div class="table-responsive">
             <table class="planning-table">
                 <thead>
                     <tr>
-                        <th>Horaires</th>
-                        <th>Lundi</th>
-                        <th>Mardi</th>
-                        <th>Mercredi</th>
-                        <th>Jeudi</th>
-                        <th>Vendredi</th>
-                        <th>Samedi</th>
-                        <th>Dimanche</th>
+                        <th>{{ 'Horaires'|trans }}</th>
+                        <th>{{ 'Lundi'|trans }}</th>
+                        <th>{{ 'Mardi'|trans }}</th>
+                        <th>{{ 'Mercredi'|trans }}</th>
+                        <th>{{ 'Jeudi'|trans }}</th>
+                        <th>{{ 'Vendredi'|trans }}</th>
+                        <th>{{ 'Samedi'|trans }}</th>
+                        <th>{{ 'Dimanche'|trans }}</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     {# 10h00 - 12h00 #}
                     <tr>
                         <td class="time-cell">10h00-12h00</td>
                         <td colspan="6" class="empty-cell"></td>
                         <td class="rose">
-                            <strong>JEU LIBRE</strong><br>
-                            PARENTS / ENFANTS
+                            <strong>{{ 'JEU LIBRE'|trans }}</strong><br>
+                            {{ 'PARENTS / ENFANTS'|trans }}
                         </td>
                     </tr>
 
@@ -54,8 +52,8 @@
                         <td class="time-cell">14h-18h</td>
                         <td colspan="5" class="empty-cell"></td>
                         <td class="bleu" rowspan="2">
-                            <strong>JEU LIBRE TOUT PUBLIC</strong><br>
-                            // CHALLENGES
+                            <strong>{{ 'JEU LIBRE TOUT PUBLIC'|trans }}</strong><br>
+                            // {{ 'CHALLENGES'|trans }}
                         </td>
                         <td></td>
                     </tr>
@@ -73,13 +71,13 @@
                         <td></td>
                         <td></td>
                         <td class="bleu" rowspan="3">
-                            <strong>JEU LIBRE NON COMPÉTITEURS + GR ENSEIGNEMENT</strong><br>
+                            <strong>{{ 'JEU LIBRE NON COMPÉTITEURS + GR ENSEIGNEMENT'|trans }}</strong><br>
                             <span class="location">SPa</span>
                         </td>
                         <td></td>
                         <td class="bleu-fonce" rowspan="2">
-                            <strong>JEU LIBRE</strong><br>
-                            GR ENTRAÎNEMENT 1 + 2
+                            <strong>{{ 'JEU LIBRE'|trans }}</strong><br>
+                            {{ 'GR ENTRAÎNEMENT 1 + 2'|trans }}
                         </td>
                         <td></td>
                         <td></td>
@@ -90,11 +88,11 @@
                         <td class="time-cell">19h-20h</td>
                         <td></td>
                         <td class="rouge-fonce" rowspan="3">
-                            <strong>ENTRAÎNEMENT GROUPE R+/N</strong><br>
+                            <strong>{{ 'ENTRAÎNEMENT GROUPE R+/N'|trans }}</strong><br>
                             <span class="location">SPa</span>
                         </td>
                         <td class="rouge-fonce" rowspan="3">
-                            <strong>ENTRAÎNEMENT GROUPE R+/N</strong><br>
+                            <strong>{{ 'ENTRAÎNEMENT GROUPE R+/N'|trans }}</strong><br>
                             <span class="location">SPa</span>
                         </td>
                         <td></td>
@@ -106,8 +104,8 @@
                         <td class="time-cell">20h-20h15</td>
                         <td></td>
                         <td class="bleu" rowspan="4">
-                            <strong>JEU LIBRE NON COMPÉTITEURS</strong><br>
-                            + GR ENSEIGNEMENT
+                            <strong>{{ 'JEU LIBRE NON COMPÉTITEURS'|trans }}</strong><br>
+                            + {{ 'GR ENSEIGNEMENT'|trans }}
                         </td>
                         <td></td>
                         <td></td>
@@ -117,11 +115,11 @@
                     <tr>
                         <td class="time-cell">20h15-20h30</td>
                         <td class="rouge-clair" rowspan="3">
-                            <strong>ENTRAÎNEMENT GR1 et GR2</strong><br>
+                            <strong>{{ 'ENTRAÎNEMENT GR1 et GR2'|trans }}</strong><br>
                             <span class="location">SPa</span>
                         </td>
                         <td class="bleu" rowspan="3">
-                            <strong>JEU LIBRE NON COMPÉTITEURS + GR ENSEIGNEMENT</strong><br>
+                            <strong>{{ 'JEU LIBRE NON COMPÉTITEURS + GR ENSEIGNEMENT'|trans }}</strong><br>
                             <span class="location">SPa</span>
                         </td>
                         <td></td>
@@ -132,11 +130,11 @@
                     <tr>
                         <td class="time-cell">20h30-21h</td>
                         <td class="gris" rowspan="2">
-                            <strong>ENSEIGNEMENT D8 / P11</strong><br>
+                            <strong>{{ 'ENSEIGNEMENT D8 / P11'|trans }}</strong><br>
                             <span class="location">TMa</span>
                         </td>
                         <td class="rouge-clair" rowspan="2">
-                            <strong>ENTRAÎNEMENT D8 / R</strong><br>
+                            <strong>{{ 'ENTRAÎNEMENT D8 / R'|trans }}</strong><br>
                             <span class="location">SPa</span>
                         </td>
                         <td></td>
@@ -149,7 +147,6 @@
                         <td></td>
                         <td></td>
                     </tr>
-
                 </tbody>
             </table>
         </div>
@@ -157,92 +154,90 @@
 
     {# Créneaux JEUNES #}
     <section class="planning-section">
-        <h2>Planning Jeunes</h2>
+        <h2>{{ 'Planning Jeunes'|trans }}</h2>
 
         <div class="tarifs-container">
-        <h3>CATEGORIES</h3>
-        <table>
-            <tr>
-                <th>Catégorie</th>
-                <th>Année de naissance</th>
-            </tr>
-            <tr>
-                <td>Minibad</td>
-                <td>Né en 2018 ou après</td>
-            </tr>
-            <tr>
-                <td>Poussin</td>
-                <td>Né en 2016 et 2017</td>
-            </tr>
-            <tr>
-                <td>Benjamin</td>
-                <td>Né en 2014 et 2015</td>
-            </tr>
-            <tr>
-                <td>Minime</td>
-                <td>Né en 2012 et 2013</td>
-            </tr>
-            <tr>
-                <td>Cadet</td>
-                <td>Né en 2010 et 2011</td>
-            </tr>
-            <tr>
-                <td>Junior*</td>
-                <td>Né en 2008 et 2009</td>
-            </tr>
-            <p> *Les juniors s'entraînent et vont au jeu libre avec les adultes <a href=" #planningSenior">(cf. créneaux adultes).</a> </p>
-        </table>
+            <h3>{{ 'CATEGORIES'|trans }}</h3>
+            <table>
+                <tr>
+                    <th>{{ 'Catégorie'|trans }}</th>
+                    <th>{{ 'Année de naissance'|trans }}</th>
+                </tr>
+                <tr>
+                    <td>{{ 'Minibad'|trans }}</td>
+                    <td>{{ 'Né en 2018 ou après'|trans }}</td>
+                </tr>
+                <tr>
+                    <td>{{ 'Poussin'|trans }}</td>
+                    <td>{{ 'Né en 2016 et 2017'|trans }}</td>
+                </tr>
+                <tr>
+                    <td>{{ 'Benjamin'|trans }}</td>
+                    <td>{{ 'Né en 2014 et 2015'|trans }}</td>
+                </tr>
+                <tr>
+                    <td>{{ 'Minime'|trans }}</td>
+                    <td>{{ 'Né en 2012 et 2013'|trans }}</td>
+                </tr>
+                <tr>
+                    <td>{{ 'Cadet'|trans }}</td>
+                    <td>{{ 'Né en 2010 et 2011'|trans }}</td>
+                </tr>
+                <tr>
+                    <td>{{ 'Junior*'|trans }}</td>
+                    <td>{{ 'Né en 2008 et 2009'|trans }}</td>
+                </tr>
+            </table>
+            <p>{{ '*Les juniors s\'entraînent et vont au jeu libre avec les adultes'|trans }} <a href="#planningSenior">({{ 'cf. créneaux adultes'|trans }}).</a></p>
 
+            <a href="{{ path('app_prices') }}" class="email-link">
+                {{ 'Voir les tarifs d\'inscription'|trans }}
+            </a>
+        </div>
 
-    <a href="{{ path('app_prices') }}" class="email-link">
-           Voir les tarifs d'inscription 
-        </a>
-</div>
-
-        <img src="pictures/planningJeunes.png" alt="Planning jeunes">
+        <img src="pictures/planningJeunes.png" alt="{{ 'Planning jeunes'|trans }}">
     </section>
-
 </div>
 
 <section class="planning-section">
-    <h2>Les gymnases</h2>
+    <h2>{{ 'Les gymnases'|trans }}</h2>
     <section class="coaches">
-
         <div class="coach-card">
             <div class="coach-header">
-                <h3>Gymnase François Rabelais</h3>
-                <p class="coach-position">Le club dispose de 7 terrains. Les terrains sont disponibles sur les créneaux indiqués ci-dessus.</p>
+                <h3>{{ 'Gymnase François Rabelais'|trans }}</h3>
+                <p class="coach-position">{{ 'Le club dispose de 7 terrains. Les terrains sont disponibles sur les créneaux indiqués ci-dessus.'|trans }}</p>
             </div>
             
             <div class="coach-qualifications">
-                <h4>Equipements : </h4>
+                <h4>{{ 'Equipements'|trans }} :</h4>
                 <ul>
-                    <li>Vestiaires et douches</li>
-                    <li>Parking gratuit</li>
+                    <li>{{ 'Vestiaires et douches'|trans }}</li>
+                    <li>{{ 'Parking gratuit'|trans }}</li>
                 </ul>
             </div>
             <a class="location" href="https://maps.app.goo.gl/zgVd9cG8kY91rZ2J6">
-            Gymnase François Rabelais, Rue Buffon, 41000 Blois</a>
+                {{ 'Gymnase François Rabelais, Rue Buffon, 41000 Blois'|trans }}
+            </a>
         </div>
 
         <div class="coach-card">
             <div class="coach-header">
-                <h3>Gymnase François Rabelais</h3>
-                <p class="coach-position">Le club dispose de 7 terrains. Les terrains sont disponibles sur les créneaux indiqués ci-dessus.</p>
+                <h3>{{ 'Gymnase François Rabelais'|trans }}</h3>
+                <p class="coach-position">{{ 'Le club dispose de 7 terrains. Les terrains sont disponibles sur les créneaux indiqués ci-dessus.'|trans }}</p>
             </div>
             
             <div class="coach-qualifications">
-                <h4>Equipements : </h4>
+                <h4>{{ 'Equipements'|trans }} :</h4>
                 <ul>
-                    <li>Vestiaires et douches</li>
-                    <li>Parking gratuit</li>
+                    <li>{{ 'Vestiaires et douches'|trans }}</li>
+                    <li>{{ 'Parking gratuit'|trans }}</li>
                 </ul>
             </div>
             <a class="location" href="https://maps.app.goo.gl/zgVd9cG8kY91rZ2J6">
-            Gymnase François Rabelais, Rue Buffon, 41000 Blois</a>
+                {{ 'Gymnase François Rabelais, Rue Buffon, 41000 Blois'|trans }}
+            </a>
         </div>
     </section>
- </section>
-
+</section>
 
 {% endblock %}

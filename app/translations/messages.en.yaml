@@ -1,0 +1,510 @@
+'Thème sombre': 'Dark theme'
+'Thème clair': 'Light theme'
+'Le club': 'The club'
+Tarifs: Prices
+Actualité: News
+Partenaires: Partners
+Contact: Contact
+Boutique: Shop
+Déconnexion: Logout
+Connexion: Login
+Admin: Admin
+'Voir les créneaux': 'View schedules'
+'Mon compte': 'My account'
+'Les licences': Memberships
+'Faire un essai': 'Try a session'
+'Inscription Licence': 'Membership registration'
+"S'inscrire saison 2025-2026": 'Register for 2025-2026 season'
+'Les inscriptions commencent le 01 août 2025': 'Registrations start on August 1, 2025'
+'Cette saison, les inscriptions devront se faire directement en ligne,': 'This season, registrations must be done online,'
+'Ci-dessous, la marche à suivre:': 'Below are the steps to follow:'
+'Demande de Licence': 'Membership application'
+'Cliquer sur le lien ci-après:': 'Click on the following link:'
+"Effectuer sa 1ère adhésion, suivre les étapes de l'adhésion (renseigner ses données personnelles) et choisir la licence souhaitée (et la catégorie pour les jeunes.)": 'Complete your first membership, follow the registration steps (enter your personal information) and choose the desired license (and category for youth).'
+'Finaliser son dossier en effectuant un paiement par virement bancaire de préférence (RIB ci-joint + préciser le nom du licencié) ou tout autre moyen de paiement (se rapprocher du club).': "Finalize your file by making a payment preferably by bank transfer (bank details attached + specify the member's name) or any other payment method (contact the club)."
+'Renouvellement de ma licence': 'License renewal'
+'Se rendre sur son espace dédié': 'Go to your dedicated space'
+'La Fédération Française De Badminton : FFBAD': 'French Badminton Federation: FFBAD'
+"Procéder au renouvellement de son adhésion (les données personnelles sont récupérées), suivre les étapes du renouvellement de l'adhésion et choisir la licence souhaitée (catégorie pour les jeunes)": 'Proceed with the renewal of your membership (personal data is retrieved), follow the renewal steps and choose the desired license (category for youth)'
+"Si tu rencontres des difficultés, il est possible de remplir le dossier d'adhésion et nous l'envoyer par mail à l'adresse du club :": 'If you encounter difficulties, you can fill out the membership form and send it to us by email at the club address:'
+"La prise de licence impliquera l'adhésion automatique aux statuts, règlement intérieur et politique financière du club. La charte d'interclub sera à signer pour les joueurs s'engageant pour une équipe du club. Depuis juillet 2024, il n'est plus nécessaire de fournir un certificat médical. Un questionnaire de santé est à remplir directement lors de l'adhésion en ligne. Cependant, si l'une des cases est cochée OUI, un certificat médical de moins de 6 mois vous sera demandé (seul le certificat médical de la FFBAD sera valable).": "Taking out a license will involve automatic acceptance of the club's statutes, internal regulations and financial policy. The inter-club charter must be signed by players joining a club team. Since July 2024, it is no longer necessary to provide a medical certificate. A health questionnaire must be completed directly during online registration. However, if one of the boxes is checked YES, a medical certificate less than 6 months old will be required (only the FFBAD medical certificate will be valid)."
+Actualités: News
+'Retour aux actualités': 'Back to news'
+Modifier: Edit
+"Date de l'événement": 'Event date'
+'Publié le': 'Published on'
+Créneaux: Schedules
+"Créneaux d'entraînement": 'Training schedules'
+'Planning Seniors': 'Senior schedule'
+"Pour le Jeu libre tout public le Week End : Il faudra intégrer le groupe Whatsapp dédié. (il te suffit de nous le demander et nous t'ajouterons !)": 'For open play on weekends: You will need to join the dedicated Whatsapp group. (just ask us and we will add you!)'
+"En effet, l'ouverture et la fermeture du gymnase se fait par des bénévoles du club.": 'Indeed, the opening and closing of the gym is done by club volunteers.'
+"Voir les tarifs d'inscription": 'View registration fees'
+Horaires: Schedule
+Lundi: Monday
+Mardi: Tuesday
+Mercredi: Wednesday
+Jeudi: Thursday
+Vendredi: Friday
+Samedi: Saturday
+Dimanche: Sunday
+'JEU LIBRE': 'FREE PLAY'
+'PARENTS / ENFANTS': 'PARENTS / CHILDREN'
+'JEU LIBRE TOUT PUBLIC': 'OPEN PLAY FOR ALL'
+CHALLENGES: CHALLENGES
+'JEU LIBRE NON COMPÉTITEURS + GR ENSEIGNEMENT': 'FREE PLAY NON-COMPETITORS + TEACHING GROUP'
+'GR ENTRAÎNEMENT 1 + 2': 'TRAINING GROUP 1 + 2'
+'ENTRAÎNEMENT GROUPE R+/N': 'TRAINING GROUP R+/N'
+'JEU LIBRE NON COMPÉTITEURS': 'FREE PLAY NON-COMPETITORS'
+'GR ENSEIGNEMENT': 'TEACHING GROUP'
+'ENTRAÎNEMENT GR1 et GR2': 'TRAINING GR1 and GR2'
+'ENSEIGNEMENT D8 / P11': 'TEACHING D8 / P11'
+'ENTRAÎNEMENT D8 / R': 'TRAINING D8 / R'
+'Planning Jeunes': 'Youth schedule'
+CATEGORIES: CATEGORIES
+Catégorie: Category
+'Année de naissance': 'Year of birth'
+Minibad: Minibad
+'Né en 2018 ou après': 'Born in 2018 or after'
+Poussin: Poussin
+'Né en 2016 et 2017': 'Born in 2016 and 2017'
+Benjamin: Benjamin
+'Né en 2014 et 2015': 'Born in 2014 and 2015'
+Minime: Minime
+'Né en 2012 et 2013': 'Born in 2012 and 2013'
+Cadet: Cadet
+'Né en 2010 et 2011': 'Born in 2010 and 2011'
+'Junior*': 'Junior*'
+'Né en 2008 et 2009': 'Born in 2008 and 2009'
+"*Les juniors s'entraînent et vont au jeu libre avec les adultes": '*Juniors train and play free play with adults'
+'cf. créneaux adultes': 'see adult schedules'
+'Planning jeunes': 'Youth schedule'
+'Les gymnases': 'The gyms'
+'Gymnase François Rabelais': 'François Rabelais Gymnasium'
+'Le club dispose de 7 terrains. Les terrains sont disponibles sur les créneaux indiqués ci-dessus.': 'The club has 7 courts. Courts are available during the time slots indicated above.'
+Equipements: Facilities
+'Vestiaires et douches': 'Changing rooms and showers'
+'Parking gratuit': 'Free parking'
+'Gymnase François Rabelais, Rue Buffon, 41000 Blois': 'François Rabelais Gymnasium, Rue Buffon, 41000 Blois'
+Entraîneurs: Coaches
+'Nos Entraîneurs Professionnels': 'Our Professional Coaches'
+'Éducateur sportif chargé du Club Avenir': 'Sports educator in charge of Club Avenir'
+Formation: Training
+'DEJEPS Perfectionnement Sportif mention Badminton': 'DEJEPS Sports Improvement Badminton specialization'
+'En préparation du DESJEPS Performance Sportive mention Badminton': 'Preparing for DESJEPS Sports Performance Badminton specialization'
+'Agent de développement en charge de la performance sociale': 'Development officer in charge of social performance'
+'CQP Animateur de Badminton': 'CQP Badminton Coach'
+'tarifs inscription': 'registration fees'
+Juniors/Séniors/Vétérans: Juniors/Seniors/Veterans
+'Tarifs licences': 'License fees'
+'Type de licence': 'License type'
+Tarif: Price
+Informations: Information
+'Jeu libre "loisir"': 'Free play "leisure"'
+Enseignement: Teaching
+'Entrainement gr1': 'Training gr1'
+'Entrainement gr2': 'Training gr2'
+'Retrouve les créneaux ici': 'Find the schedules here'
+'Voir les créneaux Juniors/Séniors/Vétérans': 'View Juniors/Seniors/Veterans schedules'
+Jeunes: Youth
+Minibads: Minibads
+Poussins/Benjamins: Poussins/Benjamins
+Minimes/Cadets: Minimes/Cadets
+'Pré Académie (sur sélection uniquement)': 'Pre Academy (by selection only)'
+'Académie 1/2 (sur sélection uniquement)': 'Academy 1/2 (by selection only)'
+'Voir les créneaux Jeunes': 'View Youth schedules'
+'Les réductions (non cumulables)': 'Discounts (non-cumulative)'
+'Réduction pour les FAMILLES (même adresse) -10€ sur la seconde cotisation et sur les suivantes': 'Discount for FAMILIES (same address) -€10 on the second membership fee and subsequent ones'
+'Réduction pour ETUDIANTS (post Bac) -10€ sur la cotisation correspondante': 'Discount for STUDENTS (post-baccalaureate) -€10 on the corresponding fee'
+'Licences prises au club à partir du 01/02 -30€ sur le montant de la cotisation': 'Licenses taken at the club from 01/02 -€30 on the membership amount'
+'Licences complémentaires (soumis à validation du CA, en fonction des places disponibles et des intérêts du joueur et des deux clubs)': 'Complementary licenses (subject to board approval, depending on available places and interests of the player and both clubs)'
+'Complémentaire "Loisir" 100€': 'Complementary "Leisure" €100'
+'Complémentaire "Entrainement" 180€': 'Complementary "Training" €180'
+'Complémentaire "Vacances" 80€': 'Complementary "Holidays" €80'
+'Règlement du club': 'Club regulations'
+'Règlement et Charte': 'Regulations and Charter'
+'Pour garantir le bon fonctionnement du club et le respect de tous, merci de prendre connaissance de nos documents officiels.': 'To ensure the proper functioning of the club and respect for all, please review our official documents.'
+'Règlement Intérieur': 'Internal Regulations'
+'Le règlement intérieur définit les règles de vie au sein du club : horaires, comportement, utilisation des installations, obligations des membres...': "The internal regulations define the club's code of conduct: schedules, behavior, use of facilities, member obligations..."
+'Réglement intérieur Blois Badminton Club': 'Blois Badminton Club Internal Regulations'
+Télécharger: Download
+'Charte du Club': 'Club Charter'
+"La charte du club présente nos valeurs, notre éthique sportive et l'engagement de chacun pour un badminton respectueux et convivial.": "The club charter presents our values, our sports ethics and everyone's commitment to respectful and friendly badminton."
+'Charte interclub Blois Badminton Club': 'Blois Badminton Club Inter-club Charter'
+Important: Important
+"Tous les licenciés s'engagent à respecter le règlement intérieur et la charte lors de leur inscription au club. En cas de non-respect, des sanctions peuvent être appliquées.": 'All members commit to respecting the internal regulations and charter when registering at the club. In case of non-compliance, sanctions may be applied.'
+'Une question sur le règlement ou la charte ?': 'Question about the regulations or charter?'
+Contactez-nous: 'Contact us'
+'Comment faire un essai ?': 'How to try a session?'
+'Vous souhaitez': 'You wish to'
+'découvrir le badminton': 'discover badminton'
+"et essayer avant de vous inscrire ? C'est possible ! Le club propose des séances d'essai pour les personnes non licenciées la saison précédente.": "and try before registering? It's possible! The club offers trial sessions for people who were not members the previous season."
+"SÉANCES D'ESSAI GRATUITES": 'FREE TRIAL SESSIONS'
+'Ces séances sont ouvertes à': 'These sessions are open to'
+'tous les niveaux': 'all levels'
+"y compris aux débutants n'ayant jamais pratiqué le badminton.": 'including beginners who have never played badminton.'
+'Pour réserver votre essai': 'To book your trial'
+'Contactez-nous par email pour planifier votre venue': 'Contact us by email to plan your visit'
+'Matériel et tenue': 'Equipment and clothing'
+'Une raquette peut être prêtée par le club si besoin': 'A racket can be lent by the club if needed'
+'Merci de venir avec': 'Please bring'
+'Une paire de chaussures de salle propres (indispensable)': 'A pair of clean indoor shoes (essential)'
+'Une tenue de sport confortable': 'Comfortable sportswear'
+"Une bouteille d'eau": 'A water bottle'
+"Aucune expérience préalable n'est requise : l'objectif est de": 'No prior experience required: the goal is to'
+'découvrir le sport': 'discover the sport'
+"l'ambiance du club et de": 'the club atmosphere and to'
+'prendre du plaisir': 'have fun'
+'sur le terrain.': 'on the court.'
+'Au plaisir de vous accueillir sur le terrain !': 'Looking forward to welcoming you on the court!'
+Bonjour: Hello
+'Nous sommes ravis de te revoir !': 'We are delighted to see you again!'
+'Si tu souhaites modifier une information de ton compte, dis-le nous par': 'If you wish to modify information in your account, let us know by'
+mail: email
+', nous effectuerons la modification.': ', we will make the change.'
+'Petit rappel si besoin, ton numéro de licence est le': 'Quick reminder if needed, your license number is'
+'Renouveler mon inscription': 'Renew my membership'
+'Mes commandes': 'My orders'
+'Commande numéro': 'Order number'
+Date: Date
+Articles: Items
+'Aucune commande pour le moment.': 'No orders at the moment.'
+'Bienvenue au Blois Badminton Club': 'Welcome to Blois Badminton Club'
+"Depuis sa création, le club ne cesse de grandir grâce à l'engagement de ses bénévoles et à la passion de ses": 'Since its creation, the club continues to grow thanks to the commitment of its volunteers and the passion of its'
+'deux entraîneurs salariés': 'two paid coaches'
+"Une aventure collective tournée vers l'excellence et le plaisir de jouer !": 'A collective adventure focused on excellence and the pleasure of playing!'
+licenciés: members
+jeunes: youth
+'équipes engagées': 'committed teams'
+'École de Bad': 'Badminton School'
+'Encadrement Professionnel': 'Professional Coaching'
+"Le BBC s'appuie sur": 'BBC relies on'
+'pour garantir un encadrement de qualité : Simon': 'to guarantee quality coaching: Simon'
+'juin 2019': 'June 2019'
+'rejoint par Tom en': 'joined by Tom in'
+'pour accompagner le développement du club vers le haut niveau. Une expertise au service de tous les licenciés, du loisir à la compétition !': "to support the club's development towards high level. Expertise serving all members, from leisure to competition!"
+'Excellence Sportive': 'Sports Excellence'
+'Pour la première fois de son histoire, le BBC évolue en': 'For the first time in its history, BBC plays in'
+'Nationale 3': 'National 3'
+"cette saison ! Une fierté collective qui récompense des années de travail et d'investissement de nos entraîneurs et joueurs.": 'this season! A collective pride that rewards years of work and investment from our coaches and players.'
+'Formation de Qualité': 'Quality Training'
+'Notre École Française de Badminton': 'Our French Badminton School'
+'4 étoiles': '4 stars'
+"fait partie des 26 clubs d'élite en France. En partenariat avec la ville de Blois, nous proposons également des": 'is among the 26 elite clubs in France. In partnership with the city of Blois, we also offer'
+'Classes à Horaires Aménagés': 'Adapted Schedule Classes'
+'pour 15 collégiens passionnés.': 'for 15 passionate middle school students.'
+'Label Club Avenir': 'Club Avenir Label'
+'Reconnu pour la qualité de son encadrement professionnel et sa structuration, le BBC porte depuis 2021 le prestigieux': 'Recognized for the quality of its professional coaching and structure, BBC has held since 2021 the prestigious'
+'gage de notre engagement vers le haut niveau.': 'guarantee of our commitment to high level.'
+'Derrière ces chiffres et ces labels, ce sont avant tout des femmes et des hommes engagés qui font vivre le club au quotidien. Découvrez le mot de notre présidente...': "Behind these figures and labels, there are above all dedicated women and men who bring the club to life daily. Discover our president's message..."
+'femme jouant au badminton': 'woman playing badminton'
+'Que vous soyez débutant, joueur confirmé ou simplement curieux de découvrir le badminton, notre club vous accueille dans une ambiance conviviale et chaleureuse, où le plaisir de jouer et le partage sont au cœur de nos valeurs.': 'Whether you are a beginner, experienced player or simply curious to discover badminton, our club welcomes you in a friendly and warm atmosphere, where the pleasure of playing and sharing are at the heart of our values.'
+'En loisir comme en compétition, chacun trouve sa place au sein du club. Je vous invite à venir nous rencontrer, échanger quelques volants et partager de bons moments sportifs avec nous.': 'In leisure as in competition, everyone finds their place in the club. I invite you to come meet us, exchange some shuttles and share good sporting moments with us.'
+'La Présidente – Blois Badminton Club': 'The President – Blois Badminton Club'
+'joueuse de badminton': 'badminton player'
+'joueur loisir de badminton': 'leisure badminton player'
+'Du loisir à la compétition, chacun trouve sa place au Blois Badminton Club !': 'From leisure to competition, everyone finds their place at Blois Badminton Club!'
+'entraineur de badminton': 'badminton coach'
+'Formation de qualité pour nos jeunes, encadrés par des entraîneurs passionnés et diplômés.': 'Quality training for our youth, supervised by passionate and qualified coaches.'
+"compétition de badminton avec t-shirt à l'éffigie du club": 'badminton competition with club logo t-shirt'
+'Des équipes compétitives, de la départementale à la Nationale : progressez et dépassez-vous !': 'Competitive teams, from departmental to National: progress and surpass yourself!'
+'buvette conviviale pendant un tournois': 'friendly refreshment stand during a tournament'
+'Une ambiance conviviale et des bénévoles engagés : rejoignez notre famille sportive !': 'A friendly atmosphere and committed volunteers: join our sports family!'
+'Dernières actualités': 'Latest news'
+Événement: Event
+'Créé le': 'Created on'
+'En savoir plus': 'Learn more'
+Supprimer: Delete
+'Voir toutes les actualités': 'View all news'
+'Nos partenaires': 'Our partners'
+'Le Club est fier de collaborer avec un large éventail de partenaires qui partagent sa passion de la performance, dans des secteurs variés.': 'The Club is proud to collaborate with a wide range of partners who share its passion for performance, in various sectors.'
+Partenaire: Partner
+'Prêt(e) à nous rejoindre ?': 'Ready to join us?'
+'Rejoins une communauté de passionnés et découvre le badminton dans une ambiance conviviale !': 'Join a community of enthusiasts and discover badminton in a friendly atmosphere!'
+'Nous rejoindre': 'Join us'
+'Nos médias': 'Our media'
+'logo du club': 'club logo'
+'change light mode': 'change light mode'
+menu: menu
+'Membres du CA': 'Board Members'
+Règlement: Regulations
+'Les stages': 'Training camps'
+'École du bad': 'Badminton school'
+'Le Projet Jeune': 'Youth Project'
+"L'école Française de Badminton": 'French Badminton School'
+'Les plumes': 'The feathers'
+'Club Avenir': 'Club Avenir'
+'Ils nous font confiance et soutiennent notre passion du badminton': 'They trust us and support our passion for badminton'
+'Arbo concept': 'Arbo concept'
+Leclerc: Leclerc
+stauff: stauff
+agglopolys: agglopolys
+'Ville de Blois': 'City of Blois'
+'centre val de loire': 'centre val de loire'
+'Département 41': 'Department 41'
+'cités éducatives': 'educational cities'
+'agence du sport': 'sports agency'
+'club avenir': 'club avenir'
+'école française de badminton': 'French badminton school'
+'Partenaire 12': 'Partner 12'
+'Badminton 41': 'Badminton 41'
+'éco bad': 'eco bad'
+'Fédération française de badminton': 'French Badminton Federation'
+'Bénévolat associatif': 'Volunteer work'
+Alionax: Alionax
+"Bouchons d'amour": 'Love bottle caps'
+decathlon: decathlon
+Téléthon: Telethon
+'Partenaire équipement': 'Equipment partner'
+'Votre club est heureux de vous annoncer un partenariat avec +2Bad.': 'Your club is happy to announce a partnership with +2Bad.'
+"L'enseigne Plusdebad est spécialiste du badminton, vous y trouverez : raquettes, chaussures, volants ainsi que tout l'équipement adapté à la pratique du badminton.": 'Plusdebad is a badminton specialist, you will find: rackets, shoes, shuttles and all equipment adapted to badminton practice.'
+'Avantage membres BBC': 'BBC member advantage'
+'-20% de remise': '-20% discount'
+'sur les prix catalogues pour tous les membres du club !': 'on catalog prices for all club members!'
+'Pour obtenir le code de réduction chez notre partenaire +2Bad, envoie-nous un': 'To get the discount code at our partner +2Bad, send us an'
+"L'ensemble de l'équipe +2Bad Paris sera heureuse de vous accueillir dans leur magasin place d'Italie afin de vous conseiller au mieux selon vos besoins.": "The entire +2Bad Paris team will be happy to welcome you to their store at Place d'Italie to advise you according to your needs."
+'Vous retrouverez également un grand choix de raquettes de badminton, bagagerie et chaussures de badminton sur leur site internet.': 'You will also find a large selection of badminton rackets, bags and badminton shoes on their website.'
+'Les trouver': 'Find them'
+'Les contacter': 'Contact them'
+Suivez-les: 'Follow them'
+'Visiter le site web': 'Visit the website'
+'Ensemble, pour la performance': 'Together, for performance'
+'Vous souhaitez devenir partenaire du Blois Badminton Club ?': 'Would you like to become a partner of Blois Badminton Club?'
+"L'équipe du Blois Badminton Club": 'Blois Badminton Club team'
+'Le Bureau - Saison 2024-2025': 'The Board - Season 2024-2025'
+Présidente: President
+Vice-Président: Vice-President
+Secrétaire: Secretary
+Trésorière: Treasurer
+Vice-Trésorier: Vice-Treasurer
+"Le Conseil d'Administration": 'The Board of Directors'
+'Le club est continuellement à la recherche de': 'The club is continuously looking for'
+bénévoles: volunteers
+"pour étoffer son Comité d'Administration et l'aider au quotidien à son bon fonctionnement.": 'to expand its Administrative Committee and help with its daily operations.'
+"Rejoindre l'équipe en nous contactant": 'Join the team by contacting us'
+'Membre CA': 'Board Member'
+'Tableau de bord Admin': 'Admin Dashboard'
+'Tableau de bord': Dashboard
+Membres: Members
+'Liste des membres': 'Member list'
+Stages: 'Training camps'
+'Liste des stages': 'Camp list'
+'Créer un stage': 'Create a camp'
+Produits: Products
+'Ajouter un produit': 'Add a product'
+Commandes: Orders
+'Liste des actus': 'News list'
+'Publier une actualité': 'Publish news'
+'Retour au site': 'Back to site'
+'Blois Badminton Club': 'Blois Badminton Club'
+'Passion • Convivialité • Performance': 'Passion • Friendliness • Performance'
+'Le Club': 'The Club'
+'École de bad': 'Badminton school'
+Services: Services
+'Nos horaires': 'Our schedules'
+'Réserver un essai': 'Book a trial'
+"S'inscrire au club": 'Register at the club'
+'Nous contacter': 'Contact us'
+'Formulaire de contact': 'Contact form'
+'Mentions légales': 'Legal notice'
+'Politique de confidentialité': 'Privacy policy'
+CGV: 'Terms and Conditions'
+'© 2025 Blois Badminton Club - Tous droits réservés': '© 2025 Blois Badminton Club - All rights reserved'
+'Actualités du club': 'Club news'
+'Aucune actualité pour le moment.': 'No news at the moment.'
+'Supprimer cet article ?': 'Delete this article?'
+logo: logo
+Administration: Administration
+'Création compte': 'Create account'
+'Créer mon compte': 'Create my account'
+Prénom: 'First name'
+Nom: 'Last name'
+'Numéro de Licence': 'License number'
+'Mot de passe : Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre': 'Password: Password must contain at least 8 characters, one uppercase letter and one number'
+Contacte-nous: 'Contact us'
+'Contacte-nous !': 'Contact us!'
+'Regarde notre FAQ, peut-être que la réponse à ta question y est déjà': 'Check our FAQ, maybe the answer to your question is already there'
+'Faut-il apporter son propre matériel ou le club en fournit ?': 'Do I need to bring my own equipment or does the club provide it?'
+'Pour les essais, nous pouvons prêter une raquette !': 'For trials, we can lend a racket!'
+'Sinon nous te conseillons de venir avec les indispensables de la pratique du badminton que tu retrouves': 'Otherwise we recommend bringing the essentials for badminton practice that you can find'
+'dans la section Essai': 'in the Trial section'
+"Comment s'inscrire au club ?": 'How to register at the club?'
+"L'inscription au club se fait directement sur le site de": 'Club registration is done directly on the website of'
+'Le club accepte-t-il les débutants ?': 'Does the club accept beginners?'
+'Tout à fait, tout le monde est le bienvenu au club !': 'Absolutely, everyone is welcome at the club!'
+"Peut-on faire un cours d'essai avant de s'inscrire ?": 'Can we do a trial session before registering?'
+"Oui et nous te le recommandons avant de t'engager ! Jette un coup d'œil à notre section": 'Yes and we recommend it before committing! Take a look at our section'
+essais: trials
+"Y a-t-il une limite d'âge pour rejoindre le club ?": 'Is there an age limit to join the club?'
+"Tu peux t'inscrire peu importe ton âge !": 'You can register regardless of your age!'
+"Si tu veux faire venir ton très jeune enfant (3-5 ans), nous lui proposons un essai qui sera encadré par l'un de nos entraîneurs afin de définir s'il n'est pas trop jeune pour jouer.": 'If you want to bring your very young child (3-5 years old), we offer a trial supervised by one of our coaches to determine if they are too young to play.'
+'Sinon, envoie-nous un mail directement via ce formulaire': 'Otherwise, send us an email directly via this form'
+Email: Email
+'Ton message': 'Your message'
+Effacer: Clear
+'Mon Panier': 'My Cart'
+'Votre panier est vide.': 'Your cart is empty.'
+'Découvrir nos produits': 'Discover our products'
+Produit: Product
+'Prix unitaire': 'Unit price'
+Quantité: Quantity
+Total: Total
+Actions: Actions
+Prix: Price
+Sous-total: Subtotal
+'Continuer mes achats': 'Continue shopping'
+'Passer à la caisse': 'Proceed to checkout'
+shop.page_title: Shop
+shop.welcome: 'Welcome to the BBC Shop'
+shop.presentation: 'Discover our exclusive products'
+shop.filters: Filters
+shop.cart_alt: 'Shopping cart'
+shop.choose_size: 'Choose size'
+shop.select_size: 'Select size'
+shop.choose_gender: 'Choose gender'
+shop.select_gender: 'Select gender'
+shop.man: Man
+shop.woman: Woman
+shop.add_to_cart: 'Add to cart'
+"Création d'un nouveau stage": 'Create a new training camp'
+'Modification du stage': 'Edit training camp'
+'Retour aux stages': 'Back to training camps'
+'Titre du stage': 'Camp title'
+'Date et heure': 'Date and time'
+Gymnase: Gymnasium
+'Nombre maximum de joueurs': 'Maximum number of players'
+"Nombre d'inscrits actuellement": 'Currently registered'
+'Publier le stage': 'Publish camp'
+'Liste des commandes': 'Order list'
+'Voici toutes les commandes passées': 'Here are all past orders'
+'À donner': 'To deliver'
+Client: Customer
+'Valider la remise du/des produit(s) ?': 'Confirm product delivery?'
+'Commande donnée': 'Order delivered'
+Oui: 'Yes'
+'Aucune commande non remise pour le moment.': 'No undelivered orders at the moment.'
+'Déjà donnée': 'Already delivered'
+"Création d'un nouveau produit": 'Create a new product'
+'Nom du produit': 'Product name'
+Description: Description
+"Lien de l'image": 'Image link'
+'Prix (€)': 'Price (€)'
+'Ce produit a-t-il des tailles ?': 'Does this product have sizes?'
+'Publier le produit': 'Publish product'
+'Liste des produits': 'Product list'
+'Voici tous les articles': 'Here are all items'
+"Création d'une nouvelle actualité": 'Create new news'
+Titre: Title
+"Publier l'événement": 'Publish event'
+'Modifier un membre': 'Edit a member'
+Statut: Status
+'Mettre à jour le Contact': 'Update Contact'
+'Voici tous les membres': 'Here are all members'
+'Licences à Valider': 'Licenses to Validate'
+Licence: License
+Valider: Validate
+'Supprimer ce membre ?': 'Delete this member?'
+"Valider l'Inscription ?": 'Validate Registration?'
+'Licences vérifiées': 'Verified licenses'
+'Déjà validé': 'Already validated'
+"M'inscrire pour le stage du": 'Register for training camp on'
+à: at
+Actuellement: Currently
+'il y a': 'there are'
+'inscription(s) faite(s)': 'registration(s) made'
+"il n'y a aucun inscrit": 'there are no registrations'
+sur: 'out of'
+places: spots
+'Numéro de portable': 'Mobile number'
+'Classement en Simple': 'Singles ranking'
+'Classement en Double': 'Doubles ranking'
+'Classement en Mixte': 'Mixed ranking'
+'Envoyer mon inscription': 'Send my registration'
+internship.page_title: 'Registered Players'
+internship.registrations_for: 'Registrations for the camp on'
+internship.at: at
+internship.back_to_list: 'Back to camp list'
+internship.full: 'Camp full!'
+internship.no_registration_yet: 'No registrations yet'
+table.last_name: 'Last name'
+table.first_name: 'First name'
+table.simple: Singles
+table.double: Doubles
+table.mixte: Mixed
+table.email: Email
+table.phone: Phone
+table.delete: Delete
+internship.confirm_delete: 'Unregister this player?'
+internship.unregister: Unregister
+"Stages d'entraînement": 'Training camps'
+"Tout au long de la saison, le club organise des stages d'entraînement encadrés par notre entraîneur": 'Throughout the season, the club organizes training camps supervised by our coach'
+'Que vous souhaitiez progresser techniquement, améliorer votre condition physique ou simplement partager un bon moment autour du badminton, ces stages sont faits pour vous': 'Whether you want to improve technically, enhance your physical condition or simply share a good time around badminton, these camps are for you'
+'Les inscriptions se font en ligne via notre': 'Registrations are done online via our'
+formulaire: form
+'ou directement': 'or directly'
+'via un membre du bureau': 'through a board member'
+'Pour toute question ou inscription par email': 'For any questions or registration by email'
+'Découvrez ci-dessous les différents créneaux proposés': 'Discover below the different time slots offered'
+Le: 'On'
+'joueurs maximum': 'maximum players'
+'Stage complet !': 'Camp full!'
+Déjà: Already
+inscrit(s): registered
+'Aucun inscrit pour le moment': 'No registrations yet'
+'Paiement : virement · chèque · espèces': 'Payment: transfer · check · cash'
+"M'inscrire": Register
+'Voir les inscrits': 'View registrations'
+'Modifier le stage': 'Edit camp'
+'Supprimer ce stage ?': 'Delete this camp?'
+'Supprimer ce stage': 'Delete camp'
+'Mot de passe ou email incorrect.': 'Incorrect password or email.'
+'Connecté en tant que': 'Logged in as'
+'Se déconnecter': Logout
+'Connecte-toi vite !': 'Log in now!'
+"Tu n'as pas encore de compte ?": "Don't have an account yet?"
+'Mot de passe': Password
+'Me connecter': 'Log in'
+'Mentions légales et CGV': 'Legal notice and Terms'
+'Blois Bad Club - Mentions légales et CGV': 'Blois Bad Club - Legal notice and Terms'
+'1. Mentions légales': '1. Legal notice'
+'Éditeur du site': 'Site editor'
+'Laura Le Gall – Créatrice du site': 'Laura Le Gall – Site creator'
+Téléphone: Phone
+Hébergement: Hosting
+"À compléter dès que l'hébergeur sera choisi.": 'To be completed once hosting is chosen.'
+'Propriété intellectuelle': 'Intellectual property'
+"L'ensemble des contenus du site (textes, images, logos, vidéos, code…) est protégé par le droit d'auteur. Toute reproduction, représentation ou diffusion sans autorisation est interdite.": 'All site content (texts, images, logos, videos, code...) is protected by copyright. Any reproduction, representation or distribution without authorization is prohibited.'
+Responsabilité: Liability
+'Le site et ses contenus sont fournis "en l''état". Le club Blois Bad Club ne peut être tenu responsable de toute erreur ou omission sur le site ou d''un usage inapproprié du contenu.': 'The site and its content are provided "as is". Blois Bad Club cannot be held responsible for any errors or omissions on the site or inappropriate use of content.'
+'2. Politique de confidentialité': '2. Privacy policy'
+"Le site Blois Bad Club ne collecte pas de cookies ni de données personnelles à l'exception des informations nécessaires pour la création de comptes membres.": 'The Blois Bad Club site does not collect cookies or personal data except for information necessary for member account creation.'
+"Les informations collectées lors de l'inscription sont utilisées uniquement pour la gestion des membres et les achats internes au club. Elles ne sont": 'Information collected during registration is used only for member management and internal club purchases. They are'
+'jamais partagées avec des tiers': 'never shared with third parties'
+'Pour toute demande concernant vos données personnelles, vous pouvez nous contacter à': 'For any request concerning your personal data, you can contact us at'
+'3. Conditions générales de vente (CGV)': '3. Terms and Conditions of Sale'
+"Article 1 – Champ d'application": 'Article 1 – Scope'
+"Les présentes CGV s'appliquent à tout achat effectué sur le site Blois Bad Club. Les ventes sont réservées": 'These Terms apply to all purchases made on the Blois Bad Club site. Sales are reserved'
+'aux membres, administrateurs et entraîneurs': 'for members, administrators and coaches'
+'du club.': 'of the club.'
+'Article 2 – Produits et prix': 'Article 2 – Products and prices'
+'Produits disponibles : t-shirts et boîtes de volants.': 'Available products: t-shirts and shuttlecock boxes.'
+'Prix indiqués sur le site, toutes taxes comprises.': 'Prices shown on the site, all taxes included.'
+'Article 3 – Commande et paiement': 'Article 3 – Order and payment'
+'Les produits sont disponibles uniquement pour les membres, administrateurs et entraîneurs du club.': 'Products are available only for club members, administrators and coaches.'
+'Paiement en ligne': 'Online payment'
+'Le membre règle son achat via le site. Les produits sont ensuite à retirer': 'The member pays for their purchase via the site. Products must then be collected'
+"en direct auprès d'un membre du bureau": 'directly from a board member'
+'Paiement direct': 'Direct payment'
+"Le membre peut également régler son achat en espèces, par chèque ou par virement directement auprès d'un membre du bureau. Dans ce cas, la commande est effectuée sur place et le produit est remis après paiement.": 'The member can also pay for their purchase in cash, by check or by transfer directly to a board member. In this case, the order is placed on site and the product is delivered after payment.'
+'Article 4 – Retrait des produits': 'Article 4 – Product collection'
+"Tous les produits sont remis directement sur place lors du paiement ou après paiement en ligne. Aucune livraison n'est effectuée.": 'All products are delivered directly on site during payment or after online payment. No delivery is made.'
+'Article 5 – Droit de rétractation': 'Article 5 – Right of withdrawal'
+'Conformément à la loi, les achats en ligne auprès du club sont soumis au droit de rétractation légal (14 jours), sauf pour les produits personnalisés ou utilisés.': 'According to law, online purchases from the club are subject to the legal right of withdrawal (14 days), except for personalized or used products.'
+'Article 6 – Responsabilité': 'Article 6 – Liability'
+"Le club Blois Bad Club ne pourra être tenu responsable des dommages indirects liés à l'utilisation des produits vendus.": 'Blois Bad Club cannot be held responsible for indirect damages related to the use of products sold.'
+'Article 7 – Contact': 'Article 7 – Contact'
+'Pour toute question': 'For any questions'
+'Accès refusé': 'Access denied'
+"Vous n'avez pas les permissions nécessaires pour accéder à cette page.": 'You do not have the necessary permissions to access this page.'
+'Cette page est réservée aux administrateurs du Blois Badminton Club.': 'This page is reserved for Blois Badminton Club administrators.'
+"Retour à l'accueil": 'Back to home'
+"Si vous pensez qu'il s'agit d'une erreur, contactez un administrateur.": 'If you think this is an error, contact an administrator.'

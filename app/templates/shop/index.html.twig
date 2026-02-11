@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Boutique {% endblock %}
+{% block title %} {{ 'shop.page_title'|trans }} {% endblock %}
 
 {% block stylesheets %}
         <script defer src="{{asset('styles/JS/main.js') }}"></script>
@@ -12,88 +12,81 @@
         <link rel="stylesheet" href="{{ asset('styles/CSS/shop.css') }}">
 {% endblock %}
 
-
-
 {% block body %}
 
-
-
 <section class="shop">
-    <h1> Bienvenue dans la boutique du Blois Badminton Club !</h1>
-
-{# flash messages, first getting the type and the messages from the flshes array #}
+    <h1>{{ 'shop.welcome'|trans }}</h1>
 
     {% for type, messages in app.flashes %}
-    {# going through each of the 3 messages #}
         {% for message in messages %}
             <div class="flash-{{ type }}">
-                {{ message }}
+                {{ message|trans }}
             </div>
         {% endfor %}
     {% endfor %}
 
-
     <div class="presentationAndCart">
-        <h2>Ici, tu peux commander directement tes articles et payer en ligne par carte bancaire en toute sécurité.
-        Une fois ton paiement effectué, tu pourras récupérer tes produits auprès d'un membre du bureau du club.
-        Parcours notre sélection de T-shirts, accessoires et matériel, et équipe-toi facilement tout en soutenant le club !</h2>
+        <h2>{{ 'shop.presentation'|trans }}</h2>
     </div>
 
     <div class="filter">
-        <p class="pFilter"> filtres </p>
+        <p class="pFilter">{{ 'shop.filters'|trans }}</p>
         <div>
             <a href="{{ path('app_cart') }}"> 
-                <img src="{{asset("pictures/cart.png")}}" alt="logo panier">
+                <img src="{{asset("pictures/cart.png")}}" alt="{{ 'shop.cart_alt'|trans }}">
             </a>
-                 {% if cart %}
-                    {% set total = 0 %}
-                    {% for item in cart.CartItem %}
-                        {% set total = total + (item.quantity) %}
-                    {% endfor %}
-                    <p class="cartItemNbr">{{total}}</p>
+            {% if cart %}
+                {% set total = 0 %}
+                {% for item in cart.CartItem %}
+                    {% set total = total + (item.quantity) %}
+                {% endfor %}
+                <p class="cartItemNbr">{{total}}</p>
             {% endif %}
-         </div>
+        </div>
     </div>
 
     <section class="products">
     {% for product in products %}
-            <div class="product">
-                <div class="imgShop">
-                    <img src="{{asset(product.picture)}}" alt="{{product.title}}">
-                </div>
-                <div class="detailsShop">
-                    <h2 class="productTitle">{{product.title}}</h2>
-                    <p>{{product.description}}</p>
-                    <p class="price">{{ product.price|number_format(2, ',', ' ') }} €</p>
-
-                    
-                    <form class="add-to-cart-form" action="{{ path('app_addItem', { id: product.id }) }}" method="POST">
-                        {% if product.hasSize %}
-                        <div class="selects">
-                        <label for="size" >Choisit la taille:</label>
-                            <select name="size" id="size" class="select-shop size">  
-                                <option value="">Choisir une taille</option>
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="XXL">XXL</option>  
-                            </select>
-                            <label for="gender">Choisit le genre:</label>
-                            <select name="gender" id="gender"class="select-shop gender">  
-                                <option value="">Choisir un genre</option>
-                                <option value="man">Homme</option>
-                                <option value="woman">Femme</option>
-                            </select>
-                        </div>
-                        {% endif %}
-                        <input type="hidden" name="_token" value="{{ csrf_token('hasSize_form' ~ product.id) }}">
-                        
-                        <button type="submit" class="btn">Ajouter au panier</button>
-                    </form>
-                </div>
+        <div class="product">
+            <div class="imgShop">
+                <img src="{{asset(product.picture)}}" alt="{{product.title}}">
             </div>
+            <div class="detailsShop">
+                <h2 class="productTitle">{{product.title}}</h2>
+                <p>{{product.description}}</p>
+                <p class="price">{{ product.price|number_format(2, ',', ' ') }} €</p>
+
+                <form class="add-to-cart-form" action="{{ path('app_addItem', { id: product.id }) }}" method="POST">
+                    {% if product.hasSize %}
+                    <div class="selects">
+                        <label for="size">{{ 'shop.choose_size'|trans }}</label>
+                        <select name="size" id="size" class="select-shop size">  
+                            <option value="">{{ 'shop.select_size'|trans }}</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>  
+                        </select>
+
+                        <label for="gender">{{ 'shop.choose_gender'|trans }}</label>
+                        <select name="gender" id="gender" class="select-shop gender">  
+                            <option value="">{{ 'shop.select_gender'|trans }}</option>
+                            <option value="man">{{ 'shop.man'|trans }}</option>
+                            <option value="woman">{{ 'shop.woman'|trans }}</option>
+                        </select>
+                    </div>
+                    {% endif %}
+
+                    <input type="hidden" name="_token" value="{{ csrf_token('hasSize_form' ~ product.id) }}">
+                    
+                    <button type="submit" class="btn">
+                        {{ 'shop.add_to_cart'|trans }}
+                    </button>
+                </form>
+            </div>
+        </div>
     {% endfor %} 
     </section>
 </section>

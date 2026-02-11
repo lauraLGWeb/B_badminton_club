@@ -11,6 +11,7 @@
     scrollbar-width: thin;
     scrollbar-color: var(--primary-color) var(--bg-color);
     scroll-behavior: smooth;
+    text-decoration: none;
 }
 /*accessibility focus */
 :focus {
@@ -71,6 +72,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    
    
 
 }
@@ -122,11 +124,10 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center
+}
 
-
-    
-    
-
+.btn a{
+    color: var(--text-color);
 }
 
 div.btn:hover {

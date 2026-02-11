@@ -1,31 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion {% endblock %}
+{% block title %}{{ 'Connexion'|trans }}{% endblock %}
 
 {% block body %}
     <div class="login-container">
-        <form method="post" class="login-form" >
+        <form method="post" class="login-form">
             {% if error %}
                 <div class="alert-message">
-                   Mot de passe ou email incorrect.
+                    {{ 'Mot de passe ou email incorrect.'|trans }}
                 </div>
             {% endif %}
 
             {% if app.user %}
                 <div class="user-info">
-                    Connecté en tant que {{ app.user.userIdentifier }} : 
-                    <a href="{{ logout_path() }}" class="logout-link">Se déconnecter</a>
+                    {{ 'Connecté en tant que'|trans }} {{ app.user.userIdentifier }} : 
+                    <a href="{{ logout_path() }}" class="logout-link">{{ 'Se déconnecter'|trans }}</a>
                 </div>
             {% endif %}
             
-            <h1 class="login-title">Connecte-toi vite !</h1>
+            <h1 class="login-title">{{ 'Connecte-toi vite !'|trans }}</h1>
             <p class="register-prompt">
-                Tu n'as pas encore de compte ? 
-                <a href="{{ path("app_register") }}" class="register-link">M'inscrire</a>
+                {{ 'Tu n\'as pas encore de compte ?'|trans }}
+                <a href="{{ path("app_register") }}" class="register-link">{{ 'M\'inscrire'|trans }}</a>
             </p>
                         
             <div class="input-group">
-                <label for="username" class="input-label">Email</label>
+                <label for="username" class="input-label">{{ 'Email'|trans }}</label>
                 <input 
                     type="email" 
                     value="{{ last_username }}" 
@@ -39,7 +39,7 @@
             </div>
 
             <div class="input-group">
-                <label for="password" class="input-label">Mot de passe</label>
+                <label for="password" class="input-label">{{ 'Mot de passe'|trans }}</label>
                 <input 
                     type="password"
                     name="_password" 
@@ -58,7 +58,7 @@
             >
             
             <button class="submit-button" type="submit">
-                Me connecter
+                {{ 'Me connecter'|trans }}
             </button>
         </form>
     </div>

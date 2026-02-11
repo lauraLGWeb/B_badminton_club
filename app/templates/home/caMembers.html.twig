@@ -1,97 +1,94 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Membres du CA{% endblock %}
-
+{% block title %}{{ 'Membres du CA'|trans }}{% endblock %}
 
 {% block body %}
 
 <div class="team-container">
-    <h1>L'équipe du Blois Badminton Club</h1>
+    <h1>{{ 'L\'équipe du Blois Badminton Club'|trans }}</h1>
     
-    {# members #}
     <section class="board-section">
-        <h2> Le Bureau - Saison 2024-2025</h2>
+        <h2>{{ 'Le Bureau - Saison 2024-2025'|trans }}</h2>
         
         <div class="members">
             <div class="member-card president">
                 <div class="member-icon">👤</div>
                 <h3>Mélanie PETEL</h3>
-                <p class="member-role">Présidente</p>
+                <p class="member-role">{{ 'Présidente'|trans }}</p>
             </div>
             
             <div class="member-card">
                 <div class="member-icon">👤</div>
                 <h3>Christophe JULIEN</h3>
-                <p class="member-role">Vice-Président</p>
+                <p class="member-role">{{ 'Vice-Président'|trans }}</p>
             </div>
             
             <div class="member-card">
                 <div class="member-icon">📝</div>
                 <h3>Pauline CALLU</h3>
-                <p class="member-role">Secrétaire</p>
+                <p class="member-role">{{ 'Secrétaire'|trans }}</p>
             </div>
             
             <div class="member-card">
                 <div class="member-icon">💰</div>
                 <h3>Chanhmaly BOUTTAVONG</h3>
-                <p class="member-role">Trésorière</p>
+                <p class="member-role">{{ 'Trésorière'|trans }}</p>
             </div>
             
             <div class="member-card">
                 <div class="member-icon">💰</div>
                 <h3>Maxime DEGRELLE</h3>
-                <p class="member-role">Vice-Trésorier</p>
+                <p class="member-role">{{ 'Vice-Trésorier'|trans }}</p>
             </div>
         </div>
     </section>
 
-    {# CA #}
     <section class="board-members-section">
-        <h2> Le Conseil d'Administration</h2>
+        <h2>{{ 'Le Conseil d\'Administration'|trans }}</h2>
         
         <div class="volunteer-call">
             <p>
-                Le club est continuellement à la recherche de <strong>bénévoles</strong> pour 
-                étoffer son Comité d'Administration et l'aider au quotidien à son bon fonctionnement.
+                {{ 'Le club est continuellement à la recherche de'|trans }} 
+                <strong>{{ 'bénévoles'|trans }}</strong> 
+                {{ 'pour étoffer son Comité d\'Administration et l\'aider au quotidien à son bon fonctionnement.'|trans }}
             </p>
-            <a href="{{ path('app_contact') }}" class="volunteer-btn">Rejoindre l'équipe en nous contactant</a>
+            <a href="{{ path('app_contact') }}" class="volunteer-btn">
+                {{ 'Rejoindre l\'équipe en nous contactant'|trans }}
+            </a>
         </div>
         
         <div class="members-grid small">
             <div class="member-card small">
                 <div class="member-icon">👤</div>
                 <h3>Nadia CARVALHO</h3>
-                <p class="member-role">Membre CA</p>
+                <p class="member-role">{{ 'Membre CA'|trans }}</p>
             </div>
             
             <div class="member-card small">
                 <div class="member-icon">👤</div>
                 <h3>Solène GARCIA</h3>
-                <p class="member-role">Membre CA</p>
+                <p class="member-role">{{ 'Membre CA'|trans }}</p>
             </div>
             
             <div class="member-card small">
                 <div class="member-icon">👤</div>
                 <h3>Nicolas HEURTAUX</h3>
-                <p class="member-role">Membre CA</p>
+                <p class="member-role">{{ 'Membre CA'|trans }}</p>
             </div>
             
             <div class="member-card small">
                 <div class="member-icon">👤</div>
                 <h3>Frédéric PICOT</h3>
-                <p class="member-role">Membre CA</p>
+                <p class="member-role">{{ 'Membre CA'|trans }}</p>
             </div>
             
             <div class="member-card small">
                 <div class="member-icon">👤</div>
                 <h3>Anthony PITON</h3>
-                <p class="member-role">Membre CA</p>
+                <p class="member-role">{{ 'Membre CA'|trans }}</p>
             </div>
         </div>
     </section>
-
-    
-   
 </div>
 
 {% endblock %}

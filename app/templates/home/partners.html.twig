@@ -1,102 +1,101 @@
 {% extends 'base.html.twig' %}
-{% block title %} Partenaires {% endblock %}
+{% block title %}{{ 'Partenaires'|trans }}{% endblock %}
 
 {% block body %}
 
-{# Section carrousel logos #}
+{#  carrousel  #}
 <section class="partenaires-hero">
-    <h1 >Nos partenaires</h1>
-    <p class="subtitle">Ils nous font confiance et soutiennent notre passion du badminton</p>
+    <h1>{{ 'Nos partenaires'|trans }}</h1>
+    <p class="subtitle">{{ 'Ils nous font confiance et soutiennent notre passion du badminton'|trans }}</p>
     
     <div class="partners-slider">
         <div class="partners-track">
             {# first set #}
-            <a class="partner-item" href="https://www.arbo-concept.com/" target="_blank"><img src="{{ asset('pictures/partenaire1.png') }}" alt="Arbo concept"></a>
-            <a class="partner-item" href="https://www.e.leclerc/" target="_blank"><img src="{{ asset('pictures/partenaire2.png') }}" alt=" Leclerc"></a>
-            <a class="partner-item" href="https://stauff.fr/" target="_blank"><img src="{{ asset('pictures/partenaire3.png') }}" alt=" stauff"></a>
-            <a class="partner-item" href="https://www.agglopolys.fr/" target="_blank"><img src="{{ asset('pictures/partenaire4.png') }}" alt="agglopolys"></a>
-            <a class="partner-item" href="https://www.blois.fr/en" target="_blank"><img src="{{ asset('pictures/partenaire5.png') }}" alt="Ville de Blois"></a>
-            <a class="partner-item" href="https://www.centre-valdeloire.fr/" target="_blank"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="centre val de loire"></a>
-            <a class="partner-item" href="https://www.departement41.fr/" target="_blank"><img src="{{ asset('pictures/partenaire7.png') }}" alt="Département 41"></a>
-            <a class="partner-item" href="https://www.citeseducatives.fr/cite/cite-educative-de-blois/la-boite-a-outils/nous-contacter" target="_blank"><img src="{{ asset('pictures/partenaire8.png') }}" alt="cités éducatives"></a>
-            <a class="partner-item" href="https://www.agencedusport.fr/" target="_blank"><img src="{{ asset('pictures/partenaire9.png') }}" alt="agence du sport"></a>
-            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officiel" target="_blank"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="club avenir"></a>
-            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-22/2025/ecole-francaise-de-badminton-la-campagne-de-labellisation-2025-est-lancee" target="_blank"><img src="{{ asset('pictures/partenaire11.png') }}" alt="école française de badminton"></a>
-            <a class="partner-item" href="https://badmintoncvl.fr/" target="_blank"><img src="{{ asset('pictures/partenaire12.png') }}" alt="Partenaire 12"></a>
-            <a class="partner-item" href="https://www.badminton41.org/" target="_blank"><img src="{{ asset('pictures/partenaire13.png') }}" alt="Badminton 41"></a>
-            <a class="partner-item" href="https://lgebad.com/engagement-societal/eco-bad/" target="_blank"><img src="{{ asset('pictures/partenaire14.png') }}" alt="éco bad"></a>
-            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officield" target="_blank"><img src="{{ asset('pictures/partenaire15.png') }}" alt="Fédération française de badminton"></a>
-            <a class="partner-item" href="https://www.benevolat.org/" target="_blank"><img src="{{ asset('pictures/partenaire17.png') }}" alt="Bénévolat associatif"></a>
-            <a class="partner-item" href="https://www.alionax.com/fr/rtv" target="_blank"><img src="{{ asset('pictures/partenaire18.png') }}" alt="Alionax"></a>
-            <a class="partner-item" href="https://www.bouchonsdamour.com/" target="_blank"><img src="{{ asset('pictures/partenaire19.png') }}" alt="Bouchons d'amour"></a>
-            <a class="partner-item" href="https://www.decathlon.fr/" target="_blank"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="decathlon 20"></a>
-            <a class="partner-item" href="https://www.afm-telethon.fr/fr" target="_blank"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="Téléthon"></a>
+            <a class="partner-item" href="https://www.arbo-concept.com/" target="_blank"><img src="{{ asset('pictures/partenaire1.png') }}" alt="{{ 'Arbo concept'|trans }}"></a>
+            <a class="partner-item" href="https://www.e.leclerc/" target="_blank"><img src="{{ asset('pictures/partenaire2.png') }}" alt="{{ 'Leclerc'|trans }}"></a>
+            <a class="partner-item" href="https://stauff.fr/" target="_blank"><img src="{{ asset('pictures/partenaire3.png') }}" alt="{{ 'stauff'|trans }}"></a>
+            <a class="partner-item" href="https://www.agglopolys.fr/" target="_blank"><img src="{{ asset('pictures/partenaire4.png') }}" alt="{{ 'agglopolys'|trans }}"></a>
+            <a class="partner-item" href="https://www.blois.fr/en" target="_blank"><img src="{{ asset('pictures/partenaire5.png') }}" alt="{{ 'Ville de Blois'|trans }}"></a>
+            <a class="partner-item" href="https://www.centre-valdeloire.fr/" target="_blank"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="{{ 'centre val de loire'|trans }}"></a>
+            <a class="partner-item" href="https://www.departement41.fr/" target="_blank"><img src="{{ asset('pictures/partenaire7.png') }}" alt="{{ 'Département 41'|trans }}"></a>
+            <a class="partner-item" href="https://www.citeseducatives.fr/cite/cite-educative-de-blois/la-boite-a-outils/nous-contacter" target="_blank"><img src="{{ asset('pictures/partenaire8.png') }}" alt="{{ 'cités éducatives'|trans }}"></a>
+            <a class="partner-item" href="https://www.agencedusport.fr/" target="_blank"><img src="{{ asset('pictures/partenaire9.png') }}" alt="{{ 'agence du sport'|trans }}"></a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officiel" target="_blank"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="{{ 'club avenir'|trans }}"></a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-22/2025/ecole-francaise-de-badminton-la-campagne-de-labellisation-2025-est-lancee" target="_blank"><img src="{{ asset('pictures/partenaire11.png') }}" alt="{{ 'école française de badminton'|trans }}"></a>
+            <a class="partner-item" href="https://badmintoncvl.fr/" target="_blank"><img src="{{ asset('pictures/partenaire12.png') }}" alt="{{ 'Partenaire 12'|trans }}"></a>
+            <a class="partner-item" href="https://www.badminton41.org/" target="_blank"><img src="{{ asset('pictures/partenaire13.png') }}" alt="{{ 'Badminton 41'|trans }}"></a>
+            <a class="partner-item" href="https://lgebad.com/engagement-societal/eco-bad/" target="_blank"><img src="{{ asset('pictures/partenaire14.png') }}" alt="{{ 'éco bad'|trans }}"></a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officield" target="_blank"><img src="{{ asset('pictures/partenaire15.png') }}" alt="{{ 'Fédération française de badminton'|trans }}"></a>
+            <a class="partner-item" href="https://www.benevolat.org/" target="_blank"><img src="{{ asset('pictures/partenaire17.png') }}" alt="{{ 'Bénévolat associatif'|trans }}"></a>
+            <a class="partner-item" href="https://www.alionax.com/fr/rtv" target="_blank"><img src="{{ asset('pictures/partenaire18.png') }}" alt="{{ 'Alionax'|trans }}"></a>
+            <a class="partner-item" href="https://www.bouchonsdamour.com/" target="_blank"><img src="{{ asset('pictures/partenaire19.png') }}" alt="{{ 'Bouchons d\'amour'|trans }}"></a>
+            <a class="partner-item" href="https://www.decathlon.fr/" target="_blank"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="{{ 'decathlon'|trans }}"></a>
+            <a class="partner-item" href="https://www.afm-telethon.fr/fr" target="_blank"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="{{ 'Téléthon'|trans }}"></a>
 
             {# second set #}
-            <a class="partner-item" href="https://www.arbo-concept.com/" target="_blank"><img src="{{ asset('pictures/partenaire1.png') }}" alt="Arbo concept"></a>
-            <a class="partner-item" href="https://www.e.leclerc/" target="_blank"><img src="{{ asset('pictures/partenaire2.png') }}" alt=" Leclerc"></a>
-            <a class="partner-item" href="https://stauff.fr/" target="_blank"><img src="{{ asset('pictures/partenaire3.png') }}" alt=" stauff"></a>
-            <a class="partner-item" href="https://www.agglopolys.fr/" target="_blank"><img src="{{ asset('pictures/partenaire4.png') }}" alt="agglopolys"></a>
-            <a class="partner-item" href="https://www.blois.fr/en" target="_blank"><img src="{{ asset('pictures/partenaire5.png') }}" alt="Ville de Blois"></a>
-            <a class="partner-item" href="https://www.centre-valdeloire.fr/" target="_blank"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="centre val de loire"></a>
-            <a class="partner-item" href="https://www.departement41.fr/" target="_blank"><img src="{{ asset('pictures/partenaire7.png') }}" alt="Département 41"></a>
-            <a class="partner-item" href="https://www.citeseducatives.fr/cite/cite-educative-de-blois/la-boite-a-outils/nous-contacter" target="_blank"><img src="{{ asset('pictures/partenaire8.png') }}" alt="cités éducatives"></a>
-            <a class="partner-item" href="https://www.agencedusport.fr/" target="_blank"><img src="{{ asset('pictures/partenaire9.png') }}" alt="agence du sport"></a>
-            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officiel" target="_blank"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="club avenir"></a>
-            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-22/2025/ecole-francaise-de-badminton-la-campagne-de-labellisation-2025-est-lancee" target="_blank"><img src="{{ asset('pictures/partenaire11.png') }}" alt="école française de badminton"></a>
-            <a class="partner-item" href="https://badmintoncvl.fr/" target="_blank"><img src="{{ asset('pictures/partenaire12.png') }}" alt="Partenaire 12"></a>
-            <a class="partner-item" href="https://www.badminton41.org/" target="_blank"><img src="{{ asset('pictures/partenaire13.png') }}" alt="Badminton 41"></a>
-            <a class="partner-item" href="https://lgebad.com/engagement-societal/eco-bad/" target="_blank"><img src="{{ asset('pictures/partenaire14.png') }}" alt="éco bad"></a>
-            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officield" target="_blank"><img src="{{ asset('pictures/partenaire15.png') }}" alt="Fédération française de badminton"></a>
-            <a class="partner-item" href="https://www.benevolat.org/" target="_blank"><img src="{{ asset('pictures/partenaire17.png') }}" alt="Bénévolat associatif"></a>
-            <a class="partner-item" href="https://www.alionax.com/fr/rtv" target="_blank"><img src="{{ asset('pictures/partenaire18.png') }}" alt="Alionax"></a>
-            <a class="partner-item" href="https://www.bouchonsdamour.com/" target="_blank"><img src="{{ asset('pictures/partenaire19.png') }}" alt="Bouchons d'amour"></a>
-            <a class="partner-item" href="https://www.decathlon.fr/" target="_blank"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="decathlon 20"></a>
-            <a class="partner-item" href="https://www.afm-telethon.fr/fr" target="_blank"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="Téléthon"></a>
-        
+            <a class="partner-item" href="https://www.arbo-concept.com/" target="_blank"><img src="{{ asset('pictures/partenaire1.png') }}" alt="{{ 'Arbo concept'|trans }}"></a>
+            <a class="partner-item" href="https://www.e.leclerc/" target="_blank"><img src="{{ asset('pictures/partenaire2.png') }}" alt="{{ 'Leclerc'|trans }}"></a>
+            <a class="partner-item" href="https://stauff.fr/" target="_blank"><img src="{{ asset('pictures/partenaire3.png') }}" alt="{{ 'stauff'|trans }}"></a>
+            <a class="partner-item" href="https://www.agglopolys.fr/" target="_blank"><img src="{{ asset('pictures/partenaire4.png') }}" alt="{{ 'agglopolys'|trans }}"></a>
+            <a class="partner-item" href="https://www.blois.fr/en" target="_blank"><img src="{{ asset('pictures/partenaire5.png') }}" alt="{{ 'Ville de Blois'|trans }}"></a>
+            <a class="partner-item" href="https://www.centre-valdeloire.fr/" target="_blank"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="{{ 'centre val de loire'|trans }}"></a>
+            <a class="partner-item" href="https://www.departement41.fr/" target="_blank"><img src="{{ asset('pictures/partenaire7.png') }}" alt="{{ 'Département 41'|trans }}"></a>
+            <a class="partner-item" href="https://www.citeseducatives.fr/cite/cite-educative-de-blois/la-boite-a-outils/nous-contacter" target="_blank"><img src="{{ asset('pictures/partenaire8.png') }}" alt="{{ 'cités éducatives'|trans }}"></a>
+            <a class="partner-item" href="https://www.agencedusport.fr/" target="_blank"><img src="{{ asset('pictures/partenaire9.png') }}" alt="{{ 'agence du sport'|trans }}"></a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officiel" target="_blank"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="{{ 'club avenir'|trans }}"></a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-22/2025/ecole-francaise-de-badminton-la-campagne-de-labellisation-2025-est-lancee" target="_blank"><img src="{{ asset('pictures/partenaire11.png') }}" alt="{{ 'école française de badminton'|trans }}"></a>
+            <a class="partner-item" href="https://badmintoncvl.fr/" target="_blank"><img src="{{ asset('pictures/partenaire12.png') }}" alt="{{ 'Partenaire 12'|trans }}"></a>
+            <a class="partner-item" href="https://www.badminton41.org/" target="_blank"><img src="{{ asset('pictures/partenaire13.png') }}" alt="{{ 'Badminton 41'|trans }}"></a>
+            <a class="partner-item" href="https://lgebad.com/engagement-societal/eco-bad/" target="_blank"><img src="{{ asset('pictures/partenaire14.png') }}" alt="{{ 'éco bad'|trans }}"></a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officield" target="_blank"><img src="{{ asset('pictures/partenaire15.png') }}" alt="{{ 'Fédération française de badminton'|trans }}"></a>
+            <a class="partner-item" href="https://www.benevolat.org/" target="_blank"><img src="{{ asset('pictures/partenaire17.png') }}" alt="{{ 'Bénévolat associatif'|trans }}"></a>
+            <a class="partner-item" href="https://www.alionax.com/fr/rtv" target="_blank"><img src="{{ asset('pictures/partenaire18.png') }}" alt="{{ 'Alionax'|trans }}"></a>
+            <a class="partner-item" href="https://www.bouchonsdamour.com/" target="_blank"><img src="{{ asset('pictures/partenaire19.png') }}" alt="{{ 'Bouchons d\'amour'|trans }}"></a>
+            <a class="partner-item" href="https://www.decathlon.fr/" target="_blank"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="{{ 'decathlon'|trans }}"></a>
+            <a class="partner-item" href="https://www.afm-telethon.fr/fr" target="_blank"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="{{ 'Téléthon'|trans }}"></a>
         </div>
     </div>
 </section>
 
-{# Section partenaire principal : +2Bad #}
+{# +2Bad #}
 <section class="partner-spotlight">
     <div class="spotlight-container">
         <div class="spotlight-header neo-card">
-                <img src="{{ asset('pictures/partenairebad.png') }}" alt="+2Bad" class="spotlight-logo">
+            <img src="{{ asset('pictures/partenairebad.png') }}" alt="+2Bad" class="spotlight-logo">
         </div>
 
         <div class="spotlight-content">
             <div class="spotlight-description neo-card">
-                <h2> Partenaire équipement</h2>
-                <p>Votre club est heureux de vous annoncer un partenariat avec +2Bad.</p>
-                <p>L'enseigne Plusdebad est spécialiste du badminton, vous y trouverez : raquettes, chaussures, volants ainsi que tout l'équipement adapté à la pratique du badminton.</p>
+                <h2>{{ 'Partenaire équipement'|trans }}</h2>
+                <p>{{ 'Votre club est heureux de vous annoncer un partenariat avec +2Bad.'|trans }}</p>
+                <p>{{ 'L\'enseigne Plusdebad est spécialiste du badminton, vous y trouverez : raquettes, chaussures, volants ainsi que tout l\'équipement adapté à la pratique du badminton.'|trans }}</p>
                 
                 <div class="advantage-box">
                     <div>
-                        <h3>Avantage membres BBC</h3>
-                        <p><strong>-20% de remise</strong> sur les prix catalogues pour tous les membres du club !</p>
-                        <p>Pour obtenir le code de réduction chez notre partenaire +2Bad , envoies nous un <a class="a-footer" href="mailto:paris@plusdebad.com">mail.</a></p>
+                        <h3>{{ 'Avantage membres BBC'|trans }}</h3>
+                        <p><strong>{{ '-20% de remise'|trans }}</strong> {{ 'sur les prix catalogues pour tous les membres du club !'|trans }}</p>
+                        <p>{{ 'Pour obtenir le code de réduction chez notre partenaire +2Bad, envoie-nous un'|trans }} <a class="a-footer" href="mailto:paris@plusdebad.com">{{ 'mail'|trans }}.</a></p>
                     </div>
                 </div>
 
-                <p>L'ensemble de l'équipe +2Bad Paris sera heureuse de vous accueillir dans leur magasin place d'Italie afin de vous conseiller au mieux selon vos besoins.</p>
-                <p>Vous retrouverez également un grand choix de raquettes de badminton, bagagerie et chaussures de badminton sur leur site internet.</p>
+                <p>{{ 'L\'ensemble de l\'équipe +2Bad Paris sera heureuse de vous accueillir dans leur magasin place d\'Italie afin de vous conseiller au mieux selon vos besoins.'|trans }}</p>
+                <p>{{ 'Vous retrouverez également un grand choix de raquettes de badminton, bagagerie et chaussures de badminton sur leur site internet.'|trans }}</p>
             </div>
 
             <div class="spotlight-aside">
                 <div class="contact-card neo-card">
-                    <h3>Les trouver </h3>
-                    <p>12 rue Coypel <br> 75013 Paris </p>
+                    <h3>{{ 'Les trouver'|trans }}</h3>
+                    <p>12 rue Coypel<br>75013 Paris</p>
                 </div>
 
                 <div class="contact-card neo-card">
-                    <h3>Les contacter</h3>
-                            <a class="contact-2bad" href="tel:+33145835111">01 45 83 51 11</a>
-                            <a class="contact-2bad" href="mailto:paris@plusdebad.com">paris@plusdebad.com</a>
+                    <h3>{{ 'Les contacter'|trans }}</h3>
+                    <a class="contact-2bad" href="tel:+33145835111">01 45 83 51 11</a>
+                    <a class="contact-2bad" href="mailto:paris@plusdebad.com">paris@plusdebad.com</a>
                 </div>
 
                 <div class="contact-card neo-card social-card">
-                    <h3>Suivez-les</h3>
+                    <h3>{{ 'Suivez-les'|trans }}</h3>
                     <div class="partner-socials">
                         <a href="https://www.facebook.com/plusdebadparis" 
                            target="_blank" 
@@ -105,7 +104,7 @@
                         </a>
                         <a href="https://www.instagram.com/plusdebad/" 
                            target="_blank" 
-                           class="neo-circle social-icon-partners  social-insta-small" 
+                           class="neo-circle social-icon-partners social-insta-small" 
                            aria-label="Instagram +2Bad">
                         </a>
                     </div>
@@ -114,20 +113,20 @@
                 <a href="https://www.plusdebad.com/" 
                    target="_blank" 
                    class="visit-btn">
-                    Visiter le site web →
+                    {{ 'Visiter le site web'|trans }} →
                 </a>
             </div>
         </div>
     </div>
 </section>
 
-{# Section conclusion #}
+
 <section class="partners-conclusion">
     <div class="conclusion-card neo-card">
-        <h2>Ensemble, pour la performance</h2>
-        <p>Le Club est fier de collaborer avec un large éventail de partenaires qui partagent sa passion de la performance, dans des secteurs variés.</p>
-        <p>Vous souhaitez devenir partenaire du Blois Badminton Club ?</p>
-        <a href="{{ path('app_contact') }}" class="contact-cta">Contactez-nous</a>
+        <h2>{{ 'Ensemble, pour la performance'|trans }}</h2>
+        <p>{{ 'Le Club est fier de collaborer avec un large éventail de partenaires qui partagent sa passion de la performance, dans des secteurs variés.'|trans }}</p>
+        <p>{{ 'Vous souhaitez devenir partenaire du Blois Badminton Club ?'|trans }}</p>
+        <a href="{{ path('app_contact') }}" class="contact-cta">{{ 'Contactez-nous'|trans }}</a>
     </div>
 </section>
 

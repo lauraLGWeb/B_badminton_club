@@ -1,44 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Création d'une nouvelle actualité{% endblock %}
-
+{% block title %}{{ 'Création d\'une nouvelle actualité'|trans }}{% endblock %}
 
 {% block body %}
 
-    <h1>Création d'une nouvelle actualité</h1>
+    <h1>{{ 'Création d\'une nouvelle actualité'|trans }}</h1>
 
-       {% for type, messages in app.flashes %}
-    {# going through each of the 3 messages #}
+    {% for type, messages in app.flashes %}
         {% for message in messages %}
             <div class="flash-{{ type }}">
-                {{ message }}
+                {{ message|trans }}
             </div>
         {% endfor %}
     {% endfor %}
 
     {{ form_errors(form) }}
 
-    {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
         
-       
         {{ form_row(form.title, {
-            label: 'Titre'
+            'label': 'Titre'|trans
         }) }}
+        
         {{ form_row(form.description, {
-            label: 'Description'
+            'label': 'Description'|trans
         }) }}
+        
         {{ form_row(form.picture, {
-            label: 'Lien de l\'image '
+            'label': 'Lien de l\'image'|trans
         }) }}
+        
         {{ form_row(form.eventOn, {
-            label: 'Date de l\'évenement'
-        }) }} 
-            
+            'label': 'Date de l\'événement'|trans
+        }) }}
 
-        <button type="submit" class="submit-button">publier l'évenement</button>
+        <button type="submit" class="submit-button">
+            {{ 'Publier l\'événement'|trans }}
+        </button>
 
     {{ form_end(form) }}
 
-
 {% endblock %}
-
