@@ -9,8 +9,10 @@ use App\Repository\InternshipsRepository;
 use App\Entity\InternshipPlayer;
 use App\Form\InternshipType;
 use App\Repository\InternshipPlayerRepository;
+use App\Form\InternshipCreationType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Internships;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 final class InternshipsController extends AbstractController
@@ -135,6 +137,31 @@ final class InternshipsController extends AbstractController
 
     }
 
+
+
+// create an internship (admon only)
+   #[Route('admin/Leclub/Stages/creation', name: 'app_createInternship')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function createInternship(Request $request, EntityManagerInterface $em): Response
+    {
+    $newInternship = new Internships();
+        $form = $this->createForm(InternshipCreationType::class, $newInternship);
+        $form->handleRequest($request);
+
+         if ($form->isSubmitted() && $form->isValid()) {
+                          
+            $em->persist($newInternship);
+            $em->flush();        
+
+            $this->addFlash('success', 'Stage créée avec succès !');
+            return $this->redirectToRoute('app_internships');
+            }
+
+        return $this->render('admin/CreateInternship.html.twig', [
+            'form' => $form,
+        ]);
+
+    }
 
 
 

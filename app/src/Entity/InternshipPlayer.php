@@ -16,10 +16,22 @@ class InternshipPlayer
 
     #[ORM\Column(length: 60)]
     #[Assert\NotBlank(message: 'Le Nom est obligatoire')]
+    #[Assert\Length(
+    min: 2,
+    max: 50,
+    minMessage: 'Minimum {{ limit }} caractères',
+    maxMessage: 'Maximum {{ limit }} caractères'
+)]
     private ?string $LastName = null;
 
     #[ORM\Column(length: 50)]
     #[Assert\NotBlank(message: 'Le prénom est obligatoire')]
+    #[Assert\Length(
+    min: 2,
+    max: 50,
+    minMessage: 'Minimum {{ limit }} caractères',
+    maxMessage: 'Maximum {{ limit }} caractères'
+)]
     private ?string $FirstName = null;
 
     #[ORM\Column(length: 100)]
@@ -31,6 +43,10 @@ class InternshipPlayer
 
     #[ORM\Column(length: 15)]
     #[Assert\NotBlank(message: 'Le portable est obligatoire')]
+    #[Assert\Regex(
+    pattern: '/^(?:(?:\+|00)33[\s.-]?(?:\(0\)[\s.-]?)?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/',
+    message: 'Format invalide'
+)]
     private ?string $phoneNumber = null;
 
     #[ORM\Column(length: 3)]

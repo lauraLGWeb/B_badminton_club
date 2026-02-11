@@ -11,7 +11,7 @@ services:
         ports:
             - '4306:3306'                          
         volumes:
-            - ./mysql:/var/lib/mysql               
+            - mysql_data:/var/lib/mysql  # ← Volume nommé              
 
     # --- Base de données NoSQL MongoDB (actualités) ---
     mongo:
@@ -55,3 +55,7 @@ services:
             UPLOAD_LIMIT: 20M                     
         ports:
             - 8899:80                              # phpMyAdmin accessible on localhost:8899
+
+volumes:        
+    mysql_data:
+    

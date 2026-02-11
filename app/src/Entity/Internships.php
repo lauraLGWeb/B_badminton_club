@@ -33,14 +33,30 @@ class Internships
     private ?string $gymnase = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
+    #[Assert\Positive(message: 'Le prix doit être positif')]
+    #[Assert\Range(
+    min: 0,
+    max: 100,
+    notInRangeMessage: 'Entre {{ min }} et {{ max }}')]
     #[Assert\NotBlank(message: 'Le tarif est obligatoire')]
     private ?string $price = null;
 
     #[ORM\Column]
+    #[Assert\Positive(message: 'Le nombre de joueur doit être positif')]
+    #[Assert\Range(
+    min: 0,
+    max: 100,
+    notInRangeMessage: 'Entre {{ min }} et {{ max }}'
+)]
     #[Assert\NotBlank(message: 'Le nombre de personne maximum accepté est obligatoire')]
     private ?int $maxPlayersNbr = null;
 
     #[ORM\Column]
+    #[Assert\Range(
+    min: 0,
+    max: 100,
+    notInRangeMessage: 'Entre {{ min }} et {{ max }}'
+)]
     private ?int $alreadyBooked = null;
 
     /**

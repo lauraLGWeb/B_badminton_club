@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 
 class InternshipType extends AbstractType
 {
@@ -16,7 +17,7 @@ class InternshipType extends AbstractType
             ->add('LastName')
             ->add('FirstName')
             ->add('email')
-            ->add('phoneNumber')
+            ->add('phoneNumber', TelType::class)
             ->add('SimpleRank', ChoiceType::class, [
                     'choices' => [
                         'NC (Non classé)' => 'NC',

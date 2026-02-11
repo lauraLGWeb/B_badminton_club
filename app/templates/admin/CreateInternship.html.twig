@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Création d'un nouveau produit {% endblock %}
+{% block title %} Création d'un nouveau stage {% endblock %}
 
 
 {% block body %}
 
+   
 <div class="container">
 
     <h1>Création d'un nouveau produit</h1>
-        
-           {% for type, messages in app.flashes %}
+
+     {% for type, messages in app.flashes %}
     {# going through each of the 3 messages #}
         {% for message in messages %}
             <div class="flash-{{ type }}">
@@ -18,31 +19,37 @@
         {% endfor %}
     {% endfor %}
 
-    
+        
         {{ form_errors(form) }}
 
         {{ form_start(form, {'attr': {'novalidate' : 'novalidate'}}) }}
             
         
-            {{ form_row(form.title, {
-                label: 'Nom du produit'
+            {{ form_row(form.internshipTitle, {
+                label: 'Titre du stage'
             }) }}
-            {{ form_row(form.description, {
-                label: 'Description'
+            {{ form_row(form.dateTime, {
+                label: 'Date et jour '
             }) }}
-            {{ form_row(form.picture, {
-                label: 'Lien de l\'image '
+            {{ form_row(form.gymnase, {
+                label: 'Gymnase'
             }) }}
             {{ form_row(form.price, {
-                label: 'Prix (€)',
+                label: 'Prix',
                 attr: {
                     'step': '0.01',
                     'min': '0'
                 }
             }) }}
-            {{ form_row(form.hasSize, {
-                label: 'Ce produit a-t-il des tailles ?'
+            {{ form_row(form.maxPlayersNbr, {
+                label: 'Nombre maximum de joueurs ?'
+               
             }) }} 
+              {{ form_row(form.alreadyBooked, {
+                label: 'Nombre d\'inscrits actuellement'
+               
+            }) }} 
+          
                 
 
             <button type="submit" class="submit-button">publier le nouvel article </button>

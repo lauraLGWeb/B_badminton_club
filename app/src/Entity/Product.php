@@ -36,7 +36,7 @@ class Product
     private ?string $picture = null;
 
     #[ORM\Column(name: 'has_size')]
-    #[Assert\NotNull(message: 'Merci de sélectionner une deux deux propositions')]
+    #[Assert\NotNull(message: 'Merci de sélectionner une des deux propositions')]
     private ?bool $hasSize = false;
 
   
