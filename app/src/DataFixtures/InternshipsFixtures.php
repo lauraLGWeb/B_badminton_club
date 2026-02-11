@@ -14,7 +14,7 @@ class InternshipsFixtures extends Fixture
             [
                 'Stage Découverte Badminton',
                 '2026-03-02 14:00:00',
-                'Gymnase Jean Jaurès',
+                'Rabelais',
                 '15.00',
                 16,
                 0
@@ -22,7 +22,7 @@ class InternshipsFixtures extends Fixture
             [
                 'Stage Progression Simple',
                 '2026-03-02 14:00:00',
-                'Gymnase Victor Hugo',
+                'Rabelais',
                 '20.00',
                 3,
                 0
@@ -30,7 +30,7 @@ class InternshipsFixtures extends Fixture
             [
                 'Stage Double & Placement',
                 '2026-03-02 14:00:00',
-                'Gymnase Pierre de Coubertin',
+                'Rabelais',
                 '18.00',
                 16,
                 0
@@ -38,7 +38,7 @@ class InternshipsFixtures extends Fixture
             [
                 'Stage Jeunes Compétition',
                 '2026-03-02 14:00:00',
-                'Gymnase Marcel Pagnol',
+                'Rabelais',
                 '12.00',
                 20,
                 0
@@ -46,7 +46,7 @@ class InternshipsFixtures extends Fixture
             [
                 'Stage Perfectionnement Adultes',
                 '2026-03-02 14:00:00',
-                'Gymnase Albert Camus',
+                'Rabelais',
                 '22.00',
                 14,
                 0

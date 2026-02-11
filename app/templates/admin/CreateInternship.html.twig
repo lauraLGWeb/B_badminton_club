@@ -8,7 +8,19 @@
    
 <div class="container">
 
-    <h1>Création d'un nouveau produit</h1>
+            <div class="titleAndBtnComeBack">
+                {% if app.current_route == 'app_createInternship' %}
+                    <h1>Création d'un nouveau stage</h1>
+                {% elseif app.current_route == 'app_modifyInternship' %}
+                    <h1>Modification du stage</h1>
+                {% endif %} 
+
+                <a href="{{ path('app_internships')}}" role="button" class="btn-back">Retour aux stages</a>
+                
+            </div>
+
+
+  
 
      {% for type, messages in app.flashes %}
     {# going through each of the 3 messages #}

@@ -65,8 +65,8 @@
                                     <td>{{ player.SimpleRank }}</td>
                                     <td>{{ player.DoubleRank }}</td>
                                     <td>{{ player.MixteRank }}</td>
-                                    <td>{{ player.email }}</td>
-                                    <td>{{ player.phoneNumber }}</td>
+                                    <td><a href="mailto:{{ player.email }}">{{ player.email }}</a></td>
+                                    <td><a href="tel:++{{ player.phoneNumber }}">{{ player.phoneNumber }}</a></td>
                                     <td> 
                                         <form class="noStyle" action="{{ path('app_deletePlayersInternship', { id: player.id }) }}" 
                                         method="post" 

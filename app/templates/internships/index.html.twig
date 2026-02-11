@@ -62,11 +62,21 @@
                     {% if not internship.AlreadyBooked is same as internship.maxPlayersNbr %}
                         <a href="{{ path('app_intershipInscription', {'id': internship.id}) }}" class="internship-btn">M'inscrire</a>
                     {% endif %}   
-                </div>
+                
 
-            {% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
-                <a class="internship-btn-other " href="{{ path('app_bookedPlayersInternship', {'id': internship.id}) }}">Voir les inscrits</a>      
-            {% endif %}
+                    {% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
+                        <a class="internship-btn" href="{{ path('app_bookedPlayersInternship', {'id': internship.id}) }}">Voir les inscrits</a>
+
+                        <a class="internship-btn-other " href="{{ path('app_modifyInternship', {'id': internship.id}) }}">Modifier le stage</a>    
+                            
+                        <form class="btn-back" action="{{ path('app_deleteInternship', {'id': internship.id})}}" 
+                                        method="post" 
+                                        onsubmit="return confirm('Supprimer cet article ?')">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete_Internship_' ~ internship.id) }}">
+                                        <button type="submit" class="internship-btn-other"> Supprimer ce stage</button>
+                        </form>
+                     {% endif %}
+                 </div>
             </section>
         {% endfor %}
     </section>

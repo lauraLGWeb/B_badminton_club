@@ -75,7 +75,7 @@ final class InternshipsController extends AbstractController
 
 
 // admin and trainer part : see the inscription on one internship
-   #[Route('entraineur/Leclub/Stages/inscriptions/{id}', name: 'app_bookedPlayersInternship')]
+   #[Route('/entraineur/Leclub/Stages/inscriptions/{id}', name: 'app_bookedPlayersInternship')]
     #[IsGranted('ROLE_ADMIN')]
     #[IsGranted('ROLE_ENTRAINEUR')]
     public function bookedPlayersInternship(int $id, InternshipsRepository $ir): Response
@@ -94,7 +94,7 @@ final class InternshipsController extends AbstractController
 
 
 // cancel player from the selected internship
-   #[Route('entraineur/Leclub/Stages/inscriptions/supprimer/{id}', name: 'app_deletePlayersInternship')]
+   #[Route('/entraineur/Leclub/Stages/inscriptions/supprimer/{id}', name: 'app_deletePlayersInternship')]
     #[IsGranted('ROLE_ADMIN')]
     #[IsGranted('ROLE_ENTRAINEUR')]
     public function deletePlayersInternship(int $id, EntityManagerInterface $em,InternshipPlayerRepository $ipr, Request $request): Response
@@ -162,7 +162,56 @@ final class InternshipsController extends AbstractController
         ]);
 
     }
+// modify an internship (admin only)
+   #[Route('/entraineur/Leclub/Stages/modifier/{id}', name: 'app_modifyInternship')]
+    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_ENTRAINEUR')]
+  public function app_modifyInternship(Request $request, EntityManagerInterface $em, $id, InternshipsRepository $ir): Response
+    {
+      
 
+        $internship = $em->getRepository(Internships::class)->find($id);
+
+        $form = $this->createForm(InternshipCreationType::class, $internship);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted()&& $form->isValid())
+        {   
+        $em-> flush();
+
+            $this->addFlash('success', 'Stage mis à jour avec succès !');          
+            return $this->redirectToRoute('app_internships');
+        } 
+
+        if($form->isSubmitted()&& !$form->isValid())
+        {   
+         $this->addFlash('error', 'Erreur dans la mise à jour, celle ci n\'est pas prise en compte');
+        }
+         return $this->render("admin/createInternship.html.twig", [
+            "form" => $form,
+            
+        ]);
+     }
+#[Route('/admin/Leclub/Stages/suppression/{id}', name: 'app_deleteInternship')]
+    #[IsGranted('ROLE_ADMIN')]
+   public function app_deleteInternship(int $id, InternshipsRepository $ir, EntityManagerInterface $em, Request $request) : Response
+    {
+
+         //get the internship clicked on
+        $internship = $ir->find($id);
+
+         // token check 
+        $token = $request->request->get('_token');
+        if (!$this->isCsrfTokenValid('delete_Internship_' . $internship->getId(), $token)) {
+            $this->addFlash('error', 'Token invalide');
+            return $this->redirectToRoute('app_internships');
+        }
+
+        $em->remove($internship);
+        $em->flush();
+        
+        return $this->redirectToRoute('app_internships');
+    }
 
 
 }

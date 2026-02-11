@@ -158,7 +158,7 @@ tbody td a:hover {
    MEDIA QUERIES
    ======================================== */
 
-@media (max-width: 950px) {
+@media (max-width: 1080px) {
     /* get the table into card and not table anymore*/
     .members-list {
         padding: 30px 10px;
@@ -191,6 +191,4 @@ tbody td a:hover {
         padding: 10px 0;
     }
 }
-
-
 

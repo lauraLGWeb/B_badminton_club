@@ -114,14 +114,14 @@
     text-decoration: none;
     font-weight: 600;
     margin: auto;
-    width: 50%;
+    width: clamp(15rem, 15vw, 40rem);
     text-align: center;
     transition: all 0.3s;
 
     box-shadow:var(--unpressed);
          transition: all 0.4s ease;
 }
-.internship-btn-other {
+.internship-btn-other, form .internship-btn-other {
     background: var(--gradient-start);
     color: var(--bg-color);
     padding: 6px 30px;
@@ -129,17 +129,37 @@
     text-decoration: none;
     font-weight: 600;
     margin: auto;
-    width: 50%;
+    width: clamp(15rem, 15vw, 40rem);
     text-align: center;
     transition: all 0.3s;
     margin-top: 10px;
+    margin-bottom: 0;
     box-shadow:var(--unpressed);
          transition: all 0.4s ease;
 }
+.internshipFooter .btn-back{
+    margin: 0;
+    box-shadow: none;
+    border: none;
+    
+}
+.internshipFooter .internship-btn-other{
+    border: none;
+    
+}
+
 
 .internship-btn:hover, .internship-btn-other:hover{
     width: 100%;
     box-shadow: var(--pressed);
+}
+
+
+/* delete btn */
+
+.actionfInternship{
+    display: flex;
+    height: 13rem;
 }
 
 
@@ -169,13 +189,42 @@
 }
 
 
+/* ========================================
+FORM PAGE
+   ======================================== */
 
+.container .titleAndBtnComeBack{
+    display: flex;
+    flex-direction: column;
+}
 
+.container .btn-back{
+    margin: 20px;
+    width: clamp(10rem, 25vw, 20rem);
+}
+    
 
 
 /* ========================================
    RESPONSIVE
    ======================================== */
-@media (max-width: 768px) {
-  
+
+
+   
+@media (max-width: 960px) {
+  .internshipCard{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  tbody tr td:first-child, 
+  tbody tr td:nth-child(2) {
+        background-color:rgba(255, 120, 53, 0.096) ;
+        text-transform: uppercase;
+    }
+
+}
+
+@media (max-width: 750px) {
+  .internshipCard{
+    grid-template-columns: 1fr;
+  }
 }
