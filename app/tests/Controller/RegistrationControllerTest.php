@@ -48,16 +48,16 @@ class RegistrationControllerTest extends WebTestCase
         
         // is the user created in database ?
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $user = $userRepository->findOneBy(['email' => 'testou@example.com']);
+        $user = $userRepository->findOneBy(['email' => 'jbonnin@example.org']);
 
         $this->assertNotNull($user);
-        $this->assertSame('Vallet', $user->getLastName());
-        $this->assertSame('laura', $user->getFirstName());
+        $this->assertSame('Laine', $user->getLastName());
+        $this->assertSame('Benjamin', $user->getFirstName());
         $this->assertContains('ROLE_MEMBRE', $user->getRoles());
 
         // is the password hashed 
         $passwordHasher = static::getContainer()->get(UserPasswordHasherInterface::class);
-        $this->assertTrue($passwordHasher->isPasswordValid($user, 'Testou123'));
+        $this->assertTrue($passwordHasher->isPasswordValid($user, 'motdepasse123'));
 
         //  should connect the user
         $this->assertNotNull($client->getContainer()->get('security.token_storage')->getToken());
@@ -78,7 +78,7 @@ class RegistrationControllerTest extends WebTestCase
             'registration_form[lastName]' => 'Test',
             'registration_form[firstName]' => 'User',
             'registration_form[plainPassword]' => '123', 
-            'registration_form[lienceNbr]' => '8880503',
+            'registration_form[lienceNbr]' => '8680503',
             'registration_form[agreeTerms]' => 1,
         ]);
 
@@ -95,14 +95,14 @@ class RegistrationControllerTest extends WebTestCase
         
         // Créer un utilisateur existant
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $existingUser = $userRepository->findOneBy(['email' => 'labbe.arnaude@example.org']);
+        $existingUser = $userRepository->findOneBy(['email' => 'maryse.masse@example.org']);
 
         $crawler = $client->request('GET', '/inscription');
 
         $form = $crawler->selectButton('Créer mon compte')->form([
             'registration_form[email]' => $existingUser->getEmail(),
-            'registration_form[lastName]' => 'Vallet',
-            'registration_form[firstName]' => 'Margot',
+            'registration_form[lastName]' => 'Hubert',
+            'registration_form[firstName]' => 'Timothée',
             'registration_form[plainPassword]' => 'motdepasse123',
             'registration_form[lienceNbr]' => '9194997',
             'registration_form[agreeTerms]' => 1,

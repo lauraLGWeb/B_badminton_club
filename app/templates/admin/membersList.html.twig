@@ -44,7 +44,8 @@
                             <form class="noStyle" 
                                   action="{{ path('app_delete', {'id': user.id}) }}" 
                                   method="post" 
-                                  onsubmit="return confirm('{{ 'Supprimer ce membre ?'|trans }}')">
+                                    onsubmit="return confirm(this.dataset.confirmMessage);"
+                                    data-confirm-message="{{ 'Supprimer ce membre ?'|trans }}">
                                 <input type="hidden" 
                                        name="_token" 
                                        value="{{ csrf_token('delete_member_' ~ user.id) }}">
@@ -57,7 +58,8 @@
                             <form class="noStyle" 
                                   action="{{ path('app_validateLicence', {'id': user.id}) }}" 
                                   method="post" 
-                                  onsubmit="return confirm('{{ 'Valider l\'Inscription ?'|trans }}')">
+                                    onsubmit="return confirm(this.dataset.confirmMessage);"
+                                    data-confirm-message="{{ 'Valider l\'Inscription ?'|trans }}">
                                 <input type="hidden" 
                                        name="_token" 
                                        value="{{ csrf_token('validate_licence_' ~ user.id) }}">
@@ -101,7 +103,8 @@
                             <form class="noStyle" 
                                   action="{{ path('app_delete', {'id': user.id}) }}" 
                                   method="post" 
-                                  onsubmit="return confirm('{{ 'Supprimer ce membre ?'|trans }}')">
+                                    onsubmit="return confirm(this.dataset.confirmMessage);"
+                                    data-confirm-message="{{ 'Supprimer ce membre ?'|trans }}">
                                 <input type="hidden" 
                                        name="_token" 
                                        value="{{ csrf_token('delete_member_' ~ user.id) }}">

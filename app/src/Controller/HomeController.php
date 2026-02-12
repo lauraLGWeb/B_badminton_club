@@ -80,13 +80,6 @@ final class HomeController extends AbstractController
     //     ]);
     // }
 
-    //     #[Route('/Leclub/Stages', name: 'app_internships')]
-    // public function internships(): Response
-    // {
-    //     return $this->render('home/internships.html.twig', [
-    //         'controller_name' => 'HomeController',
-    //     ]);
-    // }
 
      #[Route('/Tarifs', name: 'app_prices')]
     public function prices(): Response
@@ -165,8 +158,6 @@ final class HomeController extends AbstractController
     }
 
 
-
-
        #[Route('/mentions', name: 'app_legalMentions')]
     public function legalMentions(): Response
     {
@@ -175,13 +166,7 @@ final class HomeController extends AbstractController
 
 
 
-// pages for internship
-     #[Route('/Leclub/Stages/gestion', name: 'app_each_intership')]
-      #[IsGranted('ROLE_ENTRAINEUR')]
-    public function eachInternship(): Response
-    {
-        return $this->render('home/eachInternship.html.twig');
-    }
+
       
 
 

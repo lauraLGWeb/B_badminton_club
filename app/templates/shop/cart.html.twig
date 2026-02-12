@@ -7,6 +7,15 @@
 <div class="cart-container">
     <h1>{{ 'Mon Panier'|trans }}</h1>
 
+
+     {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message|trans }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
     {% if cart.CartItem is empty %}
         <div class="empty-cart">
             <p>{{ 'Votre panier est vide.'|trans }}</p>

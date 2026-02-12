@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ 'shop.page_title'|trans }} {% endblock %}
+{% block title %} {{ 'Boutique'|trans }} {% endblock %}
 
 {% block stylesheets %}
         <script defer src="{{asset('styles/JS/main.js') }}"></script>
@@ -15,7 +15,7 @@
 {% block body %}
 
 <section class="shop">
-    <h1>{{ 'shop.welcome'|trans }}</h1>
+    <h1>{{ 'Bienvenue dans la boutique du Blois Badminton Club !'|trans }}</h1>
 
     {% for type, messages in app.flashes %}
         {% for message in messages %}
@@ -26,14 +26,17 @@
     {% endfor %}
 
     <div class="presentationAndCart">
-        <h2>{{ 'shop.presentation'|trans }}</h2>
+        <h2>{{ 'Ici, tu peux commander directement tes articles et payer en ligne par carte bancaire en toute sécurité.
+        Une fois ton paiement effectué, tu pourras récupérer tes produits auprès d\'un membre du bureau du club.
+        Parcours notre sélection de T-shirts, accessoires et matériel, et équipe-toi facilement tout en soutenant le club !'|trans }}</h2>
     </div>
+    
 
     <div class="filter">
-        <p class="pFilter">{{ 'shop.filters'|trans }}</p>
+        <p class="pFilter">{{ 'filtres'|trans }}</p>
         <div>
             <a href="{{ path('app_cart') }}"> 
-                <img src="{{asset("pictures/cart.png")}}" alt="{{ 'shop.cart_alt'|trans }}">
+                <img src="{{asset("pictures/cart.png")}}" alt="{{ 'product.title'|trans }}">
             </a>
             {% if cart %}
                 {% set total = 0 %}
@@ -59,9 +62,9 @@
                 <form class="add-to-cart-form" action="{{ path('app_addItem', { id: product.id }) }}" method="POST">
                     {% if product.hasSize %}
                     <div class="selects">
-                        <label for="size">{{ 'shop.choose_size'|trans }}</label>
+                        <label for="size">{{ 'Choisit la taille :'|trans }}</label>
                         <select name="size" id="size" class="select-shop size">  
-                            <option value="">{{ 'shop.select_size'|trans }}</option>
+                            <option value="">{{ 'Choisir une taille'|trans }}</option>
                             <option value="XS">XS</option>
                             <option value="S">S</option>
                             <option value="M">M</option>
@@ -70,11 +73,11 @@
                             <option value="XXL">XXL</option>  
                         </select>
 
-                        <label for="gender">{{ 'shop.choose_gender'|trans }}</label>
+                        <label for="gender">{{ 'Choisit le genre'|trans }}</label>
                         <select name="gender" id="gender" class="select-shop gender">  
-                            <option value="">{{ 'shop.select_gender'|trans }}</option>
-                            <option value="man">{{ 'shop.man'|trans }}</option>
-                            <option value="woman">{{ 'shop.woman'|trans }}</option>
+                            <option value="">{{ 'Choisir un genre'|trans }}</option>
+                            <option value="man">{{ 'Homme'|trans }}</option>
+                            <option value="woman">{{ 'Femme'|trans }}</option>
                         </select>
                     </div>
                     {% endif %}
@@ -82,7 +85,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token('hasSize_form' ~ product.id) }}">
                     
                     <button type="submit" class="btn">
-                        {{ 'shop.add_to_cart'|trans }}
+                        {{ 'Ajouter au panier'|trans }}
                     </button>
                 </form>
             </div>

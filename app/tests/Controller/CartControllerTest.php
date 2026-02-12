@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use App\Entity\User;
 use App\Entity\Product;
 use App\Entity\CartItem;
+use Symfony\Component\Security\Csrf\CsrfTokenManager;
 
 class CartControllerTest extends WebTestCase
 {
@@ -27,7 +28,7 @@ class CartControllerTest extends WebTestCase
     {
         // take a user test with specific email
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'foucher.antoine@example.com']);
+        $user = $userRepository->findOneBy(['email' => 'auguste32@example.org']);
 
     
         // connect the user
@@ -60,37 +61,45 @@ class CartControllerTest extends WebTestCase
      */
     public function testAddProductToCart(): void
     {
-        // connexion of the user
-        $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'foucher.antoine@example.com']);
+     $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
+    $user = $userRepository->findOneBy(['email' => 'auguste32@example.org']);
+    $this->assertNotNull($user, 'Utilisateur introuvable');
 
-    
+    $this->client->loginUser($user);
 
-        $this->client->loginUser($user);
+    $productRepository = static::getContainer()->get('doctrine')->getRepository(Product::class);
+    $product = $productRepository->findOneBy([]);
+    $this->assertNotNull($product, 'Aucun produit dans les fixtures');
 
-        // get an item
-        $productRepository = static::getContainer()->get('doctrine')->getRepository(Product::class);
-        $product = $productRepository->findOneBy(['price' => '40']);
+    // CSRF token manager
+    $csrfTokenManager = static::getContainer()->get('security.csrf.token_manager');
+    $csrfToken = $csrfTokenManager->getToken('hasSize_form' . $product->getId())->getValue();
 
-        if (!$product) {
-            $this->markTestSkipped('Aucun produit dans les fixtures');
-        }
+    // POST pour ajouter au panier (avec size et gender)
+    $this->client->request('POST', '/membre/boutique/panier/ajouter/' . $product->getId(), [
+        '_token' => $csrfToken,
+    ]);
 
-        // Add the item into the cart 
-        $this->client->request('GET', '/membre/boutique/panier/ajouter/' . $product->getId());
+    $this->assertResponseRedirects('/shop'); // ou route exacte app_shop
+    $this->client->followRedirect();
 
-        // check if redirection
-        $this->assertResponseRedirects();
-    }
+    $this->assertSelectorTextContains('.flash-success', 'Produit ajouté au panier !');
+
+    $em = static::getContainer()->get('doctrine')->getManager();
+    $cartItemRepository = $em->getRepository(CartItem::class);
+    $cartItem = $cartItemRepository->findOneBy(['product' => $product]);
+    $this->assertNotNull($cartItem, 'Le produit n\'a pas été ajouté au panier');
+}
+
 
     /**
      * TEST 4 : delete an item from the cart
      */
-    public function testRemoveProductFromCart(): void
+    public function testRemoveProductFromCart(CsrfTokenManager $csrfTokenManager): void
     {
         // Connexion
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'foucher.antoine@example.com']);
+        $user = $userRepository->findOneBy(['email' => 'auguste32@example.org']);
 
         $this->client->loginUser($user);
 
@@ -98,24 +107,39 @@ class CartControllerTest extends WebTestCase
         $productRepository = static::getContainer()->get('doctrine')->getRepository(Product::class);
         $product = $productRepository->findOneBy([]);
 
-        if (!$product) {
-            $this->assertNotNull($product, 'Aucun produit dans les fixtures');
-        }
+       
+        $this->assertNotNull($product, 'Aucun produit dans les fixtures');
+        
 
         // add the item into the cart 
-        $this->client->request('GET', '/membre/boutique/panier/ajouter' . $product->getId());
+        $this->client->request('GET', '/membre/boutique/panier/ajouter/'. $product->getId());
         
         // Récupère le CartItem créé
         $em = static::getContainer()->get('doctrine')->getManager();
         $cartItemRepository = $em->getRepository(CartItem::class);
         $cartItem = $cartItemRepository->findOneBy(['product' => $product]);
 
-        if (!$cartItem) {
-            $this->assertNotNull('Le produit n\'a pas été ajouté au panier');
-        }
+        $token = $csrfTokenManager->getToken('delete_item' . $cartItem->getId())->getValue();
+
+        
+         $this->assertNotNull($cartItem, 'Le produit n\'a pas été ajouté au panier');
+    
 
         // delete the item
-        $this->client->request('GET', '/membre/boutique/panier/supprimer/' . $cartItem->getId());
+        $this->client->request('GET', '/membre/boutique/panier/supprimer/' . $cartItem->getId(),
+        [
+            '_token' => $token
+        ]);
+
+
+
+         // checking the item is deleted
+
+        $em->clear();
+
+        $deletedCartItem = $cartItemRepository->find($cartItem->getId());
+
+        $this->assertNull($deletedCartItem);
 
         // check the redirection
         $this->assertResponseRedirects('/membre/boutique/panier');
