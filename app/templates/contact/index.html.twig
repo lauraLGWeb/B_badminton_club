@@ -55,25 +55,32 @@
 {{ form_start(contactForm) }}
     
     {{ form_row(contactForm.firstName, {
-        'label': 'Prénom'|trans
+        'label': 'Prénom'|trans,
+        'attr': {'placeholder': 'Votre prénom'|trans}
     }) }}
     
     {{ form_row(contactForm.lastName, {
-        'label': 'Nom'|trans
+        'label': 'Nom'|trans,
+        'attr': {'placeholder': 'Votre nom'|trans}
     }) }}
     
     {{ form_row(contactForm.email, {
-        'label': 'Email'|trans
+        'label': 'Email'|trans,
+         'attr': {'placeholder': 'Votre email'|trans}
     }) }}
     
     {{ form_row(contactForm.message, {
-        'label': 'Ton message'|trans
+        'label': 'Ton message'|trans,
+        'attr': {'placeholder': 'Votre message'|trans}
     }) }}
 
-    {{ form_row(contactForm.send) }}
+    {{ form_row(contactForm.send, {
+        'label': 'Envoyer'|trans
+    }) }}
     
     {{ form_row(contactForm.reset, {
         'label': 'Effacer'|trans
+        
     }) }}
   
 {{ form_end(contactForm) }}

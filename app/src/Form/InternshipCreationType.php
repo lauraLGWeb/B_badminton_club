@@ -46,9 +46,9 @@ class InternshipCreationType extends AbstractType
                     'choices' => [
                         'Rabelais' => 'Rabelais',
                         'Etelin' => 'Etelin',
-                      
                     ],
-                    'placeholder' => 'Choisir un gymnase'
+                    'placeholder' => 'Choisir un gymnase',
+                    'attr' => ['class' => 'select-shop'],
             ])
             ->add('price', NumberType::class)
             ->add('maxPlayersNbr', IntegerType::class)
