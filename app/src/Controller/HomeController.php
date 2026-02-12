@@ -64,22 +64,31 @@ final class HomeController extends AbstractController
 // routes for the ecole de bad dropdown
  
 
-    //   #[Route('/Leclub/Entraineurs', name: 'app_coaches')]
-    // public function coaches(): Response
-    // {
-    //     return $this->render('home/coaches.html.twig', [
-    //         'controller_name' => 'HomeController',
-    //     ]);
-    // }
+      #[Route('/ecole/Projet-jeunes', name: 'app_youngProject')]
+    public function youngProject(): Response
+    {
+       return $this->render('school/youngProject.html.twig');
+    }
 
-    //    #[Route('/Leclub/Reglement', name: 'app_rules')]
-    // public function rules(): Response
-    // {
-    //     return $this->render('home/rules.html.twig', [
-    //         'controller_name' => 'HomeController',
-    //     ]);
-    // }
+       #[Route('/ecole/ecole-de-badminton', name: 'app_badSchool')]
+    public function badSchool(): Response
+    {
+        return $this->render('school/badSchool.html.twig');
+    }
 
+        #[Route('/ecole/plumes', name: 'app_plumes')]
+    public function plumes(): Response
+    {
+        return $this->render('school/plumes.html.twig');
+    }
+
+        #[Route('/ecole/club-avenir', name: 'app_avenirClub')]
+    public function avenirClub(): Response
+    {
+        return $this->render('school/avenirClub.html.twig');
+    }
+// end routes for the ecole de bad dropdown
+ 
 
      #[Route('/Tarifs', name: 'app_prices')]
     public function prices(): Response
