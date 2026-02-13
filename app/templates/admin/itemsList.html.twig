@@ -33,11 +33,11 @@
                 <div class="btn-modif-item">
                    
                     <form class="actuForm" 
-                              action="{{ path('app_deleteProduct', {'id': product.id}) }}" 
+                              action="{{ path('app_modifyItem', {'id': product.id}) }}" 
                               method="post" >
                             <input type="hidden" 
                                    name="_token" 
-                                   value="{{ csrf_token('app_modifyItem' ~ product.id) }}">
+                                   value="{{ csrf_token('modify_product_' ~ product.id) }}">
                             <button type="submit" class="btn-item">
                                 {{ 'Modifier'|trans }} →
                         </button>

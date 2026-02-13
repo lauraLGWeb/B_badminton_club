@@ -311,7 +311,7 @@ final class HomeController extends AbstractController
     {
 
           // token check 
-        if (!$this->isCsrfTokenValid('modify_Product_' . $id, $request->request->get('_token'))) {
+        if (!$this->isCsrfTokenValid('modify_product_' . $id, $request->request->get('_token'))) {
             throw new InvalidCsrfTokenException();
         }
 
