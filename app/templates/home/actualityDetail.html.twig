@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Découvrez {{ actuality.title }} au Blois Badminton Club. Événement prévu le {{ actuality.eventOn|date('d/m/Y') }}. Restez informé de toutes nos actualités et événements badminton à Blois." />
+{% endblock %}
+
 {% block title %}{{ 'Actualités'|trans }}{% endblock %}
 
 {% block body %}

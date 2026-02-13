@@ -347,7 +347,7 @@ This project validates the following **8 professional competencies (UC)** requir
 
 ### 🎯 Phase 4: Optional Enhancements
 
-- [ ] Multilingual support (FR/EN) - i18n
+- [x] Multilingual support (FR/EN) - i18n
 - [x] Social media feed integration (Facebook asked by the Club Manager)
 - [ ] Advanced stock management
 - [ ] Email notifications for training sessions

@@ -1,4 +1,11 @@
 {% extends 'base.html.twig' %}
+
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Inscrivez-vous au stage de badminton du {{ internship.dateTime|date('d/m/Y') }} au Blois Badminton Club. Encadrement professionnel avec Simon Paton. Places limitées, réservez maintenant !" />
+{% endblock %}
+
 {% block title %}{{ 'Stages'|trans }}{% endblock %}
 
 {% block body %}
