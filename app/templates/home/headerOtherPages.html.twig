@@ -3,18 +3,18 @@
     <section class="mainNavBarSticky">
         <div id="topOtherMenu">
             <a href="{{ path('app_home') }}">
-                <img id="top" class="logoOtherMenu" src="{{ asset('pictures/logo.jpeg') }}" alt="{{ 'logo'|trans }}">
+                <img id="top" class="logoOtherMenu" src="{{ asset('pictures/logo.jpeg') }}" width="220" height="229" alt="{{ 'logo'|trans }}">
             </a>
         </div>
 
-        <a href="javascript:void(0);" id="menuIcon">
-            <img src="{{ asset('pictures/menu.png') }}" width="70px" alt="{{ 'menu'|trans }}">
-        </a>
+        <button type="button" id="menuIcon" aria-label="{{ 'Ouvrir le menu'|trans }}">
+            <img src="{{ asset('pictures/menu.png') }}" width="512" height="512" alt="{{ 'menu'|trans }}">
+        </button>
 
         <section class="navBarContainer">
             <nav class="custom-nav">
                 <ul class="nav-links burger">
-                    <img src="{{ asset('pictures/close.png') }}" class="closeBtnMenu" width="30px" alt="{{ 'menu'|trans }}">
+                    <img src="{{ asset('pictures/close.png') }}" class="closeBtnMenu" width="512" height="512" alt="{{ 'Fermer le menu'|trans }}">
                     
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link link-burger-menu">{{ 'Le club'|trans }}</a>
@@ -91,20 +91,22 @@
             <div class="btnmode btn btn-outline-secondary">
                 <img
                     src="{{ asset('pictures/darkmode.png') }}"
+                    width="514" height="484"
                     alt="{{ 'change light mode'|trans }}"
                     id="darkMode"/>
                 <p id="textDarkMode">{{ 'Thème sombre'|trans }}</p>
                 <img
                     src="{{ asset('pictures/lightmode.png') }}"
+                    width="633" height="643"
                     alt="{{ 'change light mode'|trans }}"
                     id="lightMode"/>
                 <p id="textLightMode">{{ 'Thème clair'|trans }}</p>
             </div>
             <div class="btn btn-outline-secondary">
                  {% if app.request.locale == 'fr' %}
-                    <a href="{{ path('app_change_locale', {'locale': 'en'}) }}" >EN</a>
+                    <a href="{{ path('app_change_locale', {'locale': 'en'}) }}">EN</a>
                 {% else %}
-                    <a href="{{ path('app_change_locale', {'locale': 'fr'}) }}" >FR</a>
+                    <a href="{{ path('app_change_locale', {'locale': 'fr'}) }}">FR</a>
                 {% endif %}
             </div>
         </section>

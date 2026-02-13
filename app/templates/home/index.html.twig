@@ -3,7 +3,7 @@
 {% block meta %}
     <meta 
         name="description" 
-        content="Blois Badminton Club : club convivial et ambitieux avec 165 licenciés, école 4 étoiles, équipes jusqu’en Nationale 3 et encadrement professionnel. Rejoignez-nous !" />
+        content="Blois Badminton Club : club convivial et ambitieux avec 165 licenciés, école 4 étoiles, équipes jusqu'en Nationale 3 et encadrement professionnel. Rejoignez-nous !" />
 {% endblock %}
 
 {% block welcomingMessage %}
@@ -88,7 +88,7 @@
 </section>
 
 <section class="presentation">
-    <img src="{{ asset('pictures/logo.jpeg') }}" alt="{{ 'femme jouant au badminton'|trans }}">
+    <img src="{{ asset('pictures/logo.jpeg') }}" width="220" height="229" alt="{{ 'femme jouant au badminton'|trans }}">
     <p>{{ 'Que vous soyez débutant, joueur confirmé ou simplement curieux de découvrir le badminton, notre club vous accueille dans une ambiance conviviale et chaleureuse, où le plaisir de jouer et le partage sont au cœur de nos valeurs.'|trans }}</p>
 
     <p>{{ 'En loisir comme en compétition, chacun trouve sa place au sein du club. Je vous invite à venir nous rencontrer, échanger quelques volants et partager de bons moments sportifs avec nous.'|trans }}</p>
@@ -97,24 +97,24 @@
 </section>
 
 <section class="picture-main">
-    <img src="{{ asset('pictures/main2.jpg') }}" alt="{{ 'joueuse de badminton'|trans }}">
+    <img src="{{ asset('pictures/main2.jpg') }}" width="4368" height="2448" alt="{{ 'joueuse de badminton'|trans }}">
 </section>
 
 <section class="main-presentation">
     <div class="reverse-div">
-        <img src="{{ asset('pictures/loisir.png') }}" alt="{{ 'joueur loisir de badminton'|trans }}" class="img-1">
+        <img src="{{ asset('pictures/loisir.png') }}" width="1080" height="1080" alt="{{ 'joueur loisir de badminton'|trans }}" class="img-1">
         <p>{{ 'Du loisir à la compétition, chacun trouve sa place au Blois Badminton Club !'|trans }}</p>
     </div>
     <div>
-        <img src="{{ asset('pictures/entraineur.png') }}" alt="{{ 'entraineur de badminton'|trans }}">
+        <img src="{{ asset('pictures/entraineur.png') }}" width="1080" height="1080" alt="{{ 'entraineur de badminton'|trans }}">
         <p>{{ 'Formation de qualité pour nos jeunes, encadrés par des entraîneurs passionnés et diplômés.'|trans }}</p>
     </div>
     <div class="reverse-div">
-        <img src="{{ asset('pictures/competition.png') }}" alt="{{ 'compétition de badminton avec t-shirt à l\'éffigie du club'|trans }}">
+        <img src="{{ asset('pictures/competition.jpg') }}" width="1080" height="1080" alt="{{ 'compétition de badminton avec t-shirt à l\'éffigie du club'|trans }}">
         <p>{{ 'Des équipes compétitives, de la départementale à la Nationale : progressez et dépassez-vous !'|trans }}</p>
     </div>
     <div>
-        <img src="{{ asset('pictures/conviviale.png') }}" alt="{{ 'buvette conviviale pendant un tournois'|trans }}">
+        <img src="{{ asset('pictures/conviviale.png') }}" width="1080" height="1080" alt="{{ 'buvette conviviale pendant un tournois'|trans }}">
         <p>{{ 'Une ambiance conviviale et des bénévoles engagés : rejoignez notre famille sportive !'|trans }}</p>
     </div>
 </section>
@@ -146,11 +146,6 @@
                         {{ 'En savoir plus'|trans }} →
                     </a>
                 
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('app_deleteActuality', {'id': actuality.id}) }}">
-                            {{ 'Supprimer'|trans }} →
-                        </a>
-                    {% endif %}
                 </article>
             {% endfor %}
         </div>
@@ -179,50 +174,89 @@
         
         <div class="partners-track">
             {# Premier set #}
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire1.png') }}" alt="{{ 'Partenaire'|trans }} 1"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire2.png') }}" alt="{{ 'Partenaire'|trans }} 2"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire3.png') }}" alt="{{ 'Partenaire'|trans }} 3"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire4.png') }}" alt="{{ 'Partenaire'|trans }} 4"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire5.png') }}" alt="{{ 'Partenaire'|trans }} 5"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="{{ 'Partenaire'|trans }} 6"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire7.png') }}" alt="{{ 'Partenaire'|trans }} 7"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire8.png') }}" alt="{{ 'Partenaire'|trans }} 8"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire9.png') }}" alt="{{ 'Partenaire'|trans }} 9"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="{{ 'Partenaire'|trans }} 10"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire11.png') }}" alt="{{ 'Partenaire'|trans }} 11"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire12.png') }}" alt="{{ 'Partenaire'|trans }} 12"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire13.png') }}" alt="{{ 'Partenaire'|trans }} 13"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire14.png') }}" alt="{{ 'Partenaire'|trans }} 14"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire15.png') }}" alt="{{ 'Partenaire'|trans }} 15"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenair16.png') }}" alt="{{ 'Partenaire'|trans }} 16"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire17.png') }}" alt="{{ 'Partenaire'|trans }} 17"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire18.png') }}" alt="{{ 'Partenaire'|trans }} 18"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire19.gif') }}" alt="{{ 'Partenaire'|trans }} 19"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="{{ 'Partenaire'|trans }} 20"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="{{ 'Partenaire'|trans }} 21"></div>
+            <a class="partner-item" href="https://www.arbo-concept.com/" target="_blank"><img src="{{ asset('pictures/partenaire1.png') }}" width="225" height="224" alt="{{ 'Arbo concept'|trans }}"></a>
+            <a class="partner-item" href="https://www.e.leclerc/" target="_blank"><img src="{{ asset('pictures/partenaire2.png') }}" width="204" height="192" alt="{{ 'Leclerc'|trans }}"></a>
+            <a class="partner-item" href="https://stauff.fr/" target="_blank"><img src="{{ asset('pictures/partenaire3.png') }}" width="301" height="167" alt="{{ 'stauff'|trans }}"></a>
+            <a class="partner-item" href="https://www.agglopolys.fr/" target="_blank"><img src="{{ asset('pictures/partenaire4.png') }}" width="225" height="225" alt="{{ 'agglopolys'|trans }}"></a>
+            <a class="partner-item" href="https://www.blois.fr/en" target="_blank"><img src="{{ asset('pictures/partenaire5.png') }}" width="225" height="225" alt="{{ 'Ville de Blois'|trans }}"></a>
+            <a class="partner-item" href="https://www.centre-valdeloire.fr/" target="_blank"><img src="{{ asset('pictures/partenaire6.jpg') }}" width="768" height="986" alt="{{ 'centre val de loire'|trans }}"></a>
+            <a class="partner-item" href="https://www.departement41.fr/" target="_blank"><img src="{{ asset('pictures/partenaire7.png') }}" width="196" height="258" alt="{{ 'Département 41'|trans }}"></a>
+            <a class="partner-item" href="https://www.citeseducatives.fr/cite/cite-educative-de-blois/la-boite-a-outils/nous-contacter" target="_blank"><img src="{{ asset('pictures/partenaire8.png') }}" width="328" height="154" alt="{{ 'cités éducatives'|trans }}"></a>
+            <a class="partner-item" href="https://www.agencedusport.fr/" target="_blank"><img src="{{ asset('pictures/partenaire9.png') }}" width="381" height="132" alt="{{ 'agence du sport'|trans }}"></a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officiel" target="_blank"><img src="{{ asset('pictures/partenaire10.jpg') }}" width="193" height="261" alt="{{ 'club avenir'|trans }}"></a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-22/2025/ecole-francaise-de-badminton-la-campagne-de-labellisation-2025-est-lancee" target="_blank"><img src="{{ asset('pictures/partenaire11.png') }}" width="150" height="200" alt="{{ 'école française de badminton'|trans }}"></a>
+            <a class="partner-item" href="https://badmintoncvl.fr/" target="_blank"><img src="{{ asset('pictures/partenaire12.png') }}" width="250" height="250" alt="{{ 'Partenaire 12'|trans }}"></a>
+            <a class="partner-item" href="https://www.badminton41.org/" target="_blank"><img src="{{ asset('pictures/partenaire13.png') }}" width="225" height="225" alt="{{ 'Badminton 41'|trans }}"></a>
+            <a class="partner-item" href="https://lgebad.com/engagement-societal/eco-bad/" target="_blank"><img src="{{ asset('pictures/partenaire14.png') }}" width="110" height="146" alt="{{ 'éco bad'|trans }}"></a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officield" target="_blank"><img src="{{ asset('pictures/partenaire15.png') }}" width="189" height="266" alt="{{ 'Fédération française de badminton'|trans }}"></a>
+            <a class="partner-item" href="https://www.benevolat.org/" target="_blank"><img src="{{ asset('pictures/partenaire17.png') }}" width="191" height="264" alt="{{ 'Bénévolat associatif'|trans }}"></a>
+            <a class="partner-item" href="https://www.alionax.com/fr/rtv" target="_blank"><img src="{{ asset('pictures/partenaire18.png') }}" width="200" height="200" alt="{{ 'Alionax'|trans }}"></a>
+            <a class="partner-item" href="https://www.bouchonsdamour.com/" target="_blank"><img src="{{ asset('pictures/partenaire19.png') }}" width="90" height="110" alt="{{ 'Bouchons d\'amour'|trans }}"></a>
+            <a class="partner-item" href="https://www.decathlon.fr/" target="_blank"><img src="{{ asset('pictures/partenaire20.jpg') }}" width="293" height="172" alt="{{ 'decathlon'|trans }}"></a>
+            <a class="partner-item" href="https://www.afm-telethon.fr/fr" target="_blank"><img src="{{ asset('pictures/partenaire21.jpg') }}" width="768" height="384" alt="{{ 'Téléthon'|trans }}"></a>
             
             {# Duplication pour effet infini #}
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire1.png') }}" alt="{{ 'Partenaire'|trans }} 1"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire2.png') }}" alt="{{ 'Partenaire'|trans }} 2"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire3.png') }}" alt="{{ 'Partenaire'|trans }} 3"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire4.png') }}" alt="{{ 'Partenaire'|trans }} 4"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire5.png') }}" alt="{{ 'Partenaire'|trans }} 5"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire6.jpg') }}" alt="{{ 'Partenaire'|trans }} 6"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire7.png') }}" alt="{{ 'Partenaire'|trans }} 7"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire8.png') }}" alt="{{ 'Partenaire'|trans }} 8"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire9.png') }}" alt="{{ 'Partenaire'|trans }} 9"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire10.jpg') }}" alt="{{ 'Partenaire'|trans }} 10"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire11.png') }}" alt="{{ 'Partenaire'|trans }} 11"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire12.png') }}" alt="{{ 'Partenaire'|trans }} 12"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire13.png') }}" alt="{{ 'Partenaire'|trans }} 13"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire14.png') }}" alt="{{ 'Partenaire'|trans }} 14"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire15.png') }}" alt="{{ 'Partenaire'|trans }} 15"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenair16.png') }}" alt="{{ 'Partenaire'|trans }} 16"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire17.png') }}" alt="{{ 'Partenaire'|trans }} 17"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire18.png') }}" alt="{{ 'Partenaire'|trans }} 18"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire19.gif') }}" alt="{{ 'Partenaire'|trans }} 19"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire20.jpg') }}" alt="{{ 'Partenaire'|trans }} 20"></div>
-            <div class="partner-item"><img src="{{ asset('pictures/partenaire21.jpg') }}" alt="{{ 'Partenaire'|trans }} 21"></div>
+            {# Duplication pour effet infini - cachée aux lecteurs d'écran #}
+            <a class="partner-item" href="https://www.arbo-concept.com/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire1.png') }}" width="225" height="224" alt="">
+            </a>
+            <a class="partner-item" href="https://www.e.leclerc/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire2.png') }}" width="204" height="192" alt="">
+            </a>
+            <a class="partner-item" href="https://stauff.fr/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire3.png') }}" width="301" height="167" alt="">
+            </a>
+            <a class="partner-item" href="https://www.agglopolys.fr/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire4.png') }}" width="225" height="225" alt="">
+            </a>
+            <a class="partner-item" href="https://www.blois.fr/en" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire5.png') }}" width="225" height="225" alt="">
+            </a>
+            <a class="partner-item" href="https://www.centre-valdeloire.fr/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire6.jpg') }}" width="768" height="986" alt="">
+            </a>
+            <a class="partner-item" href="https://www.departement41.fr/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire7.png') }}" width="196" height="258" alt="">
+            </a>
+            <a class="partner-item" href="https://www.citeseducatives.fr/cite/cite-educative-de-blois/la-boite-a-outils/nous-contacter" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire8.png') }}" width="328" height="154" alt="">
+            </a>
+            <a class="partner-item" href="https://www.agencedusport.fr/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire9.png') }}" width="381" height="132" alt="">
+            </a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officiel" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire10.jpg') }}" width="193" height="261" alt="">
+            </a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-22/2025/ecole-francaise-de-badminton-la-campagne-de-labellisation-2025-est-lancee" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire11.png') }}" width="150" height="200" alt="">
+            </a>
+            <a class="partner-item" href="https://badmintoncvl.fr/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire12.png') }}" width="250" height="250" alt="">
+            </a>
+            <a class="partner-item" href="https://www.badminton41.org/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire13.png') }}" width="225" height="225" alt="">
+            </a>
+            <a class="partner-item" href="https://lgebad.com/engagement-societal/eco-bad/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire14.png') }}" width="110" height="146" alt="">
+            </a>
+            <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officield" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire15.png') }}" width="189" height="266" alt="">
+            </a>
+            <a class="partner-item" href="https://www.benevolat.org/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire17.png') }}" width="191" height="264" alt="">
+            </a>
+            <a class="partner-item" href="https://www.alionax.com/fr/rtv" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire18.png') }}" width="200" height="200" alt="">
+            </a>
+            <a class="partner-item" href="https://www.bouchonsdamour.com/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire19.png') }}" width="90" height="110" alt="">
+            </a>
+            <a class="partner-item" href="https://www.decathlon.fr/" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire20.jpg') }}" width="293" height="172" alt="">
+            </a>
+            <a class="partner-item" href="https://www.afm-telethon.fr/fr" target="_blank" rel="noopener" aria-hidden="true">
+                <img src="{{ asset('pictures/partenaire21.jpg') }}" width="768" height="384" alt="">
+            </a>
         </div>
     </div>
 </section>

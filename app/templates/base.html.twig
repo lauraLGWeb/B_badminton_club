@@ -36,9 +36,13 @@
         <link rel="stylesheet" href="{{ asset('styles/CSS/internships.css') }}">
 
         <link rel="shortcut icon" href="{{ asset('pictures/logo.jpeg') }}" type="image/x-icon">
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
     {% endblock %}
+
     
-    <meta charset="UTF-8">
     <title>{% block title %}{{ 'Blois Badminton Club'|trans }}{% endblock %}</title>
 </head>
 
@@ -57,7 +61,10 @@
 
     {% block welcomingMessage %}{% endblock %}
 
-    {% block body %}{% endblock %}
+    <main role="main">
+        {% block body %}
+        {% endblock %}
+    </main>
 
     {% include 'home/footer.html.twig' %}
 

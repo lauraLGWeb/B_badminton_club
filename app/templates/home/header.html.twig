@@ -1,130 +1,132 @@
-    
-        <header class="header">
-            {% block logoContainer %}
-            <section class="logo-btns">
-                <div id="top" class= "logo">
-                    <a href="{{ path('app_home') }}">
-                        <img src="{{ asset('pictures/logo.jpeg') }}" width="150px" alt="logo du club">
-                    </a>
-                </div>
-            {# darkmode #}
-                <div class= "menuBtns menuBtnsSticky">
-                    <div class="btn btn-outline-secondary">
-                        {% if app.request.locale == 'fr' %}
-                            <a href="{{ path('app_change_locale', {'locale': 'en'}) }}" >EN</a>
-                        {% else %}
-                            <a href="{{ path('app_change_locale', {'locale': 'fr'}) }}" >FR</a>
-                        {% endif %}
-                    </div>
-                    <div class="btnmode btn btn-outline-secondary">
-                        <img
-                            src="{{ asset('pictures/darkmode.png') }}"
-                            alt="change light mode"
-                            id = "darkMode"
-                        />
-                        <p id="textDarkMode">{{ 'Thème sombre'|trans }}</p>
-                        <img
-                            src="{{ asset('pictures/lightmode.png') }}"
-                            alt="change light mode"
-                            id = "lightMode"
-                        />
-                        <p id="textLightMode">{{ 'Thème clair'|trans }}</p>
-                    </div>
-
-                    
-                </div>
-            </section>
-       
-            {% endblock %}
-
-            {% block menu %}
-            <a href="javascript:void(0);" id="menuIcon">
-                 <img src="{{ asset('pictures/menu.png') }}" width="70px" alt="menu">
+<header class="header">
+    {% block logoContainer %}
+    <section class="logo-btns">
+        <div id="top" class="logo">
+            <a href="{{ path('app_home') }}">
+                <img src="{{ asset('pictures/logo.jpeg') }}" width="220" height="229" alt="logo du club">
             </a>
+        </div>
+    {# darkmode #}
+        <div class="menuBtns menuBtnsSticky">
+            <div class="btn btn-outline-secondary">
+                {% if app.request.locale == 'fr' %}
+                    <a href="{{ path('app_change_locale', {'locale': 'en'}) }}">EN</a>
+                {% else %}
+                    <a href="{{ path('app_change_locale', {'locale': 'fr'}) }}">FR</a>
+                {% endif %}
+            </div>
+            <div class="btnmode btn btn-outline-secondary">
+                <img
+                    src="{{ asset('pictures/darkmode.png') }}"
+                    width="514" height="484"
+                    alt="change light mode"
+                    id="darkMode"
+                />
+                <p id="textDarkMode">{{ 'Thème sombre'|trans }}</p>
+                <img
+                    src="{{ asset('pictures/lightmode.png') }}"
+                    width="633" height="643"
+                    alt="change light mode"
+                    id="lightMode"
+                />
+                <p id="textLightMode">{{ 'Thème clair'|trans }}</p>
+            </div>
+
             
-            <section class="navBarContainer responsiveNavBar">
-                <section class="navBarContainer ">
-                    <nav class="custom-nav">
-                    
-                        <!-- Navigation -->
-                        <ul class="nav-links burger">
-                        <img src="{{ asset('pictures/close.png') }}" class="closeBtnMenu" width="30px" alt="{{ 'menu'|trans }}">
+        </div>
+    </section>
 
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link link-burger-menu">{{ 'Le club'|trans }}</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ path('app_coaches') }}">{{ 'Entraîneurs'|trans }}</a></li>
-                                    <li><a href="{{ path('app_caMembers') }}">{{ 'Membres du CA'|trans }}</a></li>
-                                    <li><a href="{{ path('app_rules') }}">{{ 'Règlement'|trans }}</a></li>
-                                    <li><a href="{{ path('app_internships') }}">{{ 'Les stages'|trans }}</a></li>
-                                </ul>
-                            </li>
+    {% endblock %}
 
-                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link link-burger-menu">{{ 'École du bad'|trans }}</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ path('app_youngProject') }}">{{ 'Le Projet Jeune'|trans }}</a></li>
-                                    <li><a href="{{ path('app_badSchool') }}">{{ 'L\'école Française de Badminton'|trans }}</a></li>
-                                    <li><a href="{{ path('app_plumes') }}">{{ 'Les plumes'|trans }}</a></li>
-                                    <li><a href="{{ path('app_avenirClub') }}">{{ 'Club Avenir'|trans }}</a></li>
-                                </ul>
-                             </li>
+    {% block menu %}
 
-                            <li class="nav-item">
-                                <a href="{{ path('app_prices') }}">{{ 'Tarifs'|trans }}</a>
-                            </li>
+    <button type="button" id="menuIcon" aria-label="{{ 'Ouvrir le menu'|trans }}">
+        <img src="{{ asset('pictures/menu.png') }}" width="512" height="512" alt="{{ 'menu'|trans }}">
+    </button>
+    
+    <section class="navBarContainer responsiveNavBar">
+        <section class="navBarContainer">
+            <nav class="custom-nav">
+            
+                <!-- Navigation -->
+                <ul class="nav-links burger">
+                <img src="{{ asset('pictures/close.png') }}" class="closeBtnMenu" width="512" height="512" alt="{{ 'Fermer le menu'|trans }}">
 
-                            <li class="nav-item">
-                                <a href="{{ path('app_actuality') }}">{{ 'Actualité'|trans }}</a>
-                            </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link link-burger-menu">{{ 'Le club'|trans }}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('app_coaches') }}">{{ 'Entraîneurs'|trans }}</a></li>
+                            <li><a href="{{ path('app_caMembers') }}">{{ 'Membres du CA'|trans }}</a></li>
+                            <li><a href="{{ path('app_rules') }}">{{ 'Règlement'|trans }}</a></li>
+                            <li><a href="{{ path('app_internships') }}">{{ 'Les stages'|trans }}</a></li>
+                        </ul>
+                    </li>
 
-                            <li class="nav-item">
-                                <a href="{{ path('app_partners') }}">{{ 'Partenaires'|trans }}</a>
-                            </li>
+                     <li class="nav-item dropdown">
+                        <a href="#" class="nav-link link-burger-menu">{{ 'École du bad'|trans }}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('app_youngProject') }}">{{ 'Le Projet Jeune'|trans }}</a></li>
+                            <li><a href="{{ path('app_badSchool') }}">{{ 'L\'école Française de Badminton'|trans }}</a></li>
+                            <li><a href="{{ path('app_plumes') }}">{{ 'Les plumes'|trans }}</a></li>
+                            <li><a href="{{ path('app_avenirClub') }}">{{ 'Club Avenir'|trans }}</a></li>
+                        </ul>
+                     </li>
 
-                            <li class="nav-item">
-                                <a href="{{ path('app_contact') }}">{{ 'Contact'|trans }}</a>
-                            </li>
+                    <li class="nav-item">
+                        <a href="{{ path('app_prices') }}">{{ 'Tarifs'|trans }}</a>
+                    </li>
 
-                            {% if app.user %}
-                                <li>
-                                    <a href="{{ path('app_shop') }}" >{{ 'Boutique'|trans }}</a>
-                                </li>
-                            {% endif %}
+                    <li class="nav-item">
+                        <a href="{{ path('app_actuality') }}">{{ 'Actualité'|trans }}</a>
+                    </li>
 
-                            {% if app.user %}
-                                <li class="nav-item">
-                                    <a href="{{ path('app_logout') }}">{{ 'Déconnexion'|trans }}</a>
-                                </li>
-                            {% else %}
-                                <li class="nav-item">
-                                    <a href="{{ path('app_login') }}">{{ 'Connexion'|trans }}</a>
-                                </li>
-                            {% endif %}
+                    <li class="nav-item">
+                        <a href="{{ path('app_partners') }}">{{ 'Partenaires'|trans }}</a>
+                    </li>
 
-                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_COACH') %}
-                                <li class="nav-item">
-                                    <a href="{{ path('app_admin_dashboard') }}">{{ 'Admin'|trans }}</a>
-                                </li>
-                            {% endif %}
-                        </ul> 
-                    </nav>
-                </section>
-                
+                    <li class="nav-item">
+                        <a href="{{ path('app_contact') }}">{{ 'Contact'|trans }}</a>
+                    </li>
 
-            {% endblock %}
-
-            {% block buttunsContainers %}
-           <section class="hero">
-                <div class="hero-buttons">
-                    <a class="hero-buttons-links" href="{{ path('app_schedules') }}">{{ 'Voir les créneaux'|trans }}</a>
-                    {% if app.user %} 
-                        <a class="hero-buttons-links" href="{{ path('app_account') }}">{{ 'Mon compte'|trans }}</a>
-                    {% else %} 
-                        <a class="hero-buttons-links" href="{{ path('app_inscription') }}">{{ 'Les licences'|trans }} </a>
+                    {% if app.user %}
+                        <li>
+                            <a href="{{ path('app_shop') }}">{{ 'Boutique'|trans }}</a>
+                        </li>
                     {% endif %}
-                    <a class="hero-buttons-links" href="{{ path('app_try') }}">{{ 'Faire un essai'|trans }}</a>
-                </div>
-            </section>
-            {% endblock %}
-        </header>
+
+                    {% if app.user %}
+                        <li class="nav-item">
+                            <a href="{{ path('app_logout') }}">{{ 'Déconnexion'|trans }}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{{ path('app_login') }}">{{ 'Connexion'|trans }}</a>
+                        </li>
+                    {% endif %}
+
+                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_COACH') %}
+                        <li class="nav-item">
+                            <a href="{{ path('app_admin_dashboard') }}">{{ 'Admin'|trans }}</a>
+                        </li>
+                    {% endif %}
+                </ul> 
+            </nav>
+        </section>
+        
+
+    {% endblock %}
+
+    {% block buttunsContainers %}
+   <section class="hero">
+        <div class="hero-buttons">
+            <a class="hero-buttons-links" href="{{ path('app_schedules') }}">{{ 'Voir les créneaux'|trans }}</a>
+            {% if app.user %} 
+                <a class="hero-buttons-links" href="{{ path('app_account') }}">{{ 'Mon compte'|trans }}</a>
+            {% else %} 
+                <a class="hero-buttons-links" href="{{ path('app_inscription') }}">{{ 'Les licences'|trans }} </a>
+            {% endif %}
+            <a class="hero-buttons-links" href="{{ path('app_try') }}">{{ 'Faire un essai'|trans }}</a>
+        </div>
+    </section>
+    {% endblock %}
+</header>

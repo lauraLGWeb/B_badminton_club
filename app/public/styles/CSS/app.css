@@ -412,12 +412,14 @@ body.dark img{
 }
 
 .logo img {
-    width: 150px;
+    width: auto;
+    height: 15rem;
     border-radius: 12px;
     transition: all 0.4s ease;
+    object-fit: contain;
 }
 
-.logo-btns.compact .logo img {
+.logo-btns.compact {
     width: 80px;
 }
 
@@ -661,7 +663,8 @@ body.dark img{
 }
 
 .logoOtherMenu {
-    height: 80px;
+    height: 5rem;
+    width: 5rem;
 }
 
 .hero-buttonsOtherMenu .hero-buttons-links {
@@ -976,6 +979,7 @@ details a:hover {
 
 .picture-main:hover img {
     transform: skew(-2deg, -1deg) scale(1.05);
+    
 }
 
 .main-presentation div {
@@ -1005,12 +1009,17 @@ details a:hover {
 }
 .reverse-div img{
     margin-right: 10rem;
+    max-height: 60vh;
+    width: auto;
+    object-fit: contain;
 }
 
 .main-presentation img {
     transform: skew(-0.03turn, -3deg);
     max-height: 60vh;
-     margin: 0 10vw;
+    margin: 0 10vw;
+    width: auto;
+    object-fit: contain;
 }
 
 .main-presentation img:hover {
