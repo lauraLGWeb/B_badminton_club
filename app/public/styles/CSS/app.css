@@ -634,8 +634,11 @@ body.dark img{
 }
 
 /* Hide burger menu on desktop */
-#menuIcon, #menuIcon.sticky {
+ #menuIcon.sticky {
     display: none;
+}
+#menuIcon{
+   display: none;
 }
 
 .closeBtnMenu {
@@ -1019,7 +1022,7 @@ details a:hover {
 }
 
 .main-presentation p {
-    width: 30%;
+    width: clamp(17rem, 30%, 70rem);
     padding: 20px;
     border-radius: 20px;
     font-size: 1.2rem;
@@ -1868,7 +1871,7 @@ details a:hover {
     }
     
     .dropdown > a::after {
-        content: "▼";
+        content: "\25BC";
         float: right;
         padding-left: 20px;
         transition: transform 0.3s ease;
@@ -1879,6 +1882,13 @@ details a:hover {
     }
 }
 
+@media (max-width: 950px) {
+   .main-presentation p{
+    width: 90%;
+   }
+}
+
+
 @media (max-width: 800px) {
     .menuBtnsSticky.sticky {
         flex-direction: column;
@@ -1886,6 +1896,7 @@ details a:hover {
         left: 15px;
     }
 }
+
 
 @media (max-width: 768px) {
     .navBarContainer ul {
@@ -1915,12 +1926,17 @@ details a:hover {
     .actus-in-main {
         flex-direction: column;
         top: 200px;
+        width: 90%;
+       
     }
     
     .actu-main {
         width: 90%;
     }
-    
+   
+    .actus{
+        padding-top: 20vh;
+    }
     .club-presentation h2 {
         font-size: 2rem;
     }
@@ -1980,6 +1996,7 @@ details a:hover {
         gap: 2rem;
         animation-duration: 50s;
     }
+  
 }
 
 @media (max-width: 750px) {
