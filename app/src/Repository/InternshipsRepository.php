@@ -16,20 +16,21 @@ class InternshipsRepository extends ServiceEntityRepository
         parent::__construct($registry, Internships::class);
     }
 
-    //    /**
-    //     * @return Internships[] Returns an array of Internships objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('i')
-    //            ->andWhere('i.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('i.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+     /**
+     * Get all the intersnships by creation date
+     */
+
+       /**
+        * @return Internships[] Returns by date
+        */
+       public function findAllOrderedByDate(): array
+       {
+           return $this->createQueryBuilder('internship')
+               ->orderBy('internship.dateTime', 'ASC')
+               ->getQuery()
+               ->getResult()
+           ;
+       }
 
     //    public function findOneBySomeField($value): ?Internships
     //    {

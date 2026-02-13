@@ -57,6 +57,14 @@
     --shadow-light: rgba(255, 255, 255, 0.05);
     --shadow-dark: rgba(0, 0, 0, 0.6);
     --card-bg: #242936;
+
+     --pressed:  
+        inset 2px 2px 4px var(--shadow-light),
+        inset -2px -2px 4px var(--shadow-dark);
+    --unpressed: 
+        5px 5px 10px var(--shadow-light),
+        -5px -5px 10px var(--shadow-dark);
+
 }
 
 /* ========================================

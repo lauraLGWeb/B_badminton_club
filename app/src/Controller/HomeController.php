@@ -204,7 +204,7 @@ final class HomeController extends AbstractController
     public function membersList(EntityManagerInterface $em)
     {
         $repo = $em->getRepository(User::class);
-        $user = $repo->findAll();
+        $user = $repo->findAllbyName();
 
 
         return $this->render("admin/membersList.html.twig", ["user" => $user]);

@@ -6,14 +6,14 @@
     <section class="IntershipBookingPresentation">
         <div class="titleAndBtnComeBack">
             <h1>
-                {{ 'internship.registrations_for'|trans }}
+                {{ 'Inscriptions pour le stage du'|trans }}
                 {{ internship.dateTime|date('d/m/Y') }}
-                {{ 'internship.at'|trans }}
+                {{ 'à'|trans }}
                 {{ internship.dateTime|date('H:i') }}
             </h1>
 
             <a href="{{ path('app_internships')}}" role="button" class="btn-back">
-                {{ 'internship.back_to_list'|trans }}
+                {{ 'Retour aux stages'|trans }}
             </a>
         </div>
     </section>
@@ -32,7 +32,7 @@
 
         {% if internship.AlreadyBooked is same as internship.maxPlayersNbr %}
             <p class="full">
-                {{ 'internship.full'|trans }}
+                {{ 'Stage complet !'|trans }}
             </p>
         {% endif %}
 
@@ -42,7 +42,7 @@
             </span>
         {% else %}
             <p class="empty">
-                {{ 'internship.no_registration_yet'|trans }}
+                {{ 'Il n\'y a pas encore d\'inscrit '|trans }}
             </p>
             <span class="booked">0</span>
         {% endif %}
@@ -57,14 +57,14 @@
         <table>
             <thead>
                 <tr>
-                    <th>{{ 'table.last_name'|trans }}</th>
-                    <th>{{ 'table.first_name'|trans }}</th>
-                    <th>{{ 'table.simple'|trans }}</th>
-                    <th>{{ 'table.double'|trans }}</th>
-                    <th>{{ 'table.mixte'|trans }}</th>
-                    <th>{{ 'table.email'|trans }}</th>
-                    <th>{{ 'table.phone'|trans }}</th>
-                    <th>{{ 'table.delete'|trans }}</th>
+                    <th>{{ 'Nom'|trans }}</th>
+                    <th>{{ 'Prénom'|trans }}</th>
+                    <th>{{ 'Simple'|trans }}</th>
+                    <th>{{ 'Double'|trans }}</th>
+                    <th>{{ 'Mixte'|trans }}</th>
+                    <th>{{ 'Email'|trans }}</th>
+                    <th>{{ 'Portable'|trans }}</th>
+                    <th>{{ 'Supprimer'|trans }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,14 +81,14 @@
                             <form class="noStyle"
                                   action="{{ path('app_deletePlayersInternship', { id: player.id }) }}" 
                                   method="post"
-                                  onsubmit="return confirm('{{ 'internship.confirm_delete'|trans }}')">
+                                  onsubmit="return confirm('{{ 'Supprimer ce joueur du stage ?'|trans }}')">
 
                                 <input type="hidden" 
                                        name="_token" 
                                        value="{{ csrf_token('delete_player_' ~ player.id) }}">
 
                                 <button type="submit" class="deleteItem">
-                                    {{ 'internship.unregister'|trans }}
+                                    {{ 'Désinscrire de ce stage'|trans }}
                                 </button>
                             </form>
                         </td>

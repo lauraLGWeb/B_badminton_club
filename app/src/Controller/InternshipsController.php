@@ -24,7 +24,7 @@ final class InternshipsController extends AbstractController
     #[Route('/Leclub/Stages', name: 'app_internships')]
     public function internships(InternshipsRepository $ir): Response
     {
-          $internships = $ir->findAll();
+          $internships = $ir->findAllOrderedByDate();
 
         return $this->render('internships/index.html.twig', [
             'internships' => $internships,
