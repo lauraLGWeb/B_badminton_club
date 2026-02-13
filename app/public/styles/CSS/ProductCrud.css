@@ -89,6 +89,7 @@
 
 .btn-item {
     flex: 1;
+    color: var(--text-color);
     padding: 12px 20px;
     border-radius: 12px;
     text-decoration: none;

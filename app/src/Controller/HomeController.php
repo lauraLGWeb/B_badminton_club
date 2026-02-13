@@ -310,6 +310,11 @@ final class HomeController extends AbstractController
     public function app_modifyItem(Request $request, EntityManagerInterface $em, $id): Response
     {
 
+          // token check 
+        if (!$this->isCsrfTokenValid('modify_Product_' . $id, $request->request->get('_token'))) {
+            throw new InvalidCsrfTokenException();
+        }
+
         
         $item = $em->getRepository(Product::class)->find($id);
 
@@ -338,8 +343,12 @@ final class HomeController extends AbstractController
     //delete the shopitem
     #[Route('/admin/Liste-boutique/suppression/{id}', name: 'app_deleteProduct')]
     #[IsGranted('ROLE_ADMIN')]
-    public function eleteItem(EntityManagerInterface $em, $id): Response
+    public function eleteItem(Request $request, EntityManagerInterface $em, $id): Response
     {
+        // token check 
+        if (!$this->isCsrfTokenValid('delete_Product_' . $id, $request->request->get('_token'))) {
+            throw new InvalidCsrfTokenException();
+        }
 
         //getting the actuality details
         $itemToDelete = $em->getRepository(Product::class)->find($id);
