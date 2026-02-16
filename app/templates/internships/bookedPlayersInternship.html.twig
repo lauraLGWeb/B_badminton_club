@@ -69,14 +69,15 @@
             </thead>
             <tbody>
                 {% for player in players %}
+                    
                     <tr>
-                        <td>{{ player.LastName }}</td>
-                        <td>{{ player.FirstName }}</td>
+                        <td>{{ player.user.LastName }}</td>
+                        <td>{{ player.user.FirstName }}</td>
                         <td>{{ player.SimpleRank }}</td>
                         <td>{{ player.DoubleRank }}</td>
                         <td>{{ player.MixteRank }}</td>
-                        <td><a href="mailto:{{ player.email }}">{{ player.email }}</a></td>
-                        <td><a href="tel:{{ player.phoneNumber }}">{{ player.phoneNumber }}</a></td>
+                        <td><a href="mailto:{{ player.user.email }}">{{ player.user.email }}</a></td>
+                        <td><a href="tel:{{ player.user.phoneNbr }}">{{ player.user.phoneNbr }}</a></td>
                         <td> 
                             <form class="noStyle"
                                   action="{{ path('app_deletePlayersInternship', { id: player.id }) }}" 

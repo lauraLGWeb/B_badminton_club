@@ -28,13 +28,13 @@ class RegistrationController extends AbstractController
             
             $user->setRoles(['ROLE_MEMBRE']);
 
-            // encode the plain password
+            // hash the password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // do anything else you need here, like send an email
+            
 
             return $security->login($user, 'form_login', 'main');
         }

@@ -21,25 +21,48 @@
     {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
         
         {{ form_row(registrationForm.firstName, {
-            'label': 'Prénom'|trans
+            'label': 'Prénom'|trans,
+            'attr': {
+            'placeholder': 'Lucie',
+            'autocomplete': 'given-name'
+}
         }) }}
 
         {{ form_row(registrationForm.lastName, {
-            'label': 'Nom'|trans
+            'label': 'Nom'|trans,
+            'attr': {
+            'placeholder': 'Dupont',
+            'autocomplete': 'family-name'
+            }
         }) }}
 
          {{ form_row(registrationForm.phoneNbr, {
-            'label': 'Numéro de téléphone'|trans
+            'label': 'Numéro de téléphone'|trans,
+            'attr': {
+            'placeholder': '06XXXXXXXX', 
+            'autocomplete': 'tel'}
         }) }}
 
         {{ form_row(registrationForm.lienceNbr, {
-            'label': 'Numéro de Licence'|trans
+            'label': 'Numéro de Licence (obligatoire pour les membres du club)'|trans,
+            'attr': {
+            'placeholder': '1234567', 
+    }
+            
         }) }}
         
-        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.email,{
+            'attr': {
+            'placeholder': 'marie.dupont@exemple.fr', 
+            'autocomplete': 'email'
+            }
+        })
+        }}
+    
         
         {{ form_row(registrationForm.plainPassword, {
-            'label': 'Mot de passe : Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre'|trans
+            'label': 'Mot de passe : Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre'|trans, 
+            'autocomplete': 'new-password'
         }) }}
         
         {{ form_row(registrationForm.agreeTerms, {

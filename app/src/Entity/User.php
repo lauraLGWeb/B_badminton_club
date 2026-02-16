@@ -22,7 +22,7 @@ use App\Validator\NoBadWords;
 
 //  Symfony validation: chekc the unicity of email and licence nbr before to push it into the bdd 
 #[UniqueEntity(fields: ['email'], message: 'Un compte existe déjà avec cette adresse e-mail')]
-#[UniqueEntity(fields: ['lienceNbr'], message: 'Ce numéro de licence est déjà utilisé')]
+#[UniqueEntity(fields: ['lienceNbr'], message: 'Ce numéro de licence est déjà utilisé',ignoreNull: true)]
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -60,7 +60,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      #[Assert\NotBlank(message: 'Le Nom est obligatoire')]
     private ?string $lastName = null;
 
-   #[ORM\Column(type: 'string')]
+   #[ORM\Column(type: 'string', nullable: true)] //can be null for external members
     // #[Assert\NotBlank(message: 'Le numéro de licence est obligatoire')]
     #[Assert\Regex(
         pattern: '/^\d{7}$/',

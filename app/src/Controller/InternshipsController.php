@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\InternshipsRepository;
 use App\Entity\InternshipPlayer;
+use App\Entity\User;
 use App\Form\InternshipType;
 use App\Repository\InternshipPlayerRepository;
 use App\Form\InternshipCreationType;
@@ -98,11 +99,10 @@ final class InternshipsController extends AbstractController
 
 // admin and trainer part : see the inscription on one internship
    #[Route('/entraineur/Leclub/Stages/inscriptions/{id}', name: 'app_bookedPlayersInternship')]
-    #[IsGranted('ROLE_ADMIN')]
     #[IsGranted('ROLE_ENTRAINEUR')]
-    public function bookedPlayersInternship(int $id, InternshipsRepository $ir): Response
+    public function bookedPlayersInternship(int $id, EntityManagerInterface $em,InternshipsRepository $ir): Response
     {
-           //get the internship clicked on
+        //get the internship clicked on
         $internship = $ir->find($id);
 
         $players = $internship->getInternshipPlayers();
@@ -110,14 +110,13 @@ final class InternshipsController extends AbstractController
         return $this->render('internships/bookedPlayersInternship.html.twig', [
             'internship' => $internship,
             'players'=>$players,
+            
         ]);
 
     }
 
-
 // cancel player from the selected internship
    #[Route('/entraineur/Leclub/Stages/inscriptions/supprimer/{id}', name: 'app_deletePlayersInternship')]
-    #[IsGranted('ROLE_ADMIN')]
     #[IsGranted('ROLE_ENTRAINEUR')]
     public function deletePlayersInternship(int $id, EntityManagerInterface $em,InternshipPlayerRepository $ipr, Request $request): Response
     {
