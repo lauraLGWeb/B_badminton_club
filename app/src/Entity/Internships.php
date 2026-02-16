@@ -65,6 +65,7 @@ class Internships
     #[ORM\OneToMany(targetEntity: InternshipPlayer::class, mappedBy: 'internship', orphanRemoval: true)]
     private Collection $internshipPlayers;
 
+
     public function __construct()
     {
         $this->internshipPlayers = new ArrayCollection();

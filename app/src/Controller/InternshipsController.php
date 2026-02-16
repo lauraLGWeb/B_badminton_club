@@ -33,31 +33,53 @@ final class InternshipsController extends AbstractController
     }
 
 
-    //get the one i click on to make inscription 
+    //get the one i clicked on to make inscription 
     #[Route('/Leclub/Stages/Inscription/{id}', name: 'app_intershipInscription')]
     public function intershipInscription(int $id, InternshipsRepository $ir,  Request $request, EntityManagerInterface $em): Response
-    {
-
+    {    
+        // get akl the interships
+        $internships = $ir->findAllOrderedByDate();
         //get the internship clicked on
         $internship = $ir->find($id);
-
+        //get the user connected 
+        $user = $this->getUser();
 
         if (!$internship) {
             throw $this->createNotFoundException('Stage introuvable');
 }
-
+       
         //create the new player and associate to the internship
         $newPlayer = new InternshipPlayer();
         $newPlayer->setInternship($internship);
+
+
+        //--------cannot book twice for the same interhnship----------
+       $existingBooking = $em->getRepository(InternshipPlayer::class)->findOneBy([
+       'user' => $user,
+       'internship' => $internship
+    ]);
+      if ($existingBooking) {
+            $this->addFlash('erreur', 'Attention tu as déja réservé ce stage   !');
+
+            return $this->render('internships/index.html.twig', [
+            'internships' => $internships,
+        ]); 
+        } 
+
+
 
 
         //create the form
         $form = $this->createForm(InternshipType::class, $newPlayer);
         $form->handleRequest($request);
 
+        
          if ($form->isSubmitted() && $form->isValid()) {
             // incrementation of "alreadybooked"
             $internship->setAlreadyBooked($internship->getAlreadyBooked()+1);
+            
+
+            $newPlayer->setUser($this->getUser());
 
             $em->persist($newPlayer);
             $em->flush();        

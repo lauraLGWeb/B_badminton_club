@@ -48,6 +48,7 @@ closeBtnMenu.addEventListener("click", function () {
 
 // menu change when dropp down on main page 
 
+// 
 for(let dropdown of dropdowns){
     const Mainlink = dropdown.querySelector("a")
 
@@ -60,4 +61,23 @@ Mainlink.addEventListener("click", function(e){
 
     })
 
+
+    for(let dropdown of dropdowns){
+    // Select the main link of each dropdown
+    const Mainlink = dropdown.querySelector("a")
+
+    //  on the main link clic
+    Mainlink.addEventListener("click", function(e){
+        // if the navigation menu is open -> has "active" class
+        if(navLink.classList.contains("active")){
+            // cancel the prevent
+            e.preventDefault();
+            // Toggle the "open" class to show/hide the dropdown
+            dropdown.classList.toggle("open");
+        }
+    })
 }
+
+}
+
+

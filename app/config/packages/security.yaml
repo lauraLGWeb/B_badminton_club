@@ -45,6 +45,7 @@ security:
         - { path: ^/membre, roles: ROLE_MEMBRE }
     #only accessible by a coatch
         - { path: ^/entraineur, roles: ROLE_ENTRAINEUR }
+        - { path : ^/Leclub/Stages/Inscription, roles: ROLE_MEMBRE }
 
 when@test:
     security:

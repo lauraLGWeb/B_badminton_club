@@ -33,8 +33,10 @@ btndarkMode.addEventListener("click", function () {
     body.classList.toggle("dark") 
     if( body.classList.contains("dark")){
         localStorage.setItem("theme","dark")
+        // icons visibility
         darkmode.style.display = "none";
         lightmode.style.display = "block";
+        // text on icon visibility
         textLightMode.style.display = "block";
         textDarkMode.style.display = "none";
     } else {

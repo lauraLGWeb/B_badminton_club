@@ -14,10 +14,6 @@ class InternshipType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('LastName')
-            ->add('FirstName')
-            ->add('email')
-            ->add('phoneNumber', TelType::class)
             ->add('SimpleRank', ChoiceType::class, [
                     'choices' => [
                         'NC (Non classé)' => 'NC',
