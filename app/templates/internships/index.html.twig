@@ -72,7 +72,7 @@
                             </a>
                         {% endif %}
 
-                        {% if is_granted('ROLE_COACH') or is_granted('ROLE_ADMIN') %}
+                        {% if is_granted('ROLE_ENTRAINEUR') or is_granted('ROLE_ADMIN') %}
                             <a class="internship-btn" href="{{ path('app_bookedPlayersInternship', {'id': internship.id}) }}">
                                 {{ 'Voir les inscrits'|trans }}
                             </a>

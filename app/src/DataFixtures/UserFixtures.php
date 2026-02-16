@@ -20,33 +20,36 @@ class UserFixtures extends Fixture
     {
         $faker = \Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $user = new User();
             $user->setFirstName($faker->firstName())
                  ->setLastName($faker->lastName())
+                 ->setPhoneNbr($faker->numerify('06########'))
                  ->setEmail($faker->unique()->safeEmail());
 
-            // Numéro de licence aléatoire entre 7 et 10 chiffres
-            $lienceNbr = '';
-            for ($j = 0; $j < 7; $j++) {
-                $lienceNbr .= rand(0, 9);
+            // Generate 7-digit license number (nullable, so 50% chance of having one)
+            if ($i % 2 === 0) {
+                $lienceNbr = $faker->numerify('#######');
+                $user->setLienceNbr($lienceNbr);
             }
-            $user->setLienceNbr((int)$lienceNbr);
 
             // Mot de passe par défaut
-            $hashedPassword = $this->passwordHasher->hashPassword($user, 'motdepasse123');
+            $hashedPassword = $this->passwordHasher->hashPassword($user, 'Motdepasse123');
             $user->setPassword($hashedPassword);
 
-            // roles
-            $roles = ['ROLE_MEMBRE'];
-            if ($i < 10) {
-                // 10admin 
-                $roles[] = 'ROLE_ADMIN';
-            } elseif ($i < 15) {
-                // 5 coaches in exemple
-                $roles[] = 'ROLE_ENTRAINEUR';
+            // Assign ONE role per user
+            // 5 admins, 3 trainers, 12 regular members
+            if ($i < 5) {
+                // First 5 users: ADMIN
+                $user->setRoles(['ROLE_ADMIN']);
+            } elseif ($i < 8) {
+                // Next 3 users: TRAINER
+                $user->setRoles(['ROLE_ENTRAINEUR']);
+            } else {
+                // Remaining 12 users: MEMBER (default role)
+                $user->setRoles(['ROLE_MEMBRE']);
             }
-            $user->setRoles($roles);
+
 
             $manager->persist($user);
         }

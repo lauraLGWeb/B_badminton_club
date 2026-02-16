@@ -161,8 +161,8 @@ final class InternshipsController extends AbstractController
 
 
 // create an internship (admon only)
-   #[Route('admin/Leclub/Stages/creation', name: 'app_createInternship')]
-    #[IsGranted('ROLE_ADMIN')]
+   #[Route('/entraineur/Leclub/Stages/creation', name: 'app_createInternship')]
+    #[IsGranted('ROLE_ENTRAINEUR')]
     public function createInternship(Request $request, EntityManagerInterface $em): Response
     {
     $newInternship = new Internships();
@@ -185,7 +185,6 @@ final class InternshipsController extends AbstractController
     }
 // modify an internship (admin only)
    #[Route('/entraineur/Leclub/Stages/modifier/{id}', name: 'app_modifyInternship')]
-    #[IsGranted('ROLE_ADMIN')]
     #[IsGranted('ROLE_ENTRAINEUR')]
   public function app_modifyInternship(Request $request, EntityManagerInterface $em, $id, InternshipsRepository $ir): Response
     {
@@ -213,8 +212,8 @@ final class InternshipsController extends AbstractController
             
         ]);
      }
-#[Route('/admin/Leclub/Stages/suppression/{id}', name: 'app_deleteInternship')]
-    #[IsGranted('ROLE_ADMIN')]
+#[Route('/entraineur/Leclub/Stages/suppression/{id}', name: 'app_deleteInternship')]
+    #[IsGranted('ROLE_ENTRAINEUR')]
    public function app_deleteInternship(int $id, InternshipsRepository $ir, EntityManagerInterface $em, Request $request) : Response
     {
 

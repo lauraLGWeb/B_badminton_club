@@ -13,98 +13,100 @@
 <div class="admin-dashboard">
     <h1 id="top">{{ 'Tableau de bord'|trans }}</h1>
 
-    {% if is_granted('ROLE_ADMIN') %}
+
         <ul>
-            <li>
-                <a data-bs-toggle="collapse" href="#membersMenu">
-                    👥 {{ 'Membres'|trans }}
-                </a>
-                <div class="collapse" id="membersMenu">
-                    <ul>
+            {% if is_granted('ROLE_ADMIN')%}
+                <li>
+                    <a data-bs-toggle="collapse" href="#membersMenu">
+                        👥 {{ 'Membres'|trans }}
+                    </a>
+                    <div class="collapse" id="membersMenu">
+                        <ul>
+                            <li>
+                                <a href="{{ path('app_membersList') }}">
+                                    {{ 'Liste des membres'|trans }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ENTRAINEUR')%}
                         <li>
-                            <a href="{{ path('app_membersList') }}">
-                                {{ 'Liste des membres'|trans }}
+                            <a data-bs-toggle="collapse" href="#internshipsMenu">
+                                🏸 {{ 'Stages'|trans }}
                             </a>
+                            <div class="collapse" id="internshipsMenu">
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('app_internships') }}">
+                                            {{ 'Liste des stages'|trans }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('app_createInternship') }}">
+                                            ➕ {{ 'Créer un stage'|trans }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
-                    </ul>
-                </div>
+            {% endif %}
+            
+            {% if is_granted('ROLE_ADMIN') %}
+                <li>
+                    <a data-bs-toggle="collapse" href="#shopMenu">
+                        🛒 {{ 'Boutique'|trans }}
+                    </a>
+                    <div class="collapse" id="shopMenu">
+                        <ul>
+                            <li>
+                                <a href="{{ path('app_ItemsList') }}">
+                                    {{ 'Produits'|trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_AddItemsList') }}">
+                                    ➕ {{ 'Ajouter un produit'|trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_orders') }}">
+                                    {{ 'Commandes'|trans }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <li>
+                    <a data-bs-toggle="collapse" href="#newsMenu">
+                        📰 {{ 'Actualités'|trans }}
+                    </a>
+                    <div class="collapse" id="newsMenu">
+                        <ul>
+                            <li>
+                                <a href="{{ path('app_actuality') }}">
+                                    {{ 'Liste des actus'|trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_createActuality') }}">
+                                    ➕ {{ 'Publier une actualité'|trans }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            {% endif %}
+            <li>
+                <a href="{{ path('app_home') }}">
+                    ← {{ 'Retour au site'|trans }}
+                </a>
             </li>
-    {% endif %}
-
-    <li>
-        <a data-bs-toggle="collapse" href="#internshipsMenu">
-            🏸 {{ 'Stages'|trans }}
-        </a>
-        <div class="collapse" id="internshipsMenu">
-            <ul>
-                <li>
-                    <a href="{{ path('app_internships') }}">
-                        {{ 'Liste des stages'|trans }}
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ path('app_createInternship') }}">
-                        ➕ {{ 'Créer un stage'|trans }}
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </li>
-
-    {% if is_granted('ROLE_ADMIN') %}
-        <li>
-            <a data-bs-toggle="collapse" href="#shopMenu">
-                🛒 {{ 'Boutique'|trans }}
-            </a>
-            <div class="collapse" id="shopMenu">
-                <ul>
-                    <li>
-                        <a href="{{ path('app_ItemsList') }}">
-                            {{ 'Produits'|trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('app_AddItemsList') }}">
-                            ➕ {{ 'Ajouter un produit'|trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('app_orders') }}">
-                            {{ 'Commandes'|trans }}
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-    {% endif %}
-
-    {% if is_granted('ROLE_ADMIN') %}
-        <li>
-            <a data-bs-toggle="collapse" href="#newsMenu">
-                📰 {{ 'Actualités'|trans }}
-            </a>
-            <div class="collapse" id="newsMenu">
-                <ul>
-                    <li>
-                        <a href="{{ path('app_actuality') }}">
-                            {{ 'Liste des actus'|trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('app_createActuality') }}">
-                            ➕ {{ 'Publier une actualité'|trans }}
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-    {% endif %}
-
-    <li>
-        <a href="{{ path('app_home') }}">
-            ← {{ 'Retour au site'|trans }}
-        </a>
-    </li>
         </ul>
 </div>
 

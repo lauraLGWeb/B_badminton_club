@@ -68,9 +68,13 @@
                         </li>
                     {% endif %}
 
-                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_COACH') %}
+                    {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item">
-                            <a href="{{ path('app_admin_dashboard') }}">{{ 'Administration'|trans }}</a>
+                            <a href="{{ path('app_admin_dashboard') }}">{{ 'Admin'|trans }}</a>
+                        </li>
+                    {% elseif  is_granted('ROLE_ENTRAINEUR') %}
+                         <li class="nav-item">
+                            <a href="{{ path('app_admin_dashboard') }}">{{ 'Stages'|trans }}</a>
                         </li>
                     {% endif %}
                 </ul>

@@ -147,8 +147,8 @@ final class HomeController extends AbstractController
     
     }
 
-      #[Route('/admin', name: 'app_admin_dashboard')]
-       #[IsGranted('ROLE_ADMIN')]
+      #[Route('/entraineur', name: 'app_admin_dashboard')]
+       #[IsGranted('ROLE_ENTRAINEUR')]
     public function adminDash(): Response
     {
         return $this->render('home/adminDashboard.html.twig');
