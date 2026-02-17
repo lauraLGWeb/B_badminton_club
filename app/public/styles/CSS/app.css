@@ -1029,6 +1029,7 @@ details a:hover {
 
 .main-presentation p {
     width: clamp(17rem, 30%, 70rem);
+    color: #1a1d29;
     padding: 20px;
     border-radius: 20px;
     font-size: 1.2rem;
@@ -1059,6 +1060,10 @@ details a:hover {
     padding-top: 20px;
 }
 
+
+.clubPresentation {
+    padding: 20px;
+}
 /* Introduction text */
 .intro-text {
     text-align: center;
@@ -1723,6 +1728,7 @@ details a:hover {
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
         background: rgba(255, 255, 255, 0.9);
+        border: none;
     }
     
     #menuIcon img {
