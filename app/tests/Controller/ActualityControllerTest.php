@@ -28,7 +28,7 @@ class ActualityControllerTest extends WebTestCase
     {
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
         //get an admin user
-        $admin = $userRepository->findOneBy(['email' => 'auguste32@example.org']);
+        $admin = $userRepository->findOneBy(['email' => 'qbernard@example.org']);
 
         if (!$admin) {
             $this->assertNotNull('Aucun admin trouvé');
@@ -51,7 +51,7 @@ class ActualityControllerTest extends WebTestCase
     
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
         $admin = $userRepository->findOneBy([
-    'email' => 'auguste32@example.org'
+    'email' => 'qbernard@example.org'
 ]);
 
           // connect the admin 
@@ -68,7 +68,7 @@ class ActualityControllerTest extends WebTestCase
             'actuality[title]' => 'Test Actualité PHPUnit',
             'actuality[description]' => 'Ceci est une actualité de test créée par PHPUnit',
             'actuality[picture]' => 'https://example.com/test.jpg',
-            'actuality[eventOn]' => '2026-02-15',
+            'actuality[eventOn]' => '2027-02-15',
         ]);
 
         $this->client->submit($form);

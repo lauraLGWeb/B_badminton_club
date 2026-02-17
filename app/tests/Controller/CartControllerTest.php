@@ -28,7 +28,7 @@ class CartControllerTest extends WebTestCase
     {
         // take a user test with specific email
         $userRepository = static::getContainer()->get('doctrine')->getRepository(User::class);
-        $user = $userRepository->findOneBy(['email' => 'auguste32@example.org']);
+        $user = $userRepository->findOneBy(['email' => 'qbernard@example.org']);
 
     
         // connect the user
