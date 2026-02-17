@@ -65,13 +65,14 @@ This project is developed as part of my web development training program and aim
 - Secure online payment via Stripe
 - Cart management with product variants
 - Order history
+- book an internship
 
 ### 👨‍🏫 For Trainers
 
 - **All Member privileges** +
 - Access to their training session schedules
 - View registered participants for each session
-- Send emails to participants
+- Send emails to participants or call them
 
 ### 👑 For Administrators
 
@@ -99,7 +100,7 @@ This project is developed as part of my web development training program and aim
 - **HTML5** - Semantic markup
 - **CSS3** - Modern styling with neomorphism design
 - **Vanilla JavaScript** - Client-side interactivity and form validation
-- **Responsive Design** - Mobile-first approach
+- **Responsive Design** - Mobile-first approach with CSS
 
 ### Payment Integration
 - **Stripe API** - Secure online payment processing for shop purchases
@@ -107,7 +108,7 @@ This project is developed as part of my web development training program and aim
 ### Testing
 - **PHPUnit** - Unit and functional testing
 - **Test fixtures** - Automated test data generation
-- **Separate test database** - Isolated test environment
+- **Separate test database** - Isolated test environment env.test.local
 
 ### Development Environment
 - **Docker & Docker Compose** - Containerized development environment
@@ -203,9 +204,9 @@ php bin/console doctrine:fixtures:load
 ✅ **phpMyAdmin**: `http://localhost:8899`
 
 **Default test accounts** (if fixtures loaded):
-- **Admin**: `genevieve50@example.com` / Password: `motdepasse123!`
-- **Trainer**: `audrey04@example.net` / Password: `motdepasse123!`
-- **Member**: `aime.meyer@example.org` / Password: `motdepasse123!`
+- **Admin**: `buisson.francois@example.com` / Password: `Motdepasse123`
+- **Trainer**: `buisson.francois@example.com` / Password: `Motdepasse123`
+- **Member**: `dguillon@example.net` / Password: `Motdepasse123`
 
 ---
 
@@ -240,7 +241,7 @@ The application implements **three distinct user roles** with specific permissio
 | Role | Description | Access Level |
 |------|-------------|--------------|
 | **👤 Visitor** | No ROLE | Non-authenticated user | View public pages, contact form, registration links |
-| **🏅 Member** | ROLE_MEMBRE | Authenticated club member | Visitor access + shop with cart and payment |
+| **🏅 Member** | ROLE_MEMBRE | Authenticated club member | Visitor access + shop with cart and payment + internship access|
 | **👨‍🏫 Trainer** | ROLE_ENTRAINEUR | Club trainer | Member access + session schedules and participant contact |
 | **👑 Admin** | ROLE_ADMIN | Administrator | Full access - all CRUD operations |
 
@@ -248,8 +249,8 @@ The application implements **three distinct user roles** with specific permissio
 ```
         👑 Admin
            ↓
-      👨‍🏫 Trainer
-           ↓
+        👨‍🏫 Trainer
+            ↓
        🏅 Member
            ↓
        👤 Visitor
@@ -269,16 +270,8 @@ docker compose exec php bash
 php bin/phpunit
 
 # Run specific test exemple
-php bin/phpunit tests/Controller/CartControllerTest.php
+php bin/phpunit tests/Controller/HomeControllerTest.php
 ```
-
-### Test Configuration
-
-Tests use a dedicated test database configured in `phpunit.xml.dist`:
-```xml
-
-```
-
 ---
 
 ## 🎓 Professional Skills Validated
@@ -317,7 +310,7 @@ This project validates the following **8 professional competencies (UC)** requir
 - [x] Homepage wireframe and zoning
 - [x] Shop page wireframe and zoning
 
-### ✅ Phase 2: Development (90% Completed)
+### ✅ Phase 2: Development (100% Completed)
 
 - [x] Docker environment setup
 - [x] Database setup (MySQL + MongoDB)
@@ -349,7 +342,6 @@ This project validates the following **8 professional competencies (UC)** requir
 
 - [x] Multilingual support (FR/EN) - i18n
 - [x] Social media feed integration (Facebook asked by the Club Manager)
-- [ ] Advanced stock management
 - [ ] Email notifications for training sessions
 
 **🎯 Coding deadline**: January 20, 2025  
