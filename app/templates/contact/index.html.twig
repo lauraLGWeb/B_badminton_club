@@ -1,80 +1,95 @@
 {% extends 'base.html.twig' %}
-{% block title %}Contacte-nous{% endblock %}
+
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Contactez le Blois Badminton Club : questions sur les inscriptions, essais gratuits, horaires et tarifs. FAQ complète et formulaire de contact. Réponse rapide garantie !" />
+{% endblock %}
+
+{% block title %}{{ 'Contacte-nous'|trans }}{% endblock %}
 
 {% block body %}
 
-<h1> Contacte-nous !</h1>
+<h1>{{ 'Contacte-nous !'|trans }}</h1>
 
-<h2>Regarde notre FAQ, peut être que la réponse à ta question y est déja</h2>
+<h2>{{ 'Regarde notre FAQ, peut-être que la réponse à ta question y est déjà'|trans }}</h2>
 
 <details>
-  <summary>Faut-il apporter son propre matériel ou le club en fournit ?</summary>
-  <p> Pour les essais, nous pouvons préter un raquette !</p> 
-  <p> Sinon nous te conseillons de venir avec les indispensables de la pratique du badminton que tu retrouve <a href="{{ path('app_try') }}"> dans la section Essai</a></p> 
+    <summary>{{ 'Faut-il apporter son propre matériel ou le club en fournit ?'|trans }}</summary>
+    <p>{{ 'Pour les essais, nous pouvons prêter une raquette !'|trans }}</p>
+    <p>{{ 'Sinon nous te conseillons de venir avec les indispensables de la pratique du badminton que tu retrouves'|trans }} <a href="{{ path('app_try') }}">{{ 'dans la section Essai'|trans }}</a></p>
 </details>
 
 <details>
-  <summary>Comment s'inscrire au club ?</summary>
- <p>L'inscription au club se fait directement sur le site de 
-<a href="https://www.ffbad.org/pratiquer-se-licencier-licence" target=blank > La Fédération Française De Badminton : FFBAD</a></p>
+    <summary>{{ 'Comment s\'inscrire au club ?'|trans }}</summary>
+    <p>{{ 'L\'inscription au club se fait directement sur le site de'|trans }}
+    <a href="https://www.ffbad.org/pratiquer-se-licencier-licence" target="_blank">{{ 'La Fédération Française De Badminton : FFBAD'|trans }}</a></p>
 </details>
 
 <details>
-  <summary>Le club accepte-t-il les débutants ?</summary>
-  <p>Tout à fait, tout le monde est le bienvenue au club !</p> 
+    <summary>{{ 'Le club accepte-t-il les débutants ?'|trans }}</summary>
+    <p>{{ 'Tout à fait, tout le monde est le bienvenu au club !'|trans }}</p>
 </details>
 
 <details>
-  <summary>Peut-on faire un cours d'essai avant de s'inscrire ?</summary>
-  <p> Oui et nous te le recommandons avant de t'engager! Jette un coup d'oeil à notre section <a href="{{ path('app_try') }}">essais</a></p> 
+    <summary>{{ 'Peut-on faire un cours d\'essai avant de s\'inscrire ?'|trans }}</summary>
+    <p>{{ 'Oui et nous te le recommandons avant de t\'engager ! Jette un coup d\'œil à notre section'|trans }} <a href="{{ path('app_try') }}">{{ 'essais'|trans }}</a></p>
 </details>
 
 <details>
-  <summary>Y a-t-il une limite d'âge pour rejoindre le club ?</summary>
-  <p>Tu peux t'inscrire peut importe ton âge ! </p>
-  <p>Si tu veux faire venir ton très jeune enfant (3-5 ans), nous lui proposons un essai qui sera encadré par l'un de nos entraîneurs afin de définir s'il n'est pas trop jeune pour joeur.</p>
-  
+    <summary>{{ 'Y a-t-il une limite d\'âge pour rejoindre le club ?'|trans }}</summary>
+    <p>{{ 'Tu peux t\'inscrire peu importe ton âge !'|trans }}</p>
+    <p>{{ 'Si tu veux faire venir ton très jeune enfant (3-5 ans), nous lui proposons un essai qui sera encadré par l\'un de nos entraîneurs afin de définir s\'il n\'est pas trop jeune pour jouer.'|trans }}</p>
 </details>
 
-<h2> Sinon, envoi nous un mail directement via ce formulaire</h2>
+<h2>{{ 'Sinon, envoie-nous un mail directement via ce formulaire'|trans }}</h2>
 
-    <div class="emailSent">
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success">
-                {{ message }}
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('error') %}
-            <div class="alert alert-danger">
-                {{ message }}
-            </div>
-        {% endfor %}
-    </div>  
+<div class="emailSent">
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message|trans }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">
+            {{ message|trans }}
+        </div>
+    {% endfor %}
+</div>
+
+{{ form_errors(contactForm) }}
+
+{{ form_start(contactForm) }}
     
-    {{ form_errors(contactForm) }}
+    {{ form_row(contactForm.firstName, {
+        'label': 'Prénom'|trans,
+        'attr': {'placeholder': 'Votre prénom'|trans}
+    }) }}
+    
+    {{ form_row(contactForm.lastName, {
+        'label': 'Nom'|trans,
+        'attr': {'placeholder': 'Votre nom'|trans}
+    }) }}
+    
+    {{ form_row(contactForm.email, {
+        'label': 'Email'|trans,
+         'attr': {'placeholder': 'Votre email'|trans}
+    }) }}
+    
+    {{ form_row(contactForm.message, {
+        'label': 'Ton message'|trans,
+        'attr': {'placeholder': 'Votre message'|trans}
+    }) }}
 
-    {{ form_start(contactForm) }}
+    {{ form_row(contactForm.send, {
+        'label': 'Envoyer'|trans
+    }) }}
+    
+    {{ form_row(contactForm.reset, {
+        'label': 'Effacer'|trans
         
-        {{ form_row(contactForm.firstName, {
-            label: 'Prénom'
-        }) }}
-        {{ form_row(contactForm.lastName, {
-            label: 'Nom'
-        }) }}
-        {{ form_row(contactForm.email, {
-            label: 'email'
-        }) }}
-        {{ form_row(contactForm.message, {
-            label: 'Ton message'
-        })  }}
-
-        {{ form_row(contactForm.send) }}
-        {{ form_row(contactForm.reset, {
-            label: ' Effacer'
-        })  }}
-      
-    {{ form_end(contactForm) }}
-
+    }) }}
+  
+{{ form_end(contactForm) }}
 
 {% endblock %}
-

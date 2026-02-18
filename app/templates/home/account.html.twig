@@ -1,51 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon compte{% endblock %}
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Accédez à votre espace personnel du Blois Badminton Club. Consultez vos informations de licence, gérez votre compte membre et suivez l'historique de vos commandes en ligne." />
+{% endblock %}
 
-
-
+{% block title %}{{ 'Mon compte'|trans }}{% endblock %}
 
 {% block body %}
+
 {% if app.user %}
-        <h1 id="top"> Bonjour {{app.user.firstName}} {{app.user.lastName}} ! Nous sommes ravis de te revoir !</h1>
+    <h1 id="top">
+        {{ 'Bonjour'|trans }} {{ app.user.firstName }} {{ app.user.lastName }} ! 
+        {{ 'Nous sommes ravis de te revoir !'|trans }}
+    </h1>
        
     <section class="accountSection">
-        <span class="span-account"> Si tu souhaite modifier une information de ton compte, dis-le nous par  </span> <a class="mail-account" href="mailto:bloisbadclub@gmail.com">mail</a> <span class="span-account">, nous effectuerons la modification.</span>
+        <span class="span-account">
+            {{ 'Si tu souhaites modifier une information de ton compte, dis-le nous par'|trans }}
+        </span> 
+        <a class="mail-account" href="mailto:bloisbadclub@gmail.com">{{ 'mail'|trans }}</a>
+        <span class="span-account">{{ ', nous effectuerons la modification.'|trans }}</span>
 
-        <p class="span-account">Petit rappel si besoin, ton numéro de licence est le {{app.user.lienceNbr}} </p>
+        <p class="span-account">
+            {{ 'Petit rappel si besoin, ton numéro de licence est le'|trans }} {{ app.user.lienceNbr }}
+        </p>
         
         <div>
-            <a class="newLicence" href="https://www.myffbad.fr/connexion" target=blank >Renouveller mon inscription</a>
+            <a class="newLicence" href="https://www.myffbad.fr/connexion" target="_blank">
+                {{ 'Renouveler mon inscription'|trans }}
+            </a>
         </div>
     </section>
 {% endif %}
 
-       
-<h2> Mes commandes: </h2>
-
+<h2>{{ 'Mes commandes'|trans }} :</h2>
 
 {% for order in orders %}
-<section class="ordersContainer">
-
-    <div class="ordersDiv">
-        <h3>Commande numéro : {{ order.id }}</h3>
-        <p>Date : {{ order.purchaseDate|date('d/m/Y H:i') }}</p>
-        
-        <h4>Articles :</h4>
-        <div>
-            {% for item in order.cartItem %}
-                <p>{{ item.product.title }}  {{ item.size }}  {{ item.gender }} (x{{ item.quantity }})</p>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
-{% endfor %}
-    {% if orders is empty %}
-            <div class="no-actuality">
-                <p>Aucune commande pour le moment.</p>
+    <section class="ordersContainer">
+        <div class="ordersDiv">
+            <h3>{{ 'Commande numéro'|trans }} : {{ order.id }}</h3>
+            <p>{{ 'Date'|trans }} : {{ order.purchaseDate|date('d/m/Y H:i') }}</p>
+            
+            <h4>{{ 'Articles'|trans }} :</h4>
+            <div>
+                {% for item in order.cartItem %}
+                    <p>{{ item.product.title }} {{ item.size }} {{ item.gender }} (x{{ item.quantity }})</p>
+                {% endfor %}
             </div>
-    {% endif %}
+        </div>
+    </section>
+{% endfor %}
+
+{% if orders is empty %}
+    <div class="no-actuality">
+        <p>{{ 'Aucune commande pour le moment.'|trans }}</p>
+    </div>
+{% endif %}
 
 {% endblock %}
-

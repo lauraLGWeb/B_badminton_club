@@ -1,32 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon Panier{% endblock %}
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Consultez votre panier Blois Badminton Club. Vérifiez vos articles, ajustez les quantités et finalisez votre commande en toute sécurité. Paiement en ligne sécurisé." />
+{% endblock %}
+
+{% block title %}{{ 'Mon Panier'|trans }}{% endblock %}
 
 {% block body %}
 
 <div class="cart-container">
-    <h1>Mon Panier</h1>
+    <h1>{{ 'Mon Panier'|trans }}</h1>
+
+
+     {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message|trans }}
+            </div>
+        {% endfor %}
+    {% endfor %}
 
     {% if cart.CartItem is empty %}
         <div class="empty-cart">
-            <p>Votre panier est vide.</p>
-            <a href="{{ path('app_shop') }}" class="cart-btn cart-btn-primary">Découvrir nos produits</a>
+            <p>{{ 'Votre panier est vide.'|trans }}</p>
+            <a href="{{ path('app_shop') }}" class="cart-btn cart-btn-primary">{{ 'Découvrir nos produits'|trans }}</a>
         </div>
     {% else %}
         <table class="cart-table">
             <thead>
                 <tr>
-                    <th>Produit</th>
-                    <th>Prix unitaire</th>
-                    <th>Quantité</th>
-                    <th>Total</th>
-                    <th>Actions</th>
+                    <th>{{ 'Produit'|trans }}</th>
+                    <th>{{ 'Prix unitaire'|trans }}</th>
+                    <th>{{ 'Quantité'|trans }}</th>
+                    <th>{{ 'Total'|trans }}</th>
+                    <th>{{ 'Actions'|trans }}</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in cart.CartItem %}
                     <tr>
-                        <td class="product-cell" data-label="Produit">
+                        <td class="product-cell" data-label="{{ 'Produit'|trans }}">
                             <img src="{{ asset(item.product.picture) }}" 
                                  alt="{{ item.product.title }}" 
                                  width="150px"
@@ -41,26 +56,26 @@
                             </div>
                         </td>
 
-                        <td class="price-cell" data-label="Prix">
+                        <td class="price-cell" data-label="{{ 'Prix'|trans }}">
                             {{ item.product.price|number_format(2, ',', ' ') }} €
                         </td>
 
-                        <td class="quantity-cell" data-label="Quantité">
+                        <td class="quantity-cell" data-label="{{ 'Quantité'|trans }}">
                             <span class="quantity-display">{{ item.quantity }}</span>
                         </td>
 
-                        <td class="total-cell" data-label="Total">
+                        <td class="total-cell" data-label="{{ 'Total'|trans }}">
                             <strong>{{ (item.product.price * item.quantity)|number_format(2, ',', ' ') }} €</strong>
                         </td>
 
-                        <td class="actions-cell" data-label="Actions">
-                            <form action="{{ path('app_deleteItem', { id: item.id }) }}" 
+                        <td class="actions-cell" data-label="{{ 'Actions'|trans }}">
+                            <form action="{{ path('app_deleteItem', {'id': item.id}) }}" 
                                   method="post" 
-                                  onsubmit="return confirm('Supprimer cet article ?')">
-                                  <input type="hidden"
-                                        name="_token" 
-                                        value="{{ csrf_token('delete_item' ~ item.id) }}">
-                                <button type="submit" class="cart-delete-btn">🗑️ Supprimer</button>
+                                  onsubmit="return confirm('{{ 'Supprimer cet article ?'|trans }}')">
+                                <input type="hidden"
+                                       name="_token" 
+                                       value="{{ csrf_token('delete_item' ~ item.id) }}">
+                                <button type="submit" class="cart-delete-btn">🗑️ {{ 'Supprimer'|trans }}</button>
                             </form>
                         </td>
                     </tr>
@@ -68,7 +83,7 @@
             </tbody>
         </table>
 
-         {# Total du panier #}
+        {# Total du panier #}
         {% set total = 0 %}
         {% for item in cart.CartItem %}
             {% set total = total + (item.product.price * item.quantity) %}
@@ -76,22 +91,22 @@
 
         <div class="cart-summary">
             <div class="summary-row">
-                <span class="summary-label">Sous-total :</span>
+                <span class="summary-label">{{ 'Sous-total'|trans }} :</span>
                 <span class="summary-value">{{ total|number_format(2, ',', ' ') }} €</span>
             </div>
             
             <hr>
 
             <div class="summary-row total-row">
-                <span class="summary-label">Total :</span>
+                <span class="summary-label">{{ 'Total'|trans }} :</span>
                 <span class="summary-value">{{ total|number_format(2, ',', ' ') }} €</span>
             </div>
         </div>
 
         {# Boutons d'action #}
         <div class="cart-actions">
-            <a href="{{ path('app_shop') }}" class="cart-btn cart-btn-secondary">← Continuer mes achats</a>
-            <a href="{{ path('app_payment') }}" class="cart-btn cart-btn-primary">Passer à la caisse →</a>
+            <a href="{{ path('app_shop') }}" class="cart-btn cart-btn-secondary">← {{ 'Continuer mes achats'|trans }}</a>
+            <a href="{{ path('app_payment') }}" class="cart-btn cart-btn-primary">{{ 'Passer à la caisse'|trans }} →</a>
         </div>
     {% endif %}
 </div>

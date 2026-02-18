@@ -1,133 +1,136 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} tarifs inscription {% endblock %}
+{% block title %}{{ 'tarifs inscription'|trans }}{% endblock %}
+
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Découvrez les tarifs d'inscription du Blois Badminton Club pour les juniors, seniors et jeunes. Consultez les réductions, cotisations et licences disponibles pour la saison." />
+{% endblock %}
 
 
 {% block body %}
 
 <div class="tarifs-container">
+    <h1>{{ 'Tarifs'|trans }}</h1>
 
+    <section class="discounts-section">
+        <h2 class="priceTitle">{{ 'Juniors/Séniors/Vétérans'|trans }} :</h2>
 
+        <table>
+            <caption>{{ 'Tarifs licences'|trans }}</caption>
+            <thead>
+                <tr>
+                    <th scope="col">{{ 'Type de licence'|trans }}</th>
+                    <th scope="col">{{ 'Tarif'|trans }}</th>
+                    <th scope="col">{{ 'Informations'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">{{ 'Jeu libre "loisir"'|trans }}</th>
+                    <td>155€</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">{{ 'Enseignement'|trans }}</th>
+                    <td>210€</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">{{ 'Entrainement gr1'|trans }}</th>
+                    <td>220€</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">{{ 'Entrainement gr2'|trans }}</th>
+                    <td>230€</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <h1 >Tarifs</h1>
-<section class="discounts-section">
-    <h2 class="priceTitle">Juniors/Séniors/Vétérans: </h2>
+        <p>{{ 'Retrouve les créneaux ici'|trans }} :</p>
+        <a href="{{ path('app_schedules') }}">{{ 'Voir les créneaux Juniors/Séniors/Vétérans'|trans }}</a>
+    </section>
 
-    <table>
-    <caption>
-        Tarifs licences
-    </caption>
-    <thead>
-        <tr>
-        <th scope="col">Type de licence</th>
-        <th scope="col">Tarif</th>
-        <th scope="col">Informations</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <th scope="row">Jeu libre " loisir"</th>
-        <td>155€</td>
-        <td></td>
-        </tr>
-        <tr>
-        <th scope="row">Enseignement</th>
-        <td>210€</td>
-        <td></td>
-        </tr>
-        <tr>
-        <th scope="row">Entrainement gr1</th>
-        <td>220€</td>
-        <td></td>
-        </tr>
-        <tr>
-        <th scope="row">Entrainement gr2:</th>
-        <td>230€</td>
-        <td></td>
-        </tr>
-    </tbody>
-    </table>
+    <section class="discounts-section">
+        <h2 class="priceTitle">{{ 'Jeunes'|trans }} :</h2>
 
+        <table>
+            <caption>{{ 'Tarifs licences'|trans }}</caption>
+            <thead>
+                <tr>
+                    <th scope="col">{{ 'Type de licence'|trans }}</th>
+                    <th scope="col">{{ 'Tarif'|trans }}</th>
+                    <th scope="col">{{ 'Informations'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">{{ 'Minibads'|trans }}</th>
+                    <td>140€</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">{{ 'Poussins/Benjamins'|trans }}</th>
+                    <td>165€</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">{{ 'Minimes/Cadets'|trans }}</th>
+                    <td>165€</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">{{ 'Pré Académie (sur sélection uniquement)'|trans }}</th>
+                    <td>205€</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">{{ 'Académie 1/2 (sur sélection uniquement)'|trans }}</th>
+                    <td>240€</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <p>Retouve les créneaux ici : </p>
-    <a href="{{ path('app_schedules') }}">Voir les créneaux Juniors/Séniors/Vétérans:</a>
-</section>
+        <p>{{ 'Retrouve les créneaux ici'|trans }} :</p>
+        <a href="{{ path('app_schedules') }}">{{ 'Voir les créneaux Jeunes'|trans }}</a>
+    </section>
 
-<section class="discounts-section">
-    <h2 class="priceTitle">Jeunes: </h2>
-
-    <table>
-    <caption>
-        Tarifs licences
-    </caption>
-    <thead>
-        <tr>
-        <th scope="col">Type de licence</th>
-        <th scope="col">Tarif</th>
-        <th scope="col">Informations</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <th scope="row">Minibads</th>
-        <td>140€</td>
-        <td></td>
-        </tr>
-        <tr>
-        <th scope="row">Poussins/Benjamins: </th>
-        <td>165€</td>
-        <td></td>
-        </tr>
-        <tr>
-        <th scope="row">Minimes/Cadets: </th>
-        <td>165€</td>
-        <td></td>
-        </tr>
-        <tr>
-        <th scope="row">Pré Académie (sur sélection uniquement) :</th>
-        <td>205€</td>
-        <td></td>
-        </tr>
-        <tr>
-        <th scope="row">Académie 1/2 (sur sélection uniquement) :</th>
-        <td>240€</td>
-        <td></td>
-        </tr>
-    </tbody>
-    </table>
-
-    <p>Retouve les créneaux ici :</p>
-    <a href="{{ path('app_schedules') }}">Voir les créneaux Jeunes</a>
+    <section class="discounts-section">
+        <h2 class="priceTitle">{{ 'Les réductions (non cumulables)'|trans }}</h2>
+        
+        <div class="discount-card">
+            <p class="discount-description">
+                {{ 'Réduction pour les FAMILLES (même adresse) -10€ sur la seconde cotisation et sur les suivantes'|trans }}
+            </p>
+        </div>
+        
+        <div class="discount-card">
+            <p class="discount-description">
+                {{ 'Réduction pour ETUDIANTS (post Bac) -10€ sur la cotisation correspondante'|trans }}
+            </p>
+        </div>
+        
+        <div class="discount-card">
+            <p class="discount-description">
+                {{ 'Licences prises au club à partir du 01/02 -30€ sur le montant de la cotisation'|trans }}
+            </p>
+        </div>
+        
+        <div class="discount-card discount-card--complementary">
+            <p class="discount-description">
+                {{ 'Licences complémentaires (soumis à validation du CA, en fonction des places disponibles et des intérêts du joueur et des deux clubs)'|trans }} :
+            </p>
+            <ul class="complementary-list">
+                <li class="complementary-item">{{ 'Complémentaire "Loisir" 100€'|trans }}</li>
+                <li class="complementary-item">{{ 'Complémentaire "Entrainement" 180€'|trans }}</li>
+                <li class="complementary-item">{{ 'Complémentaire "Vacances" 80€'|trans }}</li>
+            </ul>
+        </div>
+    </section>
 </div>
 
-
-</section>
-
-
- <section class="discounts-section">
-    <h2 class="priceTitle">Les réductions (non cumulables)</h2>
-    
-    <div class="discount-card">
-        <p class="discount-description">Réduction pour les FAMILLES (même adresse)	-10€ sur la seconde cotisation et sur les suivantes</p>
-    </div>
-    
-    <div class="discount-card">
-         <p class="discount-description">Réduction pour ETUDIANTS (post Bac)	-10€ sur la cotisation correspondante</p>
-    </div>
-    
-    <div class="discount-card">
-        <p class="discount-description">Licences prises au club à partir du 01/02	-30€ sur le montant de la cotisation</p>
-    </div>
-    
-    <div class="discount-card discount-card--complementary">
-        <p class="discount-description">Licences complémentaires (soumis à validation du CA, en fonction des places disponibles et des intérêts du joueur et des deux clubs) : </p>
-        <ul class="complementary-list">
-            <li class="complementary-item">Complémentaire "Loisir" 100€</li>
-            <li class="complementary-item">Complémentaire "Entrainement" 180€</li>
-            <li class="complementary-item">Complémentaire "Vacances" 80€</li>
-        </ul>
-    </div>
-
-</section>
 {% endblock %}
-

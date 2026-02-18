@@ -82,22 +82,12 @@ class HomeControllerTest extends WebTestCase
         $this->assertSelectorTextContains('h1', 'Règlement et Charte');
     }
 
-    public function testInternshipsPageIsSuccessful(): void
-    {
-        $this->client->request('GET', '/Leclub/Stages');
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'entrainements');
-    }
-
     public function testLegalMentionsPageIsSuccessful(): void
     {
         $this->client->request('GET', '/mentions');
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Mentions légales et CGV');
     }
-
-
-
 
     public function testAccountPageRedirectsWhenNotLoggedIn(): void
     {
@@ -107,7 +97,7 @@ class HomeControllerTest extends WebTestCase
 
     public function testAdminDashboardRedirectsWhenNotLoggedIn(): void
     {
-        $this->client->request('GET', '/admin');
+        $this->client->request('GET', '/entraineur');
         $this->assertResponseRedirects('/connexion');
     }
 
@@ -123,11 +113,6 @@ class HomeControllerTest extends WebTestCase
         $this->assertResponseRedirects('/connexion');
     }
 
-    public function testEachInternshipRedirectsWhenNotLoggedIn(): void
-    {
-        $this->client->request('GET', '/Leclub/Stages/gestion');
-        $this->assertResponseRedirects('/connexion');
-    }
 
     // ========================================
     // member cannot have dashboard
@@ -137,10 +122,10 @@ class HomeControllerTest extends WebTestCase
     public function testMembreCannotAccessAdminDashboard(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $membre = $userRepository->findOneBy(['email' => 'dmuller@example.net']);
+        $membre = $userRepository->findOneBy(['email' => 'robert.colas@example.org']);
 
         $this->client->loginUser($membre);
-        $this->client->request('GET', '/admin');
+        $this->client->request('GET', '/entraineur');
         
         $this->assertResponseStatusCodeSame(403);
     }
@@ -152,10 +137,10 @@ class HomeControllerTest extends WebTestCase
     public function testAdminCanAccessDashboard(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $admin = $userRepository->findOneBy(['email' => 'fguyon@example.org']);
+        $admin = $userRepository->findOneBy(['email' => 'qbernard@example.org']);
 
         $this->client->loginUser($admin);
-        $this->client->request('GET', '/admin');
+        $this->client->request('GET', '/entraineur');
         
         $this->assertResponseIsSuccessful();
     }
@@ -163,7 +148,7 @@ class HomeControllerTest extends WebTestCase
     public function testAdminCanAccessItemsList(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $admin = $userRepository->findOneBy(['email' => 'marques.victoire@example.com']);
+        $admin = $userRepository->findOneBy(['email' => 'qbernard@example.org']);
 
         $this->client->loginUser($admin);
         $this->client->request('GET', '/admin/Liste-boutique');
@@ -174,7 +159,7 @@ class HomeControllerTest extends WebTestCase
     public function testAdminCanAccessMembersList(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $admin = $userRepository->findOneBy(['email' => 'fguyon@example.org']);
+        $admin = $userRepository->findOneBy(['email' => 'qbernard@example.org']);
 
         $this->client->loginUser($admin);
         $this->client->request('GET', '/admin/membres/liste');
@@ -185,37 +170,11 @@ class HomeControllerTest extends WebTestCase
     public function testAdminCanAccessAddItemsPage(): void
     {
         $userRepository = static::getContainer()->get(UserRepository::class);
-        $admin = $userRepository->findOneBy(['email' => 'fguyon@example.org']);
+        $admin = $userRepository->findOneBy(['email' => 'qbernard@example.org']);
 
         $this->client->loginUser($admin);
         $this->client->request('GET', '/admin/Liste-boutique/ajouter');
         
         $this->assertResponseIsSuccessful();
-    }
-
-    // ========================================
-    // ROUTES PROTÉGÉES - AVEC ENTRAINEUR
-    // ========================================
-
-    public function testEntraineurCanAccessInternshipManagement(): void
-    {
-        $userRepository = static::getContainer()->get(UserRepository::class);
-        $entraineur = $userRepository->findOneBy(['email' => 'martin.isabelle@example.net']);
-
-        $this->client->loginUser($entraineur);
-        $this->client->request('GET', '/Leclub/Stages/gestion');
-        
-        $this->assertResponseIsSuccessful();
-    }
-
-    public function testMembreCannotAccessInternshipManagement(): void
-    {
-        $userRepository = static::getContainer()->get(UserRepository::class);
-        $membre = $userRepository->findOneBy(['email' => 'lucas.guilbert@example.com']);
-
-        $this->client->loginUser($membre);
-        $this->client->request('GET', '/Leclub/Stages/gestion');
-        
-        $this->assertResponseStatusCodeSame(403);
     }
 }

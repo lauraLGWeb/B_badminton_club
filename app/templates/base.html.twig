@@ -1,108 +1,109 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
- {% block stylesheets %}
 
-         {# FONTS  #}
+ {% block meta %}
+ {% endblock %}
+
+    {% block stylesheets %}
+        {# FONTS #}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         
-        {# JS FILES  #}
-        <script defer src="{{asset('styles/JS/main.js') }}"></script>
-        <script defer src="{{asset('styles/JS/cart.js') }}"></script>
-        <script defer src="{{asset('styles/JS/navBar.js') }}"></script>
+        {# JS FILES #}
+        <script defer src="{{ asset('styles/JS/main.js') }}"></script>
+        <script defer src="{{ asset('styles/JS/cart.js') }}"></script>
+        <script defer src="{{ asset('styles/JS/navBar.js') }}"></script>
         
-        {# CSS FILES  #}
-        <link rel="stylesheet" href="{{ asset('styles/CSS/app.css') }}"> {# in first to take the root everywhere  #}
+        {# CSS FILES #}
+        <link rel="stylesheet" href="{{ asset('styles/CSS/app.css') }}"> {# in first to take the root everywhere #}
         <link rel="stylesheet" href="{{ asset('styles/CSS/CaMembers.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/coaches.css') }}">
-         <link rel="stylesheet" href="{{ asset('styles/CSS/essais.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/CSS/essais.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/listMembers.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/connexion.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/rules.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/dashboardadmin.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/shop.css') }}">
-        
         <link rel="stylesheet" href="{{ asset('styles/CSS/productCrud.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/schedules.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/tarifs.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/actuality.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/partners.css') }}">
-        <link rel="stylesheet" href="{{ asset('styles/CSS/actualityDetail.css') }}"> 
+        <link rel="stylesheet" href="{{ asset('styles/CSS/actualityDetail.css') }}">
         <link rel="stylesheet" href="{{ asset('styles/CSS/mentions.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/CSS/internships.css') }}">
 
         <link rel="shortcut icon" href="{{ asset('pictures/logo.jpeg') }}" type="image/x-icon">
 
-       {% endblock %}
-    <meta charset="UTF-8">
-    <title>{% block title %}Blois Badminton Club{% endblock %}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+    {% endblock %}
+
     
-   
-    
+    <title>{% block title %}{{ 'Blois Badminton Club'|trans }}{% endblock %}</title>
 </head>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" 
-        src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v18.0" 
-        nonce="RANDOM_NONCE">
-    </script>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" 
+    src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v18.0" 
+    nonce="RANDOM_NONCE">
+</script>
 
 <body id="top">
-
-
     {% if app.request.attributes.get('_route') == 'app_home' %}
         {% include 'home/header.html.twig' %}
     {% else %}
         {% include 'home/headerOtherPages.html.twig' %}
     {% endif %}
 
-
     {% block welcomingMessage %}{% endblock %}
 
-    {% block body %}{% endblock %}
+    <main role="main">
+        {% block body %}
+        {% endblock %}
+    </main>
 
     {% include 'home/footer.html.twig' %}
 
-
-    <script>// Header sticky when i scroll
-    
-    // are we on the main page ? 
-const isHomePage = window.location.pathname === '/';
-
-    // on srcoll 
-    if (isHomePage){
-        window.addEventListener('scroll', function() {
-        const logo = document.querySelector('.logo-btns');
-        const mainNav = document.querySelector('.navBarContainer');
-        const heroBtn= document.querySelector('.hero-buttons');
-        const menuBurger= document.getElementById('menuIcon');
-        const heroBtnLinks= document.querySelectorAll('.hero-buttons-links');
-        const menuBtnsSticky= document.querySelector(".menuBtnsSticky")
-
+    <script>
+        // Header sticky when I scroll
         
-        for(let heroBtnLink of heroBtnLinks){
-            //scroll up to 150px gets the simulation
-            if (window.scrollY > 150) {
-                logo.classList.add('compact');
-                mainNav.classList.add('sticky');
-                heroBtn.classList.add('sticky');
-                heroBtnLink.classList.add('sticky');
-                menuBurger.classList.add('sticky');
-                menuBtnsSticky.classList.add('sticky');
+        // are we on the main page?
+        const isHomePage = window.location.pathname === '/';
 
-        } else {
-                logo.classList.remove('compact');
-                mainNav.classList.remove('sticky');
-                heroBtn.classList.remove('sticky');
-                heroBtnLink.classList.remove('sticky');
-                menuBurger.classList.remove('sticky');
-                menuBtnsSticky.classList.remove('sticky');
-            }
-        }      
-    });
-}
-   
+        // on scroll
+        if (isHomePage) {
+            window.addEventListener('scroll', function() {
+                const logo = document.querySelector('.logo-btns');
+                const mainNav = document.querySelector('.navBarContainer');
+                const heroBtn = document.querySelector('.hero-buttons');
+                const menuBurger = document.getElementById('menuIcon');
+                const heroBtnLinks = document.querySelectorAll('.hero-buttons-links');
+                const menuBtnsSticky = document.querySelector(".menuBtnsSticky");
 
+                for (let heroBtnLink of heroBtnLinks) {
+                    // scroll up to 150px gets the simulation
+                    if (window.scrollY > 150) {
+                        logo.classList.add('compact');
+                        mainNav.classList.add('sticky');
+                        heroBtn.classList.add('sticky');
+                        heroBtnLink.classList.add('sticky');
+                        menuBurger.classList.add('sticky');
+                        menuBtnsSticky.classList.add('sticky');
+                    } else {
+                        logo.classList.remove('compact');
+                        mainNav.classList.remove('sticky');
+                        heroBtn.classList.remove('sticky');
+                        heroBtnLink.classList.remove('sticky');
+                        menuBurger.classList.remove('sticky');
+                        menuBtnsSticky.classList.remove('sticky');
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>

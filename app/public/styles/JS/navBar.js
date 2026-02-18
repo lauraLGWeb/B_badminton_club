@@ -4,10 +4,12 @@
 // ========================
 //******************************
  
-const menuIcon = document.getElementById("menuIcon")
+const menuIcon = document.getElementById("menuIcon");
 const closeBtnMenu = document.querySelector(".closeBtnMenu")
 const navLink = document.querySelector(".nav-links")
 const dropdowns = document.querySelectorAll(".dropdown");
+const menuBtnsSticky=document.querySelector(".menuBtnsSticky")
+const menuBtnsOtherMenu=document.querySelector(".menuBtnsOtherMenu")
 
 
 
@@ -19,20 +21,34 @@ const dropdowns = document.querySelectorAll(".dropdown");
 
 //open the menu
   menuIcon.addEventListener("click", function () {
-    navLink.style.display = "flex";
-    menuIcon.style.display = "none";
     navLink.classList.add("active");
+    menuIcon.style.display = "none";
     
+    // Affiche les boutons selon ce qui existe
+    if (menuBtnsSticky) {
+        menuBtnsSticky.classList.add("active");
+    }
+    if (menuBtnsOtherMenu) {
+        menuBtnsOtherMenu.classList.add("active");
+    }
 });
+
 //close the menu
 closeBtnMenu.addEventListener("click", function () {
-    navLink.style.display = "none";
+    navLink.classList.remove("active");
     menuIcon.style.display = "block";
     
+    if (menuBtnsSticky) {
+        menuBtnsSticky.classList.remove("active");
+    }
+    if (menuBtnsOtherMenu) {
+        menuBtnsOtherMenu.classList.remove("active");
+    }
 });
 
 // menu change when dropp down on main page 
 
+// 
 for(let dropdown of dropdowns){
     const Mainlink = dropdown.querySelector("a")
 
@@ -45,4 +61,23 @@ Mainlink.addEventListener("click", function(e){
 
     })
 
+
+    for(let dropdown of dropdowns){
+    // Select the main link of each dropdown
+    const Mainlink = dropdown.querySelector("a")
+
+    //  on the main link clic
+    Mainlink.addEventListener("click", function(e){
+        // if the navigation menu is open -> has "active" class
+        if(navLink.classList.contains("active")){
+            // cancel the prevent
+            e.preventDefault();
+            // Toggle the "open" class to show/hide the dropdown
+            dropdown.classList.toggle("open");
+        }
+    })
 }
+
+}
+
+

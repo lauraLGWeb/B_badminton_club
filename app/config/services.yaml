@@ -7,6 +7,8 @@
 parameters:
     env(MONGODB_URI): ''
     env(MONGODB_DB): ''
+    app.locales: 'fr|en'  # Ajoute cette ligne
+    locale: 'fr'
 
 services:
     # default configuration for services in *this* file
@@ -24,3 +26,8 @@ services:
     App\Service\StripeService:
         arguments:
             $stripeSecretKey: '%env(STRIPE_SECRET_KEY)%'
+
+  # Listener pour définir la locale depuis la session
+    App\EventListener\LocaleListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, priority: 20 }

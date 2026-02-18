@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'Création d\'un nouveau stage'|trans }}{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="titleAndBtnComeBack">
+        {% if app.current_route == 'app_createInternship' %}
+            <h1>{{ 'Création d\'un nouveau stage'|trans }}</h1>
+        {% elseif app.current_route == 'app_modifyInternship' %}
+            <h1>{{ 'Modification du stage'|trans }}</h1>
+        {% endif %}
+
+        <a href="{{ path('app_internships') }}" role="button" class="btn-back">
+            {{ 'Retour aux stages'|trans }}
+        </a>
+    </div>
+
+    {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message|trans }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {{ form_errors(form) }}
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+        {{ form_row(form.internshipTitle, {
+            'label': 'Titre du stage'|trans
+        }) }}
+        
+        {{ form_row(form.dateTime, {
+            'label': 'Date et heure'|trans
+        }) }}
+        
+        {{ form_row(form.gymnase, {
+            'label': 'Gymnase'|trans
+        }) }}
+        
+        {{ form_row(form.price, {
+            'label': 'Prix'|trans,
+            'attr': {
+                'step': '0.01',
+                'min': '0'
+            }
+        }) }}
+        
+        {{ form_row(form.maxPlayersNbr, {
+            'label': 'Nombre maximum de joueurs'|trans
+        }) }}
+        
+        {{ form_row(form.alreadyBooked, {
+            'label': 'Nombre d\'inscrits actuellement'|trans
+        }) }}
+
+        <button type="submit" class="submit-button">
+            {{ 'Publier le stage'|trans }}
+        </button>
+
+    {{ form_end(form) }}
+    
+</div>
+
+{% endblock %}

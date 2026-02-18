@@ -11,6 +11,7 @@
     scrollbar-width: thin;
     scrollbar-color: var(--primary-color) var(--bg-color);
     scroll-behavior: smooth;
+    text-decoration: none;
 }
 /*accessibility focus */
 :focus {
@@ -50,12 +51,20 @@
     --bg-color: #1a1d29;
     --text-color: #f5f7fa;
     --primary-color: #ff6b35;
-    --accent-color: #e3e3e3;
+    --accent-color: #9da0a4;
     --gradient-start: #cf633c;
     --gradient-end: #edbf8b;
     --shadow-light: rgba(255, 255, 255, 0.05);
     --shadow-dark: rgba(0, 0, 0, 0.6);
     --card-bg: #242936;
+
+     --pressed:  
+        inset 2px 2px 4px var(--shadow-light),
+        inset -2px -2px 4px var(--shadow-dark);
+    --unpressed: 
+        5px 5px 10px var(--shadow-light),
+        -5px -5px 10px var(--shadow-dark);
+
 }
 
 /* ========================================
@@ -71,8 +80,6 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-   
-
 }
 
 body, p {
@@ -122,11 +129,10 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center
+}
 
-
-    
-    
-
+.btn a{
+    color: var(--text-color);
 }
 
 div.btn:hover {
@@ -286,7 +292,7 @@ input[type="radio"]:checked + label {
     background: linear-gradient(135deg, #f8d7da, #f5c6cb);
     color: #721c24;
     padding: 15px 20px;
-    margin: 25vh auto 20px auto;
+    margin: 20px auto 20px auto;
     border-left: 5px solid #dc3545;
     border-radius: 12px;
     font-weight: 600;
@@ -406,12 +412,14 @@ body.dark img{
 }
 
 .logo img {
-    width: 150px;
+    width: auto;
+    height: 15rem;
     border-radius: 12px;
     transition: all 0.4s ease;
+    object-fit: contain;
 }
 
-.logo-btns.compact .logo img {
+.logo-btns.compact {
     width: 80px;
 }
 
@@ -625,8 +633,11 @@ body.dark img{
 }
 
 /* Hide burger menu on desktop */
-#menuIcon, #menuIcon.sticky {
+ #menuIcon.sticky {
     display: none;
+}
+#menuIcon{
+   display: none;
 }
 
 .closeBtnMenu {
@@ -652,7 +663,8 @@ body.dark img{
 }
 
 .logoOtherMenu {
-    height: 80px;
+    height: 5rem;
+    width: 5rem;
 }
 
 .hero-buttonsOtherMenu .hero-buttons-links {
@@ -967,6 +979,7 @@ details a:hover {
 
 .picture-main:hover img {
     transform: skew(-2deg, -1deg) scale(1.05);
+    
 }
 
 .main-presentation div {
@@ -996,12 +1009,17 @@ details a:hover {
 }
 .reverse-div img{
     margin-right: 10rem;
+    max-height: 60vh;
+    width: auto;
+    object-fit: contain;
 }
 
 .main-presentation img {
     transform: skew(-0.03turn, -3deg);
     max-height: 60vh;
-     margin: 0 10vw;
+    margin: 0 10vw;
+    width: auto;
+    object-fit: contain;
 }
 
 .main-presentation img:hover {
@@ -1010,7 +1028,8 @@ details a:hover {
 }
 
 .main-presentation p {
-    width: 30%;
+    width: clamp(17rem, 30%, 70rem);
+    color: #1a1d29;
     padding: 20px;
     border-radius: 20px;
     font-size: 1.2rem;
@@ -1041,6 +1060,10 @@ details a:hover {
     padding-top: 20px;
 }
 
+
+.clubPresentation {
+    padding: 20px;
+}
 /* Introduction text */
 .intro-text {
     text-align: center;
@@ -1705,6 +1728,7 @@ details a:hover {
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
         background: rgba(255, 255, 255, 0.9);
+        border: none;
     }
     
     #menuIcon img {
@@ -1859,7 +1883,7 @@ details a:hover {
     }
     
     .dropdown > a::after {
-        content: "▼";
+        content: "\25BC";
         float: right;
         padding-left: 20px;
         transition: transform 0.3s ease;
@@ -1870,6 +1894,13 @@ details a:hover {
     }
 }
 
+@media (max-width: 950px) {
+   .main-presentation p{
+    width: 90%;
+   }
+}
+
+
 @media (max-width: 800px) {
     .menuBtnsSticky.sticky {
         flex-direction: column;
@@ -1877,6 +1908,7 @@ details a:hover {
         left: 15px;
     }
 }
+
 
 @media (max-width: 768px) {
     .navBarContainer ul {
@@ -1906,12 +1938,17 @@ details a:hover {
     .actus-in-main {
         flex-direction: column;
         top: 200px;
+        width: 90%;
+       
     }
     
     .actu-main {
         width: 90%;
     }
-    
+   
+    .actus{
+        padding-top: 20vh;
+    }
     .club-presentation h2 {
         font-size: 2rem;
     }
@@ -1971,6 +2008,7 @@ details a:hover {
         gap: 2rem;
         animation-duration: 50s;
     }
+  
 }
 
 @media (max-width: 750px) {

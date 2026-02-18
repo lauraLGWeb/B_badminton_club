@@ -1,65 +1,67 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Faire un essai {% endblock %}
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Essayez le badminton gratuitement au Blois Badminton Club ! 2 séances d'essai offertes pour tous niveaux, débutants bienvenus. Matériel prêté. Contactez-nous pour réserver." />
+{% endblock %}
 
+{% block title %}{{ 'Faire un essai'|trans }}{% endblock %}
 
 {% block body %}
 
 <div class="essai-container">
-    <h1>Comment faire un essai ?</h1>
+    <h1>{{ 'Comment faire un essai ?'|trans }}</h1>
 
     <div class="essai-card">
         <p class="intro-text">
-            Vous souhaitez <strong>découvrir le badminton</strong> et essayer avant de vous inscrire ?
-            C'est possible ! Le club propose des séances d'essai pour les personnes non licenciées la saison précédente.
+            {{ 'Vous souhaitez'|trans }} <strong>{{ 'découvrir le badminton'|trans }}</strong> {{ 'et essayer avant de vous inscrire ? C\'est possible ! Le club propose des séances d\'essai pour les personnes non licenciées la saison précédente.'|trans }}
         </p>
 
-       
         <div class="highlight-essais">
             <div class="number">2</div>
-            <div class="text">SÉANCES D'ESSAI GRATUITES</div>
+            <div class="text">{{ 'SÉANCES D\'ESSAI GRATUITES'|trans }}</div>
         </div>
 
         <p class="intro-text">
-            Ces séances sont ouvertes à <strong>tous les niveaux</strong>, y compris aux débutants n'ayant jamais pratiqué le badminton.
+            {{ 'Ces séances sont ouvertes à'|trans }} <strong>{{ 'tous les niveaux'|trans }}</strong>, {{ 'y compris aux débutants n\'ayant jamais pratiqué le badminton.'|trans }}
         </p>
     </div>
 
-   
     <div class="contact-box">
-        <h2 class="titleTry">Pour réserver votre essai</h2>
-        <p>Contactez-nous par email pour planifier votre venue :</p>
+        <h2 class="titleTry">{{ 'Pour réserver votre essai'|trans }}</h2>
+        <p>{{ 'Contactez-nous par email pour planifier votre venue'|trans }} :</p>
         <a href="mailto:bloisbadclub@gmail.com" class="email-link">
             bloisbadclub@gmail.com
         </a>
     </div>
 
-   
     <div class="materiel-section">
-        <h2 class="titleTry">Matériel et tenue</h2>
+        <h2 class="titleTry">{{ 'Matériel et tenue'|trans }}</h2>
         
         <p class="info-badge">
-           Une raquette peut être prêtée par le club si besoin
+            {{ 'Une raquette peut être prêtée par le club si besoin'|trans }}
         </p>
 
-        <p style="margin: 1.5rem 0;">Merci de venir avec :</p>
+        <p style="margin: 1.5rem 0;">{{ 'Merci de venir avec'|trans }} :</p>
 
         <ul class="materiel-list">
-            <li>Une paire de chaussures de salle propres (indispensable)</li>
-            <li>Une tenue de sport confortable</li>
-            <li>Une bouteille d'eau</li>
+            <li>{{ 'Une paire de chaussures de salle propres (indispensable)'|trans }}</li>
+            <li>{{ 'Une tenue de sport confortable'|trans }}</li>
+            <li>{{ 'Une bouteille d\'eau'|trans }}</li>
         </ul>
     </div>
 
     <div class="essai-card">
         <p class="intro-text">
-            Aucune expérience préalable n'est requise : l'objectif est de <strong>découvrir le sport</strong>, 
-            l'ambiance du club et de <strong>prendre du plaisir</strong> sur le terrain.
+            {{ 'Aucune expérience préalable n\'est requise : l\'objectif est de'|trans }} <strong>{{ 'découvrir le sport'|trans }}</strong>, 
+            {{ 'l\'ambiance du club et de'|trans }} <strong>{{ 'prendre du plaisir'|trans }}</strong> {{ 'sur le terrain.'|trans }}
         </p>
     </div>
 
     <div class="welcome-message">
-        Au plaisir de vous accueillir sur le terrain ! 🏸
+        {{ 'Au plaisir de vous accueillir sur le terrain !'|trans }} 🏸
     </div>
 </div>
+
 {% endblock %}

@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accès refusé{% endblock %}
+{% block title %}{{ 'Accès refusé'|trans }}{% endblock %}
 
 {% block body %}
 <div style="text-align: center; padding: 50px; max-width: 600px; margin: 0 auto;">
-    <h1 style="color: #3b6fac; font-size: 3em;">🚫 Accès refusé</h1>
+    <h1 style="color: #3b6fac; font-size: 3em;">🚫 {{ 'Accès refusé'|trans }}</h1>
     
     <p style="font-size: 1.5em; color: #555; margin: 30px 0;">
-        Vous n'avez pas les permissions nécessaires pour accéder à cette page.
+        {{ 'Vous n\'avez pas les permissions nécessaires pour accéder à cette page.'|trans }}
     </p>
     
     <p style="color: #888;">
-        Cette page est réservée aux administrateurs du Blois Badminton Club.
+        {{ 'Cette page est réservée aux administrateurs du Blois Badminton Club.'|trans }}
     </p>
     
     <div style="margin-top: 40px;">
@@ -19,12 +19,12 @@
            style="background: #ffdd00; color: #3b6fac; padding: 15px 30px; 
                   text-decoration: none; border-radius: 5px; font-size: 1.2em;
                   font-weight: bold;">
-            ← Retour à l'accueil
+            ← {{ 'Retour à l\'accueil'|trans }}
         </a>
     </div>
     
     <p style="margin-top: 30px; color: #999; font-size: 0.9em;">
-        Si vous pensez qu'il s'agit d'une erreur, contactez un administrateur.
+        {{ 'Si vous pensez qu\'il s\'agit d\'une erreur, contactez un administrateur.'|trans }}
     </p>
 </div>
 {% endblock %}

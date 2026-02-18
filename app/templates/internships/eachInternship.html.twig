@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Inscrivez-vous au stage de badminton du {{ internship.dateTime|date('d/m/Y') }} au Blois Badminton Club. Encadrement professionnel avec Simon Paton. Places limitées, réservez maintenant !" />
+{% endblock %}
+
+{% block title %}{{ 'Stages'|trans }}{% endblock %}
+
+{% block body %}
+    <section class="IntershipBookingPresentation">
+        <div class="titleAndBtnComeBack">
+            <h1>{{ 'M\'inscrire pour le stage du'|trans }} {{ internship.dateTime|date('d/m/Y') }} {{ 'à'|trans }} {{ internship.dateTime|date('H:i') }}</h1>
+
+
+            {% for type, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message|trans }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            
+
+            <a href="{{ path('app_internships') }}" role="button" class="btn-back">{{ 'Retour aux stages'|trans }}</a>
+        </div>
+
+        <div class="bookingState">
+            <p>{{ 'Actuellement'|trans }}
+                {% if internship.AlreadyBooked > 0 %}
+                    <span class="booked">{{ 'il y a'|trans }} {{ internship.AlreadyBooked }} {{ 'inscription(s) faite(s)'|trans }}</span>
+                {% else %}
+                    <span class="empty">{{ 'il n\'y a aucun inscrit'|trans }}</span>
+                {% endif %}
+                <span>{{ 'sur'|trans }} {{ internship.MaxPlayersNbr }} {{ 'places'|trans }}</span>
+            </p>
+        </div>
+    </section>
+
+    
+    
+
+    <h2>{{ internship.internshipTitle }} :</h2>
+
+    {{ form_errors(form) }}
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+       
+       
+        <p>A PERSONNALISER bonjour {{ app.user.LastName}}</p>
+        
+        {{ form_row(form.SimpleRank, {
+            'label': 'Classement en Simple'|trans
+        }) }}
+        
+        {{ form_row(form.DoubleRank, {
+            'label': 'Classement en Double'|trans
+        }) }}
+        
+        {{ form_row(form.MixteRank, {
+            'label': 'Classement en Mixte'|trans
+        }) }}
+
+        <button type="submit" class="submit-button">{{ 'Envoyer mon inscription'|trans }}</button>
+
+    {{ form_end(form) }}
+
+{% endblock %}

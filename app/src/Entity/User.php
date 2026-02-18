@@ -22,7 +22,7 @@ use App\Validator\NoBadWords;
 
 //  Symfony validation: chekc the unicity of email and licence nbr before to push it into the bdd 
 #[UniqueEntity(fields: ['email'], message: 'Un compte existe déjà avec cette adresse e-mail')]
-#[UniqueEntity(fields: ['lienceNbr'], message: 'Ce numéro de licence est déjà utilisé')]
+#[UniqueEntity(fields: ['lienceNbr'], message: 'Ce numéro de licence est déjà utilisé',ignoreNull: true)]
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -60,13 +60,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      #[Assert\NotBlank(message: 'Le Nom est obligatoire')]
     private ?string $lastName = null;
 
-   #[ORM\Column(type: 'string')]
-    #[Assert\NotBlank(message: 'Le numéro de licence est obligatoire')]
+   #[ORM\Column(type: 'string', nullable: true)] //can be null for external members
+    // #[Assert\NotBlank(message: 'Le numéro de licence est obligatoire')]
     #[Assert\Regex(
         pattern: '/^\d{7}$/',
         message: 'Le numéro de licence doit contenir exactement 7 chiffres'
     )]
-    
     private ?string $lienceNbr = null;
 
 
@@ -80,10 +79,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
    #[ORM\Column]
    private ?bool $isVerified = false;
 
+   #[ORM\Column(length: 13)]
+  #[Assert\Regex(
+    pattern: '/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/',
+)]
+   private ?string $phoneNbr = null;
+
+   /**
+    * @var Collection<int, InternshipPlayer>
+    */
+   #[ORM\OneToMany(targetEntity: InternshipPlayer::class, mappedBy: 'user')]
+   private Collection $internshipPlayers;
+
    public function __construct()
    {
        $this->carts = new ArrayCollection();
        $this->isVerified=false;
+       $this->internshipPlayers = new ArrayCollection();
    }
     
 
@@ -243,6 +255,48 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getPhoneNbr(): ?string
+    {
+        return $this->phoneNbr;
+    }
+
+    public function setPhoneNbr(string $phoneNbr): static
+    {
+        $this->phoneNbr = $phoneNbr;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, InternshipPlayer>
+     */
+    public function getInternshipPlayers(): Collection
+    {
+        return $this->internshipPlayers;
+    }
+
+    public function addInternshipPlayer(InternshipPlayer $internshipPlayer): static
+    {
+        if (!$this->internshipPlayers->contains($internshipPlayer)) {
+            $this->internshipPlayers->add($internshipPlayer);
+            $internshipPlayer->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInternshipPlayer(InternshipPlayer $internshipPlayer): static
+    {
+        if ($this->internshipPlayers->removeElement($internshipPlayer)) {
+            // set the owning side to null (unless already changed)
+            if ($internshipPlayer->getUser() === $this) {
+                $internshipPlayer->setUser(null);
+            }
+        }
 
         return $this;
     }

@@ -33,11 +33,16 @@ final class CartController extends AbstractController
     public function addItem(int $id,Product $product, Request $request, CartService $cartService): Response
     {
 
+
+
+
              //  token check
     if (!$this->isCsrfTokenValid('hasSize_form' . $id, $request->request->get('_token'))) {
         throw new InvalidCsrfTokenException();
     }
         $user = $this->getUser();
+
+        
         
         if (!$user) {
             dd('pas connecté');
@@ -94,7 +99,7 @@ final class CartController extends AbstractController
     public function deleteItem(Request $request, EntityManagerInterface $em, $id, CartService $cartService): Response
     {
 
-                     //  token check
+     //  token check
     if (!$this->isCsrfTokenValid('delete_item' . $id, $request->request->get('_token'))) {
         throw new InvalidCsrfTokenException();
     }

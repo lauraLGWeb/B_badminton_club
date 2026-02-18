@@ -1,68 +1,82 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}<title> Mentions légales et CGV </title>{% endblock %}
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Mentions légales, politique de confidentialité et conditions générales de vente du Blois Badminton Club. Informations juridiques, protection des données et CGV boutique en ligne." />
+{% endblock %}
+
+{% block title %}<title>{{ 'Mentions légales et CGV'|trans }}</title>{% endblock %}
 
 {% block body %}
 
-  <h1 id="legalMentions"> Blois Bad Club - Mentions légales et CGV </h1>
+<h1 id="legalMentions">{{ 'Blois Bad Club - Mentions légales et CGV'|trans }}</h1>
 
-  <section class="legalMentions mentions" >
-    <h2>1. Mentions légales</h2>
-    <p><strong>Éditeur du site :</strong><br>
-       Laura Le Gall – Créatrice du site<br>
+<section class="legalMentions mentions">
+    <h2>{{ '1. Mentions légales'|trans }}</h2>
+    <p><strong>{{ 'Éditeur du site'|trans }} :</strong><br>
+       {{ 'Laura Le Gall – Créatrice du site'|trans }}<br>
        <a href="https://maps.app.goo.gl/zgVd9cG8kY91rZ2J6">
-        Gymnase François Rabelais, Rue Buffon, 41000 Blois</a>
-       Email : <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a><br>
-       Téléphone : <a href="tel:++330625204617">06 25 20 46 17</a>
+        {{ 'Gymnase François Rabelais, Rue Buffon, 41000 Blois'|trans }}</a>
+       {{ 'Email'|trans }} : <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a><br>
+       {{ 'Téléphone'|trans }} : <a href="tel:+330625204617">06 25 20 46 17</a>
     </p>
-    <p><strong>Hébergement :</strong><br>
-       À compléter dès que l'hébergeur sera choisi.
+    <p><strong>{{ 'Hébergement'|trans }} :</strong><br>
+       {{ 'À compléter dès que l\'hébergeur sera choisi.'|trans }}
     </p>
-    <p><strong>Propriété intellectuelle :</strong><br>
-       L’ensemble des contenus du site (textes, images, logos, vidéos, code…) est protégé par le droit d’auteur. Toute reproduction, représentation ou diffusion sans autorisation est interdite.</p>
-    <p><strong>Responsabilité :</strong><br>
-       Le site et ses contenus sont fournis “en l’état”. Le club Blois Bad Club ne peut être tenu responsable de toute erreur ou omission sur le site ou d’un usage inapproprié du contenu.</p>
-  </section>
+    <p><strong>{{ 'Propriété intellectuelle'|trans }} :</strong><br>
+       {{ 'L\'ensemble des contenus du site (textes, images, logos, vidéos, code…) est protégé par le droit d\'auteur. Toute reproduction, représentation ou diffusion sans autorisation est interdite.'|trans }}</p>
+    <p><strong>{{ 'Responsabilité'|trans }} :</strong><br>
+       {{ 'Le site et ses contenus sont fournis "en l\'état". Le club Blois Bad Club ne peut être tenu responsable de toute erreur ou omission sur le site ou d\'un usage inapproprié du contenu.'|trans }}</p>
+</section>
 
- 
-  <section class="mentions" id="confidential">
-    <h2>2. Politique de confidentialité</h2>
-    <p>Le site Blois Bad Club ne collecte pas de cookies ni de données personnelles à l’exception des informations nécessaires pour la création de comptes membres.</p>
-    <p>Les informations collectées lors de l’inscription sont utilisées uniquement pour la gestion des membres et les achats internes au club. Elles ne sont <strong>jamais partagées avec des tiers</strong>.</p>
-    <p>Pour toute demande concernant vos données personnelles, vous pouvez nous contacter à : <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a>.</p>
-  </section>
+<section class="mentions" id="confidential">
+    <h2>{{ '2. Politique de confidentialité'|trans }}</h2>
+    
+    <h3>{{ '2.1 Cookies'|trans }}</h3>
+    <p>{{ 'Le site Blois Bad Club utilise des cookies strictement nécessaires au fonctionnement du site (session, authentification).'|trans }}</p>
+    <p>{{ 'Des cookies tiers sont également déposés par le plugin Facebook intégré sur le site. Ces cookies sont soumis à la politique de confidentialité de Facebook.'|trans }} 
+       <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">{{ 'En savoir plus'|trans }}</a>.
+    </p>
+    
+    <h3>{{ '2.2 Données personnelles'|trans }}</h3>
+    <p>{{ 'Les informations collectées lors de l\'inscription (nom, prénom, email, adresse) sont utilisées uniquement pour la gestion des membres et les achats internes au club.'|trans }}</p>
+    <p>{{ 'Ces données sont'|trans }} <strong>{{ 'jamais partagées avec des tiers'|trans }}</strong> {{ 'à l\'exception des prestataires de paiement nécessaires au traitement des commandes (Stripe).'|trans }}</p>
+    
+    <h3>{{ '2.3 Vos droits'|trans }}</h3>
+    <p>{{ 'Conformément au RGPD, vous disposez d\'un droit d\'accès, de rectification et de suppression de vos données personnelles.'|trans }}</p>
+    <p>{{ 'Pour toute demande concernant vos données personnelles, vous pouvez nous contacter à'|trans }} : <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a>.</p>
+</section>
 
-  <section class="mentions" id="cgv">
-    <h2>3. Conditions générales de vente (CGV)</h2>
 
-    <h3>Article 1 – Champ d’application</h3>
-    <p>Les présentes CGV s’appliquent à tout achat effectué sur le site Blois Bad Club. Les ventes sont réservées <strong>aux membres, administrateurs et entraîneurs</strong> du club.</p>
+<section class="mentions" id="cgv">
+    <h2>{{ '3. Conditions générales de vente (CGV)'|trans }}</h2>
 
-    <h3>Article 2 – Produits et prix</h3>
-    <p>Produits disponibles : t-shirts et boîtes de volants.</p>
-    <p> Prix indiqués sur le site, toutes taxes comprises.</p>
+    <h3>{{ 'Article 1 – Champ d\'application'|trans }}</h3>
+    <p>{{ 'Les présentes CGV s\'appliquent à tout achat effectué sur le site Blois Bad Club. Les ventes sont réservées'|trans }} <strong>{{ 'aux membres, administrateurs et entraîneurs'|trans }}</strong> {{ 'du club.'|trans }}</p>
 
-    <h3>Article 3 – Commande et paiement</h3>
-    <p>Les produits sont disponibles uniquement pour les membres, administrateurs et entraîneurs du club.</p>
+    <h3>{{ 'Article 2 – Produits et prix'|trans }}</h3>
+    <p>{{ 'Produits disponibles : t-shirts et boîtes de volants.'|trans }}</p>
+    <p>{{ 'Prix indiqués sur le site, toutes taxes comprises.'|trans }}</p>
+
+    <h3>{{ 'Article 3 – Commande et paiement'|trans }}</h3>
+    <p>{{ 'Les produits sont disponibles uniquement pour les membres, administrateurs et entraîneurs du club.'|trans }}</p>
     <ul>
-        <li><strong>Paiement en ligne :</strong> Le membre règle son achat via le site. Les produits sont ensuite à retirer <strong>en direct auprès d’un membre du bureau</strong>.</li>
-        <li><strong>Paiement direct :</strong> Le membre peut également régler son achat en espèces, par chèque ou par virement directement auprès d’un membre du bureau. Dans ce cas, la commande est effectuée sur place et le produit est remis après paiement.</li>
+        <li><strong>{{ 'Paiement en ligne'|trans }} :</strong> {{ 'Le membre règle son achat via le site. Les produits sont ensuite à retirer'|trans }} <strong>{{ 'en direct auprès d\'un membre du bureau'|trans }}</strong>.</li>
+        <li><strong>{{ 'Paiement direct'|trans }} :</strong> {{ 'Le membre peut également régler son achat en espèces, par chèque ou par virement directement auprès d\'un membre du bureau. Dans ce cas, la commande est effectuée sur place et le produit est remis après paiement.'|trans }}</li>
     </ul>
 
-    <h3>Article 4 – Retrait des produits</h3>
-    <p>Tous les produits sont remis directement sur place lors du paiement ou après paiement en ligne. Aucune livraison n’est effectuée.</p>
+    <h3>{{ 'Article 4 – Retrait des produits'|trans }}</h3>
+    <p>{{ 'Tous les produits sont remis directement sur place lors du paiement ou après paiement en ligne. Aucune livraison n\'est effectuée.'|trans }}</p>
 
+    <h3>{{ 'Article 5 – Droit de rétractation'|trans }}</h3>
+    <p>{{ 'Conformément à la loi, les achats en ligne auprès du club sont soumis au droit de rétractation légal (14 jours), sauf pour les produits personnalisés ou utilisés.'|trans }}</p>
 
-    <h3>Article 5 – Droit de rétractation</h3>
-    <p>Conformément à la loi, les achats en ligne auprès du club sont soumis au droit de rétractation légal (14 jours), sauf pour les produits personnalisés ou utilisés.</p>
+    <h3>{{ 'Article 6 – Responsabilité'|trans }}</h3>
+    <p>{{ 'Le club Blois Bad Club ne pourra être tenu responsable des dommages indirects liés à l\'utilisation des produits vendus.'|trans }}</p>
 
-    <h3>Article 6 – Responsabilité</h3>
-    <p>Le club Blois Bad Club ne pourra être tenu responsable des dommages indirects liés à l’utilisation des produits vendus.</p>
-
-    <h3>Article 7 – Contact</h3>
-    <p>Pour toute question : <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a> / <a href="tel:++330625204617">06 25 20 46 17</a></p>
-  </section>
-
-
+    <h3>{{ 'Article 7 – Contact'|trans }}</h3>
+    <p>{{ 'Pour toute question'|trans }} : <a href="mailto:bloisbadclub@gmail.com">bloisbadclub@gmail.com</a> / <a href="tel:+330625204617">06 25 20 46 17</a></p>
+</section>
 
 {% endblock %}

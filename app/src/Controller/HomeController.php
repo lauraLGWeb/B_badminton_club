@@ -13,6 +13,7 @@ use App\Document\Actualities;
 use App\Form\ArticleType;
 use App\Entity\Product;
 use App\Entity\Cart;
+use App\Entity\Internships;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ModifyContactType;
@@ -55,11 +56,7 @@ final class HomeController extends AbstractController
         return $this->render('home/rules.html.twig');
     }
 
-        #[Route('/Leclub/Stages', name: 'app_internships')]
-    public function internships(): Response
-    {
-        return $this->render('home/internships.html.twig');
-    }
+   
 
 
 
@@ -67,29 +64,31 @@ final class HomeController extends AbstractController
 // routes for the ecole de bad dropdown
  
 
-    //   #[Route('/Leclub/Entraineurs', name: 'app_coaches')]
-    // public function coaches(): Response
-    // {
-    //     return $this->render('home/coaches.html.twig', [
-    //         'controller_name' => 'HomeController',
-    //     ]);
-    // }
+      #[Route('/ecole/Projet-jeunes', name: 'app_youngProject')]
+    public function youngProject(): Response
+    {
+       return $this->render('school/youngProject.html.twig');
+    }
 
-    //    #[Route('/Leclub/Reglement', name: 'app_rules')]
-    // public function rules(): Response
-    // {
-    //     return $this->render('home/rules.html.twig', [
-    //         'controller_name' => 'HomeController',
-    //     ]);
-    // }
+       #[Route('/ecole/ecole-de-badminton', name: 'app_badSchool')]
+    public function badSchool(): Response
+    {
+        return $this->render('school/badSchool.html.twig');
+    }
 
-    //     #[Route('/Leclub/Stages', name: 'app_internships')]
-    // public function internships(): Response
-    // {
-    //     return $this->render('home/internships.html.twig', [
-    //         'controller_name' => 'HomeController',
-    //     ]);
-    // }
+        #[Route('/ecole/plumes', name: 'app_plumes')]
+    public function plumes(): Response
+    {
+        return $this->render('school/plumes.html.twig');
+    }
+
+        #[Route('/ecole/club-avenir', name: 'app_avenirClub')]
+    public function avenirClub(): Response
+    {
+        return $this->render('school/avenirClub.html.twig');
+    }
+// end routes for the ecole de bad dropdown
+ 
 
      #[Route('/Tarifs', name: 'app_prices')]
     public function prices(): Response
@@ -130,20 +129,26 @@ final class HomeController extends AbstractController
     public function account(EntityManagerInterface $em ): Response
     {
     $actualUser = $this->getUser();
-
+       
+     // GET THE INTERNSHIPS To come
+    $internships = $em->getRepository(Internships::class)->findAll();
+    
+    
+    // GET THE OREDERS
     $orders = $em->getRepository(Cart::class)->findBy(
         ['isPaid' => true, 'user' => $actualUser],
         ['purchaseDate' => 'DESC']
         );
     
     return $this->render('home/account.html.twig', [
-        'orders' => $orders])
+        'orders' => $orders, 
+        'internships'=> $internships])
         ;
     
     }
 
-      #[Route('/admin', name: 'app_admin_dashboard')]
-       #[IsGranted('ROLE_ADMIN')]
+      #[Route('/entraineur', name: 'app_admin_dashboard')]
+       #[IsGranted('ROLE_ENTRAINEUR')]
     public function adminDash(): Response
     {
         return $this->render('home/adminDashboard.html.twig');
@@ -162,8 +167,6 @@ final class HomeController extends AbstractController
     }
 
 
-
-
        #[Route('/mentions', name: 'app_legalMentions')]
     public function legalMentions(): Response
     {
@@ -172,13 +175,7 @@ final class HomeController extends AbstractController
 
 
 
-// pages for internship
-     #[Route('/Leclub/Stages/gestion', name: 'app_each_intership')]
-      #[IsGranted('ROLE_ENTRAINEUR')]
-    public function eachInternship(): Response
-    {
-        return $this->render('home/eachInternship.html.twig');
-    }
+
       
 
 
@@ -207,7 +204,7 @@ final class HomeController extends AbstractController
     public function membersList(EntityManagerInterface $em)
     {
         $repo = $em->getRepository(User::class);
-        $user = $repo->findAll();
+        $user = $repo->findAllbyName();
 
 
         return $this->render("admin/membersList.html.twig", ["user" => $user]);
@@ -313,6 +310,11 @@ final class HomeController extends AbstractController
     public function app_modifyItem(Request $request, EntityManagerInterface $em, $id): Response
     {
 
+          // token check 
+        if (!$this->isCsrfTokenValid('modify_product_' . $id, $request->request->get('_token'))) {
+            throw new InvalidCsrfTokenException();
+        }
+
         
         $item = $em->getRepository(Product::class)->find($id);
 
@@ -341,8 +343,12 @@ final class HomeController extends AbstractController
     //delete the shopitem
     #[Route('/admin/Liste-boutique/suppression/{id}', name: 'app_deleteProduct')]
     #[IsGranted('ROLE_ADMIN')]
-    public function eleteItem(EntityManagerInterface $em, $id): Response
+    public function eleteItem(Request $request, EntityManagerInterface $em, $id): Response
     {
+        // token check 
+        if (!$this->isCsrfTokenValid('delete_Product_' . $id, $request->request->get('_token'))) {
+            throw new InvalidCsrfTokenException();
+        }
 
         //getting the actuality details
         $itemToDelete = $em->getRepository(Product::class)->find($id);
