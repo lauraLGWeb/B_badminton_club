@@ -11,9 +11,7 @@
 {% block body %}
 
 <div class="admin-dashboard">
-    <h id="top">{{ 'Tableau de bord'|trans }}</h
-
-
+    <h1 id="top">{{ 'Tableau de bord'|trans }}</h1>
         <ul>
             {% if is_granted('ROLE_ADMIN')%}
                 <li>
