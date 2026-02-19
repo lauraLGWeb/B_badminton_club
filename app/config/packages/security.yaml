@@ -11,8 +11,9 @@ security:
                 property: email
 
     role_hierarchy:
-        ROLE_ADMIN: [ROLE_ENTRAINEUR, ROLE_MEMBRE]
         ROLE_ENTRAINEUR: ROLE_MEMBRE
+        ROLE_ADMIN: ROLE_ENTRAINEUR
+        
 
     firewalls:
         dev:

@@ -71,6 +71,8 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+
+            
             ->add('plainPassword', PasswordType::class, [
                                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -78,12 +80,11 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new Regex([
-                        'pattern' => '/^(?=.*[A-Z])(?=.*\d).{8,}$/',
+                        'pattern' => '/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#]).{16,}$/',
                         //regex explanation ^→ start : (?=.*[A-Z]) one maj (?=.*\d) one number .{8,}  at least 8 chars $ end
-                        'message' => 'Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre',
                     ]),
                     new NotBlank([
-                        'message' => 'Le mot de passe est obligatoire test',
+                        'message' => 'Le mot de passe est obligatoire ',
 
                     ]),
                 ],

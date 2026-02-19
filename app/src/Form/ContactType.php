@@ -20,30 +20,14 @@ class ContactType extends AbstractType
         $builder
             ->add('firstName', TextType::class, [
                 'label' => 'Nom',
-                'attr' => ['placeholder' => 'Votre nom'],
-                'constraints' => [
-                    new Assert\NotBlank(['message' => 'Le prénom est obligatoire']),
-                    new Assert\Length([
-                        'min' => 2,
-                        'minMessage' => 'Le prénom doit faire au moins {{ limit }} caractères',
-                    ]),
-                ],
             ])
 
             ->add('lastName', TextType::class, [
                 'label' => 'Nom',
-                'attr' => ['placeholder' => 'Votre nom'],
-                'constraints' => [
-                    new Assert\NotBlank(['message' => "Le Nom est obligatoire"]),
-                    new Assert\Length([
-                        'min' => 2,
-                        'minMessage' => "Le Nom doit faire au moins {{ limit }} caractères",
-                    ]),
-                ],
             ])
+
             ->add('email', EmailType::class, [
                 'label' => 'Email',
-                'attr' => ['placeholder' => "Votre email"],
                 'constraints' => [
                     new Assert\NotBlank(['message' => "L'email est obligatoire"]),
                     new Assert\Email(['message' => "L'email {{ value }} n'est pas valide"]),
@@ -59,9 +43,10 @@ class ContactType extends AbstractType
                         'min' => 10,
                         'minMessage' => 'Le message doit faire au moins {{ limit }} caractères',
                     ]),
-                    
                 ],
             ])
+
+            
             ->add('send', SubmitType::class, [
                 'label' => 'Envoyer',
             ])
