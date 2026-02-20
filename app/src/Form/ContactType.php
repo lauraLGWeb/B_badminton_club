@@ -20,22 +20,37 @@ class ContactType extends AbstractType
         $builder
             ->add('firstName', TextType::class, [
                 'label' => 'Nom',
+                'constraints' => [
+                     //  blank possible  on purpose
+                    new Assert\Length([
+                        'min' => 2,
+                        'minMessage' => 'Le prénom doit faire au moins {{ limit }} caractères',
+                    ]),
+                ],
             ])
 
             ->add('lastName', TextType::class, [
                 'label' => 'Nom',
+                'constraints' => [
+                    //  blank possible  on purpose
+                    new Assert\Length([
+                        'min' => 2,
+                        'minMessage' => "Le Nom doit faire au moins {{ limit }} caractères",
+                    ]),
+                ],
             ])
-
             ->add('email', EmailType::class, [
                 'label' => 'Email',
+                'label_attr' => ['class' => 'obligatory'],
                 'constraints' => [
                     new Assert\NotBlank(['message' => "L'email est obligatoire"]),
                     new Assert\Email(['message' => "L'email {{ value }} n'est pas valide"]),
+                    
                 ],
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Message',
-                'attr' => ['placeholder' => 'Votre message', 'rows' => 5],
+                'label_attr' => ['class' => 'obligatory'],
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Le message est obligatoire']),
                     new NoBadWords(),
@@ -43,10 +58,9 @@ class ContactType extends AbstractType
                         'min' => 10,
                         'minMessage' => 'Le message doit faire au moins {{ limit }} caractères',
                     ]),
+                    
                 ],
             ])
-
-            
             ->add('send', SubmitType::class, [
                 'label' => 'Envoyer',
             ])

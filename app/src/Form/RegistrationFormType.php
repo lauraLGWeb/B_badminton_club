@@ -26,6 +26,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
+                'label_attr' => ['class' => 'obligatory'],
                 'constraints' => [
                     
                     new Email([
@@ -36,8 +37,8 @@ class RegistrationFormType extends AbstractType
             ])
             
             ->add('firstName', TextType::class, [
+                'label_attr' => ['class' => 'obligatory'],
                 'constraints' => [
-                
                      new Length([
                         'min' => 2,
                         'minMessage' => 'Minimum {{ limit }} lettres',
@@ -48,8 +49,8 @@ class RegistrationFormType extends AbstractType
             ])
 
             ->add('lastName', TextType::class, [
+                'label_attr' => ['class' => 'obligatory'],
                 'constraints' => [
-                    
                      new Length([
                         'min' => 2,
                         'minMessage' => ' Minimum {{ limit }} lettres',
@@ -61,7 +62,9 @@ class RegistrationFormType extends AbstractType
             
             ->add('lienceNbr', TextType::class)
 
-            ->add('phoneNbr', TelType::class)
+            ->add('phoneNbr', TelType::class, [
+                'label_attr' => ['class' => 'obligatory']
+            ])
         
             ->add('agreeTerms', CheckboxType::class, [
                                 'mapped' => false,
@@ -70,24 +73,35 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Merci d\'accepter les conditions générales.',
                     ]),
                 ],
+               
             ])
 
+            ->add('agreeCollect', CheckboxType::class, [
+                                    'mapped' => false,
+                    'constraints' => [
+                        new IsTrue([
+                            'message' => 'Merci d\'accepter la collecte de tes données.',
+                        ]),
+                    ],
+                    
+                ])
             
             ->add('plainPassword', PasswordType::class, [
                                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
+                'label_attr' => ['class' => 'obligatory'],
                 'constraints' => [
                     new Regex([
-                        'pattern' => '/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#]).{16,}$/',
-                        //regex explanation ^→ start : (?=.*[A-Z]) one maj (?=.*\d) one number .{8,}  at least 8 chars $ end
+                        'pattern' => '/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#]).{16,}$/'
                     ]),
                     new NotBlank([
                         'message' => 'Le mot de passe est obligatoire ',
 
                     ]),
                 ],
+
             ])
         ;
     }

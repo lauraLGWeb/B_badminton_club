@@ -197,6 +197,17 @@ label {
     color: var(--accent-color);
 }
 
+.boxCase{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 0.5rem;
+
+
+}
+
+
 input:not([type="checkbox"]),
 #registration_form_firstName,
 #registration_form_lastName,
@@ -1656,6 +1667,18 @@ details a:hover {
         3px 3px 7px rgba(0, 0, 0, 0.2),
         -3px -3px 7px rgba(255, 255, 255, 0.1);
 }
+
+
+
+/* forms */
+label.obligatory::after {
+    content: " *";
+    color: red;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+
 
 /* ========================================
    ANIMATIONS
