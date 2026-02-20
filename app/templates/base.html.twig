@@ -6,6 +6,12 @@
  {% endblock %}
 
     {% block stylesheets %}
+
+        {# delete the white flash #}
+        <script>
+            if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark");
+        </script>
+
         {# FONTS #}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
