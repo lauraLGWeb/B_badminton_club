@@ -504,6 +504,7 @@ body.dark img{
 .hero-buttons-links.sticky {
     width: 15vw;
     background-color: rgba(202, 130, 53, 0.398);
+
 }
 
 .navBarContainer ul {
@@ -1119,7 +1120,7 @@ details a:hover {
 
 .number-card .number {
     display: block;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 800;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
@@ -2034,6 +2035,13 @@ label.obligatory::after {
   
 }
 
+@media (max-width: 800px) {
+    .navBarContainer.sticky{
+        height: 20vh;
+    }
+
+    }
+
 @media (max-width: 750px) {
     .footerSection {
         display: flex;
@@ -2060,6 +2068,23 @@ label.obligatory::after {
         text-align: center;
     }
 }
+
+
+@media (max-width: 600px) {
+    .mainNavBarSticky{
+        padding: 0.8rem;
+    }
+    .hero-buttonsOtherMenu{
+        padding: 0.5rem;
+    }
+    .hero-buttons-links.sticky {
+        width: 30vw;
+    }
+    .logoOtherMenu{
+        height: 3rem;
+        width: 3rem;
+    }
+    }
 
 @media (max-width: 500px) {
     .footerSection {
