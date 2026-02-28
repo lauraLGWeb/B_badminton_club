@@ -11,9 +11,9 @@ services:
         ports:
             - '4306:3306'                          
         volumes:
-            - mysql_data:/var/lib/mysql  # ← Volume nommé              
+            - mysql_data:/var/lib/mysql  # ← named volume            
 
-    # --- Base de données NoSQL MongoDB (actualités) ---
+    # --- Base de données NoSQL MongoDB (actuality) ---
     mongo:
         container_name: mongodbBlois
         image: mongo:6
@@ -23,7 +23,7 @@ services:
         volumes:
             - ./mongo:/data/db                     #  MongoDB persist
 
-    # --- Serveur PHP + Apache (coeur de l'application Symfony) ---
+    # --- Serveur PHP + Apache  
     php:
         container_name: phpBlois
         build:

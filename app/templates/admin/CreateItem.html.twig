@@ -5,8 +5,12 @@
 {% block body %}
 
 <div class="container">
+     {% if app.current_route == 'app_AddItemsList' %}
+            <h1>{{ 'Création d\'un nouveau produit'|trans }}</h1>
+        {% elseif app.current_route == 'app_modifyItem' %}
+            <h1>{{ 'Modification d\'un produit'|trans }}</h1>
+        {% endif %}
 
-    <h1>{{ 'Création d\'un nouveau produit'|trans }}</h1>
         
     {% for type, messages in app.flashes %}
         {% for message in messages %}
@@ -45,7 +49,12 @@
         }) }}
 
         <button type="submit" class="submit-button">
-            {{ 'Publier le produit'|trans }}
+            {% if app.current_route == 'app_AddItemsList' %}
+             {{ 'Publier le produit'|trans }}
+        {% elseif app.current_route == 'app_modifyItem' %}
+             {{ 'Mettre à jour le produit'|trans }}
+        {% endif %}
+            
         </button>
 
     {{ form_end(form) }}

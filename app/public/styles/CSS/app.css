@@ -197,6 +197,17 @@ label {
     color: var(--accent-color);
 }
 
+.boxCase{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 0.5rem;
+
+
+}
+
+
 input:not([type="checkbox"]),
 #registration_form_firstName,
 #registration_form_lastName,
@@ -493,6 +504,7 @@ body.dark img{
 .hero-buttons-links.sticky {
     width: 15vw;
     background-color: rgba(202, 130, 53, 0.398);
+
 }
 
 .navBarContainer ul {
@@ -1108,7 +1120,7 @@ details a:hover {
 
 .number-card .number {
     display: block;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 800;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
@@ -1657,6 +1669,18 @@ details a:hover {
         -3px -3px 7px rgba(255, 255, 255, 0.1);
 }
 
+
+
+/* forms */
+label.obligatory::after {
+    content: " *";
+    color: red;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+
+
 /* ========================================
    ANIMATIONS
    ======================================== */
@@ -2011,6 +2035,13 @@ details a:hover {
   
 }
 
+@media (max-width: 800px) {
+    .navBarContainer.sticky{
+        height: 20vh;
+    }
+
+    }
+
 @media (max-width: 750px) {
     .footerSection {
         display: flex;
@@ -2037,6 +2068,23 @@ details a:hover {
         text-align: center;
     }
 }
+
+
+@media (max-width: 600px) {
+    .mainNavBarSticky{
+        padding: 0.8rem;
+    }
+    .hero-buttonsOtherMenu{
+        padding: 0.5rem;
+    }
+    .hero-buttons-links.sticky {
+        width: 30vw;
+    }
+    .logoOtherMenu{
+        height: 3rem;
+        width: 3rem;
+    }
+    }
 
 @media (max-width: 500px) {
     .footerSection {

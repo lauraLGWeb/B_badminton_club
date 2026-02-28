@@ -60,6 +60,8 @@
 {{ form_errors(contactForm) }}
 
 {{ form_start(contactForm) }}
+
+<p class="form-notice"><span class="required-mark">*</span> Champs obligatoires</p>
     
     {{ form_row(contactForm.firstName, {
         'label': 'Prénom'|trans,
@@ -73,12 +75,14 @@
     
     {{ form_row(contactForm.email, {
         'label': 'Email'|trans,
-         'attr': {'placeholder': 'Votre email'|trans}
+         'attr': {'placeholder': 'Votre email'|trans},
+        
     }) }}
     
     {{ form_row(contactForm.message, {
         'label': 'Ton message'|trans,
-        'attr': {'placeholder': 'Votre message'|trans}
+        'attr': {'placeholder': 'Votre message'|trans},
+       
     }) }}
 
     {{ form_row(contactForm.send, {

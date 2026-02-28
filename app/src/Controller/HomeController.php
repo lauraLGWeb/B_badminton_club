@@ -310,29 +310,23 @@ final class HomeController extends AbstractController
     public function app_modifyItem(Request $request, EntityManagerInterface $em, $id): Response
     {
 
-          // token check 
-        if (!$this->isCsrfTokenValid('modify_product_' . $id, $request->request->get('_token'))) {
-            throw new InvalidCsrfTokenException();
-        }
+    
 
         
         $item = $em->getRepository(Product::class)->find($id);
 
         $formulaire = $this->createForm(ArticleType::class, $item);
 
-        
-
         $formulaire->handleRequest($request);
-        if($formulaire->isSubmitted()&& $formulaire->isValid())
-        {   
-        $em-> flush();
 
-             $this->addFlash('success', 'Produit mis à jour avec succès !');          
-            return $this->redirectToRoute('app_ItemsList');
-        } 
+          if ($formulaire->isSubmitted()) {
 
-        if($formulaire->isSubmitted()&& !$formulaire->isValid())
-        {   
+            if ($formulaire->isValid()) {
+                $em->flush();
+                $this->addFlash('success', 'Produit mis à jour avec succès !');
+                return $this->redirectToRoute('app_ItemsList');
+            }
+
          $this->addFlash('error', 'Erreur dans la mise à jour, celle ci n\'est pas prise en compte');
         }
          return $this->render("admin/CreateItem.html.twig", ["form" => $formulaire]);
