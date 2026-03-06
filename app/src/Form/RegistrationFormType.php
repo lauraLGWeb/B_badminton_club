@@ -91,7 +91,7 @@ class RegistrationFormType extends AbstractType
                 // this is read and encoded in the controller
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
-                'label_attr' => ['class' => 'obligatory'],
+                'label_attr' => ['class' => 'obligatory pwd'],
                 'constraints' => [
                     // 16 chars asked 
                     new Regex([

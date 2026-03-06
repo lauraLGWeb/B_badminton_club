@@ -4,6 +4,8 @@
     <meta 
         name="description" 
         content="Connectez-vous à votre espace membre du Blois Badminton Club. Accédez à la boutique, consultez vos commandes et gérez votre compte en toute sécurité." />
+
+        <script defer src="{{ asset('styles/JS/passwordLogin.js') }}"></script>
 {% endblock %}
 
 {% block title %}{{ 'Connexion'|trans }}{% endblock %}
@@ -46,6 +48,7 @@
 
             <div class="input-group">
                 <label for="password" class="input-label">{{ 'Mot de passe'|trans }}</label>
+                <div class="inside-group">
                 <input 
                     type="password"
                     name="_password" 
@@ -54,6 +57,11 @@
                     autocomplete="current-password" 
                     required
                 >
+               <img id="viewPicto" 
+                src="{{ asset('pictures/view.png') }}" 
+                data-view="{{ asset('pictures/view.png') }}"
+                data-hide="{{ asset('pictures/hide.png') }}">
+                </div>
             </div>
 
             <input 
@@ -66,6 +74,7 @@
             <button class="submit-button" type="submit">
                 {{ 'Me connecter'|trans }}
             </button>
+            <button>  <a href="{{ path("app_forgot_password_request") }}" class="register-link">{{ 'Réinitialiser mon mot de passe'|trans }}</a></button>
         </form>
     </div>
 {% endblock %}
