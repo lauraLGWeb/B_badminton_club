@@ -36,7 +36,8 @@ class ChangePasswordFormType extends AbstractType
                             'max' => 4096,
                         ]),
                         new PasswordStrength(),
-                        new NotCompromisedPassword(),
+                        new NotCompromisedPassword(skipOnError: true),// to change on prod
+                        
                     ],
                     'label' => 'New password',
                 ],

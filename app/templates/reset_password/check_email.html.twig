@@ -1,21 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Mail pour nouveau mot de passe envoyé{% endblock %}
+{% block title %} Mail pour nouveau mot de passe envoyé {% endblock %}
 
 {% block body %}
+<section class="partenaires-hero">
     <h1> Demande de réinitialisation de ton mot de passe </h1>
 
-    {% for type, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="flash-{{ type }}">
-                {{ message|trans }}
-            </div>
-        {% endfor %}
-    {% endfor %}
+    <article class="sectionInscription">
+        <p>
+            Si un compte avec ton mot de passe existe déja, un mail va t'être envoyé pour le remettre à jour.
+            Le lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+        </p>
 
-    <p>
-        Si un compte avec ton mot de passe existe déja, un mail va t'être envoyé pour le remettre à jour.
-        Le lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>Si tu ne reçoit pas de mail, vérifié tes spams ou <a href="{{ path('app_forgot_password_request') }}">Essaye à nouveau</a>.</p>
+        <p>Si tu ne reçoit pas de mail, vérifié tes spams ou <a class="register-link" href="{{ path('app_forgot_password_request') }}">Essaye à nouveau</a>.</p>
+    </article>
+</section>
 {% endblock %}
