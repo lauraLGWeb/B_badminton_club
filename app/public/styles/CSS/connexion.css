@@ -87,7 +87,9 @@
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
-
+.inside-group{
+    position: relative;
+}
 .input-field {
     width: 100%;
     padding: 1rem 1.25rem;
@@ -102,7 +104,9 @@
     transition: all 0.3s ease;
     outline: none;
 }
-
+ #password{
+    margin: 0;
+ }
 .input-field:focus {
     box-shadow: 
         inset 8px 8px 16px var(--shadow-dark),
@@ -113,6 +117,24 @@
 .input-field::placeholder {
     color: rgba(26, 29, 41, 0.4);
 }
+
+
+/* ========================================
+  HIDE BUTTON 
+   ======================================== */
+#viewPicto, #viewPictoRegistration{
+    height: 2rem;
+    width: auto;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#registration_form_plainPassword{
+    margin: 0;
+}
+
+
 
 /* ========================================
    SUBMIT BUTTON

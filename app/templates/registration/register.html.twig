@@ -4,6 +4,8 @@
     <meta 
         name="description" 
         content="Créez votre compte membre au Blois Badminton Club. Accédez à la boutique en ligne, gérez vos commandes et profitez de tous les services réservés aux licenciés du club." />
+
+         <script defer src="{{ asset('styles/JS/passwordRegistration.js') }}"></script>
 {% endblock %}
 
 {% block title %}{{ 'Création compte'|trans }}{% endblock %}
@@ -60,12 +62,26 @@
         })
         }}
     
-        
-        {{ form_row(registrationForm.plainPassword, {
-            'label': 'Mot de passe : Le mot de passe doit contenir au moins 16 caractères, une majuscule, un caractère spécial et un chiffre'|trans, 
-            'autocomplete': 'new-password'
-        }) }}
-        
+         <div class="input-group">
+            {{ form_label(registrationForm.plainPassword, 'Mot de passe : Le mot de passe doit contenir au moins 16 caractères, une majuscule, un caractère spécial et un chiffre'|trans) }}
+            {{ form_errors(registrationForm.plainPassword) }}
+            <div class="inside-group">
+                {{ form_widget(registrationForm.plainPassword, {
+                    'attr': {
+                        'autocomplete': 'new-password',
+                    }
+                }) }}
+                <img id="viewPictoRegistration" 
+                    src="{{ asset('pictures/view.png') }}" 
+                    data-viewPathRegistration="{{ asset('pictures/view.png') }}"
+                    data-hidePathRegistration="{{ asset('pictures/hide.png') }}"
+                    width="50px"
+                    >
+                    
+            </div>
+        </div>
+
+
         {{ form_row(registrationForm.agreeTerms, {
             'label': ('J\'accepte les <a href="' ~ path('app_legalMentions') ~ '">conditions générales</a>')|trans,
             'label_html': true,
