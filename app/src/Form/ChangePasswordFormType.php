@@ -7,10 +7,10 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotCompromisedPassword;
 use Symfony\Component\Validator\Constraints\PasswordStrength;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class ChangePasswordFormType extends AbstractType
 {
@@ -25,24 +25,24 @@ class ChangePasswordFormType extends AbstractType
                     ],
                 ],
                 'first_options' => [
+                    'attr' => ['placeholder' => 'Nouveau mot de passe',],
+                    'label' => 'Nouveau mot de passe',
+                    
                     'constraints' => [
+                        
                         new NotBlank([
-                            'message' => 'Please enter a password',
+                            'message' => 'Merci d\'entrer ton nouveau mot de passe',
                         ]),
-                        new Length([
-                            'min' => 12,
-                            'minMessage' => 'Your password should be at least {{ limit }} characters',
-                            // max length allowed by Symfony for security reasons
-                            'max' => 4096,
+                       new Regex([
+                        'pattern' => '/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#]).{16,}$/'
                         ]),
                         new PasswordStrength(),
-                        new NotCompromisedPassword(skipOnError: true),// to change on prod
-                        
+                        new NotCompromisedPassword(skipOnError: true),// to change on prod  
                     ],
-                    'label' => 'New password',
                 ],
                 'second_options' => [
-                    'label' => 'Repeat Password',
+                    'attr' => ['placeholder' => 'Repéter le nouveau mot de passe',],
+                    'label' => 'Repéter le nouveau mot de passe',
                 ],
                 'invalid_message' => 'The password fields must match.',
                 // Instead of being set onto the object directly,
