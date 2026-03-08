@@ -68,7 +68,7 @@ class ResetPasswordController extends AbstractController
         return $this->render('reset_password/check_email.html.twig', [
             'resetToken' => $resetToken,
         ]);
-    }
+    } 
 
     /**
      * Validates and process the reset URL that the user clicked in their email.
