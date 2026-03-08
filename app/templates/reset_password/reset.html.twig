@@ -1,12 +1,42 @@
 {% extends 'base.html.twig' %}
 
+ {% block meta %}
+ <script defer src="{{ asset('styles/JS/passwordReset.js') }}"></script>
+ {% endblock %}
+
 {% block title %} Réinitialise ton mot de passe {% endblock %}
 
 {% block body %}
     <h1> Réinitialise ton mot de passe </h1>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="submitClassic">Réinitialiser mon mot de passe </button>
-    {{ form_end(resetForm) }}
+ 
+       
+    
+{{ form_start(resetForm) }}
+
+<div class="input-group">
+    {{ form_label(resetForm.plainPassword.first) }}
+    {{ form_widget(resetForm.plainPassword.first) }}
+    <img id="viewPictoResetOne" 
+         width="50px"
+         src="{{ asset('pictures/view.png') }}"
+         data-view="{{ asset('pictures/view.png') }}"
+         data-hide="{{ asset('pictures/hide.png') }}">
+    {{ form_errors(resetForm.plainPassword.first) }}
+</div>
+
+<div class="input-group">
+    {{ form_label(resetForm.plainPassword.second) }}
+    {{ form_widget(resetForm.plainPassword.second) }}
+    <img id="viewPictoResetTwo"
+         width="50px"
+         src="{{ asset('pictures/view.png') }}"
+         data-viewTwo="{{ asset('pictures/view.png') }}"
+         data-hideTwo="{{ asset('pictures/hide.png') }}">
+    {{ form_errors(resetForm.plainPassword.second) }}
+</div>
+
+<button class="submitClassic">Réinitialiser mon mot de passe</button>
+{{ form_end(resetForm) }}
+
 {% endblock %}
