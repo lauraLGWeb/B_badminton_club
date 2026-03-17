@@ -1,12 +1,32 @@
 {% extends 'base.html.twig' %}
 {# doc a traduitre aussi  #}
-{% block title %}{{ 'Ecole française de Badminton'|trans }}{% endblock %}
+{% block title %}{{ 'L\'École de Badminton'|trans }}{% endblock %}
 
 {% block body %}
 
-<section>
-    <h1> {{ 'Ecole française de Badminton'|trans }}</h1>
-          <h2>{{ 'page en cours de maintenance'|trans }}</h2>
+<section class="containerSchool">
+    <h1>{{ "L'École de Badminton"|trans }}</h1>
+
+    {# --- Bloc 1 : Définition EFB --- #}
+    <div class="youth-block">
+        <p>{{ "Une École Française de Badminton (EFB) accueille les jeunes de 5 à 16 ans dans des créneaux adaptés par âge et niveau, encadrés par des éducateurs diplômés. Elle permet de progresser et de participer aux premières compétitions."|trans }}</p>
+        <p>{{ "Les EFB sont labellisées de 1 à 5 étoiles selon des critères fixés par la Fédération Française de Badminton."|trans }}</p>
+    </div>
+
+    {# --- Bloc 2 : Projet club --- #}
+    <div class="youth-block">
+        <h2>{{ "Notre engagement"|trans }}</h2>
+        <p>{{ "Depuis 2018, le BBC s'est fixé un objectif ambitieux : obtenir le label 4 étoiles de l\'École Française de Badminton. En 2024, cet objectif est atteint. Le club structure son école pour offrir les meilleures conditions d\'entraînement, de l\'accompagnement jusqu'à l\'organisation de compétitions jeunes."|trans }} </p>
+        <div class="bbc-badge">★★★★ {{ "Label EFB 4 étoiles — Saison 2023-2024"|trans }}</div>
+        <p class="bbc-sub">{{ "3ème club régional · 26ème national"|trans }}</p>
+    </div>
+
+    {# --- Bloc 3 : De 5 ans au Club Avenir --- #}
+    <div class="youth-block">
+        <h2>{{ "Une école pour tous les jeunes, dès 5 ans"|trans }}</h2>
+        <p>{{ "Le BBC accueille les jeunes dès 5 ans dans des créneaux Minibads. Les jeunes détectés peuvent ensuite rejoindre l\'académie, avec un volume d'entraînement pensé pour la performance."|trans }}</p>
+        <a href="{{ path('app_avenirClub') }}">{{ "Voir l\'académie"|trans }}</a>
+    </div>
 </section>
 
 {% endblock %}

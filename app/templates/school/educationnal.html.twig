@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{# doc a traduitre aussi  #}
+{% block title %}{{ 'Parcours éducatif'|trans }}{% endblock %}
+
+{% block body %}
+
+<section class="containerSchool">
+    <h1>{{ 'Parcours éducatif'|trans }}</h1>
+    <div class="youth-cards-grid">
+
+        <article class="youth-card">
+            <div class="youth-card-title">
+                <h2>{{ 'Minibads (dès 5 ans)'|trans }}</h2>
+                <p>	Né en 2018 ou après</p>
+            </div>
+            <ul>
+                <li>{{ 'Mercredi · 16h – 17h'|trans }}</li>
+                <li>{{ 'Samedi · 9h30 – 10h30'|trans }}</li>
+                <li class="slot-unconfirmed">{{ 'Jeudi · 17h30 – 19h (à confirmer)'|trans }}</li>
+            </ul>
+            <div class="youth-card-badge">{{ 'Dispositif Ptibads inclus'|trans }}</div>
+        </article>
+
+        <article class="youth-card">
+            <div class="youth-card-title">
+                <h2> {{ 'Poussin(e)s / Benjamin(e)s'|trans }} </h2>
+                <p>	Né entre 2014 et 2017</p>
+            </div>
+            <ul>
+                <li>{{ 'Mercredi · 17h – 18h30'|trans }}</li>
+                <li>{{ 'Samedi · 10h30 – 12h'|trans }}</li>
+            </ul>
+        </article>
+
+        <article class="youth-card">
+             <div class="youth-card-title">
+                <h2>{{ 'Minimes / Cadets'|trans }}</h2>
+                <p>	Né entre 2010 et 2013</p>
+            </div>
+            <ul>
+                <li>{{ 'Mercredi · 14h30 – 16h'|trans }}</li>
+                <li>{{ 'Jeu libre le week-end (adulte référent requis)'|trans }}</li>
+            </ul>
+        </article>
+
+        <article class="youth-card youth-card--cha">
+            <h2>{{ 'Classes à Horaires Aménagés (CHA)'|trans }}</h2>
+            <p>{{ "À partir de la 6ème et jusqu'en 3ème, sur sélection. La CHA marque l'entrée dans le parcours compétitif avec une ambition d'évoluer au niveau régional."|trans }}</p>
+        </article>
+
+    </div>
+
+    <article class="youth-ptibads">
+        <h3>{{'Le dispositif Ptibads'|trans }}</h3>
+        <p>{{ "Réparti en 4 étapes (4 samedis après-midi), il vise l'acquisition d'un savoir-être nécessaire à l'entrée en compétition."|trans }}</p>
+        <p class="youth-ptibads--mandatory"> {{ 'Obligatoire pour tous les jeunes blésois souhaitant accéder aux compétitions.'|trans }}</p>
+    </article>
+</section>
+
+{% endblock %}

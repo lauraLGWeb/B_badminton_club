@@ -64,28 +64,28 @@ final class HomeController extends AbstractController
 // routes for the ecole de bad dropdown
  
 
-      #[Route('/ecole/Projet-jeunes', name: 'app_youngProject')]
+      #[Route('/ecole/ecole-de-badminton', name: 'app_youngProject')]
     public function youngProject(): Response
     {
-       return $this->render('school/youngProject.html.twig');
+       return $this->render('school/badSchool.html.twig');
     }
 
-       #[Route('/ecole/ecole-de-badminton', name: 'app_badSchool')]
+       #[Route('/ecole/educationnal', name: 'app_badSchool')]
     public function badSchool(): Response
     {
-        return $this->render('school/badSchool.html.twig');
+        return $this->render('school/educationnal.html.twig');
     }
 
-        #[Route('/ecole/plumes', name: 'app_plumes')]
+        #[Route('/ecole/academy', name: 'app_plumes')]
     public function plumes(): Response
     {
-        return $this->render('school/plumes.html.twig');
+        return $this->render('school/academy.html.twig');
     }
 
-        #[Route('/ecole/club-avenir', name: 'app_avenirClub')]
+        #[Route('/ecole/ambassadors', name: 'app_avenirClub')]
     public function avenirClub(): Response
     {
-        return $this->render('school/avenirClub.html.twig');
+        return $this->render('school/ambassadors.html.twig');
     }
 // end routes for the ecole de bad dropdown
  
