@@ -94,7 +94,7 @@ h1, h2, h3 {
 
 h1 {
     text-align: center;
-    padding-top: 25vh;
+    padding-top: 22vh;
     margin: 0;
     font-size: clamp(2rem, 5vw, 2.8rem);
     background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
