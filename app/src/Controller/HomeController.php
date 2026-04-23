@@ -56,7 +56,15 @@ final class HomeController extends AbstractController
         return $this->render('home/rules.html.twig');
     }
 
+    #[Route('/Leclub/historique', name: 'app_historique')]
+    public function historique(): Response
+    {
+        return $this->render('home/historique.html.twig');
+    }
+
    
+
+    
 
 
 
