@@ -19,7 +19,8 @@
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
-        
+    
+    <p class="form-notice"><span class="required-mark">*</span> Champs obligatoires</p>
         {{ form_row(registrationForm.firstName, {
             'label': 'Prénom'|trans,
             'attr': {
@@ -61,13 +62,20 @@
     
         
         {{ form_row(registrationForm.plainPassword, {
-            'label': 'Mot de passe : Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre'|trans, 
+            'label': 'Mot de passe : Le mot de passe doit contenir au moins 16 caractères, une majuscule, un caractère spécial et un chiffre'|trans, 
             'autocomplete': 'new-password'
         }) }}
         
         {{ form_row(registrationForm.agreeTerms, {
             'label': ('J\'accepte les <a href="' ~ path('app_legalMentions') ~ '">conditions générales</a>')|trans,
-            'label_html': true
+            'label_html': true,
+            'row_attr': {'class': 'boxCase'}
+        }) }}
+
+            {{ form_row(registrationForm.agreeCollect, {
+            'label': ('J\'accepte la collecte de mes données')|trans,
+            'label_html': true,
+            'row_attr': {'class': 'boxCase'}
         }) }}
         
         <button type="submit" class="submit-button">{{ 'Créer mon compte'|trans }}</button>

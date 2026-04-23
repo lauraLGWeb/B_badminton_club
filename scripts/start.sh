@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash run ./scripts/start.sh
 
 echo "👋 Hey there! Welcome back!"
 echo "🚀 Firing up the Blois Badminton Club project..."

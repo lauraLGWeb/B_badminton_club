@@ -56,7 +56,15 @@ final class HomeController extends AbstractController
         return $this->render('home/rules.html.twig');
     }
 
+    #[Route('/Leclub/historique', name: 'app_historique')]
+    public function historique(): Response
+    {
+        return $this->render('home/historique.html.twig');
+    }
+
    
+
+    
 
 
 
@@ -64,28 +72,28 @@ final class HomeController extends AbstractController
 // routes for the ecole de bad dropdown
  
 
-      #[Route('/ecole/Projet-jeunes', name: 'app_youngProject')]
+      #[Route('/ecole/ecole-de-badminton', name: 'app_youngProject')]
     public function youngProject(): Response
     {
-       return $this->render('school/youngProject.html.twig');
+       return $this->render('school/badSchool.html.twig');
     }
 
-       #[Route('/ecole/ecole-de-badminton', name: 'app_badSchool')]
+       #[Route('/ecole/educationnal', name: 'app_badSchool')]
     public function badSchool(): Response
     {
-        return $this->render('school/badSchool.html.twig');
+        return $this->render('school/educationnal.html.twig');
     }
 
-        #[Route('/ecole/plumes', name: 'app_plumes')]
+        #[Route('/ecole/academy', name: 'app_plumes')]
     public function plumes(): Response
     {
-        return $this->render('school/plumes.html.twig');
+        return $this->render('school/academy.html.twig');
     }
 
-        #[Route('/ecole/club-avenir', name: 'app_avenirClub')]
+        #[Route('/ecole/ambassadors', name: 'app_avenirClub')]
     public function avenirClub(): Response
     {
-        return $this->render('school/avenirClub.html.twig');
+        return $this->render('school/ambassadors.html.twig');
     }
 // end routes for the ecole de bad dropdown
  
@@ -310,29 +318,23 @@ final class HomeController extends AbstractController
     public function app_modifyItem(Request $request, EntityManagerInterface $em, $id): Response
     {
 
-          // token check 
-        if (!$this->isCsrfTokenValid('modify_product_' . $id, $request->request->get('_token'))) {
-            throw new InvalidCsrfTokenException();
-        }
+    
 
         
         $item = $em->getRepository(Product::class)->find($id);
 
         $formulaire = $this->createForm(ArticleType::class, $item);
 
-        
-
         $formulaire->handleRequest($request);
-        if($formulaire->isSubmitted()&& $formulaire->isValid())
-        {   
-        $em-> flush();
 
-             $this->addFlash('success', 'Produit mis à jour avec succès !');          
-            return $this->redirectToRoute('app_ItemsList');
-        } 
+          if ($formulaire->isSubmitted()) {
 
-        if($formulaire->isSubmitted()&& !$formulaire->isValid())
-        {   
+            if ($formulaire->isValid()) {
+                $em->flush();
+                $this->addFlash('success', 'Produit mis à jour avec succès !');
+                return $this->redirectToRoute('app_ItemsList');
+            }
+
          $this->addFlash('error', 'Erreur dans la mise à jour, celle ci n\'est pas prise en compte');
         }
          return $this->render("admin/CreateItem.html.twig", ["form" => $formulaire]);

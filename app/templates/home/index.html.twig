@@ -44,26 +44,26 @@
     </div>
 
     <div class="coaches-section">
-        <h2>👥 {{ 'Encadrement Professionnel'|trans }}</h2>
+        <h2> {{ 'Encadrement Professionnel'|trans }}</h2>
         <p>
             {{ 'Le BBC s\'appuie sur'|trans }} <strong>{{ 'deux entraîneurs salariés'|trans }}</strong> 
-            {{ 'pour garantir un encadrement de qualité : Simon'|trans }} <strong>{{ 'juin 2019'|trans }}</strong>, 
-            {{ 'rejoint par Tom en'|trans }} <strong>2022</strong> 
+            {{ 'pour garantir un encadrement de qualité : Simon présent depuis'|trans }} <strong>{{ 'juin 2019'|trans }}</strong>, 
+            {{ 'rejoint par Tom en'|trans }} <strong>2023</strong> 
             {{ 'pour accompagner le développement du club vers le haut niveau. Une expertise au service de tous les licenciés, du loisir à la compétition !'|trans }}
         </p>
     </div>
 
     <div class="highlights">
         <div class="highlight-card">
-            <h2>🏆 {{ 'Excellence Sportive'|trans }}</h2>
+            <h2>{{ 'Excellence Sportive'|trans }}</h2>
             <p>
                 {{ 'Pour la première fois de son histoire, le BBC évolue en'|trans }} 
-                <strong>{{ 'Nationale 3'|trans }}</strong> {{ 'cette saison ! Une fierté collective qui récompense des années de travail et d\'investissement de nos entraîneurs et joueurs.'|trans }}
+                <strong>{{ 'Nationale 2'|trans }}</strong> {{ 'cette saison ! Une fierté collective qui récompense des années de travail et d\'investissement de nos entraîneurs et joueurs.'|trans }}
             </p>
         </div>
 
         <div class="highlight-card">
-            <h2>🎓 {{ 'Formation de Qualité'|trans }}</h2>
+            <h2>{{ 'Ecole de performance'|trans }}</h2>
             <p>
                 {{ 'Notre École Française de Badminton'|trans }} <strong>{{ '4 étoiles'|trans }}</strong> 
                 {{ 'fait partie des 26 clubs d\'élite en France. En partenariat avec la ville de Blois, nous proposons également des'|trans }} 
@@ -73,7 +73,7 @@
         </div>
 
         <div class="highlight-card">
-            <h2 class="noAround">🌟 {{ 'Label Club Avenir'|trans }}</h2>
+            <h2 class="noAround">{{ '1er maillon de la performance au niveau fédéral'|trans }}</h2>
             <p>
                 {{ 'Reconnu pour la qualité de son encadrement professionnel et sa structuration, le BBC porte depuis 2021 le prestigieux'|trans }} 
                 <strong>{{ 'Label Club Avenir'|trans }}</strong>, 
@@ -96,9 +96,9 @@
     <p class="signature"><span>{{ 'La Présidente – Blois Badminton Club'|trans }}</span></p>
 </section>
 
-<section class="picture-main">
+<div class="picture-main">
     <img src="{{ asset('pictures/main2.jpg') }}" width="4368" height="2448" alt="{{ 'joueuse de badminton'|trans }}">
-</section>
+</div>
 
 <section class="main-presentation">
     <div class="reverse-div">
@@ -174,8 +174,6 @@
         
         <div class="partners-track">
             {# Premier set #}
-            <a class="partner-item" href="https://www.arbo-concept.com/" target="_blank"><img src="{{ asset('pictures/partenaire1.png') }}" width="225" height="224" alt="{{ 'Arbo concept'|trans }}"></a>
-            <a class="partner-item" href="https://www.e.leclerc/" target="_blank"><img src="{{ asset('pictures/partenaire2.png') }}" width="204" height="192" alt="{{ 'Leclerc'|trans }}"></a>
             <a class="partner-item" href="https://stauff.fr/" target="_blank"><img src="{{ asset('pictures/partenaire3.png') }}" width="301" height="167" alt="{{ 'stauff'|trans }}"></a>
             <a class="partner-item" href="https://www.agglopolys.fr/" target="_blank"><img src="{{ asset('pictures/partenaire4.png') }}" width="225" height="225" alt="{{ 'agglopolys'|trans }}"></a>
             <a class="partner-item" href="https://www.blois.fr/en" target="_blank"><img src="{{ asset('pictures/partenaire5.png') }}" width="225" height="225" alt="{{ 'Ville de Blois'|trans }}"></a>
@@ -187,22 +185,14 @@
             <a class="partner-item" href="https://www.ffbad.org/actualites/actus-22/2025/ecole-francaise-de-badminton-la-campagne-de-labellisation-2025-est-lancee" target="_blank"><img src="{{ asset('pictures/partenaire11.png') }}" width="150" height="200" alt="{{ 'école française de badminton'|trans }}"></a>
             <a class="partner-item" href="https://badmintoncvl.fr/" target="_blank"><img src="{{ asset('pictures/partenaire12.png') }}" width="250" height="250" alt="{{ 'Partenaire 12'|trans }}"></a>
             <a class="partner-item" href="https://www.badminton41.org/" target="_blank"><img src="{{ asset('pictures/partenaire13.png') }}" width="225" height="225" alt="{{ 'Badminton 41'|trans }}"></a>
-            <a class="partner-item" href="https://lgebad.com/engagement-societal/eco-bad/" target="_blank"><img src="{{ asset('pictures/partenaire14.png') }}" width="110" height="146" alt="{{ 'éco bad'|trans }}"></a>
             <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officield" target="_blank"><img src="{{ asset('pictures/partenaire15.png') }}" width="189" height="266" alt="{{ 'Fédération française de badminton'|trans }}"></a>
-            <a class="partner-item" href="https://www.benevolat.org/" target="_blank"><img src="{{ asset('pictures/partenaire17.png') }}" width="191" height="264" alt="{{ 'Bénévolat associatif'|trans }}"></a>
-            <a class="partner-item" href="https://www.alionax.com/fr/rtv" target="_blank"><img src="{{ asset('pictures/partenaire18.png') }}" width="200" height="200" alt="{{ 'Alionax'|trans }}"></a>
-            <a class="partner-item" href="https://www.bouchonsdamour.com/" target="_blank"><img src="{{ asset('pictures/partenaire19.png') }}" width="90" height="110" alt="{{ 'Bouchons d\'amour'|trans }}"></a>
-            <a class="partner-item" href="https://www.decathlon.fr/" target="_blank"><img src="{{ asset('pictures/partenaire20.jpg') }}" width="293" height="172" alt="{{ 'decathlon'|trans }}"></a>
-            <a class="partner-item" href="https://www.afm-telethon.fr/fr" target="_blank"><img src="{{ asset('pictures/partenaire21.jpg') }}" width="768" height="384" alt="{{ 'Téléthon'|trans }}"></a>
+             <a class="partner-item" href="https://www.yankeecandle.fr/" target="_blank"><img src="{{ asset('pictures/yankee.png') }}" width="(500)" height="500" alt="{{ 'Yankee Candle'|trans }}"></a>
+          
+           
             
             {# Duplication pour effet infini #}
             {# Duplication pour effet infini - cachée aux lecteurs d'écran #}
-            <a class="partner-item" href="https://www.arbo-concept.com/" target="_blank" rel="noopener" aria-hidden="true">
-                <img src="{{ asset('pictures/partenaire1.png') }}" width="225" height="224" alt="">
-            </a>
-            <a class="partner-item" href="https://www.e.leclerc/" target="_blank" rel="noopener" aria-hidden="true">
-                <img src="{{ asset('pictures/partenaire2.png') }}" width="204" height="192" alt="">
-            </a>
+           
             <a class="partner-item" href="https://stauff.fr/" target="_blank" rel="noopener" aria-hidden="true">
                 <img src="{{ asset('pictures/partenaire3.png') }}" width="301" height="167" alt="">
             </a>
@@ -236,27 +226,14 @@
             <a class="partner-item" href="https://www.badminton41.org/" target="_blank" rel="noopener" aria-hidden="true">
                 <img src="{{ asset('pictures/partenaire13.png') }}" width="225" height="225" alt="">
             </a>
-            <a class="partner-item" href="https://lgebad.com/engagement-societal/eco-bad/" target="_blank" rel="noopener" aria-hidden="true">
-                <img src="{{ asset('pictures/partenaire14.png') }}" width="110" height="146" alt="">
-            </a>
             <a class="partner-item" href="https://www.ffbad.org/actualites/actus-29/2025/campagne-club-avenir-2025-26-le-lancement-officield" target="_blank" rel="noopener" aria-hidden="true">
                 <img src="{{ asset('pictures/partenaire15.png') }}" width="189" height="266" alt="">
             </a>
-            <a class="partner-item" href="https://www.benevolat.org/" target="_blank" rel="noopener" aria-hidden="true">
-                <img src="{{ asset('pictures/partenaire17.png') }}" width="191" height="264" alt="">
+             <a class="partner-item" href="https://www.yankeecandle.fr/" target="_blank">
+                <img src="{{ asset('pictures/yankee.png') }}" width="(500)" height="500" >
             </a>
-            <a class="partner-item" href="https://www.alionax.com/fr/rtv" target="_blank" rel="noopener" aria-hidden="true">
-                <img src="{{ asset('pictures/partenaire18.png') }}" width="200" height="200" alt="">
-            </a>
-            <a class="partner-item" href="https://www.bouchonsdamour.com/" target="_blank" rel="noopener" aria-hidden="true">
-                <img src="{{ asset('pictures/partenaire19.png') }}" width="90" height="110" alt="">
-            </a>
-            <a class="partner-item" href="https://www.decathlon.fr/" target="_blank" rel="noopener" aria-hidden="true">
-                <img src="{{ asset('pictures/partenaire20.jpg') }}" width="293" height="172" alt="">
-            </a>
-            <a class="partner-item" href="https://www.afm-telethon.fr/fr" target="_blank" rel="noopener" aria-hidden="true">
-                <img src="{{ asset('pictures/partenaire21.jpg') }}" width="768" height="384" alt="">
-            </a>
+          
+          
         </div>
     </div>
 </section>
