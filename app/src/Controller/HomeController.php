@@ -8,8 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ProductRepository;
 use App\Entity\User;
-use Doctrine\ODM\MongoDB\DocumentManager;
-use App\Document\Actualities;
+use App\Repository\ActualityRepository;
 use App\Form\ArticleType;
 use App\Entity\Product;
 use App\Entity\Cart;
@@ -22,18 +21,15 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 final class HomeController extends AbstractController
 {
-       #[Route('/', name: 'app_home')]
-    public function index(DocumentManager $dm): Response
-    {
-        //get all the actualities
-        $actualities = $dm->getRepository(Actualities::class)->findBy([], ['eventOn' => 'DESC'], 2);
-       
-        
-        return $this->render('home/index.html.twig', [
-            'actualities' => $actualities,
-        ]);
-
-   }
+      #[Route('/', name: 'app_home')]
+public function index(ActualityRepository $actualityRepository): Response
+{
+    $actualities = $actualityRepository->findBy([], ['eventOn' => 'DESC'], 2);
+    
+    return $this->render('home/index.html.twig', [
+        'actualities' => $actualities,
+    ]);
+}
 
 
 // routes for the club dropdown

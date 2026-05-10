@@ -15,7 +15,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 final class ShopController extends AbstractController
 {
     #[Route('/membre/Boutique', name: 'app_shop')]
-    #[IsGranted('ROLE_MEMBRE')]
+    #[IsGranted('ROLE_ADMIN')]
     public function shop( ProductRepository $ProductRepository, EntityManagerInterface $em): Response
     {
     

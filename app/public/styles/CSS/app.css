@@ -1238,11 +1238,11 @@ details a:hover {
     position: absolute;
     height: 0px;
     left: 700px;
-    top: 750px;
+    top: 700px;
     width: 0px;
     border-left: 100px solid transparent;
     border-right: 200px solid transparent;
-    border-bottom: 200px solid var(--gradient-start);
+    border-bottom:250px solid var(--gradient-start);
     transform: skew(0.26turn, 81deg);
     z-index: -1;
     opacity: 0.3;
@@ -1251,10 +1251,8 @@ details a:hover {
 .actus {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
-    padding-top: 30vh;
+    padding-top: 7rem;
     margin-bottom: 50px;
 }
 
@@ -1290,11 +1288,12 @@ details a:hover {
 
 .actus-in-main {
     display: flex;
+    
 }
 
 .actu-main {
-    width: 50%;
-    min-height: 60vh;
+    width: 25rem;
+    height: 30rem;
     padding: 15px;
     background: var(--bg-color);
     border-radius: 10px;
@@ -1364,6 +1363,7 @@ details a:hover {
 
 .fb_iframe_widget {
     height: 450px;
+    margin-left: 10rem;
 }
 
 .actu-btn {
@@ -1736,6 +1736,15 @@ label.obligatory::after {
 /* ========================================
    MEDIA QUERIES
    ======================================== */
+
+   @media (max-width: 1614px) {
+   
+    .actus-in-main {
+        width: 40rem;
+    }
+    }
+
+    
 @media (max-width: 1360px) {
     #menuIcon, 
     #menuIcon.sticky {
@@ -1916,12 +1925,46 @@ label.obligatory::after {
     .dropdown.open > a::after {
         transform: rotate(180deg) translateX(-15px);
     }
+.actu-main:last-child {
+    display: none;
+}
+    
+    .actus-in-main {
+        width: 40rem;
+    }
+
+     .fb_iframe_widget {
+    
+    margin-left: 0rem;
+}
+
+}
+
+@media (max-width: 1200px) {
+   .actus{
+    flex-wrap: wrap;
+   }
+    .actus-in-main {
+    justify-content: center
+    }
+    .actu-main, .fb-page{
+        height: 26rem;
+        width: 30rem;
+    }
 }
 
 @media (max-width: 950px) {
    .main-presentation p{
     width: 90%;
    }
+
+   .actus-in-main {
+    width: 60rem;
+}
+.fb_iframe_widget {
+   margin-top: 2rem;
+    margin-left: 0rem;
+}
 }
 
 

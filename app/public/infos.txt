@@ -1,3 +1,32 @@
+
+
+
+quand modifs faites en local et que je dois les mettre a jour sur le serveur : 
+
+cd /Applications/MAMP/htdocs/dw6/projets/B_badminton_club/app
+
+zip -r ../bbc_full.zip . \
+  --exclude "*.git*" \
+  --exclude "var/*" \
+  --exclude ".env.local" \
+  --exclude "node_modules/*" \
+  --exclude "compose.yaml" \
+  --exclude "compose.override.yaml" \
+  --exclude "coverage/*" \
+  --exclude "tests/*"
+
+  sftp su5977@access-5020378944.webspace-host.com ---> puis mettre le mot de passe 
+
+put /Applications/MAMP/htdocs/dw6/projets/B_badminton_club/bbc_full.zip
+
+
+revenir dans le ssh : 
+ssh su5977@access-5020378944.webspace-host.com + mdp 
+unzip -o ~/bbc_full.zip -d ~/
+rm -rf ~/var/cache/*
+
+
+
 envoyer fixture mongodb 
 php bin/console doctrine:mongodb:fixtures:load --no-interaction
 
