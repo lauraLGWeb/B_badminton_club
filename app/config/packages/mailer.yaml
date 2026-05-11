@@ -1,4 +1,4 @@
 framework:
     mailer:
-        dsn: 'smtp://laura.maglegall@gmail.com:cfutfqisudgrzpjt@smtp.gmail.com:587?verify_peer=0'
+        dsn: '%env(MAILER_DSN)%'
         # ?verify_peer=0 desactivate  SSL certificate , keep only on dev version

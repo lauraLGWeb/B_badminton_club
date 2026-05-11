@@ -54,6 +54,11 @@ class ContactType extends AbstractType
                 'constraints' => [
                     new Assert\NotBlank(['message' => 'Le message est obligatoire']),
                     new NoBadWords(),
+                    new Assert\Regex([
+                        'pattern' => '/https?:\/\/|www\./i',
+                        'match' => false,
+                        'message' => 'Les liens ne sont pas autorisés dans le message.',
+                    ]),
                     new Assert\Length([
                         'min' => 10,
                         'minMessage' => 'Le message doit faire au moins {{ limit }} caractères',

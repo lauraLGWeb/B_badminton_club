@@ -23,9 +23,12 @@ put /Applications/MAMP/htdocs/dw6/projets/B_badminton_club/bbc_full.zip
 revenir dans le ssh : 
 ssh su5977@access-5020378944.webspace-host.com + mdp 
 unzip -o ~/bbc_full.zip -d ~/
+mv ~/config/packages/doctrine_mongodb.yaml ~/config/packages/doctrine_mongodb.yaml.bak
 rm -rf ~/var/cache/*
 
+actualiser le site 
 
+----------------------------
 
 envoyer fixture mongodb 
 php bin/console doctrine:mongodb:fixtures:load --no-interaction

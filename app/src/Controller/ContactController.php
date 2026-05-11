@@ -29,9 +29,9 @@ class ContactController extends AbstractController
 
             try {
                 $email = (new Email())
-                    ->from('laura.maglegall@gmail.com')
-                    ->to('laura.maglegall@gmail.com')
-                    ->subject('TEST Contact BBC')
+                    ->from('bloisbadclub@gmail.com')
+                    ->to('bloisbadclub@gmail.com')
+                    ->subject('Contact BBC - Nouveau message depuis le site')
                     ->text(sprintf(
                         "Prénom : %s\nNom : %s\nEmail : %s\n\nMessage :\n%s",
                         $data['firstName'],
