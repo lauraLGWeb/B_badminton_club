@@ -24,7 +24,7 @@
 
     {% if cart.CartItem is empty %}
         <div class="empty-cart">
-            <p>{{ 'Votre panier est vide.'|trans }}</p>
+            <p>{{ 'Ton panier est vide...reviens vite sur la boutique pour le remplir !'|trans }}</p>
             <a href="{{ path('app_shop') }}" class="cart-btn cart-btn-primary">{{ 'Découvrir nos produits'|trans }}</a>
         </div>
     {% else %}

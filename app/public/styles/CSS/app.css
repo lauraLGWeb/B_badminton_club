@@ -81,6 +81,10 @@ body {
     padding: 0;
     overflow-x: hidden;
 }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 body, p {
     font-family: var(--font-inter);
@@ -1229,31 +1233,23 @@ details a:hover {
    ======================================== */
 .actu-section {
     position: relative;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    min-height: 900px;
+    min-height: 700px;
     padding: 0 2rem;
+    background: linear-gradient(135deg,rgba(170, 155, 150, 0.416)), url(/pictures/shuttlecock.jpg);
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-.triangle {
-    position: absolute;
-    height: 0px;
-    left: 700px;
-    top: 700px;
-    width: 0px;
-    border-left: 100px solid transparent;
-    border-right: 200px solid transparent;
-    border-bottom:250px solid var(--gradient-start);
-    transform: skew(0.26turn, 81deg);
-    z-index: -1;
-    opacity: 0.3;
-}
+
 
 .actus {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 7rem;
-    margin-bottom: 50px;
 }
 
 .actualities-grid {
@@ -1263,8 +1259,9 @@ details a:hover {
 
 .actu-section h2 {
     position: relative;
-    top: 150px;
-    width: 20vw;
+    color: white;
+   
+    width: 30vw;
     margin-left: 20px;
     text-align: center;
     font-size: 2.5rem;
@@ -1344,11 +1341,9 @@ details a:hover {
 .fb-container-bbc {
     background: linear-gradient(145deg, #ffffff, var(--bg-color));
     border-radius: 25px;
-    padding: 30px;
-    margin: 80px auto 30px;
+    padding: 20px;
+    align-self: flex-start;
     max-width: 500px;
-    position: relative;
-    top: 50px;
     box-shadow: 8px 8px 16px var(--shadow-dark),
                 -8px -8px 16px var(--shadow-light);
 }
@@ -1363,7 +1358,6 @@ details a:hover {
 
 .fb_iframe_widget {
     height: 450px;
-    margin-left: 10rem;
 }
 
 .actu-btn {
@@ -2040,12 +2034,23 @@ label.obligatory::after {
     .highlights-grid {
         grid-template-columns: 1fr;
     }
+
+    .header, .actu-section, .come {
+        background-attachment: scroll;
+        background-position: center top;
+    }
+
+    body.dark .header {
+        background-attachment: scroll;
+        background-position: center top;
+    }
     
     .chiffres-cles {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
-    
+
+
     .chiffre-item .nombre {
         font-size: 2rem;
     }
@@ -2127,7 +2132,16 @@ label.obligatory::after {
         height: 3rem;
         width: 3rem;
     }
+
+    .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 10px;
     }
+}
+
 
 @media (max-width: 500px) {
     .footerSection {
@@ -2139,10 +2153,12 @@ label.obligatory::after {
     .footerLinksSection {
         flex-direction: column;
         align-items: center;
+        
     }
     
     .footerLinksSection div {
         text-align: center;
+        width:15rem;
     }
 }
 

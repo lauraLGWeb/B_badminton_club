@@ -31,8 +31,8 @@
             {% for user in user %}
                 {% if not user.isVerified %}
                     <tr>
-                        <td>{{ user.firstName }}</td>
                         <td>{{ user.lastName }}</td>
+                        <td>{{ user.firstName }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.lienceNbr }}</td>
                         <td>
