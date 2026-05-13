@@ -1104,11 +1104,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *             filter?: scalar|null, // Default: "({uid_key}={user_identifier})"
  *             password_attribute?: scalar|null, // Default: null
  *         },
- *         mongodb?: array{
- *             class: scalar|null, // The full entity class name of your user class.
- *             property?: scalar|null, // Default: null
- *             manager_name?: scalar|null, // Default: null
- *         },
  *     }>,
  *     firewalls: array<string, array{ // Default: []
  *         pattern?: scalar|null,
@@ -1514,164 +1509,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     generate_final_classes?: bool, // Default: true
  *     generate_final_entities?: bool, // Default: false
  * }
- * @psalm-type DoctrineMongodbConfig = array{
- *     document_managers?: array<string, array{ // Default: []
- *         connection?: scalar|null,
- *         database?: scalar|null,
- *         logging?: bool, // Default: "%kernel.debug%"
- *         profiler?: array{
- *             enabled?: bool, // Default: "%kernel.debug%"
- *             pretty?: bool, // Default: "%kernel.debug%"
- *         },
- *         default_document_repository_class?: scalar|null, // Default: "Doctrine\\ODM\\MongoDB\\Repository\\DocumentRepository"
- *         default_gridfs_repository_class?: scalar|null, // Default: "Doctrine\\ODM\\MongoDB\\Repository\\DefaultGridFSRepository"
- *         repository_factory?: scalar|null, // Default: "doctrine_mongodb.odm.container_repository_factory"
- *         persistent_collection_factory?: scalar|null, // Default: null
- *         auto_mapping?: bool, // Default: false
- *         filters?: array<string, string|array{ // Default: []
- *             class: scalar|null,
- *             enabled?: bool, // Default: false
- *             parameters?: array<string, mixed>,
- *         }>,
- *         metadata_cache_driver?: string|array{
- *             type?: scalar|null, // Default: "array"
- *             class?: scalar|null,
- *             host?: scalar|null,
- *             port?: int,
- *             instance_class?: scalar|null,
- *             id?: scalar|null,
- *             namespace?: scalar|null,
- *         },
- *         use_transactional_flush?: bool, // Default: false
- *         mappings?: array<string, bool|string|array{ // Default: []
- *             mapping?: scalar|null, // Default: true
- *             type?: scalar|null,
- *             dir?: scalar|null,
- *             prefix?: scalar|null,
- *             alias?: scalar|null,
- *             is_bundle?: bool,
- *         }>,
- *     }>,
- *     connections?: array<string, array{ // Default: []
- *         server?: scalar|null,
- *         options?: array{
- *             authMechanism?: "SCRAM-SHA-1"|"SCRAM-SHA-256"|"MONGODB-CR"|"MONGODB-X509"|"PLAIN"|"GSSAPI",
- *             connectTimeoutMS?: int,
- *             db?: scalar|null,
- *             authSource?: scalar|null,
- *             journal?: bool,
- *             password?: scalar|null,
- *             readPreference?: "primary"|"primaryPreferred"|"secondary"|"secondaryPreferred"|"nearest",
- *             readPreferenceTags?: list<array<string, scalar|null>>,
- *             replicaSet?: scalar|null,
- *             socketTimeoutMS?: int,
- *             ssl?: bool,
- *             tls?: bool,
- *             tlsAllowInvalidCertificates?: bool,
- *             tlsAllowInvalidHostnames?: bool,
- *             tlsCAFile?: scalar|null,
- *             tlsCertificateKeyFile?: scalar|null,
- *             tlsCertificateKeyFilePassword?: scalar|null,
- *             tlsDisableCertificateRevocationCheck?: bool,
- *             tlsDisableOCSPEndpointCheck?: bool,
- *             tlsInsecure?: bool,
- *             username?: scalar|null,
- *             retryReads?: bool,
- *             retryWrites?: bool,
- *             w?: scalar|null,
- *             wTimeoutMS?: int,
- *         },
- *         driver_options?: array{
- *             context?: scalar|null, // Deprecated: The "context" driver option is deprecated and will be removed in 3.0. This option is ignored by the MongoDB driver version 2. // Default: null
- *         },
- *         autoEncryption?: array{
- *             bypassAutoEncryption?: bool,
- *             keyVaultClient?: scalar|null,
- *             keyVaultNamespace?: scalar|null,
- *             masterKey?: list<mixed>,
- *             kmsProvider: array{
- *                 type: scalar|null,
- *                 accessKeyId?: scalar|null,
- *                 secretAccessKey?: scalar|null,
- *                 sessionToken?: scalar|null,
- *                 tenantId?: scalar|null,
- *                 clientId?: scalar|null,
- *                 clientSecret?: scalar|null,
- *                 keyVaultEndpoint?: scalar|null,
- *                 identityPlatformEndpoint?: scalar|null,
- *                 keyName?: scalar|null,
- *                 keyVersion?: scalar|null,
- *                 email?: scalar|null,
- *                 privateKey?: scalar|null,
- *                 endpoint?: scalar|null,
- *                 projectId?: scalar|null,
- *                 location?: scalar|null,
- *                 keyRing?: scalar|null,
- *                 key?: scalar|null,
- *             },
- *             schemaMap?: list<mixed>,
- *             encryptedFieldsMap?: array<string, array{ // Default: []
- *                 fields?: list<array{ // Default: []
- *                     path: scalar|null,
- *                     bsonType: scalar|null,
- *                     keyId: mixed,
- *                     queries?: array{
- *                         queryType: scalar|null,
- *                         min?: mixed,
- *                         max?: mixed,
- *                         sparsity?: int,
- *                         precision?: int,
- *                         trimFactor?: int,
- *                         contention?: int,
- *                     },
- *                 }>,
- *             }>,
- *             extraOptions?: array{
- *                 mongocryptdURI?: scalar|null,
- *                 mongocryptdBypassSpawn?: bool,
- *                 mongocryptdSpawnPath?: scalar|null,
- *                 mongocryptdSpawnArgs?: list<scalar|null>,
- *                 cryptSharedLibPath?: scalar|null,
- *                 cryptSharedLibRequired?: bool,
- *             },
- *             bypassQueryAnalysis?: bool,
- *             tlsOptions?: array{
- *                 tlsCAFile?: scalar|null,
- *                 tlsCertificateKeyFile?: scalar|null,
- *                 tlsCertificateKeyFilePassword?: scalar|null,
- *                 tlsDisableOCSPEndpointCheck?: bool,
- *             },
- *         },
- *     }>,
- *     resolve_target_documents?: array<string, scalar|null>,
- *     types?: array<string, string|array{ // Default: []
- *         class: scalar|null,
- *     }>,
- *     proxy_namespace?: scalar|null, // Default: "MongoDBODMProxies"
- *     proxy_dir?: scalar|null, // Default: "%kernel.cache_dir%/doctrine/odm/mongodb/Proxies"
- *     enable_native_lazy_objects?: bool, // Deprecated: The "enable_native_lazy_objects" option is deprecated and will be removed in 6.0. Native Lazy Objects are enable by default when using PHP 8.4+ and doctrine/mongodb-odm 2.14+. // Requires PHP 8.4+ and doctrine/mongodb-odm 2.14+ // Default: true
- *     enable_lazy_ghost_objects?: bool, // Deprecated: The "enable_lazy_ghost_objects" option is deprecated and will be removed in 6.0. Native Lazy Objects are enable by default when using PHP 8.4+ and doctrine/mongodb-odm 2.14+. // Requires doctrine/mongodb-odm 2.12+ // Default: true
- *     auto_generate_proxy_classes?: scalar|null, // Default: 3
- *     hydrator_namespace?: scalar|null, // Default: "Hydrators"
- *     hydrator_dir?: scalar|null, // Default: "%kernel.cache_dir%/doctrine/odm/mongodb/Hydrators"
- *     auto_generate_hydrator_classes?: scalar|null, // Default: 0
- *     persistent_collection_namespace?: scalar|null, // Default: "PersistentCollections"
- *     persistent_collection_dir?: scalar|null, // Default: "%kernel.cache_dir%/doctrine/odm/mongodb/PersistentCollections"
- *     auto_generate_persistent_collection_classes?: scalar|null, // Default: 0
- *     default_document_manager?: scalar|null,
- *     default_connection?: scalar|null,
- *     default_database?: scalar|null, // Default: "default"
- *     default_commit_options?: array{
- *         j?: bool,
- *         timeout?: int,
- *         w?: scalar|null,
- *         wtimeout?: int,
- *     },
- *     controller_resolver?: bool|array{
- *         enabled?: bool, // Default: true
- *         auto_mapping?: bool, // Set to false to disable using route placeholders as lookup criteria when the object id doesn't match the argument name // Default: true
- *     },
- * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1685,7 +1522,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     twig_extra?: TwigExtraConfig,
  *     security?: SecurityConfig,
  *     monolog?: MonologConfig,
- *     doctrine_mongodb?: DoctrineMongodbConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -1702,7 +1538,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
  *         maker?: MakerConfig,
- *         doctrine_mongodb?: DoctrineMongodbConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -1717,7 +1552,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
- *         doctrine_mongodb?: DoctrineMongodbConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -1733,7 +1567,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         twig_extra?: TwigExtraConfig,
  *         security?: SecurityConfig,
  *         monolog?: MonologConfig,
- *         doctrine_mongodb?: DoctrineMongodbConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
