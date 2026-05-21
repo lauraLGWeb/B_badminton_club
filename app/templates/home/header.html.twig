@@ -64,7 +64,7 @@
                     </li>
 
                      <li class="nav-item dropdown">
-                        <a href="#" class="nav-link link-burger-menu">{{ 'École du bad'|trans }}</a>
+                        <a href="#" class="nav-link link-burger-menu">{{ 'École de badminton'|trans }}</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ path('app_youngProject') }}">{{ 'L\'école Française de Badminton'|trans }}</a></li>
                             <li><a href="{{ path('app_badSchool') }}">{{ 'Le parcours éducatif'|trans }}</a></li>
@@ -88,12 +88,11 @@
                     <li class="nav-item">
                         <a href="{{ path('app_contact') }}">{{ 'Contact'|trans }}</a>
                     </li>
-
-                    {% if app.user %}
+                    
                         <li>
                             <a href="{{ path('app_shop') }}">{{ 'Boutique'|trans }}</a>
                         </li>
-                    {% endif %}
+                   
 
                     {% if app.user %}
                         <li class="nav-item">

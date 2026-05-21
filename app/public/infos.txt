@@ -3,6 +3,8 @@
 
 quand modifs faites en local et que je dois les mettre a jour sur le serveur : 
 
+rm /Applications/MAMP/htdocs/dw6/projets/B_badminton_club/bbc_full.zip
+
 cd /Applications/MAMP/htdocs/dw6/projets/B_badminton_club/app
 
 zip -r ../bbc_full.zip . \

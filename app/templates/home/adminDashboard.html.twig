@@ -51,33 +51,6 @@
                             </div>
                         </li>
             {% endif %}
-            
-            {% if is_granted('ROLE_ADMIN') %}
-                <li>
-                    <a data-bs-toggle="collapse" href="#shopMenu">
-                        🛒 {{ 'Boutique'|trans }}
-                    </a>
-                    <div class="collapse" id="shopMenu">
-                        <ul>
-                            <li>
-                                <a href="{{ path('app_ItemsList') }}">
-                                    {{ 'Produits'|trans }}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('app_AddItemsList') }}">
-                                    ➕ {{ 'Ajouter un produit'|trans }}
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('app_orders') }}">
-                                    {{ 'Commandes'|trans }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            {% endif %}
 
             {% if is_granted('ROLE_ADMIN') %}
                 <li>

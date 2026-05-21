@@ -6,12 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Repository\ProductRepository;
+
 use App\Entity\User;
 use App\Repository\ActualityRepository;
-use App\Form\ArticleType;
-use App\Entity\Product;
-use App\Entity\Cart;
 use App\Entity\Internships;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\HttpFoundation\Request;
@@ -128,27 +125,18 @@ public function index(ActualityRepository $actualityRepository): Response
     }
 
 
-  #[Route('/membre/Leclub/Membres/compte', name: 'app_account')]
-   #[IsGranted('ROLE_MEMBRE')]
-    public function account(EntityManagerInterface $em ): Response
-    {
-    $actualUser = $this->getUser();
-       
-     // GET THE INTERNSHIPS To come
-    $internships = $em->getRepository(Internships::class)->findAll();
-    
-    
-    // GET THE OREDERS
-    $orders = $em->getRepository(Cart::class)->findBy(
-        ['isPaid' => true, 'user' => $actualUser],
-        ['purchaseDate' => 'DESC']
-        );
-    
-    return $this->render('home/account.html.twig', [
-        'orders' => $orders, 
-        'internships'=> $internships])
-        ;
-    
+    #[Route('/membre/Leclub/Membres/compte', name: 'app_account')]
+    #[IsGranted('ROLE_MEMBRE')]
+        public function account(EntityManagerInterface $em): Response
+        {
+        $actualUser = $this->getUser();
+        
+        $internships = $em->getRepository(Internships::class)->findAll();
+
+        return $this->render('home/account.html.twig', [
+            'user' => $actualUser,
+            'internships' => $internships,
+        ]);
     }
 
       #[Route('/entraineur', name: 'app_admin_dashboard')]
@@ -159,34 +147,12 @@ public function index(ActualityRepository $actualityRepository): Response
     }
 
 
-       #[Route('/admin/Liste-boutique', name: 'app_ItemsList')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function ItemsList(ProductRepository $ProductRepository): Response
-    {
-         $product = $ProductRepository->findAll();
-
-        return $this->render('admin/itemsList.html.twig', [
-            'products' => $product,
-        ]);
-    }
-
 
        #[Route('/mentions', name: 'app_legalMentions')]
     public function legalMentions(): Response
     {
         return $this->render('legal/legalMentions.html.twig');
     }
-
-
-
-
-      
-
-
-
-
-
-
 
 
 
@@ -280,119 +246,6 @@ public function index(ActualityRepository $actualityRepository): Response
     }
 
 
-
-     //======================
-    //FOR Shop 
-    //======================
-
-// create the shopitem 
-      #[Route('/admin/Liste-boutique/ajouter', name: 'app_AddItemsList')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function AddItemsList(Request $request, EntityManagerInterface $em ): Response
-    {
-        $newItemForm = new Product();
-        $form = $this->createForm(ArticleType::class, $newItemForm);
-        $form->handleRequest($request);
-
-         if ($form->isSubmitted() && $form->isValid()) {
-                          
-            $em->persist($newItemForm);
-            $em->flush();        
-
-            $this->addFlash('success', 'Produit créée avec succès !');
-            return $this->redirectToRoute('app_ItemsList');
-            }
-        
-         return $this->render('admin/CreateItem.html.twig', [
-          'form' => $form,
-           ]);
-    }
-
- //modify the shopitem
-    #[Route('/admin/Liste-boutique/modifier/{id}', name: 'app_modifyItem')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function app_modifyItem(Request $request, EntityManagerInterface $em, $id): Response
-    {
-
-    
-
-        
-        $item = $em->getRepository(Product::class)->find($id);
-
-        $formulaire = $this->createForm(ArticleType::class, $item);
-
-        $formulaire->handleRequest($request);
-
-          if ($formulaire->isSubmitted()) {
-
-            if ($formulaire->isValid()) {
-                $em->flush();
-                $this->addFlash('success', 'Produit mis à jour avec succès !');
-                return $this->redirectToRoute('app_ItemsList');
-            }
-
-         $this->addFlash('error', 'Erreur dans la mise à jour, celle ci n\'est pas prise en compte');
-        }
-         return $this->render("admin/CreateItem.html.twig", ["form" => $formulaire]);
-     }
-
-
-
-    //delete the shopitem
-    #[Route('/admin/Liste-boutique/suppression/{id}', name: 'app_deleteProduct')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function eleteItem(Request $request, EntityManagerInterface $em, $id): Response
-    {
-        // token check 
-        if (!$this->isCsrfTokenValid('delete_Product_' . $id, $request->request->get('_token'))) {
-            throw new InvalidCsrfTokenException();
-        }
-
-        //getting the actuality details
-        $itemToDelete = $em->getRepository(Product::class)->find($id);
-        
-        $em->remove($itemToDelete);
-        $em->flush();
-
-        $this->addFlash('success', 'Article supprimée avec succès !');
-
-       return $this->redirectToRoute('app_ItemsList');
-    }
-
-// access the orders
-    #[Route('/admin/Liste-boutique/commandes', name: 'app_orders')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function seeOrders(EntityManagerInterface $em ): Response
-    {
-         // Rget all the paid carts by dates
-    $orders = $em->getRepository(Cart::class)->findBy(
-        ['isPaid' => true],
-        ['purchaseDate' => 'DESC']
-        );
-    
-    return $this->render('admin/orders.html.twig', [
-        'orders' => $orders
-    ]);
-    }
-
-    // button for order given to the member
-    #[Route('/admin/Liste-boutique/commandes/{id}', name: 'app_orderGiven')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function orderGiven(Cart $cart, EntityManagerInterface $em, Request $request, ): Response
-    {
-            $token = $request->request->get('_token');
-    if (!$this->isCsrfTokenValid('mark_order_' . $cart->getId(), $token)) {
-        $this->addFlash('error', 'Token invalide');
-        return $this->redirectToRoute('app_orders');
-    }
-    // mark the cart as given 
-    $cart->setIsGiven(true);
-    $em->flush();
-    
-    $this->addFlash('success', 'Commande marquée comme donnée !');  
-    
-    return $this->redirectToRoute('app_orders');
-}
 
 
     //  validated licences button

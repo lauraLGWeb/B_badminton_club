@@ -92,9 +92,12 @@
                                     {{ 'Supprimer ce stage'|trans }}
                                 </button>
                             </form>
+                            
                         {% endif %}
                     </div>
                 </section>
+             {% else %}
+                <p class="no-internship">{{ 'Aucun stage disponible pour le moment.'|trans }}</p>
             {% endfor %}
         </section>
     </section>

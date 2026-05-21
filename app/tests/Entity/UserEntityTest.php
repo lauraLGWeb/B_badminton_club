@@ -4,7 +4,6 @@ namespace App\Tests\Unit\Entity;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\User;
-use App\Entity\Cart;
 
 class UserEntityTest extends TestCase
 {

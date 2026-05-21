@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-
+use App\Entity\Actuality;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -42,7 +42,7 @@ class ActualityType extends AbstractType
                         'min' => 2,
                         'minMessage' => 'Veuillez rentrer au minimum {{ limit }} lettres',
                         // max length allowed by Symfony for security reasons
-                        'max' => 1000,
+                        'max' => 255,
                     ])
                  ]
             ])
@@ -69,7 +69,7 @@ class ActualityType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class' => Actuality::class,
         ]);
     }
 }

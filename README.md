@@ -173,10 +173,6 @@ DATABASE_URL="mysql://root:root@database:3306/blois_badminton?serverVersion=8.0.
 MONGODB_URL=mongodb://mongodb:27017
 MONGODB_DB=blois_badminton
 
-# Stripe Payment Configuration
-STRIPE_PUBLIC_KEY=your_stripe_public_key
-STRIPE_SECRET_KEY=your_stripe_secret_key
-
 # Mailer Configuration
 MAILER_DSN=gmail+smtp://your-email@gmail.com:your-app-password@default
 

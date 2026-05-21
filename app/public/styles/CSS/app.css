@@ -101,7 +101,7 @@ h1 {
     padding-top: 22vh;
     margin: 0;
     font-size: clamp(2rem, 5vw, 2.8rem);
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    background:var(--accent-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -387,8 +387,7 @@ p a:hover::after {
    HEADER
    ======================================== */
 .header {
-    background: linear-gradient(135deg, rgba(255, 107, 53, 0.299) 0%, rgba(0, 78, 137, 0.225) 100%), 
-                url(/pictures/main2.jpg);
+    background:url(/pictures/volant2.png);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -486,7 +485,7 @@ body.dark img{
     left: 0;
     right: 0;
     backdrop-filter: blur(40px);
-    background-color: rgba(53, 80, 202, 0.398);
+    background-color: rgba(4, 52, 140, 0.68);
     z-index: 1;
     padding: 0.8rem 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -616,7 +615,7 @@ body.dark img{
 }
 
 .nav-links a {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
@@ -671,7 +670,7 @@ body.dark img{
     justify-content: space-evenly;
     align-items: center;
     backdrop-filter: blur(40px);
-    background-color: rgba(97, 115, 197, 0.853);
+    background-color:rgba(4, 52, 140, 0.68);
     padding: 0.8rem 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.4s ease;
@@ -1140,7 +1139,7 @@ details a:hover {
 }
 
 .coaches-section {
-    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(5, 92, 160, 0.392));
+    background: linear-gradient(40deg, rgba(4, 52, 140, 0.3), white);
     padding: 2.5rem;
     border-radius: 20px;
     margin: 3rem 0;
@@ -1238,9 +1237,9 @@ details a:hover {
     overflow: hidden;
     min-height: 700px;
     padding: 0 2rem;
-    background: linear-gradient(135deg,rgba(170, 155, 150, 0.416)), url(/pictures/shuttlecock.jpg);
+    background: linear-gradient(135deg,rgba(3, 6, 45, 0.426)), url(/pictures/filet.jpg);
     background-size:cover;
-    background-position: center;
+    background-position: top;
     background-attachment: fixed;
 }
 
@@ -1259,9 +1258,9 @@ details a:hover {
 
 .actu-section h2 {
     position: relative;
-    color: white;
+    color: var(--bg-color);
    
-    width: 30vw;
+    width: 20vw;
     margin-left: 20px;
     text-align: center;
     font-size: 2.5rem;

@@ -22,10 +22,6 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-  # StripeService Configuration  
-    App\Service\StripeService:
-        arguments:
-            $stripeSecretKey: '%env(STRIPE_SECRET_KEY)%'
 
   # Listener pour définir la locale depuis la session
     App\EventListener\LocaleListener:
