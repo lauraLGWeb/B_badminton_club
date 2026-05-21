@@ -18,6 +18,9 @@ class ActualityType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
+                'attr' => [
+                     'placeholder' => "Titre de l'évenement ",
+                    ],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de rentrer le titre de l\'évenement',
@@ -33,6 +36,9 @@ class ActualityType extends AbstractType
             ])
 
             ->add('description', TextType::class, [
+                'attr' => [
+                     'placeholder' => "descriptif, heure, matériel....",
+                    ],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de rentrer une desciption de l\'évenement',
@@ -47,7 +53,18 @@ class ActualityType extends AbstractType
                  ]
             ])
 
-            ->add('picture')
+           ->add('picture', TextType::class, [
+                'label' => 'Lien de l\'image (URL)',
+                  'attr' => [
+                     'placeholder' => "Copier l'adresse de l'image",
+                    ],
+                'required' => false,
+                'constraints' => [
+                    new \Symfony\Component\Validator\Constraints\Url([
+                        'message' => 'Merci de rentrer une adresse URL valide',
+                    ]),
+                ]
+            ])
             
             ->add('eventOn', DateType::class, [
             'widget' => 'single_text',
