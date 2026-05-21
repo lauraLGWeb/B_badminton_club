@@ -72,12 +72,6 @@ class ActualityType extends AbstractType
                 new NotBlank([ 
                     'message'=> 'La date de l\'èvenement est obligatoire',
                 ]),
-                new GreaterThanOrEqual([
-                    'value'=> 'today',
-                    'message'=> 'La date de l\'événement doit être supperieur à aujourd\'hui'
-
-                ]),
-
                 ],
             ]);
         ;

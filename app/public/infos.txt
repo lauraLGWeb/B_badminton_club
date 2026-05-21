@@ -54,3 +54,11 @@ php bin/console doctrine:migrations:migrate --no-interaction --env=test
 
 # Charge les fixtures
 php bin/console doctrine:fixtures:load --no-interaction
+
+
+
+
+a faire :
+
+- en version mobile le calendrier des créneaux apparaît déstructuré et ne donne pas d’infos fiables pour l’instant (mais sur pc c’est ok)
+- l’équipe aimerait rajouter une rubrique « Interclubs » dans laquelle nous pourrions présenter les différentes équipes, en y associant par exemple une photo à chaque foi…ça te semble faisable?
