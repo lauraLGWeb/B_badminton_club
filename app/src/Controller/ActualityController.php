@@ -12,6 +12,7 @@ use App\Form\ActualityType;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 final class ActualityController extends AbstractController
 {
@@ -35,15 +36,25 @@ final class ActualityController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/Actualites/création', name: 'app_createActuality')]
+    #[Route('/admin/Actualites/creation', name: 'app_createActuality')]
     #[IsGranted('ROLE_ADMIN')]
-    public function createActuality(Request $request, EntityManagerInterface $em): Response
-    {
+    public function createActuality(
+        Request $request,
+        EntityManagerInterface $em,
+        #[Autowire('%kernel.project_dir%')] string $projectDir,
+    ): Response {
         $newActu = new Actuality();
         $form = $this->createForm(ActualityType::class, $newActu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $pictureFile = $form->get('pictureFile')->getData();
+            if ($pictureFile) {
+                $filename = uniqid() . '.' . $pictureFile->guessExtension();
+                $pictureFile->move($projectDir . '/public/uploads/actualities', $filename);
+                $newActu->setPicture('/uploads/actualities/' . $filename);
+            }
+
             $newActu->setCreatedAt(new \DateTimeImmutable());
             $em->persist($newActu);
             $em->flush();
@@ -59,14 +70,33 @@ final class ActualityController extends AbstractController
 
     #[Route('/admin/Actualites/modifier/{id}', name: 'app_modifyActuality')]
     #[IsGranted('ROLE_ADMIN')]
-    public function modifyActuality(Request $request, EntityManagerInterface $em, int $id): Response
-    {
+    public function modifyActuality(
+        Request $request,
+        EntityManagerInterface $em,
+        int $id,
+        #[Autowire('%kernel.project_dir%')] string $projectDir,
+    ): Response {
         $actu = $em->getRepository(Actuality::class)->find($id);
 
         $formulaire = $this->createForm(ActualityType::class, $actu);
         $formulaire->handleRequest($request);
 
         if ($formulaire->isSubmitted() && $formulaire->isValid()) {
+            $pictureFile = $formulaire->get('pictureFile')->getData();
+            if ($pictureFile) {
+                $oldPicture = $actu->getPicture();
+                if ($oldPicture && str_starts_with($oldPicture, '/uploads/')) {
+                    $oldPath = $projectDir . '/public' . $oldPicture;
+                    if (file_exists($oldPath)) {
+                        unlink($oldPath);
+                    }
+                }
+
+                $filename = uniqid() . '.' . $pictureFile->guessExtension();
+                $pictureFile->move($projectDir . '/public/uploads/actualities', $filename);
+                $actu->setPicture('/uploads/actualities/' . $filename);
+            }
+
             $em->flush();
             $this->addFlash('success', 'Actualité mise à jour avec succès !');
             return $this->redirectToRoute('app_actuality');

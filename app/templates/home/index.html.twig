@@ -104,7 +104,9 @@
         <div class="actus-in-main">
             {% for actuality in actualities %}
                 <article class="actu-main">
-                    <img src="{{ asset(actuality.picture) }}" alt="{{ actuality.title }}">
+                    {% if actuality.picture %}
+                        <img src="{{ actuality.picture }}" alt="{{ actuality.title }}">
+                    {% endif %}
                     
                     <h3>{{ actuality.title }}</h3>
                     
@@ -131,7 +133,6 @@
         <div class="fb-page" 
             data-href="https://www.facebook.com/BloisBadmintonClub" 
             data-tabs="timeline" 
-            data-width="400"
             data-small-header="true" 
             data-adapt-container-width="true" 
             data-hide-cover="false" 
@@ -218,7 +219,7 @@
 
 
 <div class="picture-main">
-    <img src="{{ asset('pictures/main6.jpg') }}" width="4368" height="2448" alt="{{ 'joueuse de badminton'|trans }}">
+    <img src="{{ asset('pictures/OctobreRose.png') }}" width="4368" height="2448" alt="{{ 'joueurs du club durant octobre rose'|trans }}">
 </div>
 
     <p class="transition-text">
@@ -227,7 +228,7 @@
 </section>
 
 <section class="presentation">
-    <img src="{{ asset('pictures/logo.jpeg') }}" width="220" height="229" alt="{{ 'femme jouant au badminton'|trans }}">
+    <img src="{{ asset('pictures/logo.jpeg') }}" width="220" height="229" alt="{{ 'logo du club'|trans }}">
     <p>{{ 'Que vous soyez débutant, joueur confirmé ou simplement curieux de découvrir le badminton, notre club vous accueille dans une ambiance conviviale et chaleureuse, où le plaisir de jouer et le partage sont au cœur de nos valeurs.'|trans }}</p>
 
     <p>{{ 'En loisir comme en compétition, chacun trouve sa place au sein du club. Je vous invite à venir nous rencontrer, échanger quelques volants et partager de bons moments sportifs avec nous.'|trans }}</p>

@@ -69,9 +69,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $lienceNbr = null;
 
 
-   /**
-    * @var Collection<int, Cart>
-    */
    #[ORM\Column]
    private ?bool $isVerified = false;
 
@@ -164,10 +161,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function __serialize(): array
     {
-        $data = (array) $this;
-        $data["\0".self::class."\0password"] = hash('crc32c', $this->password);
+        return [
+            'id' => $this->id,
+            'email' => $this->email,
+            'password' => hash('crc32c', $this->password),
+        ];
+    }
 
-        return $data;
+    public function __unserialize(array $data): void
+    {
+        $this->id = $data['id'];
+        $this->email = $data['email'];
+        $this->password = $data['password'];
     }
 
     #[\Deprecated]

@@ -46,6 +46,7 @@
    ======================================== */
 .planning-table {
     width: 100%;
+    min-width: 780px;
     border-collapse: collapse;
     background: var(--bg-color);
     font-size: 0.95rem;
@@ -199,9 +200,108 @@
 
 .location:hover{
    background-color: var(--bg-color);
-   box-shadow: 
+   box-shadow:
         inset 2px 2px 4px rgba(0, 0, 0, 0.1),
         inset -2px -2px 4px rgba(255, 255, 255, 0.5);
    transition: 0.6s;
    transform: translateY(2px);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+/* Conteneur scrollable pour les images de planning */
+.planning-img-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.planning-img-scroll img {
+    display: block;
+    height: auto;
+    min-width: 900px;
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+/* Table catégories jeunes */
+.tarifs-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tarifs-container table th,
+.tarifs-container table td {
+    padding: 0.6rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+
+@media (max-width: 1080px) {
+ .categorieTableFirst{
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .creneaux-container {
+        padding: 0 1rem;
+    }
+
+    .planning-section h2 {
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+}
+
+
+    /* Scroll hint images planning */
+    .planning-img-scroll::before {
+        content: '← Défiler pour voir tout le planning →';
+        display: block;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--accent-color);
+        padding: 0.4rem;
+        font-style: italic;
+        opacity: 0.7;
+    }
+
+    .planning-table {
+        font-size: 0.78rem;
+    }
+
+    .planning-table th {
+        font-size: 0.78rem;
+        padding: 0.8rem 0.4rem;
+    }
+
+    .planning-table td {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.78rem;
+    }
+
+    .time-cell {
+        font-size: 0.78rem;
+        min-width: 70px;
+    }
+
+
+@media (max-width: 480px) {
+    .planning-table {
+        font-size: 0.68rem;
+    }
+
+    .planning-table th,
+    .planning-table td {
+        padding: 0.5rem 0.3rem;
+        font-size: 0.68rem;
+    }
+
+    .time-cell {
+        min-width: 60px;
+        font-size: 0.68rem;
+    }
 }

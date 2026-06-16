@@ -17,25 +17,52 @@
     {{ form_errors(form) }}
 
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-        
+
         {{ form_row(form.title, {
             'label': 'Titre'|trans
         }) }}
-        
+
         {{ form_row(form.description, {
             'label': 'Description'|trans
         }) }}
-        
+
+        {% if form.vars.data.picture %}
+            <div class="current-picture">
+                <p>{{ 'Image actuelle :'|trans }}</p>
+                <img src="{{ form.vars.data.picture }}" alt="Image actuelle" style="max-height: 150px;">
+            </div>
+        {% endif %}
+
         {{ form_row(form.picture, {
-            'label': 'Lien de l\'image'|trans
+            'label': 'Option 1 — Lien image internet (URL)'|trans
         }) }}
-        
+
+        {{ form_row(form.pictureFile, {
+            'label': 'Option 2 — Uploader une image depuis votre ordinateur'|trans
+        }) }}
+
         {{ form_row(form.eventOn, {
             'label': 'Date de l\'événement'|trans
         }) }}
 
- <button type="submit" class="submit-button">{{ 'Publier l\'événement'|trans }}</button>
- 
+        <button type="submit" class="submit-button">{{ 'Publier l\'événement'|trans }}</button>
+
     {{ form_end(form) }}
+
+    <script>
+        const urlField = document.querySelector('[name="actuality[picture]"]');
+        const fileField = document.querySelector('[name="actuality[pictureFile]"]');
+
+        if (urlField && fileField) {
+            urlField.addEventListener('input', function () {
+                fileField.disabled = this.value.trim() !== '';
+            });
+
+            fileField.addEventListener('change', function () {
+                urlField.disabled = this.files.length > 0;
+                urlField.value = this.files.length > 0 ? '' : urlField.value;
+            });
+        }
+    </script>
 
 {% endblock %}

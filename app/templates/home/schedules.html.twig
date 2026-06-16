@@ -28,133 +28,8 @@
             </a>
         </div>
 
-        <div class="table-responsive">
-            <table class="planning-table">
-                <thead>
-                    <tr>
-                        <th>{{ 'Horaires'|trans }}</th>
-                        <th>{{ 'Lundi'|trans }}</th>
-                        <th>{{ 'Mardi'|trans }}</th>
-                        <th>{{ 'Mercredi'|trans }}</th>
-                        <th>{{ 'Jeudi'|trans }}</th>
-                        <th>{{ 'Vendredi'|trans }}</th>
-                        <th>{{ 'Samedi'|trans }}</th>
-                        <th>{{ 'Dimanche'|trans }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {# 10h00 - 12h00 #}
-                    <tr>
-                        <td class="time-cell">10h00-12h00</td>
-                        <td colspan="6" class="empty-cell"></td>
-                        <td class="rose">
-                            <strong>{{ 'JEU LIBRE'|trans }}</strong><br>
-                            {{ 'PARENTS / ENFANTS'|trans }}
-                        </td>
-                    </tr>
-
-                    {# 14h - 18h #}
-                    <tr>
-                        <td class="time-cell">14h-18h</td>
-                        <td colspan="5" class="empty-cell"></td>
-                        <td class="bleu" rowspan="2">
-                            <strong>{{ 'JEU LIBRE TOUT PUBLIC'|trans }}</strong><br>
-                            // {{ 'CHALLENGES'|trans }}
-                        </td>
-                        <td></td>
-                    </tr>
-
-                    {# 18h - 18h30 #}
-                    <tr>
-                        <td class="time-cell">18h-18h30</td>
-                        <td colspan="5" class="empty-cell"></td>
-                        <td></td>
-                    </tr>
-
-                    {# 18h30 - 19h #}
-                    <tr>
-                        <td class="time-cell">18h30-19h</td>
-                        <td></td>
-                        <td></td>
-                        <td class="bleu" rowspan="3">
-                            <strong>{{ 'JEU LIBRE NON COMPÉTITEURS + GR ENSEIGNEMENT'|trans }}</strong><br>
-                            <span class="location">SPa</span>
-                        </td>
-                        <td></td>
-                        <td class="bleu-fonce" rowspan="2">
-                            <strong>{{ 'JEU LIBRE'|trans }}</strong><br>
-                            {{ 'GR ENTRAÎNEMENT 1 + 2'|trans }}
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    {# 19h - 20h #}
-                    <tr>
-                        <td class="time-cell">19h-20h</td>
-                        <td></td>
-                        <td class="rouge-fonce" rowspan="3">
-                            <strong>{{ 'ENTRAÎNEMENT GROUPE R+/N'|trans }}</strong><br>
-                            <span class="location">SPa</span>
-                        </td>
-                        <td class="rouge-fonce" rowspan="3">
-                            <strong>{{ 'ENTRAÎNEMENT GROUPE R+/N'|trans }}</strong><br>
-                            <span class="location">SPa</span>
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    {# 20h - 20h15 #}
-                    <tr>
-                        <td class="time-cell">20h-20h15</td>
-                        <td></td>
-                        <td class="bleu" rowspan="4">
-                            <strong>{{ 'JEU LIBRE NON COMPÉTITEURS'|trans }}</strong><br>
-                            + {{ 'GR ENSEIGNEMENT'|trans }}
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    {# 20h15 - 20h30 #}
-                    <tr>
-                        <td class="time-cell">20h15-20h30</td>
-                        <td class="rouge-clair" rowspan="3">
-                            <strong>{{ 'ENTRAÎNEMENT GR1 et GR2'|trans }}</strong><br>
-                            <span class="location">SPa</span>
-                        </td>
-                        <td class="bleu" rowspan="3">
-                            <strong>{{ 'JEU LIBRE NON COMPÉTITEURS + GR ENSEIGNEMENT'|trans }}</strong><br>
-                            <span class="location">SPa</span>
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    {# 20h30 - 21h #}
-                    <tr>
-                        <td class="time-cell">20h30-21h</td>
-                        <td class="gris" rowspan="2">
-                            <strong>{{ 'ENSEIGNEMENT D8 / P11'|trans }}</strong><br>
-                            <span class="location">TMa</span>
-                        </td>
-                        <td class="rouge-clair" rowspan="2">
-                            <strong>{{ 'ENTRAÎNEMENT D8 / R'|trans }}</strong><br>
-                            <span class="location">SPa</span>
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    {# 21h - 22h #}
-                    <tr>
-                        <td class="time-cell">21h-22h</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="planning-img-scroll">
+            <img src="{{ asset('pictures/planningSeniors.png') }}" alt="{{ 'Planning seniors'|trans }}">
         </div>
     </section>
 
@@ -164,8 +39,8 @@
 
         <div class="tarifs-container">
             <h3>{{ 'CATEGORIES'|trans }}</h3>
-            <table>
-                <tr>
+            <table class="categorieTable">
+                <tr class="categorieTableFirst">
                     <th>{{ 'Catégorie'|trans }}</th>
                     <th>{{ 'Année de naissance'|trans }}</th>
                 </tr>
@@ -194,14 +69,16 @@
                     <td>{{ 'Né en 2008 et 2009'|trans }}</td>
                 </tr>
             </table>
-            <p>{{ '*Les juniors s\'entraînent et vont au jeu libre avec les adultes'|trans }} <a href="#planningSenior">({{ 'cf. créneaux adultes'|trans }}).</a></p>
+            <p>{{ '*Les juniors s\'entraînent et vont au jeu libre avec les adultes'|trans }} ({{ 'cf. créneaux adultes'|trans }}).</a></p>
 
             <a href="{{ path('app_prices') }}" class="email-link">
                 {{ 'Voir les tarifs d\'inscription'|trans }}
             </a>
         </div>
 
-        <img src="pictures/planningJeunes.png" alt="{{ 'Planning jeunes'|trans }}">
+        <div class="planning-img-scroll">
+            <img src="{{ asset('pictures/planningJeunes.png') }}" alt="{{ 'Planning jeunes'|trans }}">
+        </div>
     </section>
 </div>
 

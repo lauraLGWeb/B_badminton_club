@@ -49,11 +49,11 @@
 
 .dark {
     --bg-color: #1a1d29;
-    --text-color: #f5f7fa;
+    --text-color: #f5f7fae5;
     --primary-color: #ff6b35;
-    --accent-color: #9da0a4;
+    --accent-color: #355985;
     --gradient-start: #cf633c;
-    --gradient-end: #edbf8b;
+    --gradient-end: #cf633c;
     --shadow-light: rgba(255, 255, 255, 0.05);
     --shadow-dark: rgba(0, 0, 0, 0.6);
     --card-bg: #242936;
@@ -116,12 +116,11 @@ h2 {
 /* ========================================
    BUTTONS
    ======================================== */
-.menuBtns .btn, .menuBtnsOtherMenu .btn  {
-   
+.menuBtns .btn, .menuBtnsOtherMenu .btn {
     border-radius: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.7s ease;
     box-shadow: 0 4px 12px var(--shadow-dark);
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
@@ -161,6 +160,8 @@ div.btn:hover {
     opacity: 0;
     width: 0;
     height: 0;
+    overflow: hidden;
+    transition:0.3s ;
 }
 
 .btnmode:hover #darkMode, .btnmode:hover #lightMode {
@@ -397,7 +398,7 @@ p a:hover::after {
 }
 body.dark .header{
      background: linear-gradient(135deg, rgba(22, 9, 5, 0.299) 0%, rgba(0, 20, 35, 0.225) 100%), 
-                url(/pictures/main2.jpg);
+                url(/pictures/volant2.png);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -559,7 +560,7 @@ body.dark img{
 .navBarContainer li ul {
 
     position: absolute;
-    background: white;
+    background: var(--bg-color);
     padding: 0.8rem;
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
@@ -975,12 +976,13 @@ details a:hover {
 .picture-main {
     margin: 4rem 0;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    height: 70vh;
+    height: 35rem;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
+
 }
 
 .picture-main img {
@@ -989,7 +991,7 @@ details a:hover {
     height: 98%;
     object-fit: cover;
     transition: transform 0.5s ease;
-   
+  
 }
 
 .picture-main:hover img {
@@ -1139,7 +1141,7 @@ details a:hover {
 }
 
 .coaches-section {
-    background: linear-gradient(40deg, rgba(4, 52, 140, 0.3), white);
+    background: linear-gradient(40deg, rgba(4, 52, 140, 0.3), var(--bg-color));
     padding: 2.5rem;
     border-radius: 20px;
     margin: 3rem 0;
@@ -1340,12 +1342,16 @@ details a:hover {
 .fb-container-bbc {
     background: linear-gradient(145deg, #ffffff, var(--bg-color));
     border-radius: 25px;
-    padding: 20px;
+    margin: 30px 0 0 0 ;
     align-self: flex-start;
     max-width: 500px;
     box-shadow: 8px 8px 16px var(--shadow-dark),
                 -8px -8px 16px var(--shadow-light);
 }
+.dark .fb-container-bbc {
+    background: rgba(0, 0, 0, 0.404);
+}
+
 
 .fb-page {
     border-radius: 15px;
@@ -1536,6 +1542,8 @@ details a:hover {
 
 .social-fb {
     background-image: url('/pictures/facebook-dark.png');
+     box-shadow: 0 0 20px var(--text-color);
+    
 }
 
 .social-fb:hover {
@@ -1546,6 +1554,7 @@ details a:hover {
 
 .social-insta {
     background-image: url('/pictures/instagram-dark.png');
+    box-shadow: 0 0 20px var(--text-color);
 }
 
 .social-insta:hover {
@@ -1931,6 +1940,8 @@ label.obligatory::after {
     margin-left: 0rem;
 }
 
+
+
 }
 
 @media (max-width: 1200px) {
@@ -1967,6 +1978,11 @@ label.obligatory::after {
         align-items: baseline;
         left: 15px;
     }
+    .picture-main {
+    
+    height: 15rem;
+    
+}
 }
 
 
