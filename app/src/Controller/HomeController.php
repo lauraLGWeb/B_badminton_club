@@ -55,6 +55,13 @@ public function index(ActualityRepository $actualityRepository): Response
         return $this->render('home/historique.html.twig');
     }
 
+    #[Route('/Leclub/documents', name: 'app_sharedDocs')]
+    #[IsGranted('ROLE_MEMBRE')]
+    public function sharedDocs(): Response
+    {
+        return $this->render('home/sharedDocs.html.twig');
+    }
+
    
 
     

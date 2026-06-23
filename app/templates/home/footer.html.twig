@@ -28,9 +28,8 @@
                     <li><a class="a-footer" href="{{ path('app_schedules') }}">{{ 'Nos horaires'|trans }}</a></li>
                     <li><a class="a-footer" href="{{ path('app_try') }}">{{ 'Réserver un essai'|trans }}</a></li>
                     <li><a class="a-footer" href="{{ path('app_register') }}">{{ 'S\'inscrire au club'|trans }}</a></li>
-                    {% if app.user %}
-                        <li><a class="a-footer" href="{{ path('app_shop') }}">{{ 'Boutique'|trans }}</a></li>
-                    {% endif %}
+                    <li><a class="a-footer" href="{{ path('app_shop') }}">{{ 'Boutique'|trans }}</a></li>
+                    
                 </ul>
             </div>
             
@@ -67,9 +66,6 @@
                 </a>
                 <a class="a-footer mentions" href="{{ path('app_legalMentions') }}#confidential">
                     {{ 'Politique de confidentialité'|trans }}
-                </a>
-                <a class="a-footer mentions" href="{{ path('app_legalMentions') }}#cgv">
-                    {{ 'CGV'|trans }}
                 </a>
             </div>
             <div>

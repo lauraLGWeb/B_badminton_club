@@ -23,6 +23,9 @@ const menuBtnsOtherMenu=document.querySelector(".menuBtnsOtherMenu")
   menuIcon.addEventListener("click", function () {
     navLink.classList.add("active");
     menuIcon.style.display = "none";
+      // hidden the scroll on the website when burger menu is on
+    document.body.style.overflow = "hidden"; 
+  
     
     // Affiche les boutons selon ce qui existe
     if (menuBtnsSticky) {
@@ -37,6 +40,7 @@ const menuBtnsOtherMenu=document.querySelector(".menuBtnsOtherMenu")
 closeBtnMenu.addEventListener("click", function () {
     navLink.classList.remove("active");
     menuIcon.style.display = "block";
+    document.body.style.overflow = "";
     
     if (menuBtnsSticky) {
         menuBtnsSticky.classList.remove("active");

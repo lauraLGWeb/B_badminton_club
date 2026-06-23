@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'Documents partagés'|trans }}{% endblock %}
+
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Consultez compte-rendus de réunions, etc… du club." />
+{% endblock %}
+
+{% block body %}
+
+<div class="rules-container">
+    <h1>{{ 'Compte-rendus de réunions'|trans }}</h1>
+    
+    <div class="contact-section">
+        <p>
+            {{ 'Tu veux regarder les comptes-rendus ?'|trans }}
+            <a href="https://drive.google.com/drive/folders/1BZ4HQx-4pLxF0CcmnQFuklAyKGThq8wC" target="blank">{{ 'les voici'|trans }}</a>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

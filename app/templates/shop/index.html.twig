@@ -8,23 +8,15 @@
 
 {% block title %} {{ 'Boutique'|trans }} {% endblock %}
 
-{% block stylesheets %}
-        <script defer src="{{asset('styles/JS/main.js') }}"></script>
-        <link rel="stylesheet" href="{{ asset('styles/CSS/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('styles/CSS/mentions.css') }}">
-        <link rel="shortcut icon" href="{{ asset('pictures/logo.jpeg') }}" type="image/x-icon">
-        <link rel="stylesheet" href="{{ asset('styles/CSS/shop.css') }}">
-{% endblock %}
-
 {% block body %}
-<section class="shop">
+<section class="youth-block">
     <h1>{{ 'La boutique du Blois Badminton Club'|trans }}</h1>
 
-    <div class="presentationAndCart">
+    <div class="youth-block">
         <p>{{ 'Notre boutique est hébergée sur HelloAsso, une plateforme sécurisée et sans frais pour le club.'|trans }}</p>
         <p>{{ 'Tu y retrouveras nos T-shirts, et accessoires. Une fois ta commande passée, tu récupères tes articles auprès d\'un membre du bureau.'|trans }}</p>
-         <a class="btn-primary" target="_blank" href="https://www.helloasso.com/associations/blois-badminton-club/boutiques/maillot-du-bbc">
-        {{ 'Accéder à la boutique →'|trans }}
+         <a class="newLicence " target="_blank" href="https://www.helloasso.com/associations/blois-badminton-club/boutiques/maillot-du-bbc">
+        {{ 'Accéder à la boutique'|trans }}
     </a>
     </div>
 </section>

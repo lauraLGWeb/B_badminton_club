@@ -1,16 +1,20 @@
 {% extends 'base.html.twig' %}
-{# doc a traduitre aussi  #}
+
 {% block title %}{{ 'Académie'|trans }}{% endblock %}
 
+{% block meta %}
+    <meta 
+        name="description" 
+        content="Présentation de l'académie." />
+{% endblock %}
+
 {% block body %}
-
-<section class="containerSchool">
- <h1 >{{ "L'Académie"|trans }}</h1>
-    <div class="youth-block">
-        <p>{{ "Le parcours performance appelé Académie (niveaux 1 et 2) rassemble des jeunes badistes ayant pour objectif un niveau de jeu national."|trans}} </p>
-        <p>{{"En fonction du profil, entre 3 et 5 séances par semaine sont proposées."|trans }}</p>
-        <a class="btnSober" href="{{ path('app_badSchool') }}">{{ "Nous contacter"|trans }}</a>
-    </div>
-</section>
-
+    <section class="containerSchool">
+    <h1 >{{ "L'Académie"|trans }}</h1>
+        <div class="youth-block">
+            <p>{{ "Le parcours performance appelé Académie (niveaux 1 et 2) rassemble des jeunes badistes ayant pour objectif un niveau de jeu national."|trans}} </p>
+            <p>{{"En fonction du profil, entre 3 et 5 séances par semaine sont proposées."|trans }}</p>
+            <a class="btnSober" href="{{ path('app_badSchool') }}">{{ "Nous contacter"|trans }}</a>
+        </div>
+    </section>
 {% endblock %}

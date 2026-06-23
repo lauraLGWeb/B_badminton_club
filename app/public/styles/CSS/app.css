@@ -486,7 +486,7 @@ body.dark img{
     left: 0;
     right: 0;
     backdrop-filter: blur(40px);
-    background-color: rgba(4, 52, 140, 0.68);
+    background-color: rgba(4, 52, 140, 0.68); 
     z-index: 1;
     padding: 0.8rem 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -494,10 +494,9 @@ body.dark img{
 }
 
 .navBarContainer.sticky a {
-    padding: 0.5rem;
-    font-size: 0.9rem;
+    padding: 10px;
     color: var(--text-color);
-    font-size: medium;
+
 }
 
 .hero-buttons.sticky {
@@ -507,7 +506,7 @@ body.dark img{
 
 .hero-buttons-links.sticky {
     width: 15vw;
-    background-color: rgba(202, 130, 53, 0.398);
+    background-color: var(--bg-color);
 
 }
 
@@ -683,9 +682,6 @@ body.dark img{
     width: 5rem;
 }
 
-.hero-buttonsOtherMenu .hero-buttons-links {
-    max-width: 15vw;
-}
 
 .menuBtnsOtherMenu {
     max-width: 80px;
@@ -708,7 +704,6 @@ body.dark img{
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    padding: 1rem;
 }
 
 .hero-buttons a, .hero-buttons-links {
@@ -718,8 +713,8 @@ body.dark img{
     background: var(--bg-color);
     color: var(--text-color);
     font-weight: bold;
-    box-shadow: 5px 5px 10px var(--shadow-dark),
-                -5px -5px 10px var(--shadow-light);
+    box-shadow: 0 0  10px var(--shadow-dark),
+                0 0 10px var(--shadow-light);
     transition: all 0.3s ease;
 }
 
@@ -1297,7 +1292,7 @@ details a:hover {
     border-radius: 10px;
     font-size: 0.9rem;
     color: var(--text-color);
-    margin: 20px;
+    margin: 0 20px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1342,9 +1337,9 @@ details a:hover {
 .fb-container-bbc {
     background: linear-gradient(145deg, #ffffff, var(--bg-color));
     border-radius: 25px;
-    margin: 30px 0 0 0 ;
+    
     align-self: flex-start;
-    max-width: 500px;
+    max-width: 275px;
     box-shadow: 8px 8px 16px var(--shadow-dark),
                 -8px -8px 16px var(--shadow-light);
 }
@@ -1356,9 +1351,6 @@ details a:hover {
 .fb-page {
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 
-        inset 3px 3px 6px var(--shadow-dark),
-        inset -3px -3px 6px var(--shadow-light);
 }
 
 .fb_iframe_widget {
@@ -1390,7 +1382,7 @@ details a:hover {
    ======================================== */
 .come {
     background: linear-gradient(135deg, rgba(255, 107, 53, 0.95), rgba(0, 78, 137, 0.70)),
-                url('/pictures/terrrain.jpg');
+                url('/pictures/volants.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1777,7 +1769,7 @@ label.obligatory::after {
     }
     
     .menuBtnsOtherMenu {
-        opacity: 0;
+       display: none;
     }
     
     .nav-links {
@@ -1901,6 +1893,7 @@ label.obligatory::after {
     
     .navBarContainer {
         padding: 0;
+        
     }
     
     .navBarContainer.sticky {
@@ -1947,6 +1940,7 @@ label.obligatory::after {
 @media (max-width: 1200px) {
    .actus{
     flex-wrap: wrap;
+    gap: 4rem;
    }
     .actus-in-main {
     justify-content: center
@@ -1955,6 +1949,7 @@ label.obligatory::after {
         height: 26rem;
         width: 30rem;
     }
+    
 }
 
 @media (max-width: 950px) {
@@ -1973,11 +1968,7 @@ label.obligatory::after {
 
 
 @media (max-width: 800px) {
-    .menuBtnsSticky.sticky {
-        flex-direction: column;
-        align-items: baseline;
-        left: 15px;
-    }
+   
     .picture-main {
     
     height: 15rem;
@@ -2099,11 +2090,13 @@ label.obligatory::after {
 }
 
 @media (max-width: 800px) {
-    .navBarContainer.sticky{
-        height: 20vh;
+    .navBarContainer.sticky, .mainNavBarSticky{
+        height: 15vh;
     }
-
+    .mainNavBarSticky{
+    justify-content: flex-start;
     }
+}
 
 @media (max-width: 750px) {
     .footerSection {
@@ -2113,6 +2106,15 @@ label.obligatory::after {
         align-items: center;
     }
     
+      .header {
+    background: url(/pictures/volant2phone.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
     .footerLinksSection {
         display: flex;
         justify-content: center;
@@ -2138,23 +2140,55 @@ label.obligatory::after {
         padding: 0.8rem;
     }
     .hero-buttonsOtherMenu{
-        padding: 0.5rem;
+        padding: 0 0.5rem;
     }
     .hero-buttons-links.sticky {
-        width: 30vw;
+        width: auto;
+        min-width: 25%;
+        padding: 6px 8px;
+        font-size: small;
     }
+    .social-icons {
+        gap: 1rem;
+        padding: 10px;
+    }
+    .social-icon {
+    width: 70px;
+    height: 70px;
+    }
+
+    .hero-buttons.sticky{
+        gap: 0.5rem;
+    }
+    .menuBtnsSticky.sticky {
+        display: none;
+    }
+    .logoOtherMenu{
+        display: none;
+
+    }
+
+    .hero-buttons.sticky {
+        justify-content: flex-start;
+        width:90vw;
+        margin: 0 2rem 0 0;
+    }
+
+    .hero-buttonsOtherMenu{
+        justify-content: flex-start;
+        width: 90vw;
+    }
+    .hero-buttons, .hero-buttonsOtherMenu {
+    gap: 1rem;
+}
+    .navBarContainer.sticky a, .hero-buttons-links.sticky {
+        font-size: small;
+}
     .logoOtherMenu{
         height: 3rem;
         width: 3rem;
     }
 
-    .social-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    padding: 10px;
-    }
 }
 
 
@@ -2188,4 +2222,5 @@ label.obligatory::after {
         gap: 1.5rem;
         animation-duration: 30s;
     }
+
 }
