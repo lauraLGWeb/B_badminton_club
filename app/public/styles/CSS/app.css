@@ -1246,6 +1246,8 @@ details a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .actualities-grid {
@@ -1281,6 +1283,7 @@ details a:hover {
 
 .actus-in-main {
     display: flex;
+    gap: 2rem;
     
 }
 
@@ -1308,7 +1311,7 @@ details a:hover {
 
 .actu-main img {
     width: 100%;
-    height: 200px;
+    height: 20rem;
     object-fit: cover;
     border-radius: 15px;
 }
@@ -1946,7 +1949,6 @@ label.obligatory::after {
     justify-content: center
     }
     .actu-main, .fb-page{
-        height: 26rem;
         width: 30rem;
     }
     
