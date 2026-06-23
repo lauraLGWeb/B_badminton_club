@@ -1286,7 +1286,7 @@ details a:hover {
 
 .actu-main {
     width: 25rem;
-    height: 30rem;
+    min-height: 30rem;
     padding: 15px;
     background: var(--bg-color);
     border-radius: 10px;

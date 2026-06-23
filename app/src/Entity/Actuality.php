@@ -16,7 +16,7 @@ class Actuality
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 700)]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]

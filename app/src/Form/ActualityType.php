@@ -35,7 +35,7 @@ class ActualityType extends AbstractType
                 ],
                 'constraints' => [
                     new NotBlank(message: 'Merci de rentrer une description de l\'évenement'),
-                    new Length(min: 2, max: 255, minMessage: 'Veuillez rentrer au minimum {{ limit }} lettres'),
+                    new Length(min: 2, max: 700, minMessage: 'Veuillez rentrer au minimum {{ limit }} lettres'),
                 ],
             ])
 
