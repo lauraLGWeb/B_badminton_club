@@ -15,7 +15,7 @@
 
     {# Créneaux SENIORS #}
     <section class="planning-section">
-        <h2 id="planningSenior">{{ 'Planning Seniors'|trans }}</h2>
+        <h2 id="planningSenior">{{ 'Planning'|trans }}</h2>
         
         <div class="tarifs-container">
             <p>
@@ -35,50 +35,51 @@
 
     {# Créneaux JEUNES #}
     <section class="planning-section">
-        <h2>{{ 'Planning Jeunes'|trans }}</h2>
 
         <div class="tarifs-container">
-            <h3>{{ 'CATEGORIES'|trans }}</h3>
+            <h2>{{ 'Catégories par années'|trans }}</h2>
             <table class="categorieTable">
                 <tr class="categorieTableFirst">
-                    <th>{{ 'Catégorie'|trans }}</th>
-                    <th>{{ 'Année de naissance'|trans }}</th>
+                    <th>{{ 'Catégories'|trans }}</th>
+                    <th>{{ 'Années de naissance'|trans }}</th>
                 </tr>
                 <tr>
-                    <td>{{ 'Minibad'|trans }}</td>
-                    <td>{{ 'Né en 2018 ou après'|trans }}</td>
+                    <td>{{ 'Minibad (U9)'|trans }}</td>
+                    <td>{{ 'Né(é)s en 2019 ou après'|trans }}</td>
                 </tr>
                 <tr>
-                    <td>{{ 'Poussin'|trans }}</td>
-                    <td>{{ 'Né en 2016 et 2017'|trans }}</td>
+                    <td>{{ 'Poussins (U11)'|trans }}</td>
+                    <td>{{ 'Né(é)s en 2017 et 2018'|trans }}</td>
                 </tr>
                 <tr>
-                    <td>{{ 'Benjamin'|trans }}</td>
-                    <td>{{ 'Né en 2014 et 2015'|trans }}</td>
+                    <td>{{ 'Benjamin (U13)'|trans }}</td>
+                    <td>{{ 'Né(é)s en 2015 et 2016'|trans }}</td>
                 </tr>
                 <tr>
-                    <td>{{ 'Minime'|trans }}</td>
-                    <td>{{ 'Né en 2012 et 2013'|trans }}</td>
+                    <td>{{ 'Minimes (U15)'|trans }}</td>
+                    <td>{{ 'Né(é)s en 2013 et 2014'|trans }}</td>
                 </tr>
                 <tr>
-                    <td>{{ 'Cadet'|trans }}</td>
-                    <td>{{ 'Né en 2010 et 2011'|trans }}</td>
+                    <td>{{ 'Cadets (U17)'|trans }}</td>
+                    <td>{{ 'Né(é)s en 2011 et 2012'|trans }}</td>
                 </tr>
                 <tr>
-                    <td>{{ 'Junior*'|trans }}</td>
-                    <td>{{ 'Né en 2008 et 2009'|trans }}</td>
+                    <td>{{ 'Junior (U19) *'|trans }}</td>
+                    <td>{{ 'Né(é)s en 2009 et 2010'|trans }}</td>
+                </tr>
+                <tr>
+                    <td>{{ 'Seniors'|trans }}</td>
+                    <td>{{ 'Né(é)s entre 1992 et 2008'|trans }}</td>
+                </tr>
+                <tr>
+                    <td>{{ 'Vétérans'|trans }}</td>
+                    <td>{{ 'Né(é)s en 1991 et avant'|trans }}</td>
                 </tr>
             </table>
             <p>{{ '*Les juniors s\'entraînent et vont au jeu libre avec les adultes'|trans }} ({{ 'cf. créneaux adultes'|trans }}).</a></p>
-
-            <a href="{{ path('app_prices') }}" class="email-link">
-                {{ 'Voir les tarifs d\'inscription'|trans }}
-            </a>
         </div>
 
-        <div class="planning-img-scroll">
-            <img src="{{ asset('pictures/planningJeunes.png') }}" alt="{{ 'Planning jeunes'|trans }}">
-        </div>
+        
     </section>
 </div>
 
