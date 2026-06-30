@@ -2103,7 +2103,7 @@ label.obligatory::after {
 @media (max-width: 750px) {
     .footerSection {
         display: flex;
-        width: 100;
+        width: 100%;
         flex-direction: column;
         align-items: center;
     }
@@ -2112,7 +2112,7 @@ label.obligatory::after {
     background: url(/pictures/volant2phone.png);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     min-height: 100vh;
     position: relative;
 }
