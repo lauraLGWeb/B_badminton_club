@@ -61,6 +61,10 @@
     color: var(--text-color);
     font-size: 0.95rem;
 }
+.no-internship {
+    padding: 0 2rem;
+    color: var(--gradient-start);
+}
 
 /*booking status*/
 .internshipStatus, .bookingState {
